@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Linkar.Functions.Direct.MV\Linkar.Functions.Direct.MV.csproj" />
+    <ProjectReference Include="..\Linkar.Functions.Persistent.MV\Linkar.Functions.Persistent.MV.csproj" />
+    <ProjectReference Include="..\Linkar.Strings\Linkar.Strings.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Linkar">
+      <HintPath>..\Linkar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

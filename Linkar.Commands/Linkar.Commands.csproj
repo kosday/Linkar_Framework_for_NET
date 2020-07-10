@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Commands\Linkar.Commands.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Linkar.Functions.Direct\Linkar.Functions.Direct.csproj" />
+    <ProjectReference Include="..\Linkar.Functions.Persistent\Linkar.Functions.Persistent.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Linkar">
+      <HintPath>..\Linkar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
