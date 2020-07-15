@@ -100,16 +100,16 @@
             </summary>
             <param name="executeResult">The string result of the Execute operation execution.</param>
         </member>
-        <member name="T:Linkar.LkData.LkDataSchProp">
+        <member name="T:Linkar.LkData.LkDataSchemaDetail">
             <summary>
             Class to management the result of the operations LkSchemas and LkProperties.
             </summary>
         </member>
-        <member name="M:Linkar.LkData.LkDataSchProp.#ctor(System.String)">
+        <member name="M:Linkar.LkData.LkDataSchemaDetail.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the LkDataSchProp class.
+            Initializes a new instance of the LkDataSchemaDetail class.
             </summary>
-            <param name="lkSchemasResult">The string result of the Lkchemas or LkProperties operation execution.</param>
+            <param name="lkSchemaResult">The string result of the LkSchema or LkProperties operation execution.</param>
         </member>
         <member name="T:Linkar.LkData.LkItems">
             <summary>
