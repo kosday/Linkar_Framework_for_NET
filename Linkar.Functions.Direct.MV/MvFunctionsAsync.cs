@@ -294,7 +294,7 @@ namespace Linkar.Functions.Direct
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public static Task<string> GetTableAsync(CredentialOptions credentialOptions, string filename, string selectClause = "", string dictClause = "", string sortClause = "",
-            TableOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
+            OperationOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {

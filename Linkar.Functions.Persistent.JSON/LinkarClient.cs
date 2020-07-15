@@ -299,7 +299,7 @@
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
-        public string GetTable(string filename, string selectClause = "", string dictClause = "", string sortClause = "", TableOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
+        public string GetTable(string filename, string selectClause = "", string dictClause = "", string sortClause = "", OperationOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
         {
             return this._LinkarClient.GetTable(filename, selectClause, dictClause, sortClause, tableOptions, customVars, receiveTimeout);
         }

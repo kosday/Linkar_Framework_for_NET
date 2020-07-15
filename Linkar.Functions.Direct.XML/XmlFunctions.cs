@@ -236,7 +236,7 @@
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public static string GetTable(CredentialOptions credentialOptions, string filename, string selectClause = "", string dictClause = "", string sortClause = "",
-            TableOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
+            OperationOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
         {
             return DirectFunctions.GetTable(credentialOptions, filename, selectClause, dictClause, sortClause, tableOptions, customVars, receiveTimeout);
         }

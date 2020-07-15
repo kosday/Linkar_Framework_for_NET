@@ -268,7 +268,7 @@ namespace Linkar
         /// <param name="tableOptions">Different function options: rowHeaders, rowProperties, onlyVisibe, usePropertyNames, repeatValues, applyConversion, applyFormat, calculated, pagination, regPage, numPage.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
-        public static string GetGetTableArgs(string filename, string selectClause, string dictClause, string sortClause, TableOptions tableOptions, string customVars)
+        public static string GetGetTableArgs(string filename, string selectClause, string dictClause, string sortClause, OperationOptions tableOptions, string customVars)
         {
             string options = tableOptions.ToString();
             string inputData = filename + DBMV_Mark.AM +
