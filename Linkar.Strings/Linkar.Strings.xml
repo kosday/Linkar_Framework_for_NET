@@ -25,10 +25,10 @@
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecords(System.String)">
             <summary>
-            Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.
+            Looks for the RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of RECORDS_KEY tag.</returns>
+            <returns>The value of RECORD_FIELDS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractErrors(System.String)">
             <summary>
@@ -46,38 +46,38 @@
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecordsCalculated(System.String)">
             <summary>
-            Looks for the CALCULATED_KEY tag inside "lkString", and extracts its value.
+            Looks for the CALCULATED_FIELDS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of CALCULATED_KEY tag.</returns>
+            <returns>The value of CALCULATED_FIELDS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecordsDicts(System.String)">
             <summary>
-            Looks for the RECORD_DICTS_KEY tag inside "lkString", and extracts its value.
+            Looks for the RECORD_FIELD_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of RECORD_DICTS_KEY tag.</returns>
+            <returns>The value of RECORD_FIELD_DEFINITIONS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecordsCalculatedDicts(System.String)">
             <summary>
-            Looks for the CALCULATED_DICTS_KEY tag inside "lkString", and extracts its value.
+            Looks for the CALCULATED_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of CALCULATED_DICTS_KEY tag.</returns>
+            <returns>The value of CALCULATED_DEFINITIONS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecordsIdDicts(System.String)">
             <summary>
-            Looks for the RECORD_ID_DICTS_KEY tag inside "lkString", and extracts its value.
+            Looks for the RECORD_ID_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of RECORD_ID_DICTS_KEY tag.</returns>
+            <returns>The value of RECORD_ID_DEFINITIONS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractOriginalRecords(System.String)">
             <summary>
-            Looks for the ORIGINAL_RECORDS_KEY tag inside "lkString", and extracts its value.
+            Looks for the ORIGINAL_RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of ORIGINAL_RECORDS_KEY tag.</returns>
+            <returns>The value of ORIGINAL_RECORD_FIELDS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractDictionaryIds(System.String)">
             <summary>
@@ -88,10 +88,10 @@
         </member>
         <member name="M:Linkar.StringFunctions.ExtractDictionaries(System.String)">
             <summary>
-            Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.
+            Looks for the RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of RECORDS_KEY tag.</returns>
+            <returns>The value of RECORD_FIELDS_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractConversion(System.String)">
             <summary>

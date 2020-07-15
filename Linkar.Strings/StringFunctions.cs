@@ -9,14 +9,14 @@ namespace Linkar
     public static class StringFunctions
     {
         public const string RECORD_COUNT_KEY = "RECORD_COUNT";
-        public const string RECORD_IDS_KEY = "RECORD_ID";
-        public const string RECORDS_KEY = "RECORD";
-        public const string CALCULATED_KEY = "CALCULATED";
-        public const string RECORD_DICTS_KEY = "RECORD_DICTS";
-        public const string RECORD_ID_DICTS_KEY = "RECORD_ID_DICTS";
-        public const string CALCULATED_DICTS_KEY = "CALCULATED_DICTS";
+        public const string RECORD_IDS_KEY = "RECORD_IDS";
+        public const string RECORD_FIELDS_KEY = "RECORD_FIELDS";
+        public const string CALCULATED_FIELDS_KEY = "CALCULATED_FIELDS";
+        public const string RECORD_FIELD_DEFINITIONS_KEY = "RECORD_FIELD_DEFINITIONS";
+        public const string RECORD_ID_DEFINITIONS_KEY = "RECORD_ID_DEFINITIONS";
+        public const string CALCULATED_DEFINITIONS_KEY = "CALCULATED_DEFINITIONS";
         public const string ARGUMENTS_KEY = "ARGUMENTS";
-        public const string ORIGINAL_RECORDS_KEY = "ORIGINALRECORD";
+        public const string ORIGINAL_RECORD_FIELDS_KEY = "ORIGINAL_RECORD";
         public const string FORMAT_KEY = "FORMAT";
         public const string CONVERSION_KEY = "CONVERSION";
         public const string CAPTURING_KEY = "CAPTURING";
@@ -67,13 +67,13 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of RECORDS_KEY tag.</returns>
+        /// <returns>The value of RECORD_FIELDS_KEY tag.</returns>
         public static string[] ExtractRecords(string lkString)
         {
-            string valueTag = GetData(lkString, RECORDS_KEY, FS, AM);
+            string valueTag = GetData(lkString, RECORD_FIELDS_KEY, FS, AM);
             return SplitArray(valueTag, RS);
         }
 
@@ -104,57 +104,57 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Looks for the CALCULATED_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the CALCULATED_FIELDS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of CALCULATED_KEY tag.</returns>
+        /// <returns>The value of CALCULATED_FIELDS_KEY tag.</returns>
         public static string[] ExtractRecordsCalculated(string lkString)
         {
-            string valueTag = GetData(lkString, CALCULATED_KEY, FS, AM);
+            string valueTag = GetData(lkString, CALCULATED_FIELDS_KEY, FS, AM);
             return SplitArray(valueTag, RS);
         }
 
         /// <summary>
-        /// Looks for the RECORD_DICTS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the RECORD_FIELD_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of RECORD_DICTS_KEY tag.</returns>
+        /// <returns>The value of RECORD_FIELD_DEFINITIONS_KEY tag.</returns>
         public static string[] ExtractRecordsDicts(string lkString)
         {
-            string valueTag = GetData(lkString, RECORD_DICTS_KEY, FS, AM);
+            string valueTag = GetData(lkString, RECORD_FIELD_DEFINITIONS_KEY, FS, AM);
             return SplitArray(valueTag, AM);
         }
 
         /// <summary>
-        /// Looks for the CALCULATED_DICTS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the CALCULATED_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of CALCULATED_DICTS_KEY tag.</returns>
+        /// <returns>The value of CALCULATED_DEFINITIONS_KEY tag.</returns>
         public static string[] ExtractRecordsCalculatedDicts(string lkString)
         {
-            string valueTag = GetData(lkString, CALCULATED_DICTS_KEY, FS, AM);
+            string valueTag = GetData(lkString, CALCULATED_DEFINITIONS_KEY, FS, AM);
             return SplitArray(valueTag, AM);
         }
 
         /// <summary>
-        /// Looks for the RECORD_ID_DICTS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the RECORD_ID_DEFINITIONS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of RECORD_ID_DICTS_KEY tag.</returns>
+        /// <returns>The value of RECORD_ID_DEFINITIONS_KEY tag.</returns>
         public static string[] ExtractRecordsIdDicts(string lkString)
         {
-            string valueTag = GetData(lkString, RECORD_ID_DICTS_KEY, FS, AM);
+            string valueTag = GetData(lkString, RECORD_ID_DEFINITIONS_KEY, FS, AM);
             return SplitArray(valueTag, AM);
         }
 
         /// <summary>
-        /// Looks for the ORIGINAL_RECORDS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the ORIGINAL_RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of ORIGINAL_RECORDS_KEY tag.</returns>
+        /// <returns>The value of ORIGINAL_RECORD_FIELDS_KEY tag.</returns>
         public static string[] ExtractOriginalRecords(string lkString)
         {
-            string valueTag = GetData(lkString, ORIGINAL_RECORDS_KEY, FS, AM);
+            string valueTag = GetData(lkString, ORIGINAL_RECORD_FIELDS_KEY, FS, AM);
             return SplitArray(valueTag, RS);
         }
 
@@ -170,13 +170,13 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the RECORD_FIELDS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of RECORDS_KEY tag.</returns>
+        /// <returns>The value of RECORD_FIELDS_KEY tag.</returns>
         public static string[] ExtractDictionaries(string lkString)
         {
-            string valueTag = GetData(lkString, RECORDS_KEY, FS, AM);
+            string valueTag = GetData(lkString, RECORD_FIELDS_KEY, FS, AM);
             return SplitArray(valueTag, RS);
         }
 
