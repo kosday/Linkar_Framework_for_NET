@@ -26,21 +26,21 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// The object is created with the default values for queries with LKSCHEMAS type schemas.
+        /// The object is created with the default values for queries with LKSCHEMA type schemas. 
         /// </summary>
         public OperationOptions() : this(RowHeaders.TYPE.MAINLABEL, false, false, false, false, false, false, false)
         { }
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMAS type schemas.
+        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMA type schemas. 
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="usePropertyNames">Use Properties and Table names.</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
-        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
+        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schema conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -71,7 +71,7 @@ namespace Linkar
         /// This constructor will be used when you want to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
+        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schema conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -102,7 +102,7 @@ namespace Linkar
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
-        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
+        /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schema conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>

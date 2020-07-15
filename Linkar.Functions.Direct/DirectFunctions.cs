@@ -289,20 +289,20 @@ namespace Linkar.Functions.Direct
         /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkSchemaOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
-        public static string LkSchemas(CredentialOptions credentialOptions, LkSchemasOptions lkSchemasOptions = null,
+        public static string LkSchemas(CredentialOptions credentialOptions, LkSchemaOptions lkSchemaOptions = null,
              DATAFORMATSCH_TYPE outputFormat = DATAFORMATSCH_TYPE.MV,
              string customVars = "", int receiveTimeout = 0)
         {
-            string lkSchemasArgs = OperationArguments.GetLkSchemasArgs(lkSchemasOptions, customVars);
-            byte opCode = (byte)OPERATION_CODE.LKSCHEMAS;
+            string lkSchemaArgs = OperationArguments.GetLkSchemaArgs(lkSchemaOptions, customVars);
+            byte opCode = (byte)OPERATION_CODE.LKSCHEMA;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
-            string result = Linkar.ExecuteDirectOperation(credentialOptions.ToString(), opCode, lkSchemasArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecuteDirectOperation(credentialOptions.ToString(), opCode, lkSchemaArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -311,7 +311,7 @@ namespace Linkar.Functions.Direct
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name to LkProperties</param>
-        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>

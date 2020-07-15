@@ -232,12 +232,12 @@ namespace Linkar
         /// <summary>
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the LkSchemas operation.
         /// </summary>
-        /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkSchemaOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
-        public static string GetLkSchemasArgs(LkSchemasOptions lkSchemasOptions, string customVars)
+        public static string GetLkSchemaArgs(LkSchemaOptions lkSchemaOptions, string customVars)
         {
-            string options = lkSchemasOptions.ToString();
+            string options = lkSchemaOptions.ToString();
 
             string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + "";
             return cmdArgs;
@@ -247,7 +247,7 @@ namespace Linkar
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the LkProperties operation.
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
-        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         public static string GetLkPropertiesArgs(string filename, LkPropertiesOptions lkPropertiesOptions, string customVars)
