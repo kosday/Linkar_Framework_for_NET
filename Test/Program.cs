@@ -9,7 +9,7 @@ namespace Test
 {
     class Program
     {
-        static CredentialOptions crdOptions;
+        static CredentialOptions credentialOptions;
         static string filename;
 
         static int testReadOperations = 10;
@@ -26,7 +26,7 @@ namespace Test
         static void ReadRecorSync(int i)
         {
             string id = i.ToString();
-            string result = MvFunctions.Read(crdOptions, filename, id);
+            string result = MvFunctions.Read(credentialOptions, filename, id);
             string record = StringFunctions.ExtractRecords(result)[0];
             Console.WriteLine(">>>> Id: " + id + " Record: " + record);
         }
@@ -52,7 +52,7 @@ namespace Test
         {
             inputReadRequest++;
             string id = i.ToString();
-            string result = await MvFunctions.ReadAsync(crdOptions, filename, id);
+            string result = await MvFunctions.ReadAsync(credentialOptions, filename, id);
             string record = StringFunctions.ExtractRecords(result)[0];
             Console.WriteLine(">>>> Id: " + id + " Record: " + record);
             outputReadRequest++;
@@ -60,7 +60,7 @@ namespace Test
 
         static void Main(string[] args)
         {
-            crdOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
+            credentialOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
             filename = "LK.CUSTOMERS";
 
             try
@@ -75,7 +75,7 @@ namespace Test
 
                 //READ MV STATIC
                 Console.WriteLine("READ (Direct)");
-                string result = MvFunctions.Read(crdOptions, filename, recordsIds, dictionaries, readOptions);
+                string result = MvFunctions.Read(credentialOptions, filename, recordsIds, dictionaries, readOptions);
                 string record = StringFunctions.ExtractRecords(result)[0];
                 Console.WriteLine("RECORD: " + record);
                 Console.WriteLine();
@@ -84,7 +84,7 @@ namespace Test
 
                 //LOGIN
                 Console.WriteLine("LOGIN");
-                lkClte.Login(crdOptions);
+                lkClte.Login(credentialOptions);
 
                 //READ
                 Console.WriteLine("READ");

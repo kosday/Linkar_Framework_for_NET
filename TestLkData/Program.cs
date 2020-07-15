@@ -12,9 +12,9 @@ namespace TestLkData
         {
             try
             {
-                CredentialOptions crdOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
+                CredentialOptions credentialOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
                 LinkarClient lkClt = new LinkarClient(60);
-                lkClt.Login(crdOptions);
+                lkClt.Login(credentialOptions);
                 string filename = "LK.CUSTOMERS";
 
                 Console.WriteLine("NEW OPERATION (NEW98 and NEW)");

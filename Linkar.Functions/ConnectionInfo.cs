@@ -34,13 +34,13 @@ namespace Linkar
         /// <param name="sessionId">A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.</param>
         /// <param name="lkConnectionId">Internal LinkarSERVER ID to keep the session. This value is set after Login operation.</param>
         /// <param name="publicKey">The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.</param>
-        /// <param name="crdOptions">The CredentialOptions object with the necessary information to connect to the Database.</param>
-        public ConnectionInfo(string sessionId, string lkConnectionId, string publicKey, CredentialOptions crdOptions)
+        /// <param name="credentialOptions">The CredentialOptions object with the necessary information to connect to the Database.</param>
+        public ConnectionInfo(string sessionId, string lkConnectionId, string publicKey, CredentialOptions credentialOptions)
         {
             this.SessionId = sessionId;
             this.LkConnectionId = lkConnectionId;
             this.PublicKey = publicKey;
-            this._CredentialOptions = crdOptions;
+            this._CredentialOptions = credentialOptions;
         }
 
         /// <summary>

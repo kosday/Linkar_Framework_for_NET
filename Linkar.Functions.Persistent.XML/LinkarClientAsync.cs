@@ -9,11 +9,11 @@ namespace Linkar.Functions.Persistent.XML
         /// </summary>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        public Task LoginAsync(CredentialOptions crdOptions, string customVars = "", int receiveTimeout = 0)
+        public Task LoginAsync(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task(() =>
             {
-                this.Login(crdOptions, customVars, receiveTimeout);
+                this.Login(credentialOptions, customVars, receiveTimeout);
             });
 
             task.Start();

@@ -61,25 +61,25 @@ namespace Linkar
         /// <summary>
         /// Builds a CredentialOptions object from string
         /// </summary>
-        /// <param name="crdOptions"></param>
+        /// <param name="credentialOptions"></param>
         /// <returns></returns>
-        public static CredentialOptions FromString(string crdOptions)
+        public static CredentialOptions FromString(string credentialOptions)
         {
             CredentialOptions credentialOptions = new CredentialOptions();
-            string[] crdOptionsItems = crdOptions.Split(FS);
-            if (crdOptionsItems.Length == 8)
+            string[] credentialOptionsItems = credentialOptions.Split(FS);
+            if (credentialOptionsItems.Length == 8)
             {
                 int port;
-                if (int.TryParse(crdOptionsItems[2], out port))
+                if (int.TryParse(credentialOptionsItems[2], out port))
                 {
-                    credentialOptions.Host = crdOptionsItems[0];
-                    credentialOptions.EntryPoint = crdOptionsItems[1];
+                    credentialOptions.Host = credentialOptionsItems[0];
+                    credentialOptions.EntryPoint = credentialOptionsItems[1];
                     credentialOptions.Port = port;
-                    credentialOptions.Username = crdOptionsItems[3];
-                    credentialOptions.Password = crdOptionsItems[4];
-                    credentialOptions.Language = crdOptionsItems[5];
-                    credentialOptions.FreeText = crdOptionsItems[6];
-                    credentialOptions.PluginId = crdOptionsItems[7];
+                    credentialOptions.Username = credentialOptionsItems[3];
+                    credentialOptions.Password = credentialOptionsItems[4];
+                    credentialOptions.Language = credentialOptionsItems[5];
+                    credentialOptions.FreeText = credentialOptionsItems[6];
+                    credentialOptions.PluginId = credentialOptionsItems[7];
                 }
             }
             return credentialOptions;

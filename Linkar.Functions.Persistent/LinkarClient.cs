@@ -68,10 +68,10 @@ namespace Linkar.Functions
         /// <summary>
         /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
         /// </summary>
-        /// <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        public void Login(CredentialOptions crdOptions, string customVars = "", int receiveTimeout = 0)
+        public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             if (this._ConnectionInfo == null)
             {
@@ -85,7 +85,7 @@ namespace Linkar.Functions
                     if (this._ReceiveTimeout > 0)
                         receiveTimeout = this._ReceiveTimeout;
                 }
-                ConnectionInfo connectionInfo = new ConnectionInfo("", "", "", crdOptions);
+                ConnectionInfo connectionInfo = new ConnectionInfo("", "", "", credentialOptions);
                 string connInfo = connectionInfo.ToString();
                 string loginResult = Linkar.ExecutePersistentOperation(ref connInfo, byteOpCode, loginArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
 
@@ -98,7 +98,7 @@ namespace Linkar.Functions
                         string[] connInfoItems = connInfo.Split(ASCII_Chars.FS_chr);
                         string lkConnectionId = connInfoItems[8];
                         string publicKey = connInfoItems[9];
-                        this._ConnectionInfo = new ConnectionInfo(sessionId, lkConnectionId, publicKey, crdOptions);
+                        this._ConnectionInfo = new ConnectionInfo(sessionId, lkConnectionId, publicKey, credentialOptions);
                     }
                 }
             }
