@@ -264,7 +264,7 @@ namespace Linkar.Functions.Persistent.XML
         /// <summary>
         /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, ina asynchronous way with XML output format.
         /// </summary>
-        /// <param name="lkSchemaOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkSchemaOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE or DICTIONARY.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
@@ -283,7 +283,7 @@ namespace Linkar.Functions.Persistent.XML
         /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, ina asynchronous way with XML output format.
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
-        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE o DICTIONARIES.</param>
+        /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE or DICTIONARY.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
