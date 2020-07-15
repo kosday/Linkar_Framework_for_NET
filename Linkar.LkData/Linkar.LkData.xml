@@ -30,7 +30,7 @@
             Class to management the result of the operations Read, Update, New, Delete, Select and Dictionaries.
             </summary>
         </member>
-        <member name="P:Linkar.LkData.LkDataCRUD.TotalItems">
+        <member name="P:Linkar.LkData.LkDataCRUD.RecordCount">
             <summary>
             Number of the 
             </summary>

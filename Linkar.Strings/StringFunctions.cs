@@ -8,7 +8,7 @@ namespace Linkar
     /// </summary>
     public static class StringFunctions
     {
-        public const string TOTAL_RECORDS_KEY = "TOTAL_RECORDS";
+        public const string RECORD_COUNT_KEY = "RECORD_COUNT";
         public const string RECORD_IDS_KEY = "RECORD_ID";
         public const string RECORDS_KEY = "RECORD";
         public const string CALCULATED_KEY = "CALCULATED";
@@ -37,13 +37,13 @@ namespace Linkar
         #region --- Extraction functions
 
         /// <summary>
-        /// Looks for the TOTAL_RECORDS_KEY tag inside "lkString", and extracts its value.
+        /// Looks for the RECORD_COUNT_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of TOTAL_RECORDS_KEY tag.</returns>
-        public static int ExtractTotalRecords(string lkString)
+        /// <returns>The value of RECORD_COUNT_KEY tag.</returns>
+        public static int ExtractRecordCount(string lkString)
         {
-            string block = GetData(lkString, TOTAL_RECORDS_KEY, FS, AM);
+            string block = GetData(lkString, RECORD_COUNT_KEY, FS, AM);
             int result;
             if (int.TryParse(block, out result))
             {

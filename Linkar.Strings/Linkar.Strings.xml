@@ -9,12 +9,12 @@
             The tag names that may appear in the result string from executing an operation.
             </summary>
         </member>
-        <member name="M:Linkar.StringFunctions.ExtractTotalRecords(System.String)">
+        <member name="M:Linkar.StringFunctions.ExtractRecordCount(System.String)">
             <summary>
-            Looks for the TOTAL_RECORDS_KEY tag inside "lkString", and extracts its value.
+            Looks for the RECORD_COUNT_KEY tag inside "lkString", and extracts its value.
             </summary>
             <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of TOTAL_RECORDS_KEY tag.</returns>
+            <returns>The value of RECORD_COUNT_KEY tag.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ExtractRecordIds(System.String)">
             <summary>

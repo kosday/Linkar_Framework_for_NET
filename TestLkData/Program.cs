@@ -37,7 +37,7 @@ namespace TestLkData
                 NewOptions newOptions = new NewOptions(null, true, false, false, false, true); // ReadAfter and OriginalRecords
                 string newResult = linkarClient.New(filename, records, newOptions);
                 LkDataCRUD lkData = new LkDataCRUD(newResult);
-                Console.WriteLine("TOTAL RECORDS: " + lkData.TotalItems);
+                Console.WriteLine("RECORD COUNT: " + lkData.RecordCount);
                 PrintErrors(lkData.Errors);
                 PrintRecords(lkData.LkRecords);
 
@@ -66,7 +66,7 @@ namespace TestLkData
                 string dictionaries = "";
                 string readResult = linkarClient.Read(filename, recordIds, dictionaries, readOptions);
                 LkDataCRUD lkDataRead = new LkDataCRUD(readResult);
-                Console.WriteLine("TOTAL RECORDS: " + lkDataRead.TotalItems);
+                Console.WriteLine("RECORD COUNT: " + lkDataRead.RecordCount);
                 lkRecord1 = lkDataRead.LkRecords[0];
                 PrintRecord(lkRecord1);
                 lkRecord2 = lkDataRead.LkRecords["NEW99"];

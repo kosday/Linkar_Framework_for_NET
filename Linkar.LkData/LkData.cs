@@ -38,7 +38,7 @@ namespace Linkar.LkData
         /// <summary>
         /// Number of the 
         /// </summary>
-        public int TotalItems { get; }
+        public int RecordCount { get; }
         
         /// <summary>
         /// LkItem list from the CRUD operation execution.
@@ -51,7 +51,7 @@ namespace Linkar.LkData
         public LkDataCRUD() : base("")
         {
             this.LkRecords = new LkItems();
-            this.TotalItems = 0;
+            this.RecordCount = 0;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Linkar.LkData
         /// <param name="crudOperationResult">The string result of the CRUD operation execution.</param>
         public LkDataCRUD(string crudOperationResult) : base(crudOperationResult)
         {
-            this.TotalItems = StringFunctions.ExtractTotalRecords(crudOperationResult);
+            this.RecordCount = StringFunctions.ExtractRecordCount(crudOperationResult);
 
             string[] lstIdDicts = StringFunctions.ExtractRecordsIdDicts(crudOperationResult);
             string[] lstDictionaries = StringFunctions.ExtractRecordsDicts(crudOperationResult);
