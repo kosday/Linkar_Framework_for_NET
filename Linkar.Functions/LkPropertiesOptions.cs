@@ -36,7 +36,7 @@
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = SchemaType.TYPE.LKSCHEMA;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -58,7 +58,7 @@
         public LkPropertiesOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = SchemaType.TYPE.LKSCHEMA;
             this._SqlMode = true;
             this._RowHeaders = RowHeaders.TYPE.NONE;
             this._RowProperties = true;
@@ -100,7 +100,7 @@
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == SchemaType.TYPE.LKSCHEMA && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str + "1" + DBMV_Mark.AM_str;
             else if (this._SchemaType == SchemaType.TYPE.DICTIONARY)
                 str += "0" + DBMV_Mark.AM_str + "0" + DBMV_Mark.AM_str;
@@ -115,7 +115,7 @@
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == SchemaType.TYPE.LKSCHEMA && _SqlMode)
                 str += "3" + DBMV_Mark.AM_str;
             else
                 str += (int)this._RowHeaders + DBMV_Mark.AM_str;

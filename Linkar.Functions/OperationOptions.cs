@@ -51,7 +51,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = SchemaType.TYPE.LKSCHEMA;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -81,7 +81,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = SchemaType.TYPE.LKSCHEMA;
             this._SqlMode = true;
             this._RowHeaders = RowHeaders.TYPE.NONE;
             this._RowProperties = true;
@@ -163,7 +163,7 @@ namespace Linkar
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && this._SqlMode)
+            if (this._SchemaType == SchemaType.TYPE.LKSCHEMA && this._SqlMode)
             {
                 str += "1" + DBMV_Mark.AM_str +
                     "1" + DBMV_Mark.AM_str +
