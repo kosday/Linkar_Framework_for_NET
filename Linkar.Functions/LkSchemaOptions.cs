@@ -76,7 +76,7 @@
         public LkSchemaOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = SchemaType.TYPE.DICTIONARY;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = true;
@@ -96,12 +96,12 @@
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
             if (_SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str;
-            else if (_SchemaType == SchemaType.TYPE.DICTIONARIES)
+            else if (_SchemaType == SchemaType.TYPE.DICTIONARY)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._RowProperties ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (_SchemaType == SchemaType.TYPE.DICTIONARIES)
+            if (_SchemaType == SchemaType.TYPE.DICTIONARY)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;

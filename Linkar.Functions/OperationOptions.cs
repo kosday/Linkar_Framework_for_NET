@@ -112,7 +112,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = SchemaType.TYPE.DICTIONARY;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -174,7 +174,7 @@ namespace Linkar
                     (this._ApplyFormat ? "1" : "0") + DBMV_Mark.AM_str +
                     (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str;
             }
-            else if (this._SchemaType == SchemaType.TYPE.DICTIONARIES)
+            else if (this._SchemaType == SchemaType.TYPE.DICTIONARY)
             {
                 str += "0" + DBMV_Mark.AM_str +
                     "0" + DBMV_Mark.AM_str +
