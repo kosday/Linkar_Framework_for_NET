@@ -13,8 +13,8 @@ namespace TestLkData
             try
             {
                 CredentialOptions credentialOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
-                LinkarClient lkClt = new LinkarClient(60);
-                lkClt.Login(credentialOptions);
+                LinkarClient linkarClient = new LinkarClient(60);
+                linkarClient.Login(credentialOptions);
                 string filename = "LK.CUSTOMERS";
 
                 Console.WriteLine("NEW OPERATION (NEW98 and NEW)");
@@ -35,7 +35,7 @@ namespace TestLkData
 
                 string records = lstLkRecords.ComposeNewBuffer();
                 NewOptions newOptions = new NewOptions(null, true, false, false, false, true); // ReadAfter and OriginalRecords
-                string newResult = lkClt.New(filename, records, newOptions);
+                string newResult = linkarClient.New(filename, records, newOptions);
                 LkDataCRUD lkData = new LkDataCRUD(newResult);
                 Console.WriteLine("TOTAL RECORDS: " + lkData.TotalItems);
                 PrintErrors(lkData.Errors);
@@ -54,7 +54,7 @@ namespace TestLkData
                 bool OptimisticLockControl = true;
                 UpdateOptions updateOptions = new UpdateOptions(OptimisticLockControl, true, false, false, false, true); // OptimisticLockControl, ReadAfter and OriginalRecords           
                 records = lkData.LkRecords.ComposeUpdateBuffer(OptimisticLockControl);
-                string updateResult = lkClt.Update(filename, records, updateOptions);
+                string updateResult = linkarClient.Update(filename, records, updateOptions);
                 lkData = new LkDataCRUD(updateResult);
                 PrintErrors(lkData.Errors);
                 PrintRecords(lkData.LkRecords);
@@ -64,7 +64,7 @@ namespace TestLkData
                 string recordIds = StringFunctions.ComposeRecordIds("NEW98", "NEW99");
                 ReadOptions readOptions = new ReadOptions(false, false, false, OptimisticLockControl);
                 string dictionaries = "";
-                string readResult = lkClt.Read(filename, recordIds, dictionaries, readOptions);
+                string readResult = linkarClient.Read(filename, recordIds, dictionaries, readOptions);
                 LkDataCRUD lkDataRead = new LkDataCRUD(readResult);
                 Console.WriteLine("TOTAL RECORDS: " + lkDataRead.TotalItems);
                 lkRecord1 = lkDataRead.LkRecords[0];
@@ -92,7 +92,7 @@ namespace TestLkData
                 DeleteOptions deleteOptions = new DeleteOptions(OptimisticLockControl); // OptimisticLockControl
                 lkData.LkRecords.Add(lkRecord1);
                 records = lkData.LkRecords.ComposeDeleteBuffer(OptimisticLockControl);
-                string deleteResult = lkClt.Delete(filename, records, deleteOptions);
+                string deleteResult = linkarClient.Delete(filename, records, deleteOptions);
                 lkData = new LkDataCRUD(deleteResult);
                 PrintErrors(lkData.Errors);
                 PrintRecords(lkData.LkRecords);
@@ -100,7 +100,7 @@ namespace TestLkData
                 Console.WriteLine();
                 Console.WriteLine("SUBROUTINE OPERATION");
                 string subArgs = StringFunctions.ComposeSubroutineArgs("0", "aaaaaaa", "");
-                string subroutineResult = lkClt.Subroutine("SUB.DEMOLINKAR", 3, subArgs);
+                string subroutineResult = linkarClient.Subroutine("SUB.DEMOLINKAR", 3, subArgs);
                 LkDataSubroutine lkDataSubroutine = new LkDataSubroutine(subroutineResult);
                 PrintErrors(lkDataSubroutine.Errors);
                 for (int i = 0; i < lkDataSubroutine.Arguments.Length; i++)
@@ -108,13 +108,13 @@ namespace TestLkData
 
                 Console.WriteLine();
                 Console.WriteLine("EXECUTE WHO");
-                string executeResult = lkClt.Execute("WHO");
+                string executeResult = linkarClient.Execute("WHO");
                 LkDataExecute lkDataExecute = new LkDataExecute(executeResult);
                 PrintErrors(lkDataExecute.Errors);
                 Console.WriteLine("CAPTURING: " + lkDataExecute.Capturing);
                 Console.WriteLine("RETURNING: " + lkDataExecute.Returning);
 
-                lkClt.Logout();
+                linkarClient.Logout();
             }
             catch (Exception ex)
             {

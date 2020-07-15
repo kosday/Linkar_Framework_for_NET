@@ -26,7 +26,7 @@
     /// </summary
     public partial class LinkarClient
     {
-        private Functions.LinkarClient _LinkarClt;
+        private Functions.LinkarClient _LinkarClient;
 
         /// <summary>
         /// A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
@@ -35,8 +35,8 @@
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.SessionId;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.SessionId;
                 else
                     return "";
             }
@@ -49,8 +49,8 @@
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.PublicKey;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.PublicKey;
                 else
                     return "";
             }
@@ -63,20 +63,20 @@
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.LkConnectionId;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.LkConnectionId;
                 else
                     return "";
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the LinkarClt class.
+        /// Initializes a new instance of the LinkarClient class.
         /// </summary>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
-            this._LinkarClt = new Functions.LinkarClient(receiveTimeout);
+            this._LinkarClient = new Functions.LinkarClient(receiveTimeout);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
-            this._LinkarClt.Login(credentialOptions, customVars, receiveTimeout);
+            this._LinkarClient.Login(credentialOptions, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         public void Logout(string customVars = "", int receiveTimeout = 0)
         {
-            this._LinkarClt.Logout(customVars, receiveTimeout);
+            this._LinkarClient.Logout(customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@
         public string Read(string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Read(filename, records, dictionaries, readOptions, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
+            return this._LinkarClient.Read(filename, records, dictionaries, readOptions, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@
         public string Update(string filename, string records, UpdateOptions updateOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Update(filename, records, updateOptions, DATAFORMAT_TYPE.XML, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
+            return this._LinkarClient.Update(filename, records, updateOptions, DATAFORMAT_TYPE.XML, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -143,7 +143,7 @@
         public string New(string filename, string records, NewOptions newOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.New(filename, records, newOptions, DATAFORMAT_TYPE.XML, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
+            return this._LinkarClient.New(filename, records, newOptions, DATAFORMAT_TYPE.XML, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -158,7 +158,7 @@
         public string Delete(string filename, string records, DeleteOptions deleteOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Delete(filename, records, deleteOptions, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.Delete(filename, records, deleteOptions, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -176,7 +176,7 @@
         public string Select(string filename, string selectClause = "", string sortClause = "", string dictClause = "", string preSelectClause = "", SelectOptions selectOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Select(filename, selectClause, sortClause, dictClause, preSelectClause, selectOptions, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
+            return this._LinkarClient.Select(filename, selectClause, sortClause, dictClause, preSelectClause, selectOptions, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -190,7 +190,7 @@
         /// <returns>The results of the operation.</returns>
         public string Subroutine(string subroutineName, int argsNumber, string arguments, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Subroutine(subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.Subroutine(subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -204,7 +204,7 @@
         /// <returns>The results of the operation.</returns>
         public string Conversion(CONVERSION_TYPE conversionOptions, string expression, string code, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Conversion(conversionOptions, expression, code, DATAFORMAT_TYPE.XML, customVars, receiveTimeout); ;
+            return this._LinkarClient.Conversion(conversionOptions, expression, code, DATAFORMAT_TYPE.XML, customVars, receiveTimeout); ;
         }
 
         /// <summary>
@@ -217,7 +217,7 @@
         /// <returns>The results of the operation.</returns>
         public string Format(string expression, string formatSpec, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Format(expression, formatSpec, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.Format(expression, formatSpec, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -229,7 +229,7 @@
         /// <returns>The results of the operation.</returns>
         public string Dictionaries(string filename, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Dictionaries(filename, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.Dictionaries(filename, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -241,7 +241,7 @@
         /// <returns>The results of the operation.</returns>
         public string Execute(string statement, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Execute(statement, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.Execute(statement, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -260,7 +260,7 @@
         /// <returns>The results of the operation.</returns>
         public string GetVersion(int receiveTimeout = 0)
         {
-            return this._LinkarClt.GetVersion(DATAFORMAT_TYPE.XML, receiveTimeout);
+            return this._LinkarClient.GetVersion(DATAFORMAT_TYPE.XML, receiveTimeout);
         }
 
         /// <summary>
@@ -272,7 +272,7 @@
         /// <returns>The results of the operation.</returns>
         public string LkSchemas(LkSchemasOptions lkSchemasOptions = null, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.LkSchemas(lkSchemasOptions, DATAFORMATSCH_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.LkSchemas(lkSchemasOptions, DATAFORMATSCH_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -285,7 +285,7 @@
         /// <returns>The results of the operation.</returns>
         public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClient.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -301,7 +301,7 @@
         /// <returns>The results of the operation.</returns>
         public string GetTable(string filename, string selectClause = "", string dictClause = "", string sortClause = "", TableOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.GetTable(filename, selectClause, dictClause, sortClause, tableOptions, customVars, receiveTimeout);
+            return this._LinkarClient.GetTable(filename, selectClause, dictClause, sortClause, tableOptions, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -311,7 +311,7 @@
         /// <returns>The results of the operation.</returns>
         public string ResetCommonBlocks(int receiveTimeout = 0)
         {
-            return this._LinkarClt.ResetCommonBlocks(DATAFORMAT_TYPE.XML, receiveTimeout);
+            return this._LinkarClient.ResetCommonBlocks(DATAFORMAT_TYPE.XML, receiveTimeout);
         }
     }
 }

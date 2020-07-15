@@ -72,7 +72,7 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Json.LinkarClient.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the LinkarClt class.
+            Initializes a new instance of the LinkarClient class.
             </summary>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         </member>
@@ -129,7 +129,7 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Xml.LinkarClient.#ctor(System.Int32)">
             <summary>
-            Initializes a new instance of the LinkarClt class.
+            Initializes a new instance of the LinkarClient class.
             </summary>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         </member>

@@ -7,7 +7,7 @@ namespace Linkar.Commands.Persistent.Json
     /// </summary>
     public class LinkarClient
     {
-        private Functions.LinkarClient _LinkarClt;
+        private Functions.LinkarClient _LinkarClient;
 
         /// <summary>
         /// A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
@@ -16,8 +16,8 @@ namespace Linkar.Commands.Persistent.Json
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.SessionId;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.SessionId;
                 else
                     return "";
             }
@@ -30,8 +30,8 @@ namespace Linkar.Commands.Persistent.Json
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.PublicKey;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.PublicKey;
                 else
                     return "";
             }
@@ -44,20 +44,20 @@ namespace Linkar.Commands.Persistent.Json
         {
             get
             {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.LkConnectionId;
+                if (this._LinkarClient != null)
+                    return this._LinkarClient.LkConnectionId;
                 else
                     return "";
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the LinkarClt class.
+        /// Initializes a new instance of the LinkarClient class.
         /// </summary>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
-            this._LinkarClt = new Functions.LinkarClient(receiveTimeout);
+            this._LinkarClient = new Functions.LinkarClient(receiveTimeout);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Linkar.Commands.Persistent.Json
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
-            this._LinkarClt.Login(credentialOptions, customVars, receiveTimeout);
+            this._LinkarClient.Login(credentialOptions, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Linkar.Commands.Persistent.Json
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         public void Logout(string customVars = "", int receiveTimeout = 0)
         {
-            this._LinkarClt.Logout(customVars, receiveTimeout);
+            this._LinkarClient.Logout(customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Linkar.Commands.Persistent.Json
         /// <returns>The results of the operation.</returns>
         public string SendCommand(string command, int receiveTimeout = 0)
         {
-            return this._LinkarClt.SendCommand(command, ENVELOPE_FORMAT.JSON, receiveTimeout);
+            return this._LinkarClient.SendCommand(command, ENVELOPE_FORMAT.JSON, receiveTimeout);
         }
 
         /// <summary>

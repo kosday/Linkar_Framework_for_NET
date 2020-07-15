@@ -80,15 +80,15 @@ namespace Test
                 Console.WriteLine("RECORD: " + record);
                 Console.WriteLine();
 
-                LinkarClient lkClte = new LinkarClient();
+                LinkarClient linkarClient = new LinkarClient();
 
                 //LOGIN
                 Console.WriteLine("LOGIN");
-                lkClte.Login(credentialOptions);
+                linkarClient.Login(credentialOptions);
 
                 //READ
                 Console.WriteLine("READ");
-                result = lkClte.Read(filename, recordsIds, dictionaries, readOptions);
+                result = linkarClient.Read(filename, recordsIds, dictionaries, readOptions);
                 string[] errors = StringFunctions.ExtractErrors(result);
                 if (errors.Length > 0)
                     PrintErrors(errors);
@@ -105,7 +105,7 @@ namespace Test
                 record = MvOperations.LkReplace(record, "CUSTOMER TESTA99", 1);
                 NewOptions newOptions = new NewOptions(null, true); // ReadAfter
                 string newBuffer = StringFunctions.ComposeNewBuffer(recordIds, record);
-                result = lkClte.New(filename, newBuffer, newOptions);
+                result = linkarClient.New(filename, newBuffer, newOptions);
                 errors = StringFunctions.ExtractErrors(result);
                 if (errors.Length > 0)
                     PrintErrors(errors);
@@ -120,7 +120,7 @@ namespace Test
                 //DELETE
                 Console.WriteLine("DELETE");
                 recordIds = StringFunctions.ComposeRecordIds("TEST97", "TEST98", "TEST99"); // TEST97 and TEST98 not exists
-                result = lkClte.Delete(filename, recordIds);
+                result = linkarClient.Delete(filename, recordIds);
                 errors = StringFunctions.ExtractErrors(result);
                 if (errors.Length > 0)
                     PrintErrors(errors);
@@ -130,7 +130,7 @@ namespace Test
                     Console.WriteLine("ID: " + id + " DELETED");
 
                 //LOGOUT
-                lkClte.Logout();
+                linkarClient.Logout();
             }
             catch (LkException lkex)
             {
