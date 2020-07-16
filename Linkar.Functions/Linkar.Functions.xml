@@ -50,7 +50,7 @@
             <param name="password">Password of the user Linkar Server.</param>
             <param name="language">Used to make the database routines know in which language they must answer. The Error messages coming from the Database are in English by default, but you can customize</param>
             <param name="freeText">Free text that will appear in the Linkar MANAGER to identify in an easy way who is making the petition. For example if the call is made from a ERP, here we can write "MyERP".</param>
-            <param name="pluginId">Internal code to enable its use in Linkar Server. Used by Plugin developers.</param>
+            <param name="pluginId">Internal code to enable a plugin's use in Linkar Server. Used by Plugin developers.</param>
         </member>
         <member name="M:Linkar.CredentialOptions.FromString(System.String)">
             <summary>
@@ -91,20 +91,20 @@
             Extracts a field, value or subvalue from a dynamic array.
             </summary>
             <param name="str">The string on which you are going to extract a value.</param>
-            <param name="field">The position of the attribute where you want to extract.</param>
-            <param name="value">The multivalue position where you want to extract.</param>
-            <param name="subvalue">The subvalue position where you want to extract.</param>
+            <param name="field">The position of the attribute to be extracted.</param>
+            <param name="value">The multivalue position to be extracted.</param>
+            <param name="subvalue">The subvalue position to be extracted.</param>
             <returns>A new string with the extracted value.</returns>
         </member>
         <member name="M:Linkar.MvOperations.LkExtract(System.String,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Extracts a field, value or subvalue from a dynamic array.
             </summary>
-            <param name="str"></param>
-            <param name="lstDicts">Dictionaries list on which the field specified argument will be searched.</param>
-            <param name="field">The dictionary name of the attribute where you want to extract.</param>
-            <param name="value">The multivalue position where you want to extract.</param>
-            <param name="subvalue">The subvalue position where you want to extract.</param>
+            <param name="strSource">Dynamic Array source data</param>
+            <param name="lstDicts">List of Dictionary Definitions defining the record being processed.</param>
+            <param name="fieldName">The dictionary name of the attribute to be extracted.</param>
+            <param name="value">The multivalue position to be extracted.</param>
+            <param name="subvalue">The subvalue position to be extracted.</param>
             <returns>A new string with the extracted value.</returns>
         </member>
         <member name="M:Linkar.MvOperations.LkChange(System.String,System.String,System.String,System.Int32,System.Int32)">
@@ -122,32 +122,32 @@
             <summary>
             Replaces a field, value or subvalue from a dynamic array, returning the result.
             </summary>
-            <param name="str">The string on which you are going to replace a value.</param>
-            <param name="newVal">New value that will be replaced in the indicated string.</param>
-            <param name="field">The position of the attribute where you want to replace.</param>
-            <param name="value">The multivalue position where you want to replace.</param>
-            <param name="subvalue">The subvalue position where you want to replace.</param>
+            <param name="strOld">The string on which you are going to replace a value.</param>
+            <param name="strNew">New value that will be replaced in the indicated string.</param>
+            <param name="field">The position of the attribute to be to be replaced.</param>
+            <param name="value">The multivalue position to be to be replaced.</param>
+            <param name="subvalue">The subvalue position to be to be replaced.</param>
             <returns>A new string with the replaced value.</returns>
         </member>
         <member name="M:Linkar.MvOperations.LkReplace(System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Replaces a field, value or subvalue from a dynamic array, returning the result.
             </summary>
-            <param name="str">The string on which you are going to replace a value.</param>
-            <param name="newVal">New value that will be replaced in the indicated string.</param>
-            <param name="lstDicts">Dictionaries list on which the field specified argument will be searched.</param>
-            <param name="field">The dictionary name of the attribute where you want to replace.</param>
-            <param name="value">The multivalue position where you want to replace.</param>
-            <param name="subvalue">The subvalue position where you want to replace.</param>
+            <param name="strOld">The string on which you are going to replace a value.</param>
+            <param name="strNew">New value that will be replaced in the indicated string.</param>
+            <param name="lstDicts">List of Dictionary Definitions defining the record being processed.</param>
+            <param name="fieldName">The dictionary name of the attribute to be to be replaced.</param>
+            <param name="value">The multivalue position to be to be replaced.</param>
+            <param name="subvalue">The subvalue position to be to be replaced.</param>
             <returns>A new string with the replaced value.</returns>
         </member>
         <member name="M:Linkar.MvOperations.GetDictPos(System.String,System.String)">
             <summary>
             Auxiliary function to obtain the position (field value) of the dictionary
             </summary>
-            <param name="lstdicts">Dictionaries list on which the field specified argument will be searched.</param>
-            <param name="field">The dictionary name of the attribute that you want to obtain the position</param>
-            <returns>The position (filed number) of the dictionary</returns>
+            <param name="lstDicts">List of Dictionary Definitions.</param>
+            <param name="fieldName">The name of the dictionary definition which defines the desired field position</param>
+            <returns>The position (attribute/field number) defined by the dictionary definition</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "T:Linkar.OperationArguments" -->
         <member name="M:Linkar.OperationArguments.GetReadArgs(System.String,System.String,System.String,Linkar.DATAFORMATCRU_TYPE,Linkar.ReadOptions,System.String)">
@@ -155,10 +155,10 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Read operation.
             </summary>
             <param name="filename">File name to read.</param>
-            <param name="recordIds">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
+            <param name="recordIds">The records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
             <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
             <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetUpdateArgs(System.String,System.String,Linkar.UpdateOptions,System.String)">
@@ -166,9 +166,9 @@
             Compose the 3 items ( CUSTOMVARS, OPTIONS and INPUTDATA) of the Update operation.
             </summary>
             <param name="filename">File name where you are going to write.</param>
-            <param name="records">Are the records you want to update. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
+            <param name="records">The records to be updated. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
             <param name="updateOptions">Object that defines the different writing options of the Function: optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetNewArgs(System.String,System.String,Linkar.NewOptions,System.String)">
@@ -176,19 +176,19 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the New operation.
             </summary>
             <param name="filename">File name where you are going to write.</param>
-            <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
+            <param name="records">The records to be written. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
             <param name="newOptions">Object that defines the following writing options of the Function: recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetDeleteArgs(System.String,System.String,Linkar.DeleteOptions,System.String)">
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Delete operation.
             </summary>
-            <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-            <param name="records">It's the records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
+            <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
+            <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
             <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetSelectArgs(System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,System.String)">
@@ -199,19 +199,19 @@
             <param name="selectClause">Fragment of the phrase that indicate the selection condition. For example WITH CUSTOMER = '1'</param>
             <param name="sortClause">Fragment of the phrase that indicates the selection order. If there is a selection rule, Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
             <param name="dictClause">Is the list of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
-            <param name="preSelectClause">It's an optional statement that will execute before the main Select</param>
+            <param name="preSelectClause">An optional statement that will execute before the main Select</param>
             <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetSubroutineArgs(System.String,System.Int32,System.String,System.String)">
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Subroutine operation.
             </summary>
-            <param name="subroutineName">Subroutine name you want to execute.</param>
+            <param name="subroutineName">Subroutine name to execute.</param>
             <param name="argsNumber">Number of arguments</param>
             <param name="arguments">The subroutine arguments list.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetConversionArgs(System.String,System.String,Linkar.CONVERSION_TYPE,System.String)">
@@ -221,7 +221,7 @@
             <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
             <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
             <param name="conversionOptions">Indicates the conversion type, input or output: Input=ICONV(); OUTPUT=OCONV()</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetFormatArgs(System.String,System.String,System.String)">
@@ -230,7 +230,7 @@
             </summary>
             <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
             <param name="formatSpec">Specified format</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetDictionariesArgs(System.String,System.String)">
@@ -238,22 +238,22 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Dictionaries operation.
             </summary>
             <param name="filename">File name</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetExecuteArgs(System.String,System.String)">
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Execute operation.
             </summary>
-            <param name="statement">The command you want to execute in the Database.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="statement">The command to execute in the Database.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetSendCommandArgs(System.String)">
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the SendCommand operation.
             </summary>
-            <param name="command">Content of the operation you want to send.</param>
+            <param name="command">Content of the operation to send.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetVersionArgs">
@@ -267,7 +267,7 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the LkSchemas operation.
             </summary>
             <param name="lkSchemaOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE or DICTIONARY.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetLkPropertiesArgs(System.String,Linkar.LkPropertiesOptions,System.String)">
@@ -276,7 +276,7 @@
             </summary>
             <param name="filename">File name to LkProperties</param>
             <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMA, SQLMODE or DICTIONARY.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetGetTableArgs(System.String,System.String,System.String,System.String,Linkar.TableOptions,System.String)">
@@ -288,7 +288,7 @@
             <param name="dictClause">Is the list of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
             <param name="sortClause">Fragment of the phrase that indicates the selection order. If there is a selection rule Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
             <param name="tableOptions">Different function options: rowHeaders, rowProperties, onlyVisibe, usePropertyNames, repeatValues, applyConversion, applyFormat, calculated, pagination, regPage, numPage.</param>
-            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="customVars">Free text sent to the database for custom processing. SUB.LK.MAIN.CONTROL.CUSTOM will be called if this parameter has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetResetCommonBlocksArgs">
@@ -546,7 +546,7 @@
         <member name="M:Linkar.LkSchemaOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the LkSchemaOptions class.
-            This constructor will be used when you want to obtain LKSCHEMA type schemas. Creation options are allowed for schemas of type LKSCHEMA. 
+            This constructor is used to obtain LKSCHEMA type schemas. Creation options are allowed for schemas of type LKSCHEMA. 
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="rowProperties">First row contains property names.</param>
@@ -558,7 +558,7 @@
         <member name="M:Linkar.LkSchemaOptions.#ctor(System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the LkSchemaOptions class.
-            This constructor will be used when you want to obtain SQLMODE type schemas. Creation options are allowed for SQLMODE type schemas.
+            This constructor is used to obtain SQLMODE type schemas. Creation options are allowed for SQLMODE type schemas.
             </summary>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
             <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -568,7 +568,7 @@
         <member name="M:Linkar.LkSchemaOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the LkSchemaOptions class.
-            This constructor will be used when you want to obtain DICTIONARIES type schemas. Creation options are allowed for DICTIONARIES type schemas.
+            This constructor is used to obtain DICTIONARIES type schemas. Creation options are allowed for DICTIONARIES type schemas.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -595,7 +595,7 @@
         <member name="M:Linkar.LkPropertiesOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             nitializes a new instance of the LkPropertiesOptions class.
-            This constructor will be used when you want to obtain a list of Properties of the LKSCHEMAS schema type.It is allowed to specify creation options for obtaining the list of properties of LKSCHEMA type schemas. 
+            This constructor is used to obtain a list of Properties of the LKSCHEMAS schema type.It is allowed to specify creation options for obtaining the list of properties of LKSCHEMA type schemas. 
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="rowProperties">First row contains property names.</param>
@@ -608,7 +608,7 @@
         <member name="M:Linkar.LkPropertiesOptions.#ctor(System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the LkPropertiesOptions class.
-            This constructor will be used when you want to obtain a list of Properties of the SQLMODE schema type.It is allowed to specify creation options for obtaining the list of properties of SQLMODE type schemas.
+            This constructor is used to obtain a list of Properties of the SQLMODE schema type.It is allowed to specify creation options for obtaining the list of properties of SQLMODE type schemas.
             </summary>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
             <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -618,7 +618,7 @@
         <member name="M:Linkar.LkPropertiesOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the LkPropertiesOptions class.
-            This constructor will be used when you want to obtain a list of Properties of the DICTIONARIES schema type.It is allowed to specify creation options for obtaining the list of properties of DICTIONARIES types schemas.
+            This constructor is used to obtain a list of Properties of the DICTIONARIES schema type.It is allowed to specify creation options for obtaining the list of properties of DICTIONARIES types schemas.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -633,7 +633,7 @@
         </member>
         <member name="T:Linkar.TableOptions">
             <summary>
-            It contains the options to perform queries with the GetTable function, using the different types of schemas.
+            Contains options to perform queries with the GetTable function, using the different types of schemas.
             </summary>
         </member>
         <member name="M:Linkar.TableOptions.#ctor">
@@ -645,7 +645,7 @@
         <member name="M:Linkar.TableOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the TableOptions class.
-            This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMA type schemas. 
+            This constructor is used to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMA type schemas. 
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="rowProperties">First row contains property names.</param>
@@ -662,7 +662,7 @@
         <member name="M:Linkar.TableOptions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the TableOptions class.
-            This constructor will be used when you want to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
+            This constructor is used to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
             </summary>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
             <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schema conversions defined in Linkar Schemas.</param>
@@ -675,7 +675,7 @@
         <member name="M:Linkar.TableOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the TableOptions class.
-            This constructor will be used when you want to perform queries of the DICTIONARIES type schemas.It is allowed to specify queries creation options of DICTIONARIES type schemas.
+            This constructor is used to perform queries of the DICTIONARIES type schemas.It is allowed to specify queries creation options of DICTIONARIES type schemas.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
@@ -689,7 +689,7 @@
         <member name="M:Linkar.TableOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
             nitializes a new instance of the TableOptions class.
-            This constructor will be used when you want to perform queries without schema information.It is allowed to specify queries creation options without any specific type of schemas.
+            This constructor is used to perform queries without schema information.It is allowed to specify queries creation options without any specific type of schemas.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
@@ -706,7 +706,7 @@
         <member name="T:Linkar.DATAFORMAT_TYPE">
             <summary>
             Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
-            Also it's the input format type for New, Update and Delete operations.
+            Also the input format type for New, Update and Delete operations.
             </summary>
         </member>
         <member name="T:Linkar.DATAFORMATCRU_TYPE">

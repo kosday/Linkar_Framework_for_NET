@@ -24,7 +24,7 @@
 
         /// <summary>
         /// nitializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the LKSCHEMAS schema type.It is allowed to specify creation options for obtaining the list of properties of LKSCHEMA type schemas. 
+        /// This constructor is used to obtain a list of Properties of the LKSCHEMAS schema type.It is allowed to specify creation options for obtaining the list of properties of LKSCHEMA type schemas. 
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -49,7 +49,7 @@
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the SQLMODE schema type.It is allowed to specify creation options for obtaining the list of properties of SQLMODE type schemas.
+        /// This constructor is used to obtain a list of Properties of the SQLMODE schema type.It is allowed to specify creation options for obtaining the list of properties of SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -71,7 +71,7 @@
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the DICTIONARIES schema type.It is allowed to specify creation options for obtaining the list of properties of DICTIONARIES types schemas.
+        /// This constructor is used to obtain a list of Properties of the DICTIONARIES schema type.It is allowed to specify creation options for obtaining the list of properties of DICTIONARIES types schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>

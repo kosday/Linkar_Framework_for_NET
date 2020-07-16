@@ -5,16 +5,16 @@ using Linkar.Functions.Direct;
 namespace Linkar.Commands.Direct
 {
     /// <summary>
-    /// Allows making different operations, through some templates in standar format JSON, in a synchronous and synchronous way.
+    /// Allows making different operations, through some templates in standard format JSON, in a synchronous and synchronous way.
     /// </summary>
     public class JsonCommands
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standar format JSON, in a synchronous way.
+        /// Allows making different operations, through some templates in standard format JSON, in a synchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
+        /// <param name="command">Content of the operation to send.</param>
+        /// <param name="receiveTimeout">The maximum time in seconds that the client will wait for a response from the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public static string SendCommand(CredentialOptions credentialOptions, string command, int receiveTimeout = 0)
         {
@@ -22,11 +22,11 @@ namespace Linkar.Commands.Direct
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standar format JSON, in a asynchronous way.
+        /// Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        /// <param name="command">Content of the operation to send.</param>
+        /// <param name="receiveTimeout">The maximum time in seconds that the client will wait for a response from the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public static Task<string> SendCommandAsync(CredentialOptions credentialOptions, string command, int receiveTimeout = 0)
         {

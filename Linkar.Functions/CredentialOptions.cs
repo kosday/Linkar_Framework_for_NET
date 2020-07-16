@@ -45,7 +45,7 @@ namespace Linkar
         /// <param name="password">Password of the user Linkar Server.</param>
         /// <param name="language">Used to make the database routines know in which language they must answer. The Error messages coming from the Database are in English by default, but you can customize</param>
         /// <param name="freeText">Free text that will appear in the Linkar MANAGER to identify in an easy way who is making the petition. For example if the call is made from a ERP, here we can write "MyERP".</param>
-        /// <param name="pluginId">Internal code to enable its use in Linkar Server. Used by Plugin developers.</param>
+        /// <param name="pluginId">Internal code to enable a plugin's use in Linkar Server. Used by Plugin developers.</param>
         public CredentialOptions(string host, string entrypoint, int port, string username, string password, string language, string freeText, string pluginId = "")
         {
             this.Host = host;

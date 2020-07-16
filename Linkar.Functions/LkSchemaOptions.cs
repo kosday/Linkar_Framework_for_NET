@@ -23,7 +23,7 @@
 
         /// <summary>
         /// Initializes a new instance of the LkSchemaOptions class.
-        /// This constructor will be used when you want to obtain LKSCHEMA type schemas. Creation options are allowed for schemas of type LKSCHEMA. 
+        /// This constructor is used to obtain LKSCHEMA type schemas. Creation options are allowed for schemas of type LKSCHEMA. 
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -46,7 +46,7 @@
 
         /// <summary>
         /// Initializes a new instance of the LkSchemaOptions class.
-        /// This constructor will be used when you want to obtain SQLMODE type schemas. Creation options are allowed for SQLMODE type schemas.
+        /// This constructor is used to obtain SQLMODE type schemas. Creation options are allowed for SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -67,7 +67,7 @@
 
         /// <summary>
         /// Initializes a new instance of the LkSchemaOptions class.
-        /// This constructor will be used when you want to obtain DICTIONARIES type schemas. Creation options are allowed for DICTIONARIES type schemas.
+        /// This constructor is used to obtain DICTIONARIES type schemas. Creation options are allowed for DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>

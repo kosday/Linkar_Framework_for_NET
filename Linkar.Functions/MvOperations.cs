@@ -50,9 +50,9 @@ namespace Linkar
         /// Extracts a field, value or subvalue from a dynamic array.
         /// </summary>
         /// <param name="str">The string on which you are going to extract a value.</param>
-        /// <param name="field">The position of the attribute where you want to extract.</param>
-        /// <param name="value">The multivalue position where you want to extract.</param>
-        /// <param name="subvalue">The subvalue position where you want to extract.</param>
+        /// <param name="field">The position of the attribute to be extracted.</param>
+        /// <param name="value">The multivalue position to be extracted.</param>
+        /// <param name="subvalue">The subvalue position to be extracted.</param>
         /// <returns>A new string with the extracted value.</returns>
         public static string LkExtract(string str, int field, int value = 0, int subvalue = 0)
         {
@@ -85,21 +85,21 @@ namespace Linkar
         /// <summary>
         /// Extracts a field, value or subvalue from a dynamic array.
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="lstDicts">Dictionaries list on which the field specified argument will be searched.</param>
-        /// <param name="field">The dictionary name of the attribute where you want to extract.</param>
-        /// <param name="value">The multivalue position where you want to extract.</param>
-        /// <param name="subvalue">The subvalue position where you want to extract.</param>
+        /// <param name="strSource">Dynamic Array source data</param>
+        /// <param name="lstDicts">List of Dictionary Definitions defining the record being processed.</param>
+        /// <param name ="fieldName">The dictionary name of the attribute to be extracted.</param>
+        /// <param name="value">The multivalue position to be extracted.</param>
+        /// <param name="subvalue">The subvalue position to be extracted.</param>
         /// <returns>A new string with the extracted value.</returns>
-        public static string LkExtract(string str, string lstDicts, string field, int value = 0, int subvalue = 0)
+        public static string LkExtract(string strSource, string lstDicts, string fieldName, int value = 0, int subvalue = 0)
         {
-            string aux = "";
+            string result = "";
 
-            int pos = GetDictPos(lstDicts, field);
+            int pos = GetDictPos(lstDicts, fieldName);
             if (pos > -1)
-                aux = LkExtract(str, pos, value, subvalue);
+                result = LkExtract(strSource, pos, value, subvalue);
 
-            return aux;
+            return result;
         }
 
         /// <summary>
@@ -129,57 +129,57 @@ namespace Linkar
         /// <summary>
         /// Replaces a field, value or subvalue from a dynamic array, returning the result.
         /// </summary>
-        /// <param name="str">The string on which you are going to replace a value.</param>
-        /// <param name="newVal">New value that will be replaced in the indicated string.</param>
-        /// <param name="field">The position of the attribute where you want to replace.</param>
-        /// <param name="value">The multivalue position where you want to replace.</param>
-        /// <param name="subvalue">The subvalue position where you want to replace.</param>
+        /// <param name="strOld">The string on which you are going to replace a value.</param>
+        /// <param name="strNew">New value that will be replaced in the indicated string.</param>
+        /// <param name="field">The position of the attribute to be to be replaced.</param>
+        /// <param name="value">The multivalue position to be to be replaced.</param>
+        /// <param name="subvalue">The subvalue position to be to be replaced.</param>
         /// <returns>A new string with the replaced value.</returns>
-        public static string LkReplace(string str, string newVal, int field, int value = 0, int subvalue = 0)
+        public static string LkReplace(string strOld, string strNew, int field, int value = 0, int subvalue = 0)
         {
             string result = "";
 
-            int len = str.Length;
+            int len = strOld.Length;
             int i = 0;
 
             field--;
             while (field > 0 && len > 0)
             {
-                if (str[i] == DBMV_Mark.AM)
+                if (strOld[i] == DBMV_Mark.AM)
                     field--;
                 i++;
                 len--;
             }
             if (field > 0)
             {
-                str += new string(DBMV_Mark.AM, field);
+                strOld += new string(DBMV_Mark.AM, field);
                 i += field;
             }
 
             value--;
             while (value > 0 && len > 0)
             {
-                if (str[i] == DBMV_Mark.AM)
+                if (strOld[i] == DBMV_Mark.AM)
                     break;
 
-                if (str[i] == DBMV_Mark.VM)
+                if (strOld[i] == DBMV_Mark.VM)
                     value--;
                 i++;
                 len--;
             }
             if (value > 0)
             {
-                str = str.Insert(i, new string(DBMV_Mark.VM, value));
+                strOld = strOld.Insert(i, new string(DBMV_Mark.VM, value));
                 i += value;
             }
 
             subvalue--;
             while (subvalue > 0 && len > 0)
             {
-                if (str[i] == DBMV_Mark.VM || str[i] == DBMV_Mark.AM)
+                if (strOld[i] == DBMV_Mark.VM || strOld[i] == DBMV_Mark.AM)
                     break;
 
-                if (str[i] == DBMV_Mark.SM)
+                if (strOld[i] == DBMV_Mark.SM)
                     subvalue--;
 
                 i++;
@@ -187,30 +187,30 @@ namespace Linkar
             }
             if (subvalue > 0)
             {
-                str = str.Insert(i, new string(DBMV_Mark.SM, subvalue));
+                strOld = strOld.Insert(i, new string(DBMV_Mark.SM, subvalue));
                 i += subvalue;
             }
 
-            if (i >= str.Length)
-                result = str + newVal;
+            if (i >= strOld.Length)
+                result = strOld + strNew;
             else
             {
-                int nextAM = str.IndexOf(DBMV_Mark.AM, i);
+                int nextAM = strOld.IndexOf(DBMV_Mark.AM, i);
                 if (nextAM == -1)
                     nextAM = int.MaxValue;
-                int nextVM = str.IndexOf(DBMV_Mark.VM, i);
+                int nextVM = strOld.IndexOf(DBMV_Mark.VM, i);
                 if (nextVM == -1)
                     nextVM = int.MaxValue;
-                int nextSM = str.IndexOf(DBMV_Mark.SM, i);
+                int nextSM = strOld.IndexOf(DBMV_Mark.SM, i);
                 if (nextSM == -1)
                     nextSM = int.MaxValue;
                 int j = Math.Min(nextAM, Math.Min(nextVM, nextSM));
                 if (j == int.MaxValue)
-                    j = str.Length;
+                    j = strOld.Length;
 
-                string part1 = str.Substring(0, i);
-                string part2 = str.Substring(j);
-                result = part1 + newVal + part2;
+                string part1 = strOld.Substring(0, i);
+                string part2 = strOld.Substring(j);
+                result = part1 + strNew + part2;
             }
 
             return result;
@@ -219,21 +219,21 @@ namespace Linkar
         /// <summary>
         /// Replaces a field, value or subvalue from a dynamic array, returning the result.
         /// </summary>
-        /// <param name="str">The string on which you are going to replace a value.</param>
-        /// <param name="newVal">New value that will be replaced in the indicated string.</param>
-        /// <param name="lstDicts">Dictionaries list on which the field specified argument will be searched.</param>
-        /// <param name="field">The dictionary name of the attribute where you want to replace.</param>
-        /// <param name="value">The multivalue position where you want to replace.</param>
-        /// <param name="subvalue">The subvalue position where you want to replace.</param>
+        /// <param name="strOld">The string on which you are going to replace a value.</param>
+        /// <param name="strNew">New value that will be replaced in the indicated string.</param>
+        /// <param name="lstDicts">List of Dictionary Definitions on which the field specified argument will be searched.</param>
+        /// <param name="field">The dictionary name of the attribute to be to be replaced.</param>
+        /// <param name="value">The multivalue position to be to be replaced.</param>
+        /// <param name="subvalue">The subvalue position to be to be replaced.</param>
         /// <returns>A new string with the replaced value.</returns>
-        public static string LkReplace(string str, string newVal, string lstDicts, string field, int value = 0, int subvalue = 0)
+        public static string LkReplace(string strOld, string strNew, string lstDicts, string field, int value = 0, int subvalue = 0)
         {
             string aux = "";
 
             int pos = GetDictPos(lstDicts, field);
             if (pos > -1)
             {
-                aux = LkReplace(str, newVal, pos, value, subvalue);
+                aux = LkReplace(strOld, strNew, pos, value, subvalue);
             }
 
             return aux;
@@ -242,19 +242,19 @@ namespace Linkar
         /// <summary>
         /// Auxiliary function to obtain the position (field value) of the dictionary
         /// </summary>
-        /// <param name="lstdicts">Dictionaries list on which the field specified argument will be searched.</param>
-        /// <param name="field">The dictionary name of the attribute that you want to obtain the position</param>
-        /// <returns>The position (filed number) of the dictionary</returns>
-        private static int GetDictPos(string lstdicts, string field)
+        /// <param name="lstDicts">List of Dictionary Definitions.</param>
+        /// <param name="fieldName">The name of the dictionary definition which defines the desired field position</param>
+        /// <returns>The position (attribute/field number) defined by the dictionary definition</returns>
+        private static int GetDictPos(string lstDicts, string fieldName)
         {
             int pos = -1;
-            if (!string.IsNullOrEmpty(lstdicts) && !string.IsNullOrEmpty(field))
+            if (!string.IsNullOrEmpty(lstDicts) && !string.IsNullOrEmpty(fieldName))
             {
-                string[] dicts = lstdicts.Split(DBMV_Mark.AM);
+                string[] dicts = lstDicts.Split(DBMV_Mark.AM);
 
                 for (int i = 0; i < dicts.Length; i++)
                 {
-                    if (dicts[i].ToUpper() == field.ToUpper())
+                    if (dicts[i].ToUpper() == fieldName.ToUpper())
                     {
                         pos = i;
                         break;

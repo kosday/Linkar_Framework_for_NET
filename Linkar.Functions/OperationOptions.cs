@@ -6,7 +6,7 @@ namespace Linkar
 {
 
     /// <summary>
-    /// It contains the options to perform queries with the GetTable function, using the different types of schemas.
+    /// Contains options to perform queries with the GetTable function, using the different types of schemas.
     /// </summary>
     public class OperationOptions
     {
@@ -33,7 +33,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMA type schemas. 
+        /// This constructor is used to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMA type schemas. 
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -68,7 +68,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
+        /// This constructor is used to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schema conversions defined in Linkar Schemas.</param>
@@ -98,7 +98,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the DICTIONARIES type schemas.It is allowed to specify queries creation options of DICTIONARIES type schemas.
+        /// This constructor is used to perform queries of the DICTIONARIES type schemas.It is allowed to specify queries creation options of DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
@@ -129,7 +129,7 @@ namespace Linkar
 
         /// <summary>
         /// nitializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries without schema information.It is allowed to specify queries creation options without any specific type of schemas.
+        /// This constructor is used to perform queries without schema information.It is allowed to specify queries creation options without any specific type of schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
