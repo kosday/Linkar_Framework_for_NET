@@ -1,9 +1,0 @@
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\bin\Debug\netstandard2.0\Linkar.Strings.deps.json
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\bin\Debug\netstandard2.0\Linkar.Strings.dll
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\bin\Debug\netstandard2.0\Linkar.Strings.pdb
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\obj\Debug\netstandard2.0\Linkar.Strings.AssemblyInfoInputs.cache
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\obj\Debug\netstandard2.0\Linkar.Strings.AssemblyInfo.cs
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\obj\Debug\netstandard2.0\Linkar.Strings.dll
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\obj\Debug\netstandard2.0\Linkar.Strings.pdb
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\bin\Debug\netstandard2.0\Linkar.Strings.xml
-D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Strings\obj\Debug\netstandard2.0\Linkar.Strings.csprojAssemblyReference.cache
