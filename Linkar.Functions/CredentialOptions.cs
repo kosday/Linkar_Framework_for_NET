@@ -65,24 +65,24 @@ namespace Linkar
         /// <returns></returns>
         public static CredentialOptions FromString(string credentialOptions)
         {
-            CredentialOptions credentialOptions = new CredentialOptions();
+            CredentialOptions _credentialOptions = new CredentialOptions();
             string[] credentialOptionsItems = credentialOptions.Split(FS);
             if (credentialOptionsItems.Length == 8)
             {
                 int port;
                 if (int.TryParse(credentialOptionsItems[2], out port))
                 {
-                    credentialOptions.Host = credentialOptionsItems[0];
-                    credentialOptions.EntryPoint = credentialOptionsItems[1];
-                    credentialOptions.Port = port;
-                    credentialOptions.Username = credentialOptionsItems[3];
-                    credentialOptions.Password = credentialOptionsItems[4];
-                    credentialOptions.Language = credentialOptionsItems[5];
-                    credentialOptions.FreeText = credentialOptionsItems[6];
-                    credentialOptions.PluginId = credentialOptionsItems[7];
+                    _credentialOptions.Host = credentialOptionsItems[0];
+                    _credentialOptions.EntryPoint = credentialOptionsItems[1];
+                    _credentialOptions.Port = port;
+                    _credentialOptions.Username = credentialOptionsItems[3];
+                    _credentialOptions.Password = credentialOptionsItems[4];
+                    _credentialOptions.Language = credentialOptionsItems[5];
+                    _credentialOptions.FreeText = credentialOptionsItems[6];
+                    _credentialOptions.PluginId = credentialOptionsItems[7];
                 }
             }
-            return credentialOptions;
+            return _credentialOptions;
         }
 
         /// <summary>
