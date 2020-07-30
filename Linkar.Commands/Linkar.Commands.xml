@@ -4,70 +4,100 @@
         <name>Linkar.Commands</name>
     </assembly>
     <members>
+        <member name="M:Linkar.Commands.DirectFunctions.SendCommand(Linkar.CredentialOptions,System.String,Linkar.Commands.ENVELOPE_FORMAT,System.Int32)">
+            <summary>
+            Allows making different operations, through some templates in standard format (XML, JSON), in a synchronous way.
+            </summary>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <returns>The results of the operation.</returns>
+        </member>
         <member name="T:Linkar.Commands.Direct.JsonCommands">
             <summary>
-            Allows making different operations, through some templates in standar format JSON, in a synchronous and synchronous way.
+            Allows making different operations, through some templates in standard format JSON, in a synchronous and synchronous way.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format JSON, in a synchronous way.
+            Allows making different operations, through some templates in standard format JSON, in a synchronous way.
             </summary>
-            <param name="credentialsOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommandAsync(Linkar.CredentialOptions,System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format JSON, in a asynchronous way.
+            Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
             </summary>
-            <param name="credentialsOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="T:Linkar.Commands.Direct.XmlCommands">
             <summary>
-            Allows making different operations, through some templates in standar format XML, in a synchronous and synchronous way.
+            Allows making different operations, through some templates in standard format XML, in a synchronous and synchronous way.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Direct.XmlCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format XML, in a synchronous way.
+            Allows making different operations, through some templates in standard format XML, in a synchronous way.
             </summary>
-            <param name="credentialsOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="command">Content of the operation you want to send.</param>
-            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param> 
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Commands.Direct.XmlCommands.SendCommandAsync(Linkar.CredentialOptions,System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format XML, in a asynchronous way.
+            Allows making different operations, through some templates in standard format XML, in a asynchronous way.
             </summary>
-            <param name="credentialsOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.Persistent.LinkarClient">
+            <summary>
+            These functions perform synchronous persistent (establishing permanent session) operations with any kind of output format type.
+            </summary>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the LinkarClt class.
+            </summary>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.Login(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
+            </summary>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.Logout(System.String,System.Int32)">
+            <summary>
+            Closes the communication with the server, that previously has been opened with a Login function, in a synchronous way.
+            </summary>
+            <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+            <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendCommand(System.String,Linkar.Commands.ENVELOPE_FORMAT,System.Int32)">
+            <summary>
+            Allows making different operations, through some templates in standard format (XML, JSON), in a synchronous way.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="T:Linkar.Commands.Persistent.Json.LinkarClient">
             <summary>
             
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Json.LinkarClient.SessionId">
-            <summary>
-            A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Json.LinkarClient.PublicKey">
-            <summary>
-            The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Json.LinkarClient.LkConnectionId">
-            <summary>
-            Internal LinkarSERVER ID to keep the session. This value is set after Login operation.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Persistent.Json.LinkarClient.#ctor(System.Int32)">
@@ -80,7 +110,7 @@
             <summary>
             Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
             </summary>
-            <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         </member>
@@ -93,7 +123,7 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Json.LinkarClient.SendCommand(System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format JSON, in a synchronous way.
+            Allows making different operations, through some templates in standard format JSON, in a synchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
@@ -101,7 +131,7 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Json.LinkarClient.SendCommandAsync(System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format JSON, in a asynchronous way.
+            Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
@@ -110,21 +140,6 @@
         <member name="T:Linkar.Commands.Persistent.Xml.LinkarClient">
             <summary>
             
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Xml.LinkarClient.SessionId">
-            <summary>
-            A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Xml.LinkarClient.PublicKey">
-            <summary>
-            The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.
-            </summary>
-        </member>
-        <member name="P:Linkar.Commands.Persistent.Xml.LinkarClient.LkConnectionId">
-            <summary>
-            Internal LinkarSERVER ID to keep the session. This value is set after Login operation.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Persistent.Xml.LinkarClient.#ctor(System.Int32)">
@@ -137,7 +152,7 @@
             <summary>
             Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
             </summary>
-            <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         </member>
@@ -150,7 +165,7 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Xml.LinkarClient.SendCommand(System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format XML, in a synchronous way.
+            Allows making different operations, through some templates in standard format XML, in a synchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
@@ -158,11 +173,17 @@
         </member>
         <member name="M:Linkar.Commands.Persistent.Xml.LinkarClient.SendCommandAsync(System.String,System.Int32)">
             <summary>
-            Allows making different operations, through some templates in standar format XML, in a asynchronous way.
+            Allows making different operations, through some templates in standard format XML, in a asynchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.DATAFORMAT_TYPE">
+            <summary>
+            Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
+            Also it's the input format type for New, Update and Delete operations.
+            </summary>
         </member>
     </members>
 </doc>

@@ -23,7 +23,7 @@ namespace Linkar
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
-        public static string GetReadArgs(string filename, string recordIds, string dictionaries, DATAFORMATCRU_TYPE outputFormat, ReadOptions readOptions, string customVars)
+        public static string GetReadArgs(string filename, string recordIds, string dictionaries, ReadOptions readOptions, string customVars)
         {
             if (readOptions == null)
                 readOptions = new ReadOptions();
@@ -200,20 +200,6 @@ namespace Linkar
             string options = "";
 
             string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + statement;
-            return cmdArgs;
-        }
-
-        /// <summary>
-        /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the SendCommand operation.
-        /// </summary>
-        /// <param name="command">Content of the operation you want to send.</param>
-       /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
-        public static string GetSendCommandArgs(string command)
-        {
-            string options = "";
-
-            string customVars = "";
-            string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + command;
             return cmdArgs;
         }
 

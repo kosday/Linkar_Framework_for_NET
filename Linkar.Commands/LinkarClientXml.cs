@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 
+using LkCmdPersistent = Linkar.Commands.Persistent;
+
 namespace Linkar.Commands.Persistent.Xml
 {
     /// <summary>
@@ -7,49 +9,7 @@ namespace Linkar.Commands.Persistent.Xml
     /// </summary>
     public class LinkarClient
     {
-        private Functions.LinkarClient _LinkarClt;
-
-        /// <summary>
-        /// A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
-        /// </summary>
-        public string SessionId
-        {
-            get
-            {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.SessionId;
-                else
-                    return "";
-            }
-        }
-
-        /// <summary>
-        /// The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.
-        /// </summary>
-        public string PublicKey
-        {
-            get
-            {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.PublicKey;
-                else
-                    return "";
-            }
-        }
-
-        /// <summary>
-        /// Internal LinkarSERVER ID to keep the session. This value is set after Login operation.
-        /// </summary>
-        public string LkConnectionId
-        {
-            get
-            {
-                if (this._LinkarClt != null)
-                    return this._LinkarClt.LkConnectionId;
-                else
-                    return "";
-            }
-        }
+        private LkCmdPersistent.LinkarClient _LinkarClt;
 
         /// <summary>
         /// Initializes a new instance of the LinkarClt class.
@@ -57,18 +17,18 @@ namespace Linkar.Commands.Persistent.Xml
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
-            this._LinkarClt = new Functions.LinkarClient(receiveTimeout);
+            this._LinkarClt = new LkCmdPersistent.LinkarClient(receiveTimeout);
         }
 
         /// <summary>
         /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
         /// </summary>
-        /// <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        public void Login(CredentialOptions crdOptions, string customVars = "", int receiveTimeout = 0)
+        public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
-            this._LinkarClt.Login(crdOptions, customVars, receiveTimeout);
+            this._LinkarClt.Login(credentialOptions, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -82,7 +42,7 @@ namespace Linkar.Commands.Persistent.Xml
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standar format XML, in a synchronous way.
+        /// Allows making different operations, through some templates in standard format XML, in a synchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
@@ -93,7 +53,7 @@ namespace Linkar.Commands.Persistent.Xml
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standar format XML, in a asynchronous way.
+        /// Allows making different operations, through some templates in standard format XML, in a asynchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>

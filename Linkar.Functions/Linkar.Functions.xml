@@ -4,67 +4,6 @@
         <name>Linkar.Functions</name>
     </assembly>
     <members>
-        <member name="T:Linkar.ConnectionInfo">
-            <summary>
-            Contains the necessary information to stablished a permanent session with LinkarSERVER. Used by Login operation and Permanent operations.
-            </summary>
-        </member>
-        <member name="M:Linkar.ConnectionInfo.#ctor">
-            <summary>
-            Initializes a new instance of the CredentialsOptions class
-            </summary>
-        </member>
-        <member name="M:Linkar.ConnectionInfo.#ctor(System.String,System.String,System.String,Linkar.CredentialOptions)">
-            <summary>
-            Initializes a new instance of the CredentialsOptions class
-            </summary>
-            <param name="sessionId">A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.</param>
-            <param name="lkConnectionId">Internal LinkarSERVER ID to keep the session. This value is set after Login operation.</param>
-            <param name="publicKey">The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.</param>
-            <param name="crdOptions">The CredentialOptions object with the necessary information to connect to the Database.</param>
-        </member>
-        <member name="M:Linkar.ConnectionInfo.ToString">
-            <summary>
-            Converts a ConnectionInfo object to string that can be managed by LinkarSERVER.
-            </summary>
-            <returns>The conversion to string of ConnectionInfo object</returns>
-        </member>
-        <member name="T:Linkar.CredentialOptions">
-            <summary>
-            Contains the necessary information to connect to the Database.
-            </summary>
-        </member>
-        <member name="M:Linkar.CredentialOptions.#ctor">
-            <summary>
-            Initializes a new instance of the CredentialsOptions class
-            </summary>
-        </member>
-        <member name="M:Linkar.CredentialOptions.#ctor(System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the CredentialsOptions class
-            </summary>
-            <param name="host">Address or hostname where Linkar Server is listening.</param>
-            <param name="entrypoint">The EntryPoint Name defined in Linkar Server.</param>
-            <param name="port">Port number where the EntryPoint keeps listening.</param>
-            <param name="username">Linkar Server username.</param>
-            <param name="password">Password of the user Linkar Server.</param>
-            <param name="language">Used to make the database routines know in which language they must answer. The Error messages coming from the Database are in English by default, but you can customize</param>
-            <param name="freeText">Free text that will appear in the Linkar MANAGER to identify in an easy way who is making the petition. For example if the call is made from a ERP, here we can write "MyERP".</param>
-            <param name="pluginId">Internal code to enable its use in Linkar Server. Used by Plugin developers.</param>
-        </member>
-        <member name="M:Linkar.CredentialOptions.FromString(System.String)">
-            <summary>
-            Builds a CredentialOptions object from string
-            </summary>
-            <param name="crdOptions"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Linkar.CredentialOptions.ToString">
-            <summary>
-            Converts a CredentialOptions object to string that can be managed by LinkarSERVER.
-            </summary>
-            <returns>The conversion to string of CredentialOptions object.</returns>
-        </member>
         <member name="T:Linkar.MvOperations">
             <summary>
             
@@ -150,7 +89,7 @@
             <returns>The position (filed number) of the dictionary</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "T:Linkar.OperationArguments" -->
-        <member name="M:Linkar.OperationArguments.GetReadArgs(System.String,System.String,System.String,Linkar.DATAFORMATCRU_TYPE,Linkar.ReadOptions,System.String)">
+        <member name="M:Linkar.OperationArguments.GetReadArgs(System.String,System.String,System.String,Linkar.ReadOptions,System.String)">
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Read operation.
             </summary>
@@ -247,13 +186,6 @@
             </summary>
             <param name="statement">The command you want to execute in the Database.</param>
             <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
-            <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
-        </member>
-        <member name="M:Linkar.OperationArguments.GetSendCommandArgs(System.String)">
-            <summary>
-            Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the SendCommand operation.
-            </summary>
-            <param name="command">Content of the operation you want to send.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         </member>
         <member name="M:Linkar.OperationArguments.GetVersionArgs">

@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Linkar
+namespace Linkar.Commands
 {
     public enum OPERATION_CODE
     {
         NONE = 0,
-        LOGIN = 1, READ = 2, UPDATE = 3, NEW = 4, DELETE = 5, CONVERSION = 6, FORMAT = 7, LOGOUT = 8, VERSION = 9,
-        SELECT = 10, SUBROUTINE = 11, EXECUTE = 12, DICTIONARIES = 13,
-        LKSCHEMAS = 14, LKPROPERTIES = 15, GETTABLE = 16, RESETCOMMONBLOCKS = 17,
+        LOGIN = 1, LOGOUT = 8, VERSION = 9,
 
         COMMAND_XML = 150, COMMAND_JSON = 151,
+    };
+
+    public enum ENVELOPE_FORMAT
+    {
+        XML,
+        JSON
     };
 
     /// <summary>
@@ -24,78 +28,6 @@ namespace Linkar
         XML = 2,
         JSON = 3
     };
-
-    /// <summary>
-    /// Output format type for Read, New, Update and Select operations.
-    /// </summary>
-    public enum DATAFORMATCRU_TYPE
-    {
-        MV = 1,
-        XML = 2,
-        JSON = 3,
-        XML_DICT = 5,
-        XML_SCH = 6,
-        JSON_DICT = 7,
-        JSON_SCH = 8
-    };
-
-    /// <summary>
-    /// Output format type for LkSchemas and LkProperties operations.
-    /// </summary>
-    public enum DATAFORMATSCH_TYPE
-    {
-        MV = 1,
-        XML = 2,
-        JSON = 3,
-        TABLE = 4
-    };
-
-    public enum CONVERSION_TYPE
-    {
-        INPUT,
-        OUTPUT
-    };
-
-    internal class SchemaType
-    {
-        public enum TYPE
-        {
-            LKSCHEMAS = 1,
-            DICTIONARIES = 2,
-            NONE = 3
-        };
-
-        internal static string GetString(TYPE strType)
-        {
-            string str = "NOTHING";
-            if (strType == TYPE.LKSCHEMAS)
-                str = "LKSCHEMAS";
-            if (strType == TYPE.DICTIONARIES)
-                str = "DICTIONARIES";
-
-            return str;
-        }
-    }
-
-    public class RowHeaders
-    {
-        public enum TYPE
-        {
-            MAINLABEL = 1,
-            SHORTLABEL = 2,
-            NONE = 3
-        };
-        internal static string GetString(TYPE strType)
-        {
-            string str = "NOTHING";
-            if (strType == TYPE.MAINLABEL)
-                str = "MAINLABEL";
-            if (strType == TYPE.SHORTLABEL)
-                str = "SHORTLABEL";
-
-            return str;
-        }
-    }
 
     public static class ASCII_Chars
     {
@@ -178,22 +110,4 @@ namespace Linkar
         public const char RS_chr = '\x1E';
         public const string RS_str = "\x1E";
     }
-
-
-    public static class DBMV_Mark
-    {
-        public const char IM = (char)255;
-        public const char AM = (char)254;
-        public const char VM = (char)253;
-        public const char SM = (char)252;
-        public const char TM = (char)251;
-
-        public const string IM_str = "\xFF";
-        public const string AM_str = "\xFE";
-        public const string VM_str = "\xFD";
-        public const string SM_str = "\xFC";
-        public const string TM_str = "\xFB";
-    }
-
-
 }

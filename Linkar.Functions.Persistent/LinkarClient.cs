@@ -14,48 +14,6 @@ namespace Linkar.Functions
         private int _ReceiveTimeout;
 
         /// <summary>
-        /// A unique Identifier for the stablished session in LinkarSERVER. This value is set after Login operation.
-        /// </summary>
-        public string SessionId
-        {
-            get
-            {
-                if (this._ConnectionInfo != null)
-                    return this._ConnectionInfo.SessionId;
-                else
-                    return "";
-            }
-        }
-
-        /// <summary>
-        /// The public key used to encrypt transmission data between LinkarCLIENT and LinkarSERVER. This value is set after Login operation.
-        /// </summary>
-        public string PublicKey
-        {
-            get
-            {
-                if (this._ConnectionInfo != null)
-                    return this._ConnectionInfo.PublicKey;
-                else
-                    return "";
-            }
-        }
-
-        /// <summary>
-        /// Internal LinkarSERVER ID to keep the session. This value is set after Login operation.
-        /// </summary>
-        public string LkConnectionId
-        {
-            get
-            {
-                if (this._ConnectionInfo != null)
-                    return this._ConnectionInfo.LkConnectionId;
-                else
-                    return "";
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the LinkarClt class.
         /// </summary>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
@@ -68,14 +26,14 @@ namespace Linkar.Functions
         /// <summary>
         /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
         /// </summary>
-        /// <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        public void Login(CredentialOptions crdOptions, string customVars = "", int receiveTimeout = 0)
+        public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             if (this._ConnectionInfo == null)
             {
-                string options = "MV";
+                string options = "";
                 string loginArgs = customVars + ASCII_Chars.US_chr + options;
                 byte byteOpCode = (byte)OPERATION_CODE.LOGIN;
                 byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
@@ -85,21 +43,33 @@ namespace Linkar.Functions
                     if (this._ReceiveTimeout > 0)
                         receiveTimeout = this._ReceiveTimeout;
                 }
-                ConnectionInfo connectionInfo = new ConnectionInfo("", "", "", crdOptions);
-                string connInfo = connectionInfo.ToString();
-                string loginResult = Linkar.ExecutePersistentOperation(ref connInfo, byteOpCode, loginArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+                ConnectionInfo connectionInfo = new ConnectionInfo("", "", "", credentialOptions);
+                string loginResult = Linkar.ExecutePersistentOperation(connectionInfo, byteOpCode, loginArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
 
                 if (!string.IsNullOrEmpty(loginResult))
                 {
-                    string [] records = StringFunctions.ExtractRecordIds(loginResult);
-                    if (records.Length == 1)
+                    const string RECORD_IDS_KEY = "RECORD_ID";
+                    const char FS = '\x1C';
+                    const char AM = '\xFE';
+
+                    string sessionId = "";
+                    string[] parts = loginResult.Split(FS);
+                    if (parts.Length >= 1)
                     {
-                        string sessionId = records[0];
-                        string[] connInfoItems = connInfo.Split(ASCII_Chars.FS_chr);
-                        string lkConnectionId = connInfoItems[8];
-                        string publicKey = connInfoItems[9];
-                        this._ConnectionInfo = new ConnectionInfo(sessionId, lkConnectionId, publicKey, crdOptions);
+                        string[] headersList = parts[0].Split(AM);
+                        for (int i = 1; i < headersList.Length; i++)
+                        {
+                            if (headersList[i].ToUpper() == RECORD_IDS_KEY)
+                            {
+                                sessionId = parts[i];
+                                break;
+                            }
+                        }
                     }
+
+                    string lkConnectionId = connectionInfo.LkConnectionId;
+                    string publicKey = connectionInfo.PublicKey;
+                    this._ConnectionInfo = new ConnectionInfo(sessionId, lkConnectionId, publicKey, credentialOptions);
                 }
             }
         }
@@ -111,8 +81,7 @@ namespace Linkar.Functions
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         public void Logout(string customVars = "", int receiveTimeout = 0)
         {
-            string logoutArgs = customVars + ASCII_Chars.US_str +
-                 this._ConnectionInfo.SessionId;
+            string logoutArgs = customVars;
 
             byte byteOpCode = (byte)OPERATION_CODE.LOGOUT;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
@@ -122,8 +91,7 @@ namespace Linkar.Functions
                 if (this._ReceiveTimeout > 0)
                     receiveTimeout = this._ReceiveTimeout;
             }
-            string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, byteOpCode, logoutArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, byteOpCode, logoutArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             if (!string.IsNullOrEmpty(result))
                 this._ConnectionInfo = null;
         }
@@ -136,20 +104,20 @@ namespace Linkar.Functions
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
-        /// <param name="customVars">'s a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+        /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
-        public string Read(string filename, string recordIds, string dictionaries = "", ReadOptions readOptions = null, 
+        public string Read(string filename, string recordIds, string dictionaries = "", ReadOptions readOptions = null,
             DATAFORMATCRU_TYPE outputFormat = DATAFORMATCRU_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
             if (this._ConnectionInfo != null)
             {
-                string readArgs = OperationArguments.GetReadArgs(filename, recordIds, dictionaries, outputFormat, readOptions, customVars);
+                string readArgs = OperationArguments.GetReadArgs(filename, recordIds, dictionaries, readOptions, customVars);
                 byte opCode = (byte)OPERATION_CODE.READ;
                 byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
                 byte byteOutputFormat = (byte)outputFormat;
                 string connectionInfo = this._ConnectionInfo.ToString();
-                string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, readArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+                string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, readArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
                 return result;
             }
             else
@@ -176,7 +144,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, updateArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, updateArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -191,7 +159,7 @@ namespace Linkar.Functions
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
-        public string New(string filename, string records,  NewOptions newOptions = null,
+        public string New(string filename, string records, NewOptions newOptions = null,
             DATAFORMAT_TYPE inputFormat = DATAFORMAT_TYPE.MV, DATAFORMATCRU_TYPE outputFormat = DATAFORMATCRU_TYPE.MV,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -200,7 +168,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, newArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, newArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -223,7 +191,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMATCRU_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, deleteArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, deleteArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -249,7 +217,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, selectArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, selectArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -263,14 +231,14 @@ namespace Linkar.Functions
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
-        public string Subroutine(string subroutineName, int argsNumber, string arguments,  DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
+        public string Subroutine(string subroutineName, int argsNumber, string arguments, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
             string subroutineArgs = OperationArguments.GetSubroutineArgs(subroutineName, argsNumber, arguments, customVars);
             byte opCode = (byte)OPERATION_CODE.SUBROUTINE;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, subroutineArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, subroutineArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -291,7 +259,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, conversionArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, conversionArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -311,7 +279,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, formatArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, formatArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -330,7 +298,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, dictionariesArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, dictionariesArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -349,29 +317,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, executeArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
-            return result;
-        }
-
-        /// <summary>
-        /// Allows making different operations, through some templates in standar format (XML, JSON), in a synchronous way.
-        /// </summary>
-        /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
-        /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        /// <returns>The results of the operation.</returns>
-        public string SendCommand(string command, ENVELOPE_FORMAT commandFormat = ENVELOPE_FORMAT.XML, int receiveTimeout = 0)
-        {
-            string sendCommandArgs = OperationArguments.GetSendCommandArgs(command);
-            byte opCode;
-            if (commandFormat == ENVELOPE_FORMAT.JSON)
-                opCode = (byte)OPERATION_CODE.COMMAND_JSON;
-            else
-                opCode = (byte)OPERATION_CODE.COMMAND_XML;
-            byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
-            byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
-            string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, sendCommandArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, executeArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -397,7 +343,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, versionArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, versionArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -416,7 +362,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, lkSchemasArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, lkSchemasArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -436,7 +382,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, lkPropertiesArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, lkPropertiesArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -458,7 +404,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, getTableArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, getTableArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
 
@@ -475,7 +421,7 @@ namespace Linkar.Functions
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
-            string result = Linkar.ExecutePersistentOperation(ref connectionInfo, opCode, resetCommonBlocksArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
+            string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, resetCommonBlocksArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
     }

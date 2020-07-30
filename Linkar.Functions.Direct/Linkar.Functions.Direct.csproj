@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Functions.Direct\Linkar.Functions.Direct.xml</DocumentationFile>
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Direct\Linkar.Functions.Direct.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

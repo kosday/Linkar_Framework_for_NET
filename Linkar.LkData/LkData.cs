@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+using Linkar;
+
 namespace Linkar.LkData
 {
     /// <summary>

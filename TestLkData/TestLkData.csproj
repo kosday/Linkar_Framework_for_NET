@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\LinkarFramework.Private\Linkar\Linkar.csproj" />
     <ProjectReference Include="..\Linkar.Functions.Persistent.MV\Linkar.Functions.Persistent.MV.csproj" />
     <ProjectReference Include="..\Linkar.LkData\Linkar.LkData.csproj" />
+    <ProjectReference Include="..\Linkar.Strings\Linkar.Strings.csproj" />
   </ItemGroup>
 
 </Project>

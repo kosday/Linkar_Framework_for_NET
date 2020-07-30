@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Linkar;
+
 namespace Linkar.LkData
 {
     /// <summary>

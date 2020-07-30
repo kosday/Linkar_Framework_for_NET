@@ -6,11 +6,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Functions.Persistent.XML\Linkar.Functions.Persistent.XML.xml</DocumentationFile>
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Persistent.XML\Linkar.Functions.Persistent.XML.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Linkar.Functions.Persistent\Linkar.Functions.Persistent.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Linkar">
+      <HintPath>..\Linkar.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

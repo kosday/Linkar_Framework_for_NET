@@ -6,12 +6,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\Linkar.Functions\Linkar.Functions.xml</DocumentationFile>
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions\Linkar.Functions.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Linkar.Strings\Linkar.Strings.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Linkar">

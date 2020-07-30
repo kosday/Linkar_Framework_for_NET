@@ -7,15 +7,15 @@ namespace Linkar.Functions.Persistent.JSON
         /// <summary>
         /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a asynchronous way.
         /// </summary>
-        /// <param name="crdOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        public Task LoginAsync(CredentialOptions crdOptions, string customVars = "", int receiveTimeout = 0)
+        public Task LoginAsync(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task(() =>
             {
 
-                this.Login(crdOptions, customVars, receiveTimeout);
+                this.Login(credentialOptions, customVars, receiveTimeout);
             });
 
             task.Start();
@@ -45,15 +45,16 @@ namespace Linkar.Functions.Persistent.JSON
         /// <param name="records">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
-        /// <param name="customVars">'s a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
+        /// <param name="jsonFormat">Different JSON output formats.</param>
+        /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public Task<string> ReadAsync(string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
-            JSON_FORMAT xmlFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
+            JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return this.Read(filename, records, dictionaries, readOptions, xmlFormat, customVars, receiveTimeout);
+                return this.Read(filename, records, dictionaries, readOptions, jsonFormat, customVars, receiveTimeout);
             });
 
             task.Start();
@@ -66,15 +67,16 @@ namespace Linkar.Functions.Persistent.JSON
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to update. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
         /// <param name="updateOptions">Object that defines the different writing options of the Function: optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
+        /// <param name="jsonFormat">Different JSON output formats.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public Task<string> UpdateAsync(string filename, string records, UpdateOptions updateOptions = null,
-            JSON_FORMAT xmlFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
+            JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return this.Update(filename, records, updateOptions, xmlFormat, customVars, receiveTimeout);
+                return this.Update(filename, records, updateOptions, jsonFormat, customVars, receiveTimeout);
             });
 
             task.Start();
@@ -87,15 +89,16 @@ namespace Linkar.Functions.Persistent.JSON
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
         /// <param name="newOptions">Object that defines the following writing options of the Function: recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
+        /// <param name="jsonFormat">Different JSON output formats.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public Task<string> NewAsync(string filename, string records, NewOptions newOptions = null,
-            JSON_FORMAT xmlFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
+            JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return this.New(filename, records, newOptions, xmlFormat, customVars, receiveTimeout);
+                return this.New(filename, records, newOptions, jsonFormat, customVars, receiveTimeout);
             });
 
             task.Start();
@@ -132,15 +135,16 @@ namespace Linkar.Functions.Persistent.JSON
         /// <param name="dictClause">Is the list of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
         /// <param name="preSelectClause">It's an optional statement that will execute before the main Select</param>
         /// <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
+        /// <param name="jsonFormat">Different JSON output formats.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public Task<string> SelectAsync(string filename, string selectClause = "", string sortClause = "", string dictClause = "", string preSelectClause = "", SelectOptions selectOptions = null,
-            JSON_FORMAT xmlFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
+            JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return this.Select(filename, selectClause, sortClause, dictClause, preSelectClause, selectOptions, xmlFormat, customVars, receiveTimeout);
+                return this.Select(filename, selectClause, sortClause, dictClause, preSelectClause, selectOptions, jsonFormat, customVars, receiveTimeout);
             });
 
             task.Start();
