@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLkData", "TestLkData\TestLkData.csproj", "{9758F956-ACE9-48C1-83CC-DE5F64FD2642}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linkar.Functions.Direct.TABLE", "Linkar.Functions.Direct.TABLE\Linkar.Functions.Direct.TABLE.csproj", "{9F390936-0AF6-4EF9-B3CF-41F2D3861E52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linkar.Functions.Persistent.TABLE", "Linkar.Functions.Persistent.TABLE\Linkar.Functions.Persistent.TABLE.csproj", "{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{9758F956-ACE9-48C1-83CC-DE5F64FD2642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9758F956-ACE9-48C1-83CC-DE5F64FD2642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9758F956-ACE9-48C1-83CC-DE5F64FD2642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F390936-0AF6-4EF9-B3CF-41F2D3861E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F390936-0AF6-4EF9-B3CF-41F2D3861E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F390936-0AF6-4EF9-B3CF-41F2D3861E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F390936-0AF6-4EF9-B3CF-41F2D3861E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
