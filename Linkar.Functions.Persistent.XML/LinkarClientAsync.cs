@@ -5,7 +5,7 @@ namespace Linkar.Functions.Persistent.XML
     public partial class LinkarClient
     {
         /// <summary>
-        /// Closes the communication with the server, that previously has been opened with a Login function, ina asynchronous way.
+        /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a asynchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -22,7 +22,7 @@ namespace Linkar.Functions.Persistent.XML
         }
 
         /// <summary>
-        /// Reads one or several records of a file ina asynchronous way with XML output format.
+        /// Closes the communication with the server, that previously has been opened with a Login function, ina asynchronous way.
         /// </summary>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
@@ -174,7 +174,7 @@ namespace Linkar.Functions.Persistent.XML
         /// <summary>
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, ina asynchronous way with XML output format.
         /// </summary>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: Input=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -293,28 +293,6 @@ namespace Linkar.Functions.Persistent.XML
             var task = new Task<string>(() =>
             {
                 return this.LkProperties(filename, lkPropertiesOptions, customVars, receiveTimeout);
-            });
-
-            task.Start();
-            return task;
-        }
-
-        /// <summary>
-        /// Returns a query result in a table format, ina asynchronous way.
-        /// </summary>
-        /// <param name="filename">File or table name defined in Linkar Schemas. Table notation is: MainTable[.MVTable[.SVTable]]</param>
-        /// <param name="selectClause">Fragment of the phrase that indicate the selection condition. For example WITH CUSTOMER = '1'</param>
-        /// <param name="dictClause">Is the list of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
-        /// <param name="sortClause">Fragment of the phrase that indicates the selection order. If there is a selection rule Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
-        /// <param name="tableOptions">Different function options: rowHeaders, rowProperties, onlyVisibe, usePropertyNames, repeatValues, applyConversion, applyFormat, calculated, pagination, regPage, numPage.</param>
-        /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
-        /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
-        /// <returns>The results of the operation.</returns>
-        public Task<string> GetTableAsync(string filename, string selectClause = "", string dictClause = "", string sortClause = "", TableOptions tableOptions = null, string customVars = "", int receiveTimeout = 0)
-        {
-            var task = new Task<string>(() =>
-            {
-                return this.GetTable(filename, selectClause, dictClause, sortClause, tableOptions, customVars, receiveTimeout);
             });
 
             task.Start();

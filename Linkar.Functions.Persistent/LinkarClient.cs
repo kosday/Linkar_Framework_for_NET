@@ -11,6 +11,15 @@ namespace Linkar.Functions
     public class LinkarClient
     {
         private ConnectionInfo _ConnectionInfo;
+
+        /// <summary>
+        /// SessionID of the connection.
+        /// </summary>
+        public string SessionID
+        {
+            get { return this._ConnectionInfo.SessionId; }
+        }
+
         private int _ReceiveTimeout;
 
         /// <summary>
@@ -24,7 +33,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
+        /// Starts the communication with a server allowing making use of the rest of functions until the Logout method is executed or the connection with the server gets lost, in a synchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -245,7 +254,7 @@ namespace Linkar.Functions
         /// <summary>
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way.
         /// </summary>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: Input=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>

@@ -302,7 +302,7 @@ namespace Linkar
         /// Composes the final string of various "recordsIds". Used by CRUD Operations.
         /// </summary>
         /// <param name="recordIds">Array with the "recordIds" to be joined</param>
-        /// <returns>The final string od "recordIds" to be used CRUD Operations.</returns>
+        /// <returns>The final string of "recordIds" to be used by CRUD Operations.</returns>
         public static string ComposeRecordIds(params string[] recordIds)
         {
             return JoinArray(recordIds, RS_str);
@@ -312,7 +312,7 @@ namespace Linkar
         /// Composes the final string of various "records". Used by CRUD Operations.
         /// </summary>
         /// <param name="records">Array with the "records" to be joined.</param>
-        /// <returns>The final string od "records" to be used CRUD Operations.</returns>
+        /// <returns>The final string of "records" to be used by CRUD Operations.</returns>
         public static string ComposeRecords(params string[] records)
         {
             return JoinArray(records, RS_str);
@@ -329,10 +329,10 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the final string of various "expressions". Used by Format and Conversion Opertations.
+        /// Composes the final string of various "expressions". Used by Format and Conversion Operations.
         /// </summary>
         /// <param name="expressions">Array with the "expressions" to be joined.</param>
-        /// <returns>The final string of "expressions" to be used in Format and Conversion operations.</returns>
+        /// <returns>The final string of "expressions" to be used in Format and Conversion Operations.</returns>
         public static string ComposeExpressions(params string[] expressions)
         {
             return JoinArray(expressions, VM_str);

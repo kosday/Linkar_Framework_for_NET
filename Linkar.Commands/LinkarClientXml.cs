@@ -2,7 +2,7 @@
 
 using LkCmdPersistent = Linkar.Commands.Persistent;
 
-namespace Linkar.Commands.Persistent.Xml
+namespace Linkar.Commands.Persistent.XML
 {
     /// <summary>
     /// 
@@ -10,6 +10,14 @@ namespace Linkar.Commands.Persistent.Xml
     public class LinkarClient
     {
         private LkCmdPersistent.LinkarClient _LinkarClt;
+
+        /// <summary>
+        /// SessionID of the connection.
+        /// </summary>
+        public string SessionID
+        {
+            get { return this._LinkarClt.SessionID; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the LinkarClt class.

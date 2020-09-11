@@ -9,6 +9,14 @@ namespace Linkar.Commands.Persistent
     public class LinkarClient
     {
         private ConnectionInfo _ConnectionInfo;
+        /// <summary>
+        /// SessionID of the connection.
+        /// </summary>
+        public string SessionID
+        {
+            get { return this._ConnectionInfo.SessionId; }
+        }
+
         private int _ReceiveTimeout;
 
         /// <summary>

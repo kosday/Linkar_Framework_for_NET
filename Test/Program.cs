@@ -60,7 +60,8 @@ namespace Test
 
         static void Main(string[] args)
         {
-            crdOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
+            //crdOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
+            crdOptions = new CredentialOptions("192.168.100.100", "QMWINQ", 11300, "admin", "1234", "", "");
             filename = "LK.CUSTOMERS";
 
             try

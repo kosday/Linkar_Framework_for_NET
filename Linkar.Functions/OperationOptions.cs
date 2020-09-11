@@ -287,7 +287,7 @@ namespace Linkar
         {
             this._ActiveTypeLinkar = false;
             this._ActiveTypeRandom = false;
-            this._ActiveTypeCustom = true;
+            this._ActiveTypeCustom = custom;
         }
 
         /// <summary>

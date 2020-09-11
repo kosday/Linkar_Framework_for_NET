@@ -165,14 +165,14 @@
             Composes the final string of various "recordsIds". Used by CRUD Operations.
             </summary>
             <param name="recordIds">Array with the "recordIds" to be joined</param>
-            <returns>The final string od "recordIds" to be used CRUD Operations.</returns>
+            <returns>The final string of "recordIds" to be used by CRUD Operations.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ComposeRecords(System.String[])">
             <summary>
             Composes the final string of various "records". Used by CRUD Operations.
             </summary>
             <param name="records">Array with the "records" to be joined.</param>
-            <returns>The final string od "records" to be used CRUD Operations.</returns>
+            <returns>The final string of "records" to be used by CRUD Operations.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ComposeDictionaries(System.String[])">
             <summary>
@@ -183,10 +183,10 @@
         </member>
         <member name="M:Linkar.StringFunctions.ComposeExpressions(System.String[])">
             <summary>
-            Composes the final string of various "expressions". Used by Format and Conversion Opertations.
+            Composes the final string of various "expressions". Used by Format and Conversion Operations.
             </summary>
             <param name="expressions">Array with the "expressions" to be joined.</param>
-            <returns>The final string of "expressions" to be used in Format and Conversion operations.</returns>
+            <returns>The final string of "expressions" to be used in Format and Conversion Operations.</returns>
         </member>
         <member name="M:Linkar.StringFunctions.ComposeSubroutineArgs(System.String[])">
             <summary>

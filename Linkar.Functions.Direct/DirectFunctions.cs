@@ -79,7 +79,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a synchronous way
+        /// Deletes one or several records in file, in a synchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
@@ -154,7 +154,7 @@ namespace Linkar.Functions.Direct
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: Input=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
@@ -324,7 +324,7 @@ namespace Linkar.Functions.Direct
             string getTableArgs = OperationArguments.GetGetTableArgs(filename, selectClause, dictClause, sortClause, tableOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.GETTABLE;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
-            byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
+            byte byteOutputFormat = (byte)DATAFORMATSCH_TYPE.TABLE;
             string result = Linkar.ExecuteDirectOperation(credentialOptions, opCode, getTableArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
