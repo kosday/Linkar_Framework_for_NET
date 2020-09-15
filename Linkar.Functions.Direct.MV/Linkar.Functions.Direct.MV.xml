@@ -4,12 +4,12 @@
         <name>Linkar.Functions.Direct.MV</name>
     </assembly>
     <members>
-        <member name="T:Linkar.Functions.Direct.MvFunctions">
+        <member name="T:Linkar.Functions.Direct.MV.Functions">
             <summary>
             These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type MV.
             </summary>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,System.String,System.Int32)">
             <summary>
             Reads one or several records of a file in a synchronous way with MV output format.
             </summary>
@@ -22,7 +22,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Update(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Update(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,System.String,System.Int32)">
             <summary>
             Update one or several records of a file, in a synchronous way with MV input and output format.
             </summary>
@@ -34,7 +34,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.New(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.New(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,System.String,System.Int32)">
             <summary>
             Creates one or several records of a file, in a synchronous way with MV input and output format.
             </summary>
@@ -46,7 +46,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
             <summary>
             Deletes one or several records in file, in a synchronous way with MV output format.
             </summary>
@@ -58,7 +58,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Select(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Select(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,System.String,System.Int32)">
             <summary>
             Executes a Query in the Database, in a synchronous way with MV output format.
             </summary>
@@ -73,7 +73,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Subroutine(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Subroutine(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             Executes a subroutine, in a synchronous way with MV output format.
             </summary>
@@ -85,7 +85,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Conversion(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Conversion(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way with MV output format.
             </summary>
@@ -97,7 +97,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Format(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Format(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way with MV output format.
             </summary>
@@ -108,7 +108,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Dictionaries(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Dictionaries(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Returns all the dictionaries of a file, in a synchronous way with MV output format.
             </summary>
@@ -118,7 +118,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.Execute(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.Execute(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Allows the execution of any command from the Database in a synchronous way with MV output format.
             </summary>
@@ -128,13 +128,13 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.GetLocalVersion">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.GetLocalVersion">
             <summary>
             Allows getting the client version.
             </summary>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.GetVersion(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.GetVersion(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Allows getting the server version, in a synchronous way with MV output format.
             </summary>
@@ -142,7 +142,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.LkSchemas(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.LkSchemas(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
             <summary>
             Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way with MV output format.
             </summary>
@@ -152,7 +152,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.LkProperties(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.LkProperties(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
             <summary>
             Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way with MV output format.
             </summary>
@@ -163,7 +163,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.ResetCommonBlocks(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.ResetCommonBlocks(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files in a synchronous way with MV output format.
             </summary>
@@ -171,7 +171,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.ReadAsync(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.ReadAsync(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,System.String,System.Int32)">
             <summary>
             Reads one or several records of a file in asynchronous way with MV output format.
             </summary>
@@ -184,7 +184,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.UpdateAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.UpdateAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,System.String,System.Int32)">
             <summary>
             Update one or several records of a file, in a asynchronous way with MV input and output format.
             </summary>
@@ -196,7 +196,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.NewAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.NewAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,System.String,System.Int32)">
             <summary>
             Creates one or several records of a file, in a asynchronous way with MV input and output format.
             </summary>
@@ -208,7 +208,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.DeleteAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.DeleteAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
             <summary>
             Deletes one or several records in file, in a asynchronous way with MV output format.
             </summary>
@@ -220,7 +220,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.SelectAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.SelectAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,System.String,System.Int32)">
             <summary>
             Executes a Query in the Database, in a asynchronous way with MV output format.
             </summary>
@@ -235,7 +235,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.SubroutineAsync(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.SubroutineAsync(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             Executes a subroutine, in a asynchronous way with MV output format.
             </summary>
@@ -247,7 +247,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.ConversionAsync(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.ConversionAsync(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a asynchronous way with MV output format.
             </summary>
@@ -259,7 +259,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.FormatAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.FormatAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing the FMT function in a expressions list in the Database, in a asynchronous way with MV output format.
             </summary>
@@ -270,7 +270,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.DictionariesAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.DictionariesAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Returns all the dictionaries of a file, in a asynchronous way with MV output format.
             </summary>
@@ -280,7 +280,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.ExecuteAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.ExecuteAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Allows the execution of any command from the Database in a asynchronous way with MV output format.
             </summary>
@@ -290,7 +290,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.GetVersionAsync(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.GetVersionAsync(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Allows getting the server version, in a asynchronous way with MV output format.
             </summary>
@@ -298,7 +298,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.LkSchemaAsync(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.LkSchemaAsync(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
             <summary>
             Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a asynchronous way with MV output format.
             </summary>
@@ -308,7 +308,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.LkPropertiesAsync(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.LkPropertiesAsync(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
             <summary>
             Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a asynchronous way with MV output format.
             </summary>
@@ -319,7 +319,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.MvFunctions.ResetCommonBlocksAsync(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.MV.Functions.ResetCommonBlocksAsync(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files in a asynchronous way with MV output format.
             </summary>

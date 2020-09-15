@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 using Linkar;
-using Linkar.Functions.Direct;
+using Linkar.Functions.Direct.MV;
 using Linkar.Functions.Persistent.MV;
 
 namespace Test
@@ -26,7 +26,7 @@ namespace Test
         static void ReadRecorSync(int i)
         {
             string id = i.ToString();
-            string result = MvFunctions.Read(crdOptions, filename, id);
+            string result = Functions.Read(crdOptions, filename, id);
             string record = StringFunctions.ExtractRecords(result)[0];
             Console.WriteLine(">>>> Id: " + id + " Record: " + record);
         }
@@ -52,7 +52,7 @@ namespace Test
         {
             inputReadRequest++;
             string id = i.ToString();
-            string result = await MvFunctions.ReadAsync(crdOptions, filename, id);
+            string result = await Functions.ReadAsync(crdOptions, filename, id);
             string record = StringFunctions.ExtractRecords(result)[0];
             Console.WriteLine(">>>> Id: " + id + " Record: " + record);
             outputReadRequest++;
@@ -76,7 +76,7 @@ namespace Test
 
                 //READ MV STATIC
                 Console.WriteLine("READ (Direct)");
-                string result = MvFunctions.Read(crdOptions, filename, recordsIds, dictionaries, readOptions);
+                string result = Functions.Read(crdOptions, filename, recordsIds, dictionaries, readOptions);
                 string record = StringFunctions.ExtractRecords(result)[0];
                 Console.WriteLine("RECORD: " + record);
                 Console.WriteLine();

@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 using Linkar;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.MV
 {
     /// <summary>
     /// These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type MV.
     /// </summary>
-    public partial class MvFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// Reads one or several records of a file in a synchronous way with MV output format.

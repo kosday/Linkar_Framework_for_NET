@@ -65,6 +65,11 @@
             These functions perform synchronous persistent (establishing permanent session) operations with any kind of output format type.
             </summary>
         </member>
+        <member name="P:Linkar.Commands.Persistent.LinkarClient.SessionID">
+            <summary>
+            SessionID of the connection.
+            </summary>
+        </member>
         <member name="M:Linkar.Commands.Persistent.LinkarClient.#ctor(System.Int32)">
             <summary>
             Initializes a new instance of the LinkarClt class.
@@ -98,6 +103,11 @@
         <member name="T:Linkar.Commands.Persistent.JSON.LinkarClient">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Linkar.Commands.Persistent.JSON.LinkarClient.SessionID">
+            <summary>
+            SessionID of the connection.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Persistent.JSON.LinkarClient.#ctor(System.Int32)">
@@ -140,6 +150,11 @@
         <member name="T:Linkar.Commands.Persistent.XML.LinkarClient">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Linkar.Commands.Persistent.XML.LinkarClient.SessionID">
+            <summary>
+            SessionID of the connection.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Persistent.XML.LinkarClient.#ctor(System.Int32)">

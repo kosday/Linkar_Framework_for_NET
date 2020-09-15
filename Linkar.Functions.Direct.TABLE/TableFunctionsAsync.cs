@@ -2,7 +2,7 @@
 
 namespace Linkar.Functions.Direct.TABLE
 {
-    public partial class TableFunctions
+    public partial class Functions
     {
         /// <summary>
         /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a asynchronous way with TABLE output format.

@@ -79,13 +79,6 @@
             <param name="lkString">A string obtained as a result of executing an operation.</param>
             <returns>The value of ORIGINAL_RECORDS_KEY tag.</returns>
         </member>
-        <member name="M:Linkar.StringFunctions.ExtractDictionaryIds(System.String)">
-            <summary>
-            Looks for the RECORD_IDS_KEY tag inside "lkString", and extracts its value.
-            </summary>
-            <param name="lkString">A string obtained as a result of executing an operation.</param>
-            <returns>The value of RECORD_IDS_KEY tag.</returns>
-        </member>
         <member name="M:Linkar.StringFunctions.ExtractDictionaries(System.String)">
             <summary>
             Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.

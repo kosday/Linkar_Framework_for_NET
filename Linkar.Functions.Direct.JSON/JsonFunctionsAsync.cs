@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.JSON
 {
-    public partial class JsonFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// Reads one or several records of a file in a asynchronous way with JSON output format.

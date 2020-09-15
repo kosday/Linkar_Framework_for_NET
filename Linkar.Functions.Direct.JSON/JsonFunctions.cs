@@ -1,11 +1,11 @@
 ﻿using Linkar;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.JSON
 {
     /// <summary>
     /// These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type JSON.
     /// </summary>
-    public partial class JsonFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// JSON output formats for Read, Update, New and Select

@@ -2,9 +2,9 @@
 
 using Linkar;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.XML
 {
-    public static partial class XmlFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// Reads one or several records of a file in a asynchronous way with XML output format.

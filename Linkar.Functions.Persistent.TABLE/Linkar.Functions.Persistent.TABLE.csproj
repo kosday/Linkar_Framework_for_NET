@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Persistent.TABLE\Linkar.Functions.Persistent.TABLE.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +17,9 @@
       <HintPath>..\Linkar.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(TargetPath) $(OutDir)..\..\..\..\..\Publish\$(TargetFileName)" />
+  </Target>
 
 </Project>

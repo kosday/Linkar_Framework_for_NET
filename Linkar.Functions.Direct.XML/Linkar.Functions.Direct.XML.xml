@@ -4,32 +4,32 @@
         <name>Linkar.Functions.Direct.XML</name>
     </assembly>
     <members>
-        <member name="T:Linkar.Functions.Direct.XmlFunctions">
+        <member name="T:Linkar.Functions.Direct.XML.Functions">
             <summary>
             These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type XML.
             </summary>
         </member>
-        <member name="T:Linkar.Functions.Direct.XmlFunctions.XML_FORMAT">
+        <member name="T:Linkar.Functions.Direct.XML.Functions.XML_FORMAT">
             <summary>
             XML output formats for Read, Update, New and Select
             </summary>
         </member>
-        <member name="F:Linkar.Functions.Direct.XmlFunctions.XML_FORMAT.XML">
+        <member name="F:Linkar.Functions.Direct.XML.Functions.XML_FORMAT.XML">
             <summary>
             Show the results of the operation in XML format.
             </summary>
         </member>
-        <member name="F:Linkar.Functions.Direct.XmlFunctions.XML_FORMAT.XML_DICT">
+        <member name="F:Linkar.Functions.Direct.XML.Functions.XML_FORMAT.XML_DICT">
             <summary>
             Show the results of the operation in XML_DICT format, using the dictionaries.
             </summary>
         </member>
-        <member name="F:Linkar.Functions.Direct.XmlFunctions.XML_FORMAT.XML_SCH">
+        <member name="F:Linkar.Functions.Direct.XML.Functions.XML_FORMAT.XML_SCH">
             <summary>
             Show the results of the operation in XML_SCH format, using the schema properties.
             </summary>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Reads one or several records of a file in a synchronous way with XML output format.
             </summary>
@@ -43,7 +43,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Update(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Update(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Update one or several records of a file, in a synchronous way with XML input and output format.
             </summary>
@@ -56,7 +56,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.New(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.New(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Creates one or several records of a file, in a synchronous way with XML input and output format.
             </summary>
@@ -69,7 +69,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
             <summary>
             Deletes one or several records in file, in a synchronous way with XML output format.
             </summary>
@@ -81,7 +81,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Select(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Select(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Executes a Query in the Database, in a synchronous way with XML output format.
             </summary>
@@ -97,7 +97,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Subroutine(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Subroutine(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             Executes a subroutine, in a synchronous way with XML output format.
             </summary>
@@ -109,7 +109,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Conversion(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Conversion(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way with XML output format.
             </summary>
@@ -121,7 +121,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Format(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Format(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way with XML output format.
             </summary>
@@ -132,7 +132,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Dictionaries(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Dictionaries(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Returns all the dictionaries of a file, in a synchronous way with XML output format.
             </summary>
@@ -142,7 +142,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.Execute(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.Execute(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Allows the execution of any command from the Database in a synchronous way with XML output format.
             </summary>
@@ -152,7 +152,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.GetVersion(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.GetVersion(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Allows getting the server version, in a synchronous way with XML output format.
             </summary>
@@ -160,7 +160,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.LkSchemas(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.LkSchemas(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
             <summary>
             Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way with XML output format.
             </summary>
@@ -170,7 +170,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.LkProperties(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.LkProperties(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
             <summary>
             Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way with XML output format.
             </summary>
@@ -181,7 +181,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.ResetCommonBlocks(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.ResetCommonBlocks(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files in a synchronous way with XML output format.
             </summary>
@@ -189,7 +189,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.ReadAsync(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.ReadAsync(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Reads one or several records of a file in a asynchronous way with XML output format.
             </summary>
@@ -203,7 +203,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.UpdateAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.UpdateAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Update one or several records of a file, in a asynchronous way with XML input and output format.
             </summary>
@@ -216,7 +216,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.NewAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.NewAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Creates one or several records of a file, in a asynchronous way with XML input and output format.
             </summary>
@@ -229,7 +229,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.DeleteAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.DeleteAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
             <summary>
             Deletes one or several records in file, in a asynchronous way with XML output format.
             </summary>
@@ -241,7 +241,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.SelectAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Direct.XmlFunctions.XML_FORMAT,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.SelectAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Direct.XML.Functions.XML_FORMAT,System.String,System.Int32)">
             <summary>
             Executes a Query in the Database, in a asynchronous way with XML output format.
             </summary>
@@ -257,7 +257,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.SubroutineAsync(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.SubroutineAsync(Linkar.CredentialOptions,System.String,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             Executes a subroutine, in a asynchronous way with XML output format.
             </summary>
@@ -269,7 +269,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.ConversionAsync(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.ConversionAsync(Linkar.CredentialOptions,Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a asynchronous way with XML output format.
             </summary>
@@ -281,7 +281,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.FormatAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.FormatAsync(Linkar.CredentialOptions,System.String,System.String,System.String,System.Int32)">
             <summary>
             Returns the result of executing the FMT function in a expressions list in the Database, in a asynchronous way with XML output format.
             </summary>
@@ -292,7 +292,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.DictionariesAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.DictionariesAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Returns all the dictionaries of a file, in a asynchronous way with XML output format.
             </summary>
@@ -302,7 +302,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.ExecuteAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.ExecuteAsync(Linkar.CredentialOptions,System.String,System.String,System.Int32)">
             <summary>
             Allows the execution of any command from the Database in a asynchronous way with XML output format.
             </summary>
@@ -312,7 +312,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.GetVersionAsync(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.GetVersionAsync(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Allows getting the server version, in a asynchronous way with XML output format.
             </summary>
@@ -320,7 +320,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.LkSchemasAsync(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.LkSchemasAsync(Linkar.CredentialOptions,Linkar.LkSchemasOptions,System.String,System.Int32)">
             <summary>
             Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a asynchronous way with XML output format.
             </summary>
@@ -330,7 +330,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.LkPropertiesAsync(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.LkPropertiesAsync(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
             <summary>
             Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a asynchronous way with XML output format.
             </summary>
@@ -341,7 +341,7 @@
             <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
             <returns>The results of the operation.</returns>
         </member>
-        <member name="M:Linkar.Functions.Direct.XmlFunctions.ResetCommonBlocksAsync(Linkar.CredentialOptions,System.Int32)">
+        <member name="M:Linkar.Functions.Direct.XML.Functions.ResetCommonBlocksAsync(Linkar.CredentialOptions,System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files in a asynchronous way with XML output format.
             </summary>

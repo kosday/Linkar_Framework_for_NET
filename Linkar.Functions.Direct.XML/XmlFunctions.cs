@@ -1,11 +1,11 @@
 ﻿using Linkar;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.XML
 {
     /// <summary>
     /// These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type XML.
     /// </summary>
-    public static partial class XmlFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// XML output formats for Read, Update, New and Select

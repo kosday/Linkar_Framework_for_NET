@@ -35,6 +35,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linkar.Functions.Direct.TAB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linkar.Functions.Persistent.TABLE", "Linkar.Functions.Persistent.TABLE\Linkar.Functions.Persistent.TABLE.csproj", "{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{402F9539-8858-4197-8BC6-88A3EA78A559}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Linkar.Functions.Direct.JSON", "..\LinkarFramework.Doc\Linkar.Functions.Direct.JSON\Linkar.Functions.Direct.JSON.shfbproj", "{46B9C15E-5728-410F-A8EC-052F6CAFFBE5}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Linkar.Functions.Direct", "..\LinkarFramework.Doc\Linkar.Functions.Direct\Linkar.Functions.Direct.shfbproj", "{45031A74-6461-4DE4-B833-6749DC1901CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,9 +111,21 @@ Global
 		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6AE270C-1790-4B87-BD9C-DF69FE4DCF98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B9C15E-5728-410F-A8EC-052F6CAFFBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B9C15E-5728-410F-A8EC-052F6CAFFBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B9C15E-5728-410F-A8EC-052F6CAFFBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B9C15E-5728-410F-A8EC-052F6CAFFBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45031A74-6461-4DE4-B833-6749DC1901CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45031A74-6461-4DE4-B833-6749DC1901CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45031A74-6461-4DE4-B833-6749DC1901CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45031A74-6461-4DE4-B833-6749DC1901CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46B9C15E-5728-410F-A8EC-052F6CAFFBE5} = {402F9539-8858-4197-8BC6-88A3EA78A559}
+		{45031A74-6461-4DE4-B833-6749DC1901CE} = {402F9539-8858-4197-8BC6-88A3EA78A559}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {044E01D9-A1BB-4A00-B8A5-DEE791ADE2DC}

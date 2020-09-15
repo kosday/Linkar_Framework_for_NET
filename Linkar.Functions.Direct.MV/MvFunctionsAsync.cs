@@ -2,9 +2,9 @@
 
 using Linkar;
 
-namespace Linkar.Functions.Direct
+namespace Linkar.Functions.Direct.MV
 {
-    public partial class MvFunctions
+    public static partial class Functions
     {
         /// <summary>
         /// Reads one or several records of a file in asynchronous way with MV output format.

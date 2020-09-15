@@ -159,17 +159,6 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Looks for the RECORD_IDS_KEY tag inside "lkString", and extracts its value.
-        /// </summary>
-        /// <param name="lkString">A string obtained as a result of executing an operation.</param>
-        /// <returns>The value of RECORD_IDS_KEY tag.</returns>
-        public static string[] ExtractDictionaryIds(string lkString)
-        {
-            string valueTag = GetData(lkString, RECORD_IDS_KEY, FS, AM);
-            return SplitArray(valueTag, AM);
-        }
-
-        /// <summary>
         /// Looks for the RECORDS_KEY tag inside "lkString", and extracts its value.
         /// </summary>
         /// <param name="lkString">A string obtained as a result of executing an operation.</param>
