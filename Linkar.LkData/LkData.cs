@@ -72,11 +72,13 @@ namespace Linkar.LkData
             string[] lstRecords = StringFunctions.ExtractRecords(crudOperationResult);
             string[] lstRecordIds = StringFunctions.ExtractRecordIds(crudOperationResult);
             string[] lstOriginalRecords = StringFunctions.ExtractOriginalRecords(crudOperationResult);
+            string[] lstRecordsCalculated = StringFunctions.ExtractRecordsCalculated(crudOperationResult);
             for (int i = 0; i < lstRecordIds.Length; i++)
             {
                 string record = (lstRecords.Length == lstRecordIds.Length ? lstRecords[i] : "");
                 string originalRecord = (lstOriginalRecords.Length == lstRecordIds.Length ? lstOriginalRecords[i] : "");
-                LkItem lkRecord = new LkItem(lstRecordIds[i], record, originalRecord);
+                string calculateds = (lstRecordsCalculated.Length == lstRecordIds.Length ? lstRecordsCalculated[i] : "");
+                LkItem lkRecord = new LkItem(lstRecordIds[i], record, calculateds, originalRecord);
                 this.LkRecords.Add(lkRecord);
             }
         }

@@ -284,15 +284,16 @@ namespace Linkar.LkData
         /// <param name="recordId">The ID of the record.</param>
         /// <param name="record">The content of a record from database.</param>
         /// <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
+        /// <param name="calculateds">The content of the calculated fields of the records.</param>
         /// <param name="lstDictsId">Optionally, array with the dictionary names for record Ids.</param>
         /// <param name="lstDicts">Optionally, array with the dictionarty names for record fields.<param>
         /// <param name="lstDictsCalculated">Optionally, array with the dictionary names for calculated fields of the record.</param>
-        public LkItem(string recordId, string record = "", string originalRecord = "", string[] lstDictsId = null, string[] lstDicts = null, string[] lstDictsCalculated = null)
+        public LkItem(string recordId, string record = "", string calculateds = "", string originalRecord = "", string[] lstDictsId = null, string[] lstDicts = null, string[] lstDictsCalculated = null)
         {
             this.RecordId = recordId;
             this.Record = record;
             this.OriginalRecord = originalRecord;
-            this.Calculated = "";
+            this.Calculated = calculateds;
             if (lstDictsId == null)
                 this._LstDictsId = new string[0];
             else
