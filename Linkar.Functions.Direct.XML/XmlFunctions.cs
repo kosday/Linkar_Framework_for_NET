@@ -41,7 +41,7 @@ namespace Linkar.Functions.Direct.XML
         public static string Read(CredentialOptions credentialOptions, string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Read(credentialOptions, filename, records, dictionaries, readOptions, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
+            return DirectFunctions.Read(credentialOptions, filename, records, dictionaries, readOptions, DATAFORMAT_TYPE.XML, (DATAFORMATCRU_TYPE)xmlFormat, customVars, receiveTimeout);
         }
 
         /// <summary>

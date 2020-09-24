@@ -80,7 +80,7 @@
         public string Read(string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
             JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Read(filename, records, dictionaries, readOptions, (DATAFORMATCRU_TYPE)jsonFormat, customVars, receiveTimeout);
+            return this._LinkarClt.Read(filename, records, dictionaries, readOptions, DATAFORMAT_TYPE.JSON, (DATAFORMATCRU_TYPE)jsonFormat, customVars, receiveTimeout);
         }
 
         /// <summary>

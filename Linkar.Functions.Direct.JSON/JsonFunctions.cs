@@ -41,7 +41,7 @@ namespace Linkar.Functions.Direct.JSON
         public static string Read(CredentialOptions credentialOptions, string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
             JSON_FORMAT jsonFormat = JSON_FORMAT.JSON, string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Read(credentialOptions, filename, records, dictionaries, readOptions, (DATAFORMATCRU_TYPE)jsonFormat, customVars, receiveTimeout);
+            return DirectFunctions.Read(credentialOptions, filename, records, dictionaries, readOptions, DATAFORMAT_TYPE.JSON, (DATAFORMATCRU_TYPE)jsonFormat, customVars, receiveTimeout);
         }
 
         /// <summary>

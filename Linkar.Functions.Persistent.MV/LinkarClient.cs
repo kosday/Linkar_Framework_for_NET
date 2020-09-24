@@ -60,7 +60,7 @@ namespace Linkar.Functions.Persistent.MV
         public string Read(string filename, string recordIds, string dictionaries = "", ReadOptions readOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Read(filename, recordIds, dictionaries, readOptions, DATAFORMATCRU_TYPE.MV, customVars, receiveTimeout);
+            return this._LinkarClt.Read(filename, recordIds, dictionaries, readOptions, DATAFORMAT_TYPE.MV, DATAFORMATCRU_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>

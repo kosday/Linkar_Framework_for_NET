@@ -15,16 +15,17 @@ namespace Linkar.Functions.Direct
         /// <param name="recordIds">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
+        /// <param name="inputFormat">Indicates in what format you wish to send the record ids: MV, XML or JSON.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
         public static string Read(CredentialOptions credentialOptions, string filename, string recordIds, string dictionaries = "", ReadOptions readOptions = null,
-            DATAFORMATCRU_TYPE outputFormat = DATAFORMATCRU_TYPE.MV, string customVars = "", int receiveTimeout = 0)
+             DATAFORMAT_TYPE inputFormat = DATAFORMAT_TYPE.MV, DATAFORMATCRU_TYPE outputFormat = DATAFORMATCRU_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
             string readArgs = OperationArguments.GetReadArgs(filename, recordIds, dictionaries, readOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.READ;
-            byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
+            byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string result = Linkar.ExecuteDirectOperation(credentialOptions, opCode, readArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;

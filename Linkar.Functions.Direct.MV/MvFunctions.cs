@@ -24,7 +24,7 @@ namespace Linkar.Functions.Direct.MV
         public static string Read(CredentialOptions credentialOptions, string filename, string recordIds, string dictionaries = "", ReadOptions readOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Read(credentialOptions, filename, recordIds, dictionaries, readOptions, DATAFORMATCRU_TYPE.MV, customVars, receiveTimeout);
+            return DirectFunctions.Read(credentialOptions, filename, recordIds, dictionaries, readOptions, DATAFORMAT_TYPE.MV, DATAFORMATCRU_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>
