@@ -260,7 +260,7 @@
         </member>
         <member name="M:Linkar.CommonOptions.ToString">
             <summary>
-            Composes the CommonOptions options string in the way that need it by ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
+            Composes the CommonOptions options string for use with ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
             </summary>
             <returns>The string ready to be used by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
         </member>
@@ -286,7 +286,7 @@
         </member>
         <member name="M:Linkar.ReadAfterCommonOptions.ToString">
             <summary>
-            Composes the ReadAfterCommonOptions options string in the way that need it by UpdateOptions and NewOptions classes.
+            Composes the ReadAfterCommonOptions options string for use with UpdateOptions and NewOptions classes.
             </summary>
             <returns>The string ready to be used by UpdateOptions and NewOptions classes</returns>
         </member>
@@ -311,7 +311,7 @@
         </member>
         <member name="M:Linkar.ReadOptions.ToString">
             <summary>
-            Composes the Read options string in the way that LinkarSERVER can manage it.
+            Composes the Read options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -338,7 +338,7 @@
         </member>
         <member name="M:Linkar.UpdateOptions.ToString">
             <summary>
-            Composes the Update options string in the way that LinkarSERVER can manage it.
+            Composes the Update options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -365,7 +365,7 @@
         </member>
         <member name="M:Linkar.NewOptions.ToString">
             <summary>
-            Composes the New options string in the way that LinkarSERVER can manage it.
+            Composes the New options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -418,7 +418,7 @@
         </member>
         <member name="M:Linkar.DeleteOptions.ToString">
             <summary>
-            Composes the Delete options string in the way that LinkarSERVER can manage it.
+            Composes the Delete options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -441,7 +441,7 @@
         </member>
         <member name="M:Linkar.RecoverIdType.ToString">
             <summary>
-            Composes the RecoverIdType options string in the way that LinkarSERVER can manage it.
+            Composes the RecoverIdType options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -470,7 +470,7 @@
         </member>
         <member name="M:Linkar.SelectOptions.ToString">
             <summary>
-            Composes the Select options string in the way that LinkarSERVER can manage it.
+            Composes the Select options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -519,7 +519,7 @@
         </member>
         <member name="M:Linkar.LkSchemasOptions.ToString">
             <summary>
-            Composes the LkSchemas options string in the way that LinkarSERVER can manage it.
+            Composes the LkSchemas options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -569,7 +569,7 @@
         </member>
         <member name="M:Linkar.LkPropertiesOptions.ToString">
             <summary>
-            Composes the LkProperties options string in the way that LinkarSERVER can manage it.
+            Composes the LkProperties options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>
@@ -641,7 +641,7 @@
         </member>
         <member name="M:Linkar.TableOptions.ToString">
             <summary>
-            Composes the GetTable options string in the way that LinkarSERVER can manage it.
+            Composes the GetTable options string for processing through LinkarSERVER to the database.
             </summary>
             <returns>The string ready to be used by LinkarSERVER.</returns>
         </member>

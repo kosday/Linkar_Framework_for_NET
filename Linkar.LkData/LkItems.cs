@@ -124,7 +124,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the all record in the list that will be readed, in MV Read operations, with the RecordId information.
+        /// Composes the final buffer string for one or more records to be read in MV Read operations, with the RecordId information.
         /// </summary>
         /// <returns>The final string buffer for MV Read operations.</returns>
         public string ComposeReadBuffer()
@@ -141,7 +141,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the all records in the list that will be updated, in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
+        /// Composes the final buffer string for one or more records to be updated in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
         /// </summary>
         /// <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
         /// <returns>The final string buffer for MV Update operations.</returns>
@@ -180,7 +180,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the all records that will be created, in MV New operations, with the RecordId and the Record information.
+        /// Composes the final buffer string for one or more records to be created in MV New operations, with the RecordId and the Record information.
         /// </summary>
         /// <returns>The final string buffer for MV New operations.</returns>
         public string ComposeNewBuffer()
@@ -189,7 +189,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the all records that will be deleted, in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+        /// Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
         /// </summary>
         /// <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
         /// <returns>The final string buffer for MV Delete operations.</returns>
@@ -373,7 +373,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the record that will be readed, in MV Read operations, with the RecordId information.
+        /// Composes the final buffer string for one or more records to be read in MV Read operations, with the RecordId information.
         /// </summary>
         /// <returns>The final string buffer for MV Read operations.</returns>
         public string ComposeReadBuffer()
@@ -382,7 +382,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the record that will be updated, in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
+        /// Composes the final buffer string for one or more records to be updated in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
         /// </summary>
         /// <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
         /// <returns>The final string buffer for MV Update operations.</returns>
@@ -392,7 +392,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the record that will be created, in MV New operations, with the RecordId and the Record information.
+        /// Composes the final buffer string for one or more records to be created in MV New operations, with the RecordId and the Record information.
         /// </summary>
         /// <returns>The final string buffer for MV New operations.</returns>
         public string ComposeNewBuffer()
@@ -401,7 +401,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string of the record that will be deleted, in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+        /// Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
         /// </summary>
         /// <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
         /// <returns>The final string buffer for MV Delete operations.</returns>

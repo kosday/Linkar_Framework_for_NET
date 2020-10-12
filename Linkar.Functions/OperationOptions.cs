@@ -36,7 +36,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the CommonOptions options string in the way that need it by ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
+        /// Composes the CommonOptions options string for use with ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
         /// </summary>
         /// <returns>The string ready to be used by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
         public override string ToString()
@@ -79,7 +79,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the ReadAfterCommonOptions options string in the way that need it by UpdateOptions and NewOptions classes.
+        /// Composes the ReadAfterCommonOptions options string for use with UpdateOptions and NewOptions classes.
         /// </summary>
         /// <returns>The string ready to be used by UpdateOptions and NewOptions classes</returns>
         public new string ToString()
@@ -115,7 +115,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the Read options string in the way that LinkarSERVER can manage it.
+        /// Composes the Read options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -160,7 +160,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the Update options string in the way that LinkarSERVER can manage it.
+        /// Composes the Update options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -209,7 +209,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the New options string in the way that LinkarSERVER can manage it.
+        /// Composes the New options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -345,7 +345,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the Delete options string in the way that LinkarSERVER can manage it.
+        /// Composes the Delete options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -404,7 +404,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the RecoverIdType options string in the way that LinkarSERVER can manage it.
+        /// Composes the RecoverIdType options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -466,7 +466,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the Select options string in the way that LinkarSERVER can manage it.
+        /// Composes the Select options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -565,7 +565,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the LkSchemas options string in the way that LinkarSERVER can manage it.
+        /// Composes the LkSchemas options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -689,7 +689,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the LkProperties options string in the way that LinkarSERVER can manage it.
+        /// Composes the LkProperties options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
@@ -876,7 +876,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the GetTable options string in the way that LinkarSERVER can manage it.
+        /// Composes the GetTable options string for processing through LinkarSERVER to the database.
         /// </summary>
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
