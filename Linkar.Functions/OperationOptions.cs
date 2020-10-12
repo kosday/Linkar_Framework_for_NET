@@ -248,7 +248,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// This constructor defines the options for generating Linkar type codes.
+        /// Constructor accepts options for generating Linkar type codes.
         /// </summary>
         /// <param name="prefix">Adding a prefix to the code.</param>
         /// <param name="separator">The separator between the prefix and the code. The allowed separators list is: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
@@ -265,7 +265,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// This constructor defines the options for generating Random type codes.
+        /// Constructor accepts options for generating Random type codes.
         /// </summary>
         /// <param name="numeric">Indicates if the code must be numeric.</param>
         /// <param name="length">Length of the code to create. It must be bigger than 0.</param>
@@ -280,7 +280,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// This constructor defines the options for generating Custom type codes.
+        /// Constructor accepts options for generating Custom type codes.
         /// </summary>
         /// <param name="custom">It must have the value "true" so that the generation of personalized codes through the subroutine of the Database SUB.LK.MAIN.RECOVERRECORDID.CUSTOM is used. If the value is "false", no code generation technique will be used. The codes must be supplied in the New operations.</param>
         public RecordIdType(bool custom)
