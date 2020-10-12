@@ -129,7 +129,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <summary>
         /// Executes a subroutine, synchronously only, with MV output format.
         /// </summary>
-        /// <param name="subroutineName">Subroutine name you want to execute.</param>
+        /// <param name="subroutineName">Name of BASIC subroutine to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
         /// <param name="arguments">The subroutine arguments list.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>

@@ -234,7 +234,7 @@ namespace Linkar.Functions
         /// <summary>
         /// Executes a subroutine, synchronously only.
         /// </summary>
-        /// <param name="subroutineName">Subroutine name you want to execute.</param>
+        /// <param name="subroutineName">Name of BASIC subroutine to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
         /// <param name="arguments">The subroutine arguments list.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
