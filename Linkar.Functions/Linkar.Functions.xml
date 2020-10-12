@@ -575,7 +575,7 @@
         </member>
         <member name="T:Linkar.TableOptions">
             <summary>
-            It contains the options to perform queries with the GetTable function, using the different types of schemas.
+            Detailed options to be used in GetTable and related functions.
             </summary>
         </member>
         <member name="M:Linkar.TableOptions.#ctor">
