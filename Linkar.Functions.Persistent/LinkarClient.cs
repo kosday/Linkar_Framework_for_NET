@@ -256,7 +256,7 @@ namespace Linkar.Functions
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only.
         /// </summary>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
-        /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
+        /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -276,7 +276,7 @@ namespace Linkar.Functions
         /// <summary>
         /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only.
         /// </summary>
-        /// <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
+        /// <param name="expression">The data or expression to format. May include MV marks (value delimiters), in which case the conversion in each value will be executed according to the original MV mark.</param>
         /// <param name="formatSpec">Specified format</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
