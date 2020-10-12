@@ -178,7 +178,7 @@ namespace Linkar.Functions.Direct
         /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="expression">The data or expression to format. May include MV marks (value delimiters), in which case the conversion in each value will be executed according to the original MV mark.</param>
+        /// <param name="expression">The data or expression to format. If multiple values are present, the operation will be performed individually on all values in the expression.</param>
         /// <param name="formatSpec">Specified format</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>

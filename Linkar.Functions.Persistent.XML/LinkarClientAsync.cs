@@ -194,7 +194,7 @@ namespace Linkar.Functions.Persistent.XML
         /// <summary>
         /// Returns the result of executing the FMT function in a expressions list in the Database, ina asynchronous way with XML output format.
         /// </summary>
-        /// <param name="expression">The data or expression to format. May include MV marks (value delimiters), in which case the conversion in each value will be executed according to the original MV mark.</param>
+        /// <param name="expression">The data or expression to format. If multiple values are present, the operation will be performed individually on all values in the expression.</param>
         /// <param name="formatSpec">Specified format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
