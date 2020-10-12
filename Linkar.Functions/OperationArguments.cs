@@ -60,7 +60,7 @@ namespace Linkar
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the New operation.
         /// </summary>
         /// <param name="filename">Name of the file being updated.</param>
-        /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
+        /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
         /// <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>

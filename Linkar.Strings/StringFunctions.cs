@@ -338,7 +338,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Auxiliary function to compose the final string of multiple items using "delitimer" as separation char.
+        /// Auxiliary function to compose the final string of multiple items using "delimiter" as separation char.
         /// </summary>
         /// <param name="items">The "items" to be joined.</param>
         /// <param name="delimiter">The "delimiter" char between the "items".</param>
