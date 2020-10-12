@@ -34,7 +34,7 @@ namespace Linkar.Functions.Direct.JSON
         /// <param name="records">A list of item IDs to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
-        /// <param name="jsonFormat">Different JSON output formats.</param>
+        /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
@@ -51,7 +51,7 @@ namespace Linkar.Functions.Direct.JSON
         /// <param name="filename">Name of the file being updated.</param>
         /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use the StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
         /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
-        /// <param name="jsonFormat">Different JSON output formats.</param>
+        /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
@@ -68,7 +68,7 @@ namespace Linkar.Functions.Direct.JSON
         /// <param name="filename">Name of the file being updated.</param>
         /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
         /// <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
-        /// <param name="jsonFormat">Different JSON output formats.</param>
+        /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
@@ -103,8 +103,8 @@ namespace Linkar.Functions.Direct.JSON
         /// <param name="sortClause">Statement fragment specifies the selection order. If there is a selection rule, Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
         /// <param name="dictClause">Space-delimited list of dictionaries to read. If this list is not set, all fields are returned. For example CUSTOMER DATE ITEM</param>
         /// <param name="preSelectClause">An optional command that executes before the main Select</param>
-        /// <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
-        /// <param name="jsonFormat">Different JSON output formats.</param>
+        /// <param name="selectOptions">Object with options to manage how records are selected, including calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
+        /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
