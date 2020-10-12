@@ -70,7 +70,7 @@
         /// Reads one or several records of a file, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="filename">File name to read.</param>
-        /// <param name="records">The records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
+        /// <param name="records">A list of item IDs to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="jsonFormat">Different JSON output formats.</param>
