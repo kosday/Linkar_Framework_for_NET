@@ -447,8 +447,8 @@ namespace Linkar
         /// </summary>
         /// <param name="onlyRecordId">Returns just the selected records codes.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -505,8 +505,8 @@ namespace Linkar
         /// <param name="rowProperties">First row contains property names.</param>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
@@ -526,8 +526,8 @@ namespace Linkar
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
@@ -547,8 +547,8 @@ namespace Linkar
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
@@ -626,8 +626,8 @@ namespace Linkar
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="usePropertyNames">Use Properties and Table names.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
@@ -648,8 +648,8 @@ namespace Linkar
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
@@ -670,8 +670,8 @@ namespace Linkar
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
@@ -724,7 +724,7 @@ namespace Linkar
     }
 
     /// <summary>
-    /// It contains the options to perform queries with the GetTable function, using the different types of schemas.
+    /// Detailed options to be used in GetTable and related functions.
     /// </summary>
     public class TableOptions
     {
@@ -762,8 +762,8 @@ namespace Linkar
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames,
             bool repeatValues, bool applyConversion, bool applyFormat, bool calculated,
             bool pagination = false, int regPage = 10, int numPage = 1)
@@ -793,8 +793,8 @@ namespace Linkar
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(bool onlyVisibles, bool applyConversion, bool applyFormat, bool calculated,
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
@@ -824,8 +824,8 @@ namespace Linkar
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool repeatValues, bool applyConversion, bool applyFormat, bool calculated,
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
@@ -852,8 +852,8 @@ namespace Linkar
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
-        /// <param name="regPage">In case of pagination indicates the number of records by page. It must be bigger than 0.</param>
-        /// <param name="numPage">In case of pagination it indicates the page number to obtain. Must be greater than 0.</param>
+        /// <param name="regPage">For use with pagination, indicates the number of records by page. It must be bigger than 0.</param>
+        /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool repeatValues,
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
