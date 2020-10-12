@@ -113,6 +113,8 @@ namespace Linkar
         /// <returns>A new string with replaced text.</returns>
         public static string LkChange(string str, string strOld, string strNew, int ocurrence = 0, int start = 0)
         {
+            //FIX: Change param name to "occurrence"
+            //FIX: Correct description for occurrence
             string result = "";
 
             if (ocurrence <= 0 && start <= 0)
