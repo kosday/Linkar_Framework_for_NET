@@ -9,7 +9,7 @@ namespace Linkar.Commands
         /// <summary>
         /// Allows a variety of operations using standard templates (XML, JSON), synchronously only.
         /// </summary>
-        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>

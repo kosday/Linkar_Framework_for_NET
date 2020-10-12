@@ -7,7 +7,7 @@ namespace Linkar.Functions.Persistent.TABLE
         /// <summary>
         /// Closes the communication with the server, that previously has been opened with a Login function, ina asynchronous way.
         /// </summary>
-        /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         public Task LoginAsync(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
