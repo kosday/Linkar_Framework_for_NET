@@ -136,7 +136,7 @@
         /// <param name="filename">File name where the select operation will be perform. For example LK.ORDERS</param>
         /// <param name="selectClause">Fragment of the phrase that indicate the selection condition. For example WITH CUSTOMER = '1'</param>
         /// <param name="sortClause">Fragment of the phrase that indicates the selection order. If there is a selection rule, Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
-        /// <param name="dictClause">Is the list of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
+        /// <param name="dictClause">Space-delimited list of dictionaries to read. If dictionaries are not indicated the function will read the complete buffer. For example CUSTOMER DATE ITEM</param>
         /// <param name="preSelectClause">An optional command that executes before the main Select</param>
         /// <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
         /// <param name="xmlFormat">Different XML output formats.</param>
