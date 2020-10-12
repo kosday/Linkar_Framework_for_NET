@@ -27,7 +27,7 @@ namespace Linkar.Functions.Direct.JSON
             JSON_SCH = 8 }
 
         /// <summary>
-        /// Reads one or several records of a file in a synchronous way with JSON output format.
+        /// Reads one or several records of a file, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name to read.</param>
@@ -45,7 +45,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Update one or several records of a file, in a synchronous way with JSON input and output format.
+        /// Update one or several records of a file, synchronously only, with JSON input and output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name where you are going to write.</param>
@@ -62,7 +62,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Creates one or several records of a file, in a synchronous way with JSON input and output format.
+        /// Creates one or several records of a file, synchronously only, with JSON input and output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name where you are going to write.</param>
@@ -79,7 +79,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a synchronous way with JSON output format.
+        /// Deletes one or several records in file, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
@@ -95,7 +95,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Executes a Query in the Database, in a synchronous way with JSON output format.
+        /// Executes a Query in the Database, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name where the select operation will be perform. For example LK.ORDERS</param>
@@ -115,7 +115,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Executes a subroutine, in a synchronous way with JSON output format.
+        /// Executes a subroutine, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="subroutineName">Subroutine name you want to execute.</param>
@@ -131,7 +131,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way with JSON output format.
+        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
@@ -147,7 +147,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way with JSON output format.
+        /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
@@ -162,7 +162,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Returns all the dictionaries of a file, in a synchronous way with JSON output format.
+        /// Returns all the dictionaries of a file, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name</param>
@@ -176,7 +176,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Allows the execution of any command from the Database in a synchronous way with JSON output format.
+        /// Allows the execution of any command from the Database, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="statement">The command you want to execute in the Database.</param>
@@ -190,7 +190,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Allows getting the server version, in a synchronous way with JSON output format.
+        /// Allows getting the server version, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
@@ -201,7 +201,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way with JSON output format.
+        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
@@ -215,7 +215,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way with JSON output format.
+        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name to LkProperties</param>
@@ -230,7 +230,7 @@ namespace Linkar.Functions.Direct.JSON
         }
 
         /// <summary>
-        /// Resets the COMMON variables with the 100 most used files in a synchronous way with JSON output format.
+        /// Resets the COMMON variables with the 100 most used files, synchronously only, with JSON output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>

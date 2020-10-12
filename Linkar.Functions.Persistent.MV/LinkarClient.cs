@@ -48,7 +48,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Reads one or several records of a file in a synchronous way with MV output format.
+        /// Reads one or several records of a file, synchronously only, with MV output format.
         /// </summary>
         /// <param name="filename">File name to read.</param>
         /// <param name="recordIds">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
@@ -64,7 +64,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Update one or several records of a file, in a synchronous way with MV input and output format.
+        /// Update one or several records of a file, synchronously only, with MV input and output format.
         /// </summary>
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to update. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
@@ -79,7 +79,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Creates one or several records of a file, in a synchronous way with MV input and output format.
+        /// Creates one or several records of a file, synchronously only, with MV input and output format.
         /// </summary>
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
@@ -94,7 +94,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a synchronous way with MV output format.
+        /// Deletes one or several records in file, synchronously only, with MV output format.
         /// </summary>
         /// <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
         /// <param name="records">It's the records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
@@ -109,7 +109,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Executes a Query in the Database, in a synchronous way with MV output format.
+        /// Executes a Query in the Database, synchronously only, with MV output format.
         /// </summary>
         /// <param name="filename">File name where the select operation will be perform. For example LK.ORDERS</param>
         /// <param name="selectClause">Fragment of the phrase that indicate the selection condition. For example WITH CUSTOMER = '1'</param>
@@ -127,7 +127,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Executes a subroutine, in a synchronous way with MV output format.
+        /// Executes a subroutine, synchronously only, with MV output format.
         /// </summary>
         /// <param name="subroutineName">Subroutine name you want to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
@@ -141,7 +141,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way with MV output format.
+        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only, with MV output format.
         /// </summary>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
@@ -155,7 +155,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way with MV output format.
+        /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only, with MV output format.
         /// </summary>
         /// <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
         /// <param name="formatSpec">Specified format</param>
@@ -168,7 +168,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Returns all the dictionaries of a file, in a synchronous way with MV output format.
+        /// Returns all the dictionaries of a file, synchronously only, with MV output format.
         /// </summary>
         /// <param name="filename">File name</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -180,7 +180,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Allows the execution of any command from the Database in a synchronous way with MV output format.
+        /// Allows the execution of any command from the Database, synchronously only, with MV output format.
         /// </summary>
         /// <param name="statement">The command you want to execute in the Database.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -201,7 +201,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Allows getting the server version, in a synchronous way with MV output format.
+        /// Allows getting the server version, synchronously only, with MV output format.
         /// </summary>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>
@@ -211,7 +211,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way with MV output format.
+        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only, with MV output format.
         /// </summary>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -223,7 +223,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way with MV output format.
+        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only, with MV output format.
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
         /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
@@ -236,7 +236,7 @@ namespace Linkar.Functions.Persistent.MV
         }
 
         /// <summary>
-        /// Resets the COMMON variables with the 100 most used files in a synchronous way with MV output format.
+        /// Resets the COMMON variables with the 100 most used files, synchronously only, with MV output format.
         /// </summary>
         /// <param name="receiveTimeout">It's the maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
         /// <returns>The results of the operation.</returns>

@@ -5,7 +5,7 @@ namespace Linkar.Functions.Direct.TABLE
     public static partial class Functions
     {
         /// <summary>
-        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way with TABLE output format.
+        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only, with TABLE output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
@@ -19,7 +19,7 @@ namespace Linkar.Functions.Direct.TABLE
         }
 
         /// <summary>
-        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way with TABLE output format.
+        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only, with TABLE output format.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name to LkProperties</param>

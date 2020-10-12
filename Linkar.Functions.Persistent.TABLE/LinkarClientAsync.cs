@@ -76,7 +76,7 @@ namespace Linkar.Functions.Persistent.TABLE
         }
 
         /// <summary>
-        /// Returns a query result in a table format, in a synchronous way with TABLE output format.
+        /// Returns a query result in a table format, synchronously only, with TABLE output format.
         /// </summary>
         /// <param name="filename">File or table name defined in Linkar Schemas. Table notation is: MainTable[.MVTable[.SVTable]]</param>
         /// <param name="selectClause">Fragment of the phrase that indicate the selection condition. For example WITH CUSTOMER = '1'</param>
