@@ -257,6 +257,7 @@ namespace Linkar
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
         public static string GetGetTableArgs(string filename, string selectClause, string dictClause, string sortClause, TableOptions tableOptions, string customVars)
         {
+            //FIX: function name is GETGET
             string options = tableOptions.ToString();
             string inputData = filename + DBMV_Mark.AM +
                 selectClause + DBMV_Mark.AM +
