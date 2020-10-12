@@ -8,7 +8,7 @@ namespace Linkar.Commands.Direct
     public class JsonCommands
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, in a synchronous way.
+        /// Allows making different operations, through some templates in standard format JSON, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>

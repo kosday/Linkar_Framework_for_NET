@@ -30,7 +30,7 @@ namespace Linkar.Commands.Persistent.JSON
         }
 
         /// <summary>
-        /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a synchronous way.
+        /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -41,7 +41,7 @@ namespace Linkar.Commands.Persistent.JSON
         }
 
         /// <summary>
-        /// Closes the communication with the server, that previously has been opened with a Login function, in a synchronous way.
+        /// Closes the communication with the server, that previously has been opened with a Login function, synchronously only.
         /// </summary>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -51,7 +51,7 @@ namespace Linkar.Commands.Persistent.JSON
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, in a synchronous way.
+        /// Allows making different operations, through some templates in standard format JSON, synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>

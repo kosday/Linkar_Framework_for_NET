@@ -33,7 +33,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Starts the communication with a server allowing making use of the rest of functions until the Logout method is executed or the connection with the server gets lost, in a synchronous way.
+        /// Starts the communication with a server allowing making use of the rest of functions until the Logout method is executed or the connection with the server gets lost, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -84,7 +84,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Closes the communication with the server, that previously has been opened with a Login function, in a synchronous way.
+        /// Closes the communication with the server, that previously has been opened with a Login function, synchronously only.
         /// </summary>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -135,7 +135,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Update one or several records of a file, in a synchronous way.
+        /// Update one or several records of a file, synchronously only.
         /// </summary>
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to update. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
@@ -159,7 +159,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Creates one or several records of a file, in a synchronous way.
+        /// Creates one or several records of a file, synchronously only.
         /// </summary>
         /// <param name="filename">File name where you are going to write.</param>
         /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
@@ -183,7 +183,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a synchronous way
+        /// Deletes one or several records in file, synchronously only
         /// </summary>
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
         /// <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
@@ -206,7 +206,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Executes a Query in the Database, in a synchronous way.
+        /// Executes a Query in the Database, synchronously only.
         /// </summary>
         /// <param name="filename">Name of file on which the operation is performed. For example LK.ORDERS</param>
         /// <param name="selectClause">Statement fragment specifies the selection condition. For example WITH CUSTOMER = '1'</param>
@@ -232,7 +232,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Executes a subroutine, in a synchronous way.
+        /// Executes a subroutine, synchronously only.
         /// </summary>
         /// <param name="subroutineName">Subroutine name you want to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
@@ -253,7 +253,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way.
+        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only.
         /// </summary>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
@@ -274,7 +274,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way.
+        /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only.
         /// </summary>
         /// <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
         /// <param name="formatSpec">Specified format</param>
@@ -294,7 +294,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns all the dictionaries of a file, in a synchronous way.
+        /// Returns all the dictionaries of a file, synchronously only.
         /// </summary>
         /// <param name="filename">File name</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
@@ -313,7 +313,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Allows the execution of any command from the Database in a synchronous way.
+        /// Allows the execution of any command from the Database synchronously only.
         /// </summary>
         /// <param name="statement">The command you want to execute in the Database.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
@@ -341,7 +341,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Allows getting the server version, in a synchronous way.
+        /// Allows getting the server version, synchronously only.
         /// </summary>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -358,7 +358,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way.
+        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only.
         /// </summary>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
@@ -377,7 +377,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way.
+        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only.
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
         /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
@@ -397,7 +397,7 @@ namespace Linkar.Functions
         }
 
         /// <summary>
-        /// Returns a query result in a table format, in a synchronous way.
+        /// Returns a query result in a table format, synchronously only.
         /// </summary>
         /// <param name="filename">File or table name defined in Linkar Schemas. Table notation is: MainTable[.MVTable[.SVTable]]</param>
         /// <param name="selectClause">Statement fragment specifies the selection condition. For example WITH CUSTOMER = '1'</param>

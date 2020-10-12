@@ -8,7 +8,7 @@ namespace Linkar.Commands.Direct
     public class XmlCommands
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standard format XML, in a synchronous way.
+        /// Allows making different operations, through some templates in standard format XML, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>

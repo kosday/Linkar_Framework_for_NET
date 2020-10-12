@@ -34,7 +34,7 @@ namespace Linkar.Functions.Direct.TABLE
         }
 
         /// <summary>
-        /// Returns a query result in a table format, in a synchronous way.
+        /// Returns a query result in a table format, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File or table name defined in Linkar Schemas. Table notation is: MainTable[.MVTable[.SVTable]]</param>

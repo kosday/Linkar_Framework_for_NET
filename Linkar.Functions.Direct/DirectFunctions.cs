@@ -32,7 +32,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Update one or several records of a file, in a synchronous way.
+        /// Update one or several records of a file, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name where you are going to write.</param>
@@ -56,7 +56,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Creates one or several records of a file, in a synchronous way.
+        /// Creates one or several records of a file, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name where you are going to write.</param>
@@ -80,7 +80,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a synchronous way.
+        /// Deletes one or several records in file, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
@@ -103,7 +103,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Executes a Query in the Database, in a synchronous way.
+        /// Executes a Query in the Database, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">Name of file on which the operation is performed. For example LK.ORDERS</param>
@@ -129,7 +129,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Executes a subroutine, in a synchronous way.
+        /// Executes a subroutine, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="subroutineName">Subroutine name you want to execute.</param>
@@ -152,7 +152,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a synchronous way.
+        /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
@@ -175,7 +175,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns the result of executing the FMT function in a expressions list in the Database, in a synchronous way.
+        /// Returns the result of executing the FMT function in a expressions list in the Database, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
@@ -197,7 +197,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns all the dictionaries of a file, in a synchronous way.
+        /// Returns all the dictionaries of a file, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name</param>
@@ -218,7 +218,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Allows the execution of any command from the Database in a synchronous way.
+        /// Allows the execution of any command from the Database synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="statement">The command you want to execute in the Database.</param>
@@ -248,7 +248,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Allows getting the server version, in a synchronous way.
+        /// Allows getting the server version, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
@@ -265,7 +265,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, in a synchronous way.
+        /// Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
@@ -286,7 +286,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, in a synchronous way.
+        /// Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File name to LkProperties</param>
@@ -308,7 +308,7 @@ namespace Linkar.Functions.Direct
         }
 
         /// <summary>
-        /// Returns a query result in a table format, in a synchronous way.
+        /// Returns a query result in a table format, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">File or table name defined in Linkar Schemas. Table notation is: MainTable[.MVTable[.SVTable]]</param>
