@@ -499,7 +499,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkSchemasOptions class.
-        /// This constructor will be used when you want to obtain LKSCHEMAS type schemas.Creation options are allowed for schemasLKSCHEMAS type schemas.
+        /// This constructor will be used when you want to obtain LKSCHEMAS type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -619,7 +619,7 @@ namespace Linkar
 
         /// <summary>
         /// nitializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the LKSCHEMAS schema type.It is allowed to specify creation options for obtaining the list of properties of LKSCHEMAS type schemas.
+        /// This constructor will be used when you want to obtain a list of Properties of the LKSCHEMAS schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -644,7 +644,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the SQLMODE schema type.It is allowed to specify creation options for obtaining the list of properties of SQLMODE type schemas.
+        /// This constructor will be used when you want to obtain a list of Properties of the SQLMODE schema type.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -666,7 +666,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the DICTIONARIES schema type.It is allowed to specify creation options for obtaining the list of properties of DICTIONARIES types schemas.
+        /// This constructor will be used when you want to obtain a list of Properties of the DICTIONARIES schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -751,7 +751,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.It is allowed to specify options for creating queries of LKSCHEMAS type schemas.
+        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -786,7 +786,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the SQLMODE type schemas.It is allowed to specify options for creating queries of SQLMODE type schemas.
+        /// This constructor will be used when you want to perform queries of the SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
@@ -816,7 +816,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the DICTIONARIES type schemas.It is allowed to specify queries creation options of DICTIONARIES type schemas.
+        /// This constructor will be used when you want to perform queries of the DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
@@ -847,7 +847,7 @@ namespace Linkar
 
         /// <summary>
         /// nitializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries without schema information.It is allowed to specify queries creation options without any specific type of schemas.
+        /// This constructor will be used when you want to perform queries without schema information.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
