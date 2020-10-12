@@ -66,7 +66,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <summary>
         /// Update one or several records of a file, synchronously only, with MV input and output format.
         /// </summary>
-        /// <param name="filename">File name where you are going to write.</param>
+        /// <param name="filename">Name of the file being updated.</param>
         /// <param name="records">Are the records you want to update. Inside this string are the recordIds, the records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
         /// <param name="updateOptions">Object that defines the different writing options of the Function: optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -81,7 +81,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <summary>
         /// Creates one or several records of a file, synchronously only, with MV input and output format.
         /// </summary>
-        /// <param name="filename">File name where you are going to write.</param>
+        /// <param name="filename">Name of the file being updated.</param>
         /// <param name="records">Are the records you want to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
         /// <param name="newOptions">Object that defines the following writing options of the Function: recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
