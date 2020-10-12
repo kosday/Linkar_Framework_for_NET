@@ -54,7 +54,8 @@ namespace Linkar.Commands.Persistent.JSON
         /// Allows making different operations, through some templates in standard format JSON, in a synchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>        /// <returns>The results of the operation.</returns>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+		/// <returns>The results of the operation.</returns>
         /// <returns>The results of the operation.</returns>
         public string SendCommand(string command, int receiveTimeout = 0)
         {

@@ -25,7 +25,7 @@
             </summary>
             <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="command">Content of the operation you want to send.</param>
-            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>        /// <returns>The results of the operation.</returns>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommandAsync(Linkar.CredentialOptions,System.String,System.Int32)">
@@ -136,8 +136,8 @@
             Allows making different operations, through some templates in standard format JSON, in a synchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
-            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>        /// <returns>The results of the operation.</returns>
-            <returns>The results of the operation.</returns>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+		        <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Commands.Persistent.JSON.LinkarClient.SendCommandAsync(System.String,System.Int32)">
             <summary>
@@ -183,7 +183,7 @@
             Allows making different operations, through some templates in standard format XML, in a synchronous way.
             </summary>
             <param name="command">Content of the operation you want to send.</param>
-            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>        /// <returns>The results of the operation.</returns>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Commands.Persistent.XML.LinkarClient.SendCommandAsync(System.String,System.Int32)">
