@@ -67,7 +67,7 @@ namespace Linkar
         /// <summary>
         /// Initializes a new instance of the ReadAfterCommonOptions class.
         /// </summary>
-        /// <param name="readAfter">Reads the record again and returns it after the update or new. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+        /// <param name="readAfter">Reads the record again and returns it after the update or new. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -144,7 +144,7 @@ namespace Linkar
         /// Initializes a new instance of the UpdateOptions class.
         /// </summary>
         /// <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user.</param>
-        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -189,14 +189,15 @@ namespace Linkar
         /// <summary>
         /// Initializes a new instance of the NewOptions class.
         /// </summary>
-        /// <param name="recordIdType">Specify the different techniques for generating codes. Mandatory if no registration codes are indicated in the New functions.</param>
-        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+        /// <param name="recordIdType">Specifies the technique for generating item IDs. Mandatory if no registration codes are indicated in the New functions.</param>
+        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
         /// <param name="originalRecords">Return a copy of the records in MV format.</param>
         public NewOptions(RecordIdType recordIdType, bool readAfter = false, bool calculated = false, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
+            //TODO: TG: Please explain "Mandatory if no registration codes are indicated in the New functions."
             if (recordIdType == null)
                 this.RecordIdType = new RecordIdType();
             else
@@ -222,7 +223,7 @@ namespace Linkar
     }
 
     /// <summary>
-    /// Object that works as an argument in NewOptions function and defines the techniques for generating codes.
+    /// Object that works as an argument in NewOptions function and defines the technique for generating item IDs.
     /// </summary>
     public class RecordIdType
     {
@@ -238,7 +239,7 @@ namespace Linkar
         private int _Length;
 
         /// <summary>
-        /// No code generation technique will be used. The codes must be supplied in the New operations.
+        /// No item ID generation technique will be used. the item IDs must be supplied in the New operations.
         /// </summary>
         public RecordIdType()
         {
@@ -248,11 +249,11 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Constructor accepts options for generating Linkar type codes.
+        /// Constructor accepts options for generating Linkar item IDs.
         /// </summary>
-        /// <param name="prefix">Adding a prefix to the code.</param>
-        /// <param name="separator">The separator between the prefix and the code. The allowed separators list is: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
-        /// <param name="formatSpec">The code format, under the Database syntax.</param>
+        /// <param name="prefix">Adding a prefix to the item ID.</param>
+        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
+        /// <param name="formatSpec">Conversion format for the item ID. Use database-specific syntax.</param>
         public RecordIdType(string prefix, string separator, string formatSpec)
         {
             this._ActiveTypeLinkar = true;
@@ -265,10 +266,10 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Constructor accepts options for generating Random type codes.
+        /// Constructor accepts options for generating Random item IDs.
         /// </summary>
-        /// <param name="numeric">Indicates if the code must be numeric.</param>
-        /// <param name="length">Length of the code to create. Must be greater than 0.</param>
+        /// <param name="numeric">Indicates if the item ID must be numeric.</param>
+        /// <param name="length">Length of the item ID to create. Must be greater than 0.</param>
         public RecordIdType(bool numeric, int length)
         {
             this._ActiveTypeLinkar = false;
@@ -280,7 +281,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Constructor accepts options for generating Custom type codes.
+        /// Constructor accepts options for generating Custom item IDs.
         /// </summary>
         /// <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used - IDs must be supplied in the New operations.</param>
         public RecordIdType(bool custom)
@@ -334,7 +335,7 @@ namespace Linkar
         /// Initializes a new instance of the DeleteOptions class
         /// </summary>
         /// <param name="optimisticLockControl">In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user.</param>
-        /// <param name="recoverIdType">Specifies the different recovery techniques of deleted codes.</param>
+        /// <param name="recoverIdType">Specifies the recovery technique for deleted item IDs.</param>
         public DeleteOptions(bool optimisticLockControl, RecoverIdType recoverIdType = null)
         {
             this._OptimisticLock = optimisticLockControl;
@@ -358,7 +359,7 @@ namespace Linkar
     }
 
     /// <summary>
-    /// Object that works as an argument in DeleteOptions function and defines the techniques for recovering deleted codes.
+    /// Object that works as an argument in DeleteOptions function and defines the technique for recovering deleted item IDs.
     /// </summary>
     public class RecoverIdType
     {
@@ -378,10 +379,10 @@ namespace Linkar
         }
 
         /// <summary>
-        /// The technique of recovering deleted Linkar type codes will be used.
+        /// The technique of recovering deleted Linkar item IDs will be used.
         /// </summary>
-        /// <param name="prefix">Adding a prefix to the code.</param>
-        /// <param name="separator">The separator between the prefix and the code. The allowed separators list is: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
+        /// <param name="prefix">Adding a prefix to the item ID.</param>
+        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
         public RecoverIdType(string prefix, string separator)
         {
             //TODO: TG: I don't understand "type codes". Does that mean "record/item IDs"?
@@ -393,7 +394,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// The technique of recovering deleted Custom type codes will be used.
+        /// The technique of recovering deleted Custom item IDs will be used.
         /// </summary>
         /// <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         public RecoverIdType(bool custom)
@@ -447,8 +448,8 @@ namespace Linkar
         /// <summary>
         /// Initializes a new instance of the SelectOptions class.
         /// </summary>
-        /// <param name="onlyRecordId">Returns just the selected records codes.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="onlyRecordId">Returns just the ID(s) of selected record(s).</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
@@ -506,7 +507,7 @@ namespace Linkar
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -527,7 +528,7 @@ namespace Linkar
         /// Constructor of object used to obtain SQLMODE type schemas.Creation options are allowed for SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -548,7 +549,7 @@ namespace Linkar
         /// Constructor of object used to obtain DICTIONARIES type schemas.Creation options are allowed for DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -627,7 +628,7 @@ namespace Linkar
         /// <param name="rowProperties">First row contains property names.</param>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="usePropertyNames">Use Properties and Table names.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -649,7 +650,7 @@ namespace Linkar
         /// Constructor of object used to obtain a list of Properties of the SQLMODE schema type.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -671,7 +672,7 @@ namespace Linkar
         /// Constructor of object used to obtain a list of Properties of the DICTIONARIES schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
@@ -763,7 +764,7 @@ namespace Linkar
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames,
@@ -794,7 +795,7 @@ namespace Linkar
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(bool onlyVisibles, bool applyConversion, bool applyFormat, bool calculated,
@@ -825,7 +826,7 @@ namespace Linkar
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
         /// <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool repeatValues, bool applyConversion, bool applyFormat, bool calculated,
@@ -853,7 +854,7 @@ namespace Linkar
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
-        /// <param name="pagination">Indicates if pagination is being used or not.</param>
+        /// <param name="pagination">True if pagination is being used.</param>
         /// <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
         /// <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         public TableOptions(RowHeaders.TYPE rowHeaders, bool repeatValues,

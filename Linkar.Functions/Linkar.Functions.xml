@@ -278,7 +278,7 @@
             <summary>
             Initializes a new instance of the ReadAfterCommonOptions class.
             </summary>
-            <param name="readAfter">Reads the record again and returns it after the update or new. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+            <param name="readAfter">Reads the record again and returns it after the update or new. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
             <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
             <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -330,7 +330,7 @@
             Initializes a new instance of the UpdateOptions class.
             </summary>
             <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user.</param>
-            <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+            <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
             <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
             <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -356,8 +356,8 @@
             <summary>
             Initializes a new instance of the NewOptions class.
             </summary>
-            <param name="recordIdType">Specify the different techniques for generating codes. Mandatory if no registration codes are indicated in the New functions.</param>
-            <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.</param>
+            <param name="recordIdType">Specifies the technique for generating item IDs. Mandatory if no registration codes are indicated in the New functions.</param>
+            <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
             <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
             <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -371,25 +371,25 @@
         </member>
         <member name="T:Linkar.RecordIdType">
             <summary>
-            Object that works as an argument in NewOptions function and defines the techniques for generating codes.
+            Object that works as an argument in NewOptions function and defines the technique for item IDs.
             </summary>
         </member>
         <member name="M:Linkar.RecordIdType.#ctor">
             <summary>
-            No code generation technique will be used. The codes must be supplied in the New operations.
+              No item ID generation technique will be used. The item IDs must be supplied in the New operations.
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Linkar.RecordIdType.#ctor(System.String,System.String,System.String)" -->
         <member name="M:Linkar.RecordIdType.#ctor(System.Boolean,System.Int32)">
             <summary>
-            Constructor accepts options for generating Random type codes.
+            Constructor accepts options for generating Random item IDs.
             </summary>
-            <param name="numeric">Indicates if the code must be numeric.</param>
-            <param name="length">Length of the code to create. Must be greater than 0.</param>
+            <param name="numeric">Indicates if the item ID must be numeric.</param>
+            <param name="length">Length of the item ID to create. Must be greater than 0.</param>
         </member>
         <member name="M:Linkar.RecordIdType.#ctor(System.Boolean)">
             <summary>
-            Constructor accepts options for generating Custom type codes.
+            Constructor accepts options for generating Custom item IDs.
             </summary>
             <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used - IDs must be supplied in the New operations.</param>
         </member>
@@ -414,7 +414,7 @@
             Initializes a new instance of the DeleteOptions class
             </summary>
             <param name="optimisticLockControl">In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user.</param>
-            <param name="recoverIdType">Specifies the different recovery techniques of deleted codes.</param>
+            <param name="recoverIdType">Specifies the recovery technique for deleted item IDs.</param>
         </member>
         <member name="M:Linkar.DeleteOptions.ToString">
             <summary>
@@ -424,7 +424,7 @@
         </member>
         <member name="T:Linkar.RecoverIdType">
             <summary>
-            Object that works as an argument in DeleteOptions function and defines the techniques for recovering deleted codes.
+              Object that works as an argument in DeleteOptions function and defines the technique for recovering deleted item IDs.
             </summary>
         </member>
         <member name="M:Linkar.RecoverIdType.#ctor">
@@ -435,7 +435,7 @@
         <!-- Badly formed XML comment ignored for member "M:Linkar.RecoverIdType.#ctor(System.String,System.String)" -->
         <member name="M:Linkar.RecoverIdType.#ctor(System.Boolean)">
             <summary>
-            The technique of recovering deleted Custom type codes will be used.
+            The technique of recovering deleted Custom item IDs will be used.
             </summary>
             <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         </member>
@@ -459,8 +459,8 @@
             <summary>
             Initializes a new instance of the SelectOptions class.
             </summary>
-            <param name="onlyRecordId">Returns just the selected records codes.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="onlyRecordId">Returns just the ID(s) of selected record(s).</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
@@ -493,7 +493,7 @@
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="rowProperties">First row contains property names.</param>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -503,7 +503,7 @@
             Constructor of object used to obtain SQLMODE type schemas.Creation options are allowed for SQLMODE type schemas.
             </summary>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -513,7 +513,7 @@
             Constructor of object used to obtain DICTIONARIES type schemas.Creation options are allowed for DICTIONARIES type schemas.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -543,7 +543,7 @@
             <param name="rowProperties">First row contains property names.</param>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
             <param name="usePropertyNames">Use Properties and Table names.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -553,7 +553,7 @@
             Constructor of object used to obtain a list of Properties of the SQLMODE schema type.
             </summary>
             <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -563,7 +563,7 @@
             Constructor of object used to obtain a list of Properties of the DICTIONARIES schema type.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -597,7 +597,7 @@
             <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
             <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -610,7 +610,7 @@
             <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
             <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -624,7 +624,7 @@
             <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
             <param name="applyFormat">Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>
@@ -635,7 +635,7 @@
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
             <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
-            <param name="pagination">Indicates if pagination is being used or not.</param>
+            <param name="pagination">True if pagination is being used.</param>
             <param name="regPage">For use with pagination, indicates the number of records by page. Must be greater than 0.</param>
             <param name="numPage">For use with pagination, indicates the page number to obtain. Must be greater than 0.</param>
         </member>

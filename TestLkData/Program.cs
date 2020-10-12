@@ -18,6 +18,7 @@ namespace TestLkData
                 string filename = "LK.CUSTOMERS";
 
                 Console.WriteLine("NEW OPERATION (NEW98 and NEW)");
+                //FIX: The word "CODE" should not be used for "ItemID". Please change this reference, the dict item, and all related references.
                 LkItems lstLkRecords = new LkItems(new string[] { "CODE" }, new string[] { "NAME", "ADDRRESS" });
 
                 // RECORD1 creation
