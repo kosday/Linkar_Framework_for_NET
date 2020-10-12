@@ -11,8 +11,8 @@ namespace Linkar
         /// <summary>
         /// Counts the delimited substrings inside a string.
         /// </summary>
-        /// <param name="str">The string you are going to count.</param>
-        /// <param name="delimiter">The separator you are going to count.</param>
+        /// <param name="str">Source string of delimited fields.</param>
+        /// <param name="delimiter">The separator character(s) used to delimit fields in the string.</param>
         /// <returns>The number of occurrences found.</returns>
         public static int LkDCount(string str, string delimiter)
         {
@@ -33,8 +33,8 @@ namespace Linkar
         /// <summary>
         /// Counts the occurrences of a substring inside a string.
         /// </summary>
-        /// <param name="str">The string you are going to count.</param>
-        /// <param name="delimiter">The separator you are going to count.</param>
+        /// <param name="str">Source string of delimited fields.</param>
+        /// <param name="delimiter">The separator character(s) used to delimit fields in the string.</param>
         /// <returns>The number of occurrences found.</returns>
         public static int LkCount(string str, string delimiter)
         {
@@ -49,10 +49,10 @@ namespace Linkar
         /// <summary>
         /// Extracts a field, value or subvalue from a dynamic array.
         /// </summary>
-        /// <param name="str">The string on which you are going to extract a value.</param>
-        /// <param name="field">The position of the attribute where you want to extract.</param>
-        /// <param name="value">The multivalue position where you want to extract.</param>
-        /// <param name="subvalue">The subvalue position where you want to extract.</param>
+        /// <param name="str">The source string from which data is extracted.</param>
+        /// <param name="field">The position of the attribute to extract.</param>
+        /// <param name="value">The multivalue position to extract.</param>
+        /// <param name="subvalue">The subvalue position to extract.</param>
         /// <returns>A new string with the extracted value.</returns>
         public static string LkExtract(string str, int field, int value = 0, int subvalue = 0)
         {
@@ -85,11 +85,11 @@ namespace Linkar
         /// <summary>
         /// Extracts a field, value or subvalue from a dynamic array.
         /// </summary>
-        /// <param name="str"></param>
+        /// <param name="str">The source string from which data is extracted.</param>
         /// <param name="lstDicts">Dictionaries list on which the field specified argument will be searched.</param>
-        /// <param name="field">The dictionary name of the attribute where you want to extract.</param>
-        /// <param name="value">The multivalue position where you want to extract.</param>
-        /// <param name="subvalue">The subvalue position where you want to extract.</param>
+        /// <param name="field">The dictionary name of the attribute to extract.</param>
+        /// <param name="value">The multivalue position to extract.</param>
+        /// <param name="subvalue">The subvalue position to extract.</param>
         /// <returns>A new string with the extracted value.</returns>
         public static string LkExtract(string str, string lstDicts, string field, int value = 0, int subvalue = 0)
         {
