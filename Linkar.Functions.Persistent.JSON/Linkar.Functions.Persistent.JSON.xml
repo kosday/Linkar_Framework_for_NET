@@ -34,7 +34,7 @@
             <summary>
             Initializes a new instance of the LinkarClt class.
             </summary>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Login(Linkar.CredentialOptions,System.String,System.Int32)">
             <summary>
@@ -42,14 +42,14 @@
             </summary>
             <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Logout(System.String,System.Int32)">
             <summary>
             Closes the communication with the server, that previously has been opened with a Login function, in a synchronous way.
             </summary>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Read(System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
             <summary>
@@ -61,7 +61,7 @@
             <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Update(System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -73,7 +73,7 @@
             <param name="updateOptions">Object that defines the different writing options of the Function: optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.New(System.String,System.String,Linkar.NewOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -85,7 +85,7 @@
             <param name="newOptions">Object that defines the following writing options of the Function: recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Delete(System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
@@ -96,7 +96,7 @@
             <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
             <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Select(System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -111,7 +111,7 @@
             <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Subroutine(System.String,System.Int32,System.String,System.String,System.Int32)">
@@ -122,7 +122,7 @@
             <param name="argsNumber">Number of arguments</param>
             <param name="arguments">The subroutine arguments list.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Conversion(Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
@@ -133,7 +133,7 @@
             <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
             <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Format(System.String,System.String,System.String,System.Int32)">
@@ -143,7 +143,7 @@
             <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
             <param name="formatSpec">Specified format</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Dictionaries(System.String,System.String,System.Int32)">
@@ -152,7 +152,7 @@
             </summary>
             <param name="filename">File name</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.Execute(System.String,System.String,System.Int32)">
@@ -161,7 +161,7 @@
             </summary>
             <param name="statement">The command you want to execute in the Database.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.GetLocalVersion">
@@ -174,7 +174,7 @@
             <summary>
             Allows getting the server version, synchronously only, with JSON output format.
             </summary>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LkSchemas(Linkar.LkSchemasOptions,System.String,System.Int32)">
@@ -183,7 +183,7 @@
             </summary>
             <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LkProperties(System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
@@ -193,14 +193,14 @@
             <param name="filename">File name to LkProperties</param>
             <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.ResetCommonBlocks(System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files, synchronously only, with JSON output format.
             </summary>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LoginAsync(Linkar.CredentialOptions,System.String,System.Int32)">
@@ -209,14 +209,14 @@
             </summary>
             <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LogoutAsync(System.String,System.Int32)">
             <summary>
             Closes the communication with the server, that previously has been opened with a Login function, in a asynchronous way.
             </summary>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.ReadAsync(System.String,System.String,System.String,Linkar.ReadOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
             <summary>
@@ -228,7 +228,7 @@
             <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.UpdateAsync(System.String,System.String,Linkar.UpdateOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -240,7 +240,7 @@
             <param name="updateOptions">Object that defines the different writing options of the Function: optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.NewAsync(System.String,System.String,Linkar.NewOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -252,7 +252,7 @@
             <param name="newOptions">Object that defines the following writing options of the Function: recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.DeleteAsync(System.String,System.String,Linkar.DeleteOptions,System.String,System.Int32)">
@@ -263,7 +263,7 @@
             <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
             <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.SelectAsync(System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.Functions.Persistent.JSON.JSON_FORMAT,System.String,System.Int32)">
@@ -278,7 +278,7 @@
             <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
             <param name="jsonFormat">Different JSON output formats.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.SubroutineAsync(System.String,System.Int32,System.String,System.String,System.Int32)">
@@ -289,7 +289,7 @@
             <param name="argsNumber">Number of arguments</param>
             <param name="arguments">The subroutine arguments list.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.ConversionAsync(Linkar.CONVERSION_TYPE,System.String,System.String,System.String,System.Int32)">
@@ -300,7 +300,7 @@
             <param name="expression">The data or expression to convert. It can have MV marks, in which case the conversion will execute in each value obeying the original MV mark.</param>
             <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.FormatAsync(System.String,System.String,System.String,System.Int32)">
@@ -310,7 +310,7 @@
             <param name="expression">The data or expression to format. It can contain MV marks, in which case the conversion in each value will be executed according to the original MV mark.</param>
             <param name="formatSpec">Specified format</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.DictionariesAsync(System.String,System.String,System.Int32)">
@@ -319,7 +319,7 @@
             </summary>
             <param name="filename">File name</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.ExecuteAsync(System.String,System.String,System.Int32)">
@@ -328,14 +328,14 @@
             </summary>
             <param name="statement">The command you want to execute in the Database.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.GetVersionAsync(System.Int32)">
             <summary>
             Allows getting the server version, in a asynchronous way with JSON output format.
             </summary>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LkSchemasAsync(Linkar.LkSchemasOptions,System.String,System.Int32)">
@@ -344,7 +344,7 @@
             </summary>
             <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.LkPropertiesAsync(System.String,Linkar.LkPropertiesOptions,System.String,System.Int32)">
@@ -354,14 +354,14 @@
             <param name="filename">File name to LkProperties</param>
             <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Persistent.JSON.LinkarClient.ResetCommonBlocksAsync(System.Int32)">
             <summary>
             Resets the COMMON variables with the 100 most used files in a asynchronous way with JSON output format.
             </summary>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
     </members>

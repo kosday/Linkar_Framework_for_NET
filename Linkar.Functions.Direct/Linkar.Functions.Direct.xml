@@ -21,7 +21,7 @@
             <param name="inputFormat">Indicates in what format you wish to send the record ids: MV, XML or JSON.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Update(Linkar.CredentialOptions,System.String,System.String,Linkar.UpdateOptions,Linkar.DATAFORMAT_TYPE,Linkar.DATAFORMATCRU_TYPE,System.String,System.Int32)">
@@ -35,7 +35,7 @@
             <param name="inputFormat">Indicates in what format you wish to send the resultant writing data: MV, XML or JSON.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.New(Linkar.CredentialOptions,System.String,System.String,Linkar.NewOptions,Linkar.DATAFORMAT_TYPE,Linkar.DATAFORMATCRU_TYPE,System.String,System.Int32)">
@@ -49,7 +49,7 @@
             <param name="inputFormat">Indicates in what format you wish to send the resultant writing data: MV, XML or JSON.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.DeleteOptions,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -62,7 +62,7 @@
             <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Select(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,System.String,Linkar.SelectOptions,Linkar.DATAFORMATCRU_TYPE,System.String,System.Int32)">
@@ -78,7 +78,7 @@
             <param name="selectOptions">Object that defines the different reading options of the Function: calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the Read, New, Update and Select operations: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT or JSON_SCH.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Subroutine(Linkar.CredentialOptions,System.String,System.Int32,System.String,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -91,7 +91,7 @@
             <param name="arguments">The subroutine arguments list.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Conversion(Linkar.CredentialOptions,System.String,System.String,Linkar.CONVERSION_TYPE,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -104,7 +104,7 @@
             <param name="code">The conversion code. It will have to obey the Database conversions specifications.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Format(Linkar.CredentialOptions,System.String,System.String,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -116,7 +116,7 @@
             <param name="formatSpec">Specified format</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Dictionaries(Linkar.CredentialOptions,System.String,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -127,7 +127,7 @@
             <param name="filename">File name</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Execute(Linkar.CredentialOptions,System.String,Linkar.DATAFORMAT_TYPE,System.String,System.Int32)">
@@ -138,7 +138,7 @@
             <param name="statement">The command you want to execute in the Database.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.GetLocalVersion">
@@ -153,7 +153,7 @@
             </summary>
             <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.LkSchemas(Linkar.CredentialOptions,Linkar.LkSchemasOptions,Linkar.DATAFORMATSCH_TYPE,System.String,System.Int32)">
@@ -164,7 +164,7 @@
             <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.LkProperties(Linkar.CredentialOptions,System.String,Linkar.LkPropertiesOptions,Linkar.DATAFORMATSCH_TYPE,System.String,System.Int32)">
@@ -176,7 +176,7 @@
             <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.GetTable(Linkar.CredentialOptions,System.String,System.String,System.String,System.String,Linkar.TableOptions,System.String,System.Int32)">
@@ -190,7 +190,7 @@
             <param name="sortClause">Statement fragment specifies the selection order. If there is a selection rule Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
             <param name="tableOptions">Different function options: rowHeaders, rowProperties, onlyVisibe, usePropertyNames, repeatValues, applyConversion, applyFormat, calculated, pagination, regPage, numPage.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.ResetCommonBlocks(Linkar.CredentialOptions,Linkar.DATAFORMAT_TYPE,System.Int32)">
@@ -199,7 +199,7 @@
             </summary>
             <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
-            <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
         </member>
     </members>

@@ -23,7 +23,7 @@ namespace Linkar.Commands.Persistent.JSON
         /// <summary>
         /// Initializes a new instance of the LinkarClt class.
         /// </summary>
-        /// <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely). When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
             this._LinkarClt = new LkCmdPersistent.LinkarClient(receiveTimeout);
@@ -34,7 +34,7 @@ namespace Linkar.Commands.Persistent.JSON
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             this._LinkarClt.Login(credentialOptions, customVars, receiveTimeout);
@@ -44,7 +44,7 @@ namespace Linkar.Commands.Persistent.JSON
         /// Closes the communication with the server, that previously has been opened with a Login function, in a synchronous way.
         /// </summary>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         public void Logout(string customVars = "", int receiveTimeout = 0)
         {
             this._LinkarClt.Logout(customVars, receiveTimeout);
@@ -54,7 +54,7 @@ namespace Linkar.Commands.Persistent.JSON
         /// Allows making different operations, through some templates in standard format JSON, in a synchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>        /// <returns>The results of the operation.</returns>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>        /// <returns>The results of the operation.</returns>
         /// <returns>The results of the operation.</returns>
         public string SendCommand(string command, int receiveTimeout = 0)
         {
@@ -65,7 +65,7 @@ namespace Linkar.Commands.Persistent.JSON
         /// Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
-        /// <param name="receiveTimeout">The maximum time in seconds that the client will keep waiting the answer by the server. By default 0 (wait indefinitely).</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
         public Task<string> SendCommandAsync(string command, int receiveTimeout = 0)
         {
