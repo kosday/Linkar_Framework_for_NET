@@ -16,7 +16,7 @@
         </member>
         <member name="T:Linkar.Commands.Direct.JsonCommands">
             <summary>
-            Allows making different operations, through some templates in standard format JSON, in a synchronous and synchronous way.
+            Allows making different operations, through some templates in standard format JSON, synchronously and asynchronously.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">
@@ -39,7 +39,7 @@
         </member>
         <member name="T:Linkar.Commands.Direct.XmlCommands">
             <summary>
-            Allows making different operations, through some templates in standard format XML, in a synchronous and synchronous way.
+            Allows making different operations, through some templates in standard format XML, synchronously and asynchronously.
             </summary>
         </member>
         <member name="M:Linkar.Commands.Direct.XmlCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">

@@ -3,7 +3,7 @@
 namespace Linkar.Commands.Direct
 {
     /// <summary>
-    /// Allows making different operations, through some templates in standard format XML, in a synchronous and synchronous way.
+    /// Allows making different operations, through some templates in standard format XML, synchronously and asynchronously.
     /// </summary>
     public class XmlCommands
     {

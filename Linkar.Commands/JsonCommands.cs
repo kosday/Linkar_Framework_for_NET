@@ -3,7 +3,7 @@
 namespace Linkar.Commands.Direct
 {
     /// <summary>
-    /// Allows making different operations, through some templates in standard format JSON, in a synchronous and synchronous way.
+    /// Allows making different operations, through some templates in standard format JSON, synchronously and asynchronously.
     /// </summary>
     public class JsonCommands
     {
