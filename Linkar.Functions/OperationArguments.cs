@@ -19,7 +19,7 @@ namespace Linkar
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Read operation.
         /// </summary>
         /// <param name="filename">File name to read.</param>
-        /// <param name="recordIds">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string.</param>
+        /// <param name="recordIds">The records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string.</param>
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -79,8 +79,8 @@ namespace Linkar
         /// <summary>
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Delete operation.
         /// </summary>
-        /// <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-        /// <param name="records">It's the records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
+        /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
+        /// <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
         /// <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
         /// <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>

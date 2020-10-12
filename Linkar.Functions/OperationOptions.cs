@@ -618,7 +618,7 @@ namespace Linkar
         { }
 
         /// <summary>
-        /// nitializes a new instance of the LkPropertiesOptions class.
+        /// Initializes a new instance of the LkPropertiesOptions class.
         /// Constructor of object used to obtain a list of Properties of the LKSCHEMAS schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
@@ -846,7 +846,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// nitializes a new instance of the TableOptions class.
+        /// Initializes a new instance of the TableOptions class.
         /// Constructor of object used to perform queries without schema information.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>

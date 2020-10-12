@@ -104,7 +104,7 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Read operation.
             </summary>
             <param name="filename">File name to read.</param>
-            <param name="recordIds">It's the records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string.</param>
+            <param name="recordIds">The records codes list to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string.</param>
             <param name="dictionaries">List of dictionaries to read, separated by space. If dictionaries are not indicated the function will read the complete buffer.</param>
             <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
             <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
@@ -134,8 +134,8 @@
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Delete operation.
             </summary>
-            <param name="filename">It's the file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-            <param name="records">It's the records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
+            <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
+            <param name="records">The records list to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
             <param name="deleteOptions">Object that defines the different Function options: optimisticLockControl, recoverRecordIdType.</param>
             <param name="customVars">It's a free text that will travel until the database to make the admin being able to manage additional behaviours in the standard routine SUB.LK.MAIN.CONTROL.CUSTOM. This routine will be called if the argument has content.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
@@ -536,7 +536,7 @@
         </member>
         <member name="M:Linkar.LkPropertiesOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
-            nitializes a new instance of the LkPropertiesOptions class.
+            Initializes a new instance of the LkPropertiesOptions class.
             Constructor of object used to obtain a list of Properties of the LKSCHEMAS schema type.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
@@ -630,7 +630,7 @@
         </member>
         <member name="M:Linkar.TableOptions.#ctor(Linkar.RowHeaders.TYPE,System.Boolean,System.Boolean,System.Int32,System.Int32)">
             <summary>
-            nitializes a new instance of the TableOptions class.
+            Initializes a new instance of the TableOptions class.
             Constructor of object used to perform queries without schema information.
             </summary>
             <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
@@ -648,7 +648,7 @@
         <member name="T:Linkar.DATAFORMAT_TYPE">
             <summary>
             Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
-            Also it's the input format type for New, Update and Delete operations.
+            Also The input format type for New, Update and Delete operations.
             </summary>
         </member>
         <member name="T:Linkar.DATAFORMATCRU_TYPE">

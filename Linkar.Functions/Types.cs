@@ -16,7 +16,7 @@ namespace Linkar
 
     /// <summary>
     /// Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
-    /// Also it's the input format type for New, Update and Delete operations.
+    /// Also The input format type for New, Update and Delete operations.
     /// </summary>
     public enum DATAFORMAT_TYPE
     {
