@@ -3,12 +3,12 @@
 namespace Linkar.Commands.Direct
 {
     /// <summary>
-    /// Allows making different operations, through some templates in standard format JSON, synchronously and asynchronously.
+    /// Allows a variety of operations using standard JSON templates, synchronously and asynchronously.
     /// </summary>
     public class JsonCommands
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, synchronously only.
+        /// Allows a variety of operations using standard JSON templates, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -20,7 +20,7 @@ namespace Linkar.Commands.Direct
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
+        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>

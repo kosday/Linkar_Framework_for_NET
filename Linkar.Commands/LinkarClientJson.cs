@@ -51,7 +51,7 @@ namespace Linkar.Commands.Persistent.JSON
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, synchronously only.
+        /// Allows a variety of operations using standard JSON templates, synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -63,7 +63,7 @@ namespace Linkar.Commands.Persistent.JSON
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format JSON, in a asynchronous way.
+        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>

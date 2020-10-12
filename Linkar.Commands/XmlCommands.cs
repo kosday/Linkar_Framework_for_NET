@@ -3,12 +3,12 @@
 namespace Linkar.Commands.Direct
 {
     /// <summary>
-    /// Allows making different operations, through some templates in standard format XML, synchronously and asynchronously.
+    /// Allows a variety of operations using standard XML templates, synchronously and asynchronously.
     /// </summary>
     public class XmlCommands
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standard format XML, synchronously only.
+        /// Allows a variety of operations using standard XML templates, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -20,7 +20,7 @@ namespace Linkar.Commands.Direct
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format XML, in a asynchronous way.
+        /// Allows a variety of asynchronous operations using standard XML templates.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>

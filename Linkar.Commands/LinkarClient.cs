@@ -103,7 +103,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows making different operations, through some templates in standard format (XML, JSON), synchronously only.
+        /// Allows a variety of operations using standard templates (XML, JSON), synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>

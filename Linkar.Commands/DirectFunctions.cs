@@ -7,7 +7,7 @@ namespace Linkar.Commands
     class DirectFunctions
     {
         /// <summary>
-        /// Allows making different operations, through some templates in standard format (XML, JSON), synchronously only.
+        /// Allows a variety of operations using standard templates (XML, JSON), synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object that defines the necessary data to access to the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
