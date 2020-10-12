@@ -499,7 +499,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkSchemasOptions class.
-        /// This constructor will be used when you want to obtain LKSCHEMAS type schemas.
+        /// Constructor of object used to obtain LKSCHEMAS type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -522,7 +522,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkSchemasOptions class.
-        /// This constructor will be used when you want to obtain SQLMODE type schemas.Creation options are allowed for SQLMODE type schemas.
+        /// Constructor of object used to obtain SQLMODE type schemas.Creation options are allowed for SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -543,7 +543,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkSchemasOptions class.
-        /// This constructor will be used when you want to obtain DICTIONARIES type schemas.Creation options are allowed for DICTIONARIES type schemas.
+        /// Constructor of object used to obtain DICTIONARIES type schemas.Creation options are allowed for DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -619,7 +619,7 @@ namespace Linkar
 
         /// <summary>
         /// nitializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the LKSCHEMAS schema type.
+        /// Constructor of object used to obtain a list of Properties of the LKSCHEMAS schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -644,7 +644,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the SQLMODE schema type.
+        /// Constructor of object used to obtain a list of Properties of the SQLMODE schema type.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -666,7 +666,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
-        /// This constructor will be used when you want to obtain a list of Properties of the DICTIONARIES schema type.
+        /// Constructor of object used to obtain a list of Properties of the DICTIONARIES schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="pagination">Indicates if pagination is being used or not.</param>
@@ -751,7 +751,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to obtain queries of the LKSCHEMAS schema type.
+        /// Constructor of object used to obtain queries of the LKSCHEMAS schema type.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="rowProperties">First row contains property names.</param>
@@ -786,7 +786,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the SQLMODE type schemas.
+        /// Constructor of object used to perform queries of the SQLMODE type schemas.
         /// </summary>
         /// <param name="onlyVisibles">Use only Visible Schemas and Properties.</param>
         /// <param name="applyConversion">Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.</param>
@@ -816,7 +816,7 @@ namespace Linkar
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries of the DICTIONARIES type schemas.
+        /// Constructor of object used to perform queries of the DICTIONARIES type schemas.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
@@ -847,7 +847,7 @@ namespace Linkar
 
         /// <summary>
         /// nitializes a new instance of the TableOptions class.
-        /// This constructor will be used when you want to perform queries without schema information.
+        /// Constructor of object used to perform queries without schema information.
         /// </summary>
         /// <param name="rowHeaders">Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).</param>
         /// <param name="repeatValues">Repeat common atributes in MV and SV groups.</param>
