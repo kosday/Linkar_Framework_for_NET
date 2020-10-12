@@ -38,7 +38,7 @@ namespace Linkar
         /// <summary>
         /// Composes the CommonOptions options string in the way that need it by ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
         /// </summary>
-        /// <returns>The string ready to be manage by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
+        /// <returns>The string ready to be used by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
         public override string ToString()
         {
             string str = (this.Calculated ? "1" : "0") + DBMV_Mark.AM_str +
@@ -81,7 +81,7 @@ namespace Linkar
         /// <summary>
         /// Composes the ReadAfterCommonOptions options string in the way that need it by UpdateOptions and NewOptions classes.
         /// </summary>
-        /// <returns>The string ready to be manage by UpdateOptions and NewOptions classes</returns>
+        /// <returns>The string ready to be used by UpdateOptions and NewOptions classes</returns>
         public new string ToString()
         {
             string str = (this.ReadAfter ? "1" : "0") + DBMV_Mark.AM_str + base.ToString();
@@ -117,7 +117,7 @@ namespace Linkar
         /// <summary>
         /// Composes the Read options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = this.CommonOptions.ToString();
@@ -162,7 +162,7 @@ namespace Linkar
         /// <summary>
         /// Composes the Update options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (this.OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
@@ -211,7 +211,7 @@ namespace Linkar
         /// <summary>
         /// Composes the New options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = this.RecordIdType.ToString() + DBMV_Mark.AM_str +
@@ -291,9 +291,9 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the RecordIdType options string in the way that LinkarSERVER can manage it.
+        /// Composes the RecordIdType options string for processing through LinkarSERVER to the database.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string opLinkar;
@@ -347,7 +347,7 @@ namespace Linkar
         /// <summary>
         /// Composes the Delete options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (this._OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
@@ -384,6 +384,7 @@ namespace Linkar
         /// <param name="separator">The separator between the prefix and the code. The allowed separators list is: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
         public RecoverIdType(string prefix, string separator)
         {
+            //TODO: TG: I don't understand "type codes". Does that mean "record/item IDs"?
             this._ActiveTypeLinkar = true;
             this._ActiveTypeCustom = false;
 
@@ -394,9 +395,10 @@ namespace Linkar
         /// <summary>
         /// The technique of recovering deleted Custom type codes will be used.
         /// </summary>
-        /// <param name="custom">It must have the value "true" so that the recovery of deleted codes is used through the subroutine of the Database SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If the value is "false", no technique to recover deleted codes will be used.</param>
+        /// <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         public RecoverIdType(bool custom)
         {
+            //TODO: TG: I don't understand "type codes". Does that mean "record/item IDs"?
             this._ActiveTypeLinkar = false;
             this._ActiveTypeCustom = custom;
         }
@@ -404,7 +406,7 @@ namespace Linkar
         /// <summary>
         /// Composes the RecoverIdType options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string opLinkar;
@@ -466,7 +468,7 @@ namespace Linkar
         /// <summary>
         /// Composes the Select options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (this._Pagination ? "1" : "0") + DBMV_Mark.VM_str + this._Pagination_RegPage + DBMV_Mark.VM_str + this._Pagination_NumPage + DBMV_Mark.AM_str +
@@ -565,7 +567,7 @@ namespace Linkar
         /// <summary>
         /// Composes the LkSchemas options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
@@ -689,7 +691,7 @@ namespace Linkar
         /// <summary>
         /// Composes the LkProperties options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
@@ -876,7 +878,7 @@ namespace Linkar
         /// <summary>
         /// Composes the GetTable options string in the way that LinkarSERVER can manage it.
         /// </summary>
-        /// <returns>The string ready to be manage by LinkarSERVER.</returns>
+        /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
