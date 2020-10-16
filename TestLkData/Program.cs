@@ -12,14 +12,14 @@ namespace TestLkData
         {
             try
             {
-                CredentialOptions crdOptions = new CredentialOptions("192.168.100.101", "QMEP1", 11301, "admin", "admin", "", "");
+                CredentialOptions crdOptions = new CredentialOptions("192.168.100.100", "QMWINQ", 11300, "admin", "1234", "", "");
                 LinkarClient lkClt = new LinkarClient(60);
                 lkClt.Login(crdOptions);
                 string filename = "LK.CUSTOMERS";
 
                 Console.WriteLine("NEW OPERATION (NEW98 and NEW)");
                 //FIX: The word "CODE" should not be used for "ItemID". Please change this reference, the dict item, and all related references.
-                LkItems lstLkRecords = new LkItems(new string[] { "CODE" }, new string[] { "NAME", "ADDRRESS" });
+                LkItems lstLkRecords = new LkItems(new string[] { "ID" }, new string[] { "NAME", "ADDRRESS" });
 
                 // RECORD1 creation
                 string record1 = "CUSTOMER NEW98" + DBMV_Mark.AM_str + "ADDRESS NEW98" + DBMV_Mark.AM_str + "998 - 998 - 998";
@@ -74,10 +74,8 @@ namespace TestLkData
                 PrintRecord(lkRecord2);
                 string id = lkRecord2.RecordId;
                 Console.WriteLine("record2.RecordId: " + id);
-                id = lkRecord2["@ID"];
-                Console.WriteLine("record2[\"@ID\"]: " + id);
-                id = lkRecord2["CODE"];
-                Console.WriteLine("record2[\"CODE\"]: " + id);
+                id = lkRecord2["ID"];
+                Console.WriteLine("record2[\"ID\"]: " + id);
                 string name = lkRecord2["NAME"];
                 Console.WriteLine("record2[\"NAME\" , 1]: " + name);
                 string addressLine1 = lkRecord2["ADDR", 1];

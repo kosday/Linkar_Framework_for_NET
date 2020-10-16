@@ -127,7 +127,7 @@ namespace Linkar.Functions.Direct.XML
         public static string Subroutine(CredentialOptions credentialOptions, string subroutineName, int argsNumber, string arguments,
         string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.XML, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>

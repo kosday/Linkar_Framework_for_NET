@@ -237,15 +237,15 @@ namespace Linkar.Functions
         /// <param name="subroutineName">Name of BASIC subroutine to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
         /// <param name="arguments">The subroutine arguments list.</param>
-        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
+        /// <param name="inputFormat">Indicates in what format you wish to send the subroutine arguments: MV, XML or JSON.</param>        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public string Subroutine(string subroutineName, int argsNumber, string arguments, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
+        public string Subroutine(string subroutineName, int argsNumber, string arguments, DATAFORMAT_TYPE inputFormat = DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
             string subroutineArgs = OperationArguments.GetSubroutineArgs(subroutineName, argsNumber, arguments, customVars);
             byte opCode = (byte)OPERATION_CODE.SUBROUTINE;
-            byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
+            byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
             string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, subroutineArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
@@ -264,7 +264,7 @@ namespace Linkar.Functions
         /// <returns>The results of the operation.</returns>
         public string Conversion(CONVERSION_TYPE conversionOptions, string expression, string code, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
-            string conversionArgs = OperationArguments.GetConversionArgs(code, expression, conversionOptions, customVars);
+            string conversionArgs = OperationArguments.GetConversionArgs(expression, code, conversionOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.CONVERSION;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
@@ -284,7 +284,7 @@ namespace Linkar.Functions
         /// <returns>The results of the operation.</returns>
         public string Format(string expression, string formatSpec, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
-            string formatArgs = OperationArguments.GetFormatArgs(formatSpec, expression, customVars);
+            string formatArgs = OperationArguments.GetFormatArgs(expression, formatSpec, customVars);
             byte opCode = (byte)OPERATION_CODE.FORMAT;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;

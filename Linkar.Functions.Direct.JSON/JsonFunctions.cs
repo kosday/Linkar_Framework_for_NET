@@ -127,7 +127,7 @@ namespace Linkar.Functions.Direct.JSON
         public static string Subroutine(CredentialOptions credentialOptions, string subroutineName, int argsNumber, string arguments,
             string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.JSON, customVars, receiveTimeout);
+            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.JSON, DATAFORMAT_TYPE.JSON, customVars, receiveTimeout);
         }
 
         /// <summary>

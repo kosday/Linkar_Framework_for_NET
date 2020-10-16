@@ -1,10 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+<AssemblyVersion>2.1.0.0</AssemblyVersion>
+<FileVersion>2.1.0.0</FileVersion>
+<Description>Linkar.Functions.Direct.TABLE Library Version 2.1.0.0 (beta)</Description>
+<Copyright>Copyright © 2020</Copyright>
+<Version>2.1.0.0</Version> 
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Direct.TABLE\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Direct.TABLE\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DocumentationFile>D:\DATOS\Workspace\svn_linkar2_master\LinkarFramework\NET\LinkarFramework\Linkar.Functions.Direct.TABLE\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -19,7 +33,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy $(TargetPath) $(OutDir)..\..\..\..\..\Publish\$(TargetFileName)" />
+    <Exec Command="copy $(TargetPath) $(SolutionDir)Publish\$(ConfigurationName)\$(PlatformName)\$(TargetFileName)&#xD;&#xA;" />
   </Target>
 
 </Project>

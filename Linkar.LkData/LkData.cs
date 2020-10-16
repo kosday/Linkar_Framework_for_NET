@@ -160,7 +160,7 @@ namespace Linkar.LkData
     /// <summary>
     /// Class to management the result of the operations LkSchemas and LkProperties.
     /// </summary>
-    public class LkDataSchProp : LkData
+    public class LkDataSchProp : LkDataCRUD
     {
         public string[] RowProperties { get; }
         public string[] RowHeaders { get; }

@@ -308,7 +308,16 @@ namespace Linkar
         }
 
         /// <summary>
-        /// Composes the final string of various "dictClauses". Used by Read and Select Operations.
+        /// Composes the final string of various "originalRecords". Used by CRUD Operations.
+        /// </summary>
+        /// <param name="originalRecords">Array with the "originalRecords" to be joined.</param>
+        /// <returns>The final string of "originalRecords" to be used by CRUD Operations.</returns>
+        public static string ComposeOriginalRecords(params string[] originalRecords)
+        {
+            return JoinArray(originalRecords, RS_str);
+        }
+
+        /// <summary>        /// Composes the final string of various "dictClauses". Used by Read and Select Operations.
         /// </summary>
         /// <param name="dictionaries">Array with the "dictionaries" to be joined.</param>
         /// <returns>The final string of "dictionaries" to be used by Read and Select Operations.</returns>

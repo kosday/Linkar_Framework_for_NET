@@ -108,21 +108,19 @@ namespace Linkar
         /// <param name="str">The string on which the value is going to change.</param>
         /// <param name="strOld">The value to change. </param>
         /// <param name="strNew">The new value.</param>
-        /// <param name="ocurrence">The new value.</param>
+        /// <param name="occurrence">The new value.</param>
         /// <param name="start">The position from which you are going to start changing values.</param>
         /// <returns>A new string with replaced text.</returns>
-        public static string LkChange(string str, string strOld, string strNew, int ocurrence = 0, int start = 0)
+        public static string LkChange(string str, string strOld, string strNew, int occurrence = 0, int start = 0)
         {
-            //FIX: Change param name to "occurrence"
-            //FIX: Correct description for occurrence
             string result = "";
 
-            if (ocurrence <= 0 && start <= 0)
+            if (occurrence <= 0 && start <= 0)
                 result = str.Replace(strOld, strNew);
             else
             {
                 Regex regex = new Regex(Regex.Escape(strOld));
-                result = regex.Replace(str, strNew, ocurrence, start);
+                result = regex.Replace(str, strNew, occurrence, start);
             }
 
             return result;

@@ -9,10 +9,41 @@ namespace Linkar
     /// </summary>
     public class CommonOptions
     {
-        private bool Calculated;
-        private bool Conversion;
-        private bool FormatSpec;
-        private bool OriginalRecords;
+        private bool _Calculated;
+        /// <summary>
+        /// Returns the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._Calculated; }
+        }
+
+        private bool _Conversion;
+        /// <summary>
+        /// Executes the defined conversions in the dictionaries before returning.
+        /// </summary>
+        public bool Conversion
+        {
+            get { return this._Conversion; }
+        }
+
+        private bool _FormatSpec;
+        /// <summary>
+        /// Executes the defined formats in the dictionaries before returning.
+        /// </summary>
+        public bool FormatSpec
+        {
+            get { return this._FormatSpec; }
+        }
+
+        private bool _OriginalRecords;
+        /// <summary>
+        /// Returns a copy of the records in MV format.
+        /// </summary>
+        public bool OriginalRecords
+        {
+            get { return this._OriginalRecords; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the CommonOptions class.
@@ -29,10 +60,10 @@ namespace Linkar
         /// <param name="originalRecords">Return a copy of the records in MV format.</param>
         public CommonOptions(bool calculated, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
-            this.Calculated = calculated;
-            this.Conversion = conversion;
-            this.FormatSpec = formatSpec;
-            this.OriginalRecords = originalRecords;
+            this._Calculated = calculated;
+            this._Conversion = conversion;
+            this._FormatSpec = formatSpec;
+            this._OriginalRecords = originalRecords;
         }
 
         /// <summary>
@@ -41,11 +72,11 @@ namespace Linkar
         /// <returns>The string ready to be used by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
         public override string ToString()
         {
-            string str = (this.Calculated ? "1" : "0") + DBMV_Mark.AM_str +
+            string str = (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str +
                 /* RESERVED */ DBMV_Mark.AM_str +
-                (this.Conversion ? "1" : "0") + DBMV_Mark.AM_str +
-                (this.FormatSpec ? "1" : "0") + DBMV_Mark.AM_str +
-                (this.OriginalRecords ? "1" : "0");
+                (this._Conversion ? "1" : "0") + DBMV_Mark.AM_str +
+                (this._FormatSpec ? "1" : "0") + DBMV_Mark.AM_str +
+                (this._OriginalRecords ? "1" : "0");
 
             return str;
         }
@@ -56,7 +87,15 @@ namespace Linkar
     /// </summary>
     public class ReadAfterCommonOptions : CommonOptions
     {
-        private bool ReadAfter;
+        private bool _ReadAfter;
+
+        /// <summary>
+        /// Reads the record again and returns it after the update or new. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+        /// </summary>
+        public bool ReadAfter
+        {
+            get { return this._ReadAfter; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the ReadAfterCommonOptions class.
@@ -75,7 +114,7 @@ namespace Linkar
         public ReadAfterCommonOptions(bool readAfter, bool calculated = false, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
             : base(calculated, conversion, formatSpec, originalRecords)
         {
-            this.ReadAfter = readAfter;
+            this._ReadAfter = readAfter;
         }
 
         /// <summary>
@@ -84,7 +123,7 @@ namespace Linkar
         /// <returns>The string ready to be used by UpdateOptions and NewOptions classes</returns>
         public new string ToString()
         {
-            string str = (this.ReadAfter ? "1" : "0") + DBMV_Mark.AM_str + base.ToString();
+            string str = (this._ReadAfter ? "1" : "0") + DBMV_Mark.AM_str + base.ToString();
             return str;
         }
     }
@@ -94,7 +133,39 @@ namespace Linkar
     /// </summary>
     public class ReadOptions
     {
-        private CommonOptions CommonOptions;
+        private CommonOptions _CommonOptions;
+
+        /// <summary>
+        /// Returns the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._CommonOptions.Calculated; }
+        }
+
+        /// <summary>
+        /// Executes the defined conversions in the dictionaries before returning.
+        /// </summary>
+        public bool Conversion
+        {
+            get { return this._CommonOptions.Conversion; }
+        }
+
+        /// <summary>
+        /// Executes the defined formats in the dictionaries before returning.
+        /// </summary>
+        public bool FormatSpec
+        {
+            get { return this._CommonOptions.FormatSpec; }
+        }
+
+        /// <summary>
+        /// Returns a copy of the records in MV format.
+        /// </summary>
+        public bool OriginalRecords
+        {
+            get { return this._CommonOptions.OriginalRecords; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the ReadOptions class
@@ -111,7 +182,7 @@ namespace Linkar
         /// <param name="originalRecords">Return a copy of the records in MV format.</param>
         public ReadOptions(bool calculated, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
-            this.CommonOptions = new CommonOptions(calculated, conversion, formatSpec, originalRecords);
+            this._CommonOptions = new CommonOptions(calculated, conversion, formatSpec, originalRecords);
         }
 
         /// <summary>
@@ -120,7 +191,7 @@ namespace Linkar
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
-            string str = this.CommonOptions.ToString();
+            string str = this._CommonOptions.ToString();
 
             return str;
         }
@@ -132,7 +203,54 @@ namespace Linkar
     public class UpdateOptions
     {
         private ReadAfterCommonOptions _ReadAfterCommonOptions;
-        private bool OptimisticLock;
+        private bool _OptimisticLock;
+        /// <summary>
+        /// Checks out if the file has not been modified by other user.
+        /// </summary>
+        public bool OptimisticLock
+        {
+            get { return this._OptimisticLock; }
+        }
+
+        /// <summary>
+        /// Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+        /// </summary>
+        public bool ReadAfter
+        {
+            get { return this._ReadAfterCommonOptions.ReadAfter; }
+        }
+
+        /// <summary>
+        /// Returns the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._ReadAfterCommonOptions.Calculated; }
+        }
+
+        /// <summary>
+        /// Executes the defined conversions in the dictionaries before returning.
+        /// </summary>
+        public bool Conversion
+        {
+            get { return this._ReadAfterCommonOptions.Conversion; }
+        }
+
+        /// <summary>
+        /// Executes the defined formats in the dictionaries before returning.
+        /// </summary>
+        public bool FormatSpec
+        {
+            get { return this._ReadAfterCommonOptions.FormatSpec; }
+        }
+
+        /// <summary>
+        /// Returns a copy of the records in MV format.
+        /// </summary>
+        public bool OriginalRecords
+        {
+            get { return this._ReadAfterCommonOptions.OriginalRecords; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the UpdateOptions class.
@@ -151,7 +269,7 @@ namespace Linkar
         /// <param name="originalRecords">Return a copy of the records in MV format.</param>
         public UpdateOptions(bool optimisticLockControl, bool readAfter = false, bool calculated = false, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
-            this.OptimisticLock = optimisticLockControl;
+            this._OptimisticLock = optimisticLockControl;
 
             if (readAfter)
                 this._ReadAfterCommonOptions = new ReadAfterCommonOptions(readAfter, calculated, conversion, formatSpec, originalRecords);
@@ -165,7 +283,7 @@ namespace Linkar
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
-            string str = (this.OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
+            string str = (this._OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
                 this._ReadAfterCommonOptions.ToString();
 
             return str;
@@ -177,8 +295,113 @@ namespace Linkar
     /// </summary>
     public class NewOptions
     {
+        private RecordIdType _RecordIdType;
+
+        /// <summary>
+        /// Indicates that the Record Id Type Linkar is enabled.
+        /// </summary>
+        public bool ActiveTypeLinkar
+        {
+            get { return this._RecordIdType.ActiveTypeLinkar; }
+        }
+
+        /// <summary>
+        /// Indicates that the Record Id Type Random is enabled.
+        /// </summary>
+        public bool ActiveTypeRandom
+        {
+            get { return this._RecordIdType.ActiveTypeRandom; }
+        }
+
+        /// <summary>
+        /// Indicates that the Record Id Type Custom is enabled.
+        /// </summary>
+        public bool ActiveTypeCustom
+        {
+            get { return this._RecordIdType.ActiveTypeCustom; }
+        }
+
+        /// <summary>
+        /// A prefix to the code
+        /// </summary>
+        public string Prefix
+        {
+            get { return this._RecordIdType.Prefix; }
+        }
+
+        /// <summary>
+        /// The separator between the prefix and the code. The allowed separators list is: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+        /// </summary>
+        public string Separator
+        {
+            get { return this._RecordIdType.Separator; }
+        }
+
+        /// <summary>
+        /// The code format, under the Database syntax.
+        /// </summary>
+        public string FormatSpec_RecordId
+        {
+            get { return this._RecordIdType.FormatSpec; }
+        }
+
+        /// <summary>
+        /// Indicates if the code must be numeric.
+        /// </summary>
+        public bool Numeric
+        {
+            get { return this._RecordIdType.Numeric; }
+        }
+
+        /// <summary>
+        /// Length of the code to create. It must be bigger than 0.
+        /// </summary>
+        public int Length
+        {
+            get { return this._RecordIdType.Length; }
+        }
+
         private ReadAfterCommonOptions _ReadAfterCommonOptions;
-        private RecordIdType RecordIdType;
+
+        /// <summary>
+        /// Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+        /// </summary>
+        public bool ReadAfter
+        {
+            get { return this._ReadAfterCommonOptions.ReadAfter; }
+        }
+
+        /// <summary>
+        /// Returns the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._ReadAfterCommonOptions.Calculated; }
+        }
+
+        /// <summary>
+        /// Executes the defined conversions in the dictionaries before returning.
+        /// </summary>
+        public bool Conversion
+        {
+            get { return this._ReadAfterCommonOptions.Conversion; }
+        }
+
+        /// <summary>
+        /// Executes the defined formats in the dictionaries before returning.
+        /// </summary>
+        public bool FormatSpec
+        {
+            get { return this._ReadAfterCommonOptions.FormatSpec; }
+        }
+
+        /// <summary>
+        /// Returns a copy of the records in MV format.
+        /// </summary>
+        public bool OriginalRecords
+        {
+            get { return this._ReadAfterCommonOptions.OriginalRecords; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the NewOptions class.
@@ -199,9 +422,9 @@ namespace Linkar
         {
             //TODO: TG: Please explain "Mandatory if no registration codes are indicated in the New functions."
             if (recordIdType == null)
-                this.RecordIdType = new RecordIdType();
+                this._RecordIdType = new RecordIdType();
             else
-                this.RecordIdType = recordIdType;
+                this._RecordIdType = recordIdType;
 
             if (readAfter)
                 this._ReadAfterCommonOptions = new ReadAfterCommonOptions(readAfter, calculated, conversion, formatSpec, originalRecords);
@@ -215,7 +438,7 @@ namespace Linkar
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
-            string str = this.RecordIdType.ToString() + DBMV_Mark.AM_str +
+            string str = this._RecordIdType.ToString() + DBMV_Mark.AM_str +
                 this._ReadAfterCommonOptions.ToString();
 
             return str;
@@ -228,15 +451,76 @@ namespace Linkar
     public class RecordIdType
     {
         private bool _ActiveTypeLinkar;
+        /// <summary>
+        /// Indicates that the Record Id Type Linkar is enabled.
+        /// </summary>
+        public bool ActiveTypeLinkar
+        {
+            get { return this._ActiveTypeLinkar; }
+        }
+
         private bool _ActiveTypeRandom;
+        /// <summary>
+        /// Indicates that the Record Id Type Random is enabled.
+        /// </summary>
+        public bool ActiveTypeRandom
+        {
+            get { return this._ActiveTypeRandom; }
+        }
+
         private bool _ActiveTypeCustom;
+        /// <summary>
+        /// Indicates that the Record Id Type Custom is enabled.
+        /// </summary>
+        public bool ActiveTypeCustom
+        {
+            get { return this._ActiveTypeCustom; }
+        }
 
         private string _Prefix;
+        /// <summary>
+        /// A prefix to the code
+        /// </summary>
+        public string Prefix
+        {
+            get { return this._Prefix; }
+        }
+
         private string _Separator;
+        /// <summary>
+        /// The separator between the prefix and the code. The allowed separators list is: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+        /// </summary>
+        public string Separator
+        {
+            get { return this._Separator; }
+        }
+
         private string _FormatSpec;
+        /// <summary>
+        /// The code format, under the Database syntax.
+        /// </summary>
+        public string FormatSpec
+        {
+            get { return this._FormatSpec; }
+        }
 
         private bool _Numeric;
+        /// <summary>
+        /// Indicates if the code must be numeric.
+        /// </summary>
+        public bool Numeric
+        {
+            get { return this._Numeric; }
+        }
+
         private int _Length;
+        /// <summary>
+        /// Length of the code to create. It must be bigger than 0.
+        /// </summary>
+        public int Length
+        {
+            get { return this._Length; }
+        }
 
         /// <summary>
         /// No item ID generation technique will be used. the item IDs must be supplied in the New operations.
@@ -323,7 +607,47 @@ namespace Linkar
     public class DeleteOptions
     {
         private bool _OptimisticLock;
+        /// <summary>
+        /// In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user.
+        /// </summary>
+        public bool OptimisticLock
+        {
+            get { return this._OptimisticLock; }
+        }
+
         private RecoverIdType _RecoverIdType;
+
+        /// <summary>
+        /// Indicates that the Recover Id Type Linkar is enabled.
+        /// </summary>
+        public bool ActiveTypeLinkar
+        {
+            get { return this._RecoverIdType.ActiveTypeLinkar; }
+        }
+
+        /// <summary>
+        /// Indicates that the Recover Id Type Custom is enabled.
+        /// </summary>
+        public bool ActiveTypeCustom
+        {
+            get { return this._RecoverIdType.ActiveTypeCustom; }
+        }
+
+        /// <summary>
+        /// A prefix to the code.
+        /// </summary>
+        public string Prefix
+        {
+            get { return this._RecoverIdType.Prefix; }
+        }
+
+        /// <summary>
+        /// The separator between the prefix and the code. The allowed separators list is: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+        /// </summary>
+        public string Separator
+        {
+            get { return this._RecoverIdType.Separator; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the DeleteOptions class
@@ -364,11 +688,40 @@ namespace Linkar
     public class RecoverIdType
     {
         private bool _ActiveTypeLinkar;
+        /// <summary>
+        /// Indicates that the Recover Id Type Linkar is enabled.
+        /// </summary>
+        public bool ActiveTypeLinkar
+        {
+            get { return this._ActiveTypeLinkar; }
+        }
+
         private bool _ActiveTypeCustom;
+        /// <summary>
+        /// Indicates that the Recover Id Type Custom is enabled.
+        /// </summary>
+        public bool ActiveTypeCustom
+        {
+            get { return this._ActiveTypeCustom; }
+        }
 
         private string _Prefix;
-        private string _Separator;
+        /// <summary>
+        /// A prefix to the code.
+        /// </summary>
+        public string Prefix
+        {
+            get { return this._Prefix; }
+        }
 
+        private string _Separator;
+        /// <summary>
+        /// The separator between the prefix and the code. The allowed separators list is: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+        /// </summary>
+        public string Separator
+        {
+            get { return this._Separator; }
+        }
         /// <summary>
         /// No code recovery technique will be used.
         /// </summary>
@@ -433,11 +786,70 @@ namespace Linkar
     public class SelectOptions
     {
         private bool _OnlyRecordId;
+        /// <summary>
+        /// Returns just the selected records codes.
+        /// </summary>
+        public bool OnlyRecordId
+        {
+            get { return this._OnlyRecordId; }
+        }
         private bool _Pagination;
+        /// <summary>
+        /// Indicates if pagination is being used or not.
+        /// </summary>
+        public bool Pagination
+        {
+            get { return this._Pagination; }
+        }
         private int _Pagination_RegPage;
+        /// <summary>
+        /// In case of pagination indicates the number of records by page. It must be bigger than 0.
+        /// </summary>
+        public int Pagination_RegPage
+        {
+            get { return this._Pagination_RegPage; }
+        }
         private int _Pagination_NumPage;
-
+        /// <summary>
+        /// In case of pagination it indicates the page number to obtain. Must be greater than 0.
+        /// </summary>
+        public int Pagination_NumPage
+        {
+            get { return this._Pagination_NumPage; }
+        }
         private CommonOptions _CommonOptions;
+
+        /// <summary>
+        /// Returns the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._CommonOptions.Calculated; }
+        }
+
+        /// <summary>
+        /// Executes the defined conversions in the dictionaries before returning.
+        /// </summary>
+        public bool Conversion
+        {
+            get { return this._CommonOptions.Conversion; }
+        }
+
+        /// <summary>
+        /// Executes the defined formats in the dictionaries before returning.
+        /// </summary>
+        public bool FormatSpec
+        {
+            get { return this._CommonOptions.FormatSpec; }
+        }
+
+        /// <summary>
+        /// Returns a copy of the records in MV format.
+        /// </summary>
+        public bool OriginalRecords
+        {
+            get { return this._CommonOptions.OriginalRecords; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the SelectOptions class.
@@ -485,19 +897,82 @@ namespace Linkar
     public class LkSchemasOptions
     {
         private SchemaType.TYPE _SchemaType;
+        /// <summary>
+        /// Indicates the type of LkSchemas used
+        /// </summary>
+        public SchemaType.TYPE SchemaType
+        {
+            get { return this._SchemaType; }
+        }
+
         private RowHeaders.TYPE _RowHeaders;
+        /// <summary>
+        /// Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).
+        /// </summary>
+        public RowHeaders.TYPE RowHeaders
+        {
+            get { return this._RowHeaders; }
+        }
+
         private bool _SqlMode;
+        /// <summary>
+        /// SQLMODE type schemas
+        /// </summary>
+        public bool SqlMode
+        {
+            get { return this._SqlMode; }
+        }
+
         private bool _RowProperties;
+        /// <summary>
+        /// First row contains property names.
+        /// </summary>
+        public bool RowProperties
+        {
+            get { return this._RowProperties; }
+        }
+
         private bool _OnlyVisibles;
+        /// <summary>
+        /// Use only Visible Schemas and Properties.
+        /// </summary>
+        public bool OnlyVisibles
+        {
+            get { return this._OnlyVisibles; }
+        }
+
         private bool _Pagination;
+        /// <summary>
+        /// Indicates if pagination is being used or not.
+        /// </summary>
+        public bool Pagination
+        {
+            get { return this._Pagination; }
+        }
+
         private int _Pagination_RegPage;
+        /// <summary>
+        /// In case of pagination indicates the number of records by page. It must be bigger than 0.
+        /// </summary>
+        public int Pagination_RegPage
+        {
+            get { return this._Pagination_RegPage; }
+        }
+
         private int _Pagination_NumPage;
+        /// <summary>
+        /// In case of pagination it indicates the page number to obtain. Must be greater than 0.
+        /// </summary>
+        public int Pagination_NumPage
+        {
+            get { return this._Pagination_NumPage; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the LkSchemasOptions class.
         /// The object is created with the default values for LKSCHEMAS type schemas.
         /// </summary>
-        public LkSchemasOptions() : this(RowHeaders.TYPE.MAINLABEL, false, false)
+        public LkSchemasOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false)
         { }
 
         /// <summary>
@@ -513,7 +988,7 @@ namespace Linkar
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -534,9 +1009,9 @@ namespace Linkar
         public LkSchemasOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = RowHeaders.TYPE.NONE;
+            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._Pagination = pagination;
@@ -555,7 +1030,7 @@ namespace Linkar
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = true;
@@ -573,19 +1048,19 @@ namespace Linkar
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
-            if (_SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (_SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str;
-            else if (_SchemaType == SchemaType.TYPE.DICTIONARIES)
+            else if (_SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._RowProperties ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (_SchemaType == SchemaType.TYPE.DICTIONARIES)
+            if (_SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (_SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (_SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "3" + DBMV_Mark.AM_str;
             else
                 str += (int)this._RowHeaders + DBMV_Mark.AM_str;
@@ -604,20 +1079,91 @@ namespace Linkar
     public class LkPropertiesOptions
     {
         private SchemaType.TYPE _SchemaType;
+        /// <summary>
+        /// Indicates the type of LkSchemas used
+        /// </summary>
+        public SchemaType.TYPE SchemaType
+        {
+            get { return this._SchemaType; }
+        }
+
         private RowHeaders.TYPE _RowHeaders;
+        /// <summary>
+        /// Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).
+        /// </summary>
+        public RowHeaders.TYPE RowHeaders
+        {
+            get { return this._RowHeaders; }
+        }
+
         private bool _SqlMode;
+        /// <summary>
+        /// SQLMODE type schemas
+        /// </summary>
+        public bool SqlMode
+        {
+            get { return this._SqlMode; }
+        }
+
         private bool _RowProperties;
+        /// <summary>
+        /// First row contains property names.
+        /// </summary>
+        public bool RowProperties
+        {
+            get { return this._RowProperties; }
+        }
+
         private bool _OnlyVisibles;
+        /// <summary>
+        /// Use only Visible Schemas and Properties.
+        /// </summary>
+        public bool OnlyVisibles
+        {
+            get { return this._OnlyVisibles; }
+        }
+
         private bool _UsePropertyNames;
+        /// <summary>
+        /// Use Properties and Table names.
+        /// </summary>
+        public bool UsePropertiesNames
+        {
+            get { return this._UsePropertyNames; }
+        }
+
         private bool _Pagination;
+        /// <summary>
+        /// Indicates if pagination is being used or not.
+        /// </summary>
+        public bool Pagination
+        {
+            get { return this._Pagination; }
+        }
+
         private int _Pagination_RegPage;
+        /// <summary>
+        /// In case of pagination indicates the number of records by page. It must be bigger than 0.
+        /// </summary>
+        public int Pagination_RegPage
+        {
+            get { return this._Pagination_RegPage; }
+        }
+
         private int _Pagination_NumPage;
+        /// <summary>
+        /// In case of pagination it indicates the page number to obtain. Must be greater than 0.
+        /// </summary>
+        public int Pagination_NumPage
+        {
+            get { return this._Pagination_NumPage; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the LkPropertiesOptions class.
         /// The object is created with the default values for list of Schema Properties of LKSCHEMAS type.
         /// </summary>
-        public LkPropertiesOptions() : this(RowHeaders.TYPE.MAINLABEL, false, false, false)
+        public LkPropertiesOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false, false)
         { }
 
         /// <summary>
@@ -634,7 +1180,7 @@ namespace Linkar
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -656,9 +1202,9 @@ namespace Linkar
         public LkPropertiesOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = RowHeaders.TYPE.NONE;
+            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._UsePropertyNames = true;
@@ -678,7 +1224,7 @@ namespace Linkar
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -698,9 +1244,9 @@ namespace Linkar
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str + "1" + DBMV_Mark.AM_str;
-            else if (this._SchemaType == SchemaType.TYPE.DICTIONARIES)
+            else if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str + "0" + DBMV_Mark.AM_str;
             else
             {
@@ -708,12 +1254,12 @@ namespace Linkar
                     (this._RowProperties ? "1" : "0") + DBMV_Mark.AM_str;
             }
 
-            if (this._SchemaType == SchemaType.TYPE.DICTIONARIES)
+            if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "3" + DBMV_Mark.AM_str;
             else
                 str += (int)this._RowHeaders + DBMV_Mark.AM_str;
@@ -732,24 +1278,127 @@ namespace Linkar
     public class TableOptions
     {
         private SchemaType.TYPE _SchemaType;
+        /// <summary>
+        /// Indicates the type of LkSchemas used
+        /// </summary>
+        public SchemaType.TYPE SchemaType
+        {
+            get { return this._SchemaType; }
+        }
+
         private RowHeaders.TYPE _RowHeaders;
+        /// <summary>
+        /// Include headings in first row MAINLABEL (main headings), SHORTLABEL (short label headings), and NONE (without headings).
+        /// </summary>
+        public RowHeaders.TYPE RowHeaders
+        {
+            get { return this._RowHeaders; }
+        }
+
         private bool _SqlMode;
+        /// <summary>
+        /// SQLMODE type schemas
+        /// </summary>
+        public bool SqlMode
+        {
+            get { return this._SqlMode; }
+        }
+
         private bool _RowProperties;
+        /// <summary>
+        /// First row contains property names.
+        /// </summary>
+        public bool RowProperties
+        {
+            get { return this._RowProperties; }
+        }
+
         private bool _OnlyVisibles;
+        /// <summary>
+        /// Use only Visible Schemas and Properties.
+        /// </summary>
+        public bool OnlyVisibles
+        {
+            get { return this._OnlyVisibles; }
+        }
+
         private bool _UsePropertyNames;
+        /// <summary>
+        /// Use Properties and Table names.
+        /// </summary>
+        public bool UsePropertiesNames
+        {
+            get { return this._UsePropertyNames; }
+        }
+
         private bool _RepeatValues;
+        /// <summary>
+        /// Repeat common atributes in MV and SV groups.
+        /// </summary>
+        public bool RepeatValues
+        {
+            get { return this._RepeatValues; } 
+        }
+
         private bool _ApplyConversion;
+        /// <summary>
+        /// Execute Conversions: With Dictionaries, conversion defined in the dictionary. With Schemas conversions defined in Linkar Schemas.
+        /// </summary>
+        public bool ApplyConversion
+        {
+            get { return this._ApplyConversion; }
+        }
+
         private bool _ApplyFormat;
+        /// <summary>
+        /// Execute Formats. With Dictionaries, formats defined in the dictionary. With Schemas formats defined in Linkar Schemas.
+        /// </summary>
+        public bool ApplyFormat
+        {
+            get { return this._ApplyFormat; }
+        }
+
         private bool _Calculated;
+        /// <summary>
+        /// Return the resulting values from the calculated dictionaries.
+        /// </summary>
+        public bool Calculated
+        {
+            get { return this._Calculated; }
+        }
+
         private bool _Pagination;
+        /// <summary>
+        /// Indicates if pagination is being used or not.
+        /// </summary>
+        public bool Pagination
+        {
+            get { return this._Pagination; }
+        }
+
         private int _Pagination_RegPage;
+        /// <summary>
+        /// In case of pagination indicates the number of records by page. It must be bigger than 0.
+        /// </summary>
+        public int Pagination_RegPage
+        {
+            get { return this._Pagination_RegPage; }
+        }
+
         private int _Pagination_NumPage;
+        /// <summary>
+        /// In case of pagination it indicates the page number to obtain. Must be greater than 0.
+        /// </summary>
+        public int Pagination_NumPage
+        {
+            get { return this._Pagination_NumPage; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the TableOptions class.
         /// The object is created with the default values for queries with LKSCHEMAS type schemas.
         /// </summary>
-        public TableOptions() : this(RowHeaders.TYPE.MAINLABEL, false, false, false, false, false, false, false)
+        public TableOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false, false, false, false, false, false)
         { }
 
         /// <summary>
@@ -772,7 +1421,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -802,9 +1451,9 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = RowHeaders.TYPE.NONE;
+            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._UsePropertyNames = true;
@@ -833,7 +1482,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -861,7 +1510,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // NONE MODE
-            this._SchemaType = SchemaType.TYPE.NONE;
+            this._SchemaType = Linkar.SchemaType.TYPE.NONE;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -884,7 +1533,7 @@ namespace Linkar
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
-            if (this._SchemaType == SchemaType.TYPE.LKSCHEMAS && this._SqlMode)
+            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && this._SqlMode)
             {
                 str += "1" + DBMV_Mark.AM_str +
                     "1" + DBMV_Mark.AM_str +
@@ -895,7 +1544,7 @@ namespace Linkar
                     (this._ApplyFormat ? "1" : "0") + DBMV_Mark.AM_str +
                     (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str;
             }
-            else if (this._SchemaType == SchemaType.TYPE.DICTIONARIES)
+            else if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
             {
                 str += "0" + DBMV_Mark.AM_str +
                     "0" + DBMV_Mark.AM_str +
@@ -906,7 +1555,7 @@ namespace Linkar
                     (this._ApplyFormat ? "1" : "0") + DBMV_Mark.AM_str +
                     (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str;
             }
-            else if (this._SchemaType == SchemaType.TYPE.NONE)
+            else if (this._SchemaType == Linkar.SchemaType.TYPE.NONE)
             {
                 str += "0" + DBMV_Mark.AM_str +
                     "0" + DBMV_Mark.AM_str +

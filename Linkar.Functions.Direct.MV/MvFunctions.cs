@@ -107,7 +107,7 @@ namespace Linkar.Functions.Direct.MV
         public static string Subroutine(CredentialOptions credentialOptions, string subroutineName, int argsNumber, string arguments,
             string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
+            return DirectFunctions.Subroutine(credentialOptions, subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>

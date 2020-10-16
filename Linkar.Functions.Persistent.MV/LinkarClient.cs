@@ -137,7 +137,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <returns>The results of the operation.</returns>
         public string Subroutine(string subroutineName, int argsNumber, string arguments, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Subroutine(subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
+            return this._LinkarClt.Subroutine(subroutineName, argsNumber, arguments, DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>

@@ -56,7 +56,7 @@ namespace Linkar
         OUTPUT
     };
 
-    internal class SchemaType
+    public class SchemaType
     {
         public enum TYPE
         {
