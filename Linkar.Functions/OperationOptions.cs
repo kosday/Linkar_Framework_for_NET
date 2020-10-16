@@ -421,6 +421,10 @@ namespace Linkar
         public NewOptions(RecordIdType recordIdType, bool readAfter = false, bool calculated = false, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
             //TODO: TG: Please explain "Mandatory if no registration codes are indicated in the New functions."
+            //TODO: PMJ: In New Operations you can specified the item ID for the new record, and here the argument "recordIdType" can be
+            // null or you can create with default constuctor (without arguments). But if in the New Operations you DON'T specified ID, then you must
+            // use an object RecordIdType created with a Constructor for use Custom IDS, Linkar IDS or Random IDS.
+
             if (recordIdType == null)
                 this._RecordIdType = new RecordIdType();
             else
