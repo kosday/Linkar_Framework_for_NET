@@ -722,8 +722,9 @@ namespace Linkar
         {
             get { return this._Separator; }
         }
+
         /// <summary>
-        /// No code recovery technique will be used.
+        /// No id recovery technique will be used.
         /// </summary>
         public RecoverIdType()
         {
@@ -732,7 +733,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// The technique of recovering deleted Linkar item IDs will be used.
+        /// Use this constructor for recovering items ids that used Linkar RecordIdType.
         /// </summary>
         /// <param name="prefix">Adding a prefix to the item ID.</param>
         /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
@@ -747,7 +748,7 @@ namespace Linkar
         }
 
         /// <summary>
-        /// The technique of recovering deleted Custom item IDs will be used.
+        /// Use this constructor to recovering items ids that used Custom RecordIdType
         /// </summary>
         /// <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         public RecoverIdType(bool custom)
