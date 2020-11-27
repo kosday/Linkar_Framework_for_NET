@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Linkar
+namespace Linkar.Functions
 {
     /// <summary>
     /// 
@@ -108,7 +108,7 @@ namespace Linkar
         /// <param name="str">The string on which the value is going to change.</param>
         /// <param name="strOld">The value to change. </param>
         /// <param name="strNew">The new value.</param>
-        /// <param name="occurrence">The new value.</param>
+        /// <param name="occurrence">The number of times it will change.</param>
         /// <param name="start">The position from which you are going to start changing values.</param>
         /// <returns>A new string with replaced text.</returns>
         public static string LkChange(string str, string strOld, string strNew, int occurrence = 0, int start = 0)

@@ -1,8 +1,16 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Linkar.Commands.Persistent
 {
+    /// <summary>
+    /// Namespace for Linkar.Commands.Persistent library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// These functions perform synchronous persistent (establishing permanent session) operations with any kind of output format type.
     /// </summary>
@@ -40,7 +48,8 @@ namespace Linkar.Commands.Persistent
             if (this._ConnectionInfo == null)
             {
                 string options = "";
-                string loginArgs = customVars + ASCII_Chars.US_chr + options;
+                string US_str = "\x1F";
+                string loginArgs = customVars + US_str + options;
                 byte byteOpCode = (byte)OPERATION_CODE.LOGIN;
                 byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
                 byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
@@ -113,7 +122,8 @@ namespace Linkar.Commands.Persistent
         {
             string customVars = "";
             string options = "";
-            string sendCommandArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + command;
+            string US_str = "\x1F";
+            string sendCommandArgs = customVars + US_str + options + US_str + command;
             byte opCode;
             if (commandFormat == ENVELOPE_FORMAT.JSON)
                 opCode = (byte)OPERATION_CODE.COMMAND_JSON;
@@ -121,9 +131,66 @@ namespace Linkar.Commands.Persistent
                 opCode = (byte)OPERATION_CODE.COMMAND_XML;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
-            string connectionInfo = this._ConnectionInfo.ToString();
             string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, sendCommandArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }
+
+        /// <summary>
+        /// Allows a variety of operations using standard JSON templates, synchronously only.
+        /// </summary>
+        /// <param name="command">Content of the operation you want to send.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        public string SendJsonCommand(string command, int receiveTimeout = 0)
+        {
+            return SendCommand(command, ENVELOPE_FORMAT.JSON, receiveTimeout);
+        }
+
+        /// <summary>
+        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
+        /// </summary>
+        /// <param name="command">Content of the operation you want to send.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        public Task<string> SendJsonCommandAsync(string command, int receiveTimeout = 0)
+        {
+            var task = new Task<string>(() =>
+            {
+                return SendJsonCommand(command, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
+        }
+
+        /// <summary>
+        /// Allows a variety of operations using standard XML templates, synchronously only.
+        /// </summary>
+        /// <param name="command">Content of the operation you want to send.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        public string SendXmlCommand(string command, int receiveTimeout = 0)
+        {
+            return SendCommand(command, ENVELOPE_FORMAT.XML, receiveTimeout);
+        }
+
+        /// <summary>
+        /// Allows a variety of asynchronous operations using standard XML templates.
+        /// </summary>
+        /// <param name="command">Content of the operation you want to send.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        public Task<string> SendXmlCommandAsync(string command, int receiveTimeout = 0)
+        {
+            var task = new Task<string>(() =>
+            {
+                return SendXmlCommand(command, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
+        }
+
+
     }
 }

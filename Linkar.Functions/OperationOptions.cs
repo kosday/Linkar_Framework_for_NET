@@ -1,9 +1,14 @@
-﻿
-using System;
-using System.Runtime.InteropServices;
-
-namespace Linkar
+﻿namespace Linkar.Functions
 {
+    /// <summary>
+    /// Namespace Linkar.Functions library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// Auxiliary class with the common options for ReadOptions, SelectOptions and ReadAfterCommonOptions classes
     /// </summary>
@@ -540,7 +545,7 @@ namespace Linkar
         /// Constructor accepts options for generating Linkar item IDs.
         /// </summary>
         /// <param name="prefix">Adding a prefix to the item ID.</param>
-        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
+        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</param>
         /// <param name="formatSpec">Conversion format for the item ID. Use database-specific syntax.</param>
         public RecordIdType(string prefix, string separator, string formatSpec)
         {
@@ -740,7 +745,7 @@ namespace Linkar
         /// Use this constructor for recovering items ids that used Linkar RecordIdType.
         /// </summary>
         /// <param name="prefix">Adding a prefix to the item ID.</param>
-        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~</param>
+        /// <param name="separator">The separator between the prefix and the ID. Valid delimiters: ! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~</param>
         public RecoverIdType(string prefix, string separator)
         {
             //TODO: TG: I don't understand "type codes". Does that mean "record/item IDs"?
@@ -977,7 +982,7 @@ namespace Linkar
         /// Initializes a new instance of the LkSchemasOptions class.
         /// The object is created with the default values for LKSCHEMAS type schemas.
         /// </summary>
-        public LkSchemasOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false)
+        public LkSchemasOptions() : this(Functions.RowHeaders.TYPE.MAINLABEL, false, false)
         { }
 
         /// <summary>
@@ -993,7 +998,7 @@ namespace Linkar
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -1014,9 +1019,9 @@ namespace Linkar
         public LkSchemasOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
+            this._RowHeaders = Functions.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._Pagination = pagination;
@@ -1035,7 +1040,7 @@ namespace Linkar
         public LkSchemasOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Functions.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = true;
@@ -1053,19 +1058,19 @@ namespace Linkar
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
-            if (_SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (_SchemaType == Functions.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str;
-            else if (_SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
+            else if (_SchemaType == Functions.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._RowProperties ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (_SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
+            if (_SchemaType == Functions.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (_SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (_SchemaType == Functions.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "3" + DBMV_Mark.AM_str;
             else
                 str += (int)this._RowHeaders + DBMV_Mark.AM_str;
@@ -1168,7 +1173,7 @@ namespace Linkar
         /// Initializes a new instance of the LkPropertiesOptions class.
         /// The object is created with the default values for list of Schema Properties of LKSCHEMAS type.
         /// </summary>
-        public LkPropertiesOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false, false)
+        public LkPropertiesOptions() : this(Functions.RowHeaders.TYPE.MAINLABEL, false, false, false)
         { }
 
         /// <summary>
@@ -1185,7 +1190,7 @@ namespace Linkar
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool rowProperties, bool onlyVisibles, bool usePropertyNames, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -1207,9 +1212,9 @@ namespace Linkar
         public LkPropertiesOptions(bool onlyVisibles, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
+            this._RowHeaders = Functions.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._UsePropertyNames = true;
@@ -1229,7 +1234,7 @@ namespace Linkar
         public LkPropertiesOptions(RowHeaders.TYPE rowHeaders, bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Functions.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -1249,9 +1254,9 @@ namespace Linkar
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == Functions.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "1" + DBMV_Mark.AM_str + "1" + DBMV_Mark.AM_str;
-            else if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
+            else if (this._SchemaType == Functions.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str + "0" + DBMV_Mark.AM_str;
             else
             {
@@ -1259,12 +1264,12 @@ namespace Linkar
                     (this._RowProperties ? "1" : "0") + DBMV_Mark.AM_str;
             }
 
-            if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
+            if (this._SchemaType == Functions.SchemaType.TYPE.DICTIONARIES)
                 str += "0" + DBMV_Mark.AM_str;
             else
                 str += (this._OnlyVisibles ? "1" : "0") + DBMV_Mark.AM_str;
 
-            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
+            if (this._SchemaType == Functions.SchemaType.TYPE.LKSCHEMAS && _SqlMode)
                 str += "3" + DBMV_Mark.AM_str;
             else
                 str += (int)this._RowHeaders + DBMV_Mark.AM_str;
@@ -1403,7 +1408,7 @@ namespace Linkar
         /// Initializes a new instance of the TableOptions class.
         /// The object is created with the default values for queries with LKSCHEMAS type schemas.
         /// </summary>
-        public TableOptions() : this(Linkar.RowHeaders.TYPE.MAINLABEL, false, false, false, false, false, false, false)
+        public TableOptions() : this(Functions.RowHeaders.TYPE.MAINLABEL, false, false, false, false, false, false, false)
         { }
 
         /// <summary>
@@ -1426,7 +1431,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // LKSCHEMAS MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = rowProperties;
@@ -1456,9 +1461,9 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // SQL MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.LKSCHEMAS;
+            this._SchemaType = Functions.SchemaType.TYPE.LKSCHEMAS;
             this._SqlMode = true;
-            this._RowHeaders = Linkar.RowHeaders.TYPE.NONE;
+            this._RowHeaders = Functions.RowHeaders.TYPE.NONE;
             this._RowProperties = true;
             this._OnlyVisibles = onlyVisibles;
             this._UsePropertyNames = true;
@@ -1487,7 +1492,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // DICTIONARIES MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.DICTIONARIES;
+            this._SchemaType = Functions.SchemaType.TYPE.DICTIONARIES;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -1515,7 +1520,7 @@ namespace Linkar
             bool pagination = false, int regPage = 10, int numPage = 1)
         {
             // NONE MODE
-            this._SchemaType = Linkar.SchemaType.TYPE.NONE;
+            this._SchemaType = Functions.SchemaType.TYPE.NONE;
             this._SqlMode = false;
             this._RowHeaders = rowHeaders;
             this._RowProperties = false;
@@ -1538,7 +1543,7 @@ namespace Linkar
         {
             string str = (int)this._SchemaType + DBMV_Mark.AM_str +
                 (this._SqlMode ? "1" : "0") + DBMV_Mark.AM_str;
-            if (this._SchemaType == Linkar.SchemaType.TYPE.LKSCHEMAS && this._SqlMode)
+            if (this._SchemaType == Functions.SchemaType.TYPE.LKSCHEMAS && this._SqlMode)
             {
                 str += "1" + DBMV_Mark.AM_str +
                     "1" + DBMV_Mark.AM_str +
@@ -1549,7 +1554,7 @@ namespace Linkar
                     (this._ApplyFormat ? "1" : "0") + DBMV_Mark.AM_str +
                     (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str;
             }
-            else if (this._SchemaType == Linkar.SchemaType.TYPE.DICTIONARIES)
+            else if (this._SchemaType == Functions.SchemaType.TYPE.DICTIONARIES)
             {
                 str += "0" + DBMV_Mark.AM_str +
                     "0" + DBMV_Mark.AM_str +
@@ -1560,7 +1565,7 @@ namespace Linkar
                     (this._ApplyFormat ? "1" : "0") + DBMV_Mark.AM_str +
                     (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str;
             }
-            else if (this._SchemaType == Linkar.SchemaType.TYPE.NONE)
+            else if (this._SchemaType == Functions.SchemaType.TYPE.NONE)
             {
                 str += "0" + DBMV_Mark.AM_str +
                     "0" + DBMV_Mark.AM_str +

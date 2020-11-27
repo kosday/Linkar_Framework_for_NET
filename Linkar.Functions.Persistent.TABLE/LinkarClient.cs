@@ -1,13 +1,22 @@
-﻿using System;
+﻿using LkFunctPersistent = Linkar.Functions.Persistent;
 
 namespace Linkar.Functions.Persistent.TABLE
 {
     /// <summary>
+    /// Namespace for Linkar.Functions.Persistent.TABLE library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
+    /// <summary>
     /// These functions perform synchronous and asynchronous persistent (establishing permanent session) operations with output format type TABLE.
-    /// </summary
+    /// </summary>
     public partial class LinkarClient
     {
-        private Functions.LinkarClient _LinkarClt;
+        private LkFunctPersistent.LinkarClient _LinkarClt;
 
         /// <summary>
         /// SessionID of the connection.
@@ -23,7 +32,7 @@ namespace Linkar.Functions.Persistent.TABLE
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
-            this._LinkarClt = new Functions.LinkarClient(receiveTimeout);
+            this._LinkarClt = new LkFunctPersistent.LinkarClient(receiveTimeout);
         }
 
         /// <summary>

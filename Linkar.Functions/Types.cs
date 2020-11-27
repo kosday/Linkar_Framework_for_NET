@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Linkar
+﻿namespace Linkar.Functions
 {
+    /// <summary>
+    /// The codes of each operation
+    /// </summary>
     public enum OPERATION_CODE
     {
         NONE = 0,
@@ -15,49 +14,120 @@ namespace Linkar
     };
 
     /// <summary>
+    /// Indicates in what format you want to receive the data resulting from the operation.
     /// Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
     /// Also The input format type for New, Update and Delete operations.
     /// </summary>
     public enum DATAFORMAT_TYPE
     {
+        /// <summary>
+        /// Show the results of the operation in MV format.
+        /// </summary>
         MV = 1,
+
+        /// <summary>
+        /// Show the results of the operation in XML format.
+        /// </summary>
         XML = 2,
+
+        /// <summary>
+        /// Show the results of the operation in JSON format.
+        /// </summary>
         JSON = 3
     };
 
     /// <summary>
+    /// Indicates in what format you want to receive the data resulting from the operation.
     /// Output format type for Read, New, Update and Select operations.
     /// </summary>
     public enum DATAFORMATCRU_TYPE
     {
+        /// <summary>
+        /// Show the results of the operation in MV format.
+        /// </summary>
         MV = 1,
+
+        /// <summary>
+        /// Show the results of the operation in XML format.
+        /// </summary>
         XML = 2,
+
+        /// <summary>
+        /// Show the results of the operation in JSON format.
+        /// </summary>
         JSON = 3,
+
+        /// <summary>
+        /// Show the results of the operation in XML_DICT format, using the dictionaries.
+        /// </summary>
         XML_DICT = 5,
+
+        /// <summary>
+        /// Show the results of the operation in XML_SCH format, using the schema properties.
+        /// </summary>
         XML_SCH = 6,
+
+        /// <summary>
+        /// Show the results of the operation in JSON_DICT format, using the dictionaries.
+        /// </summary>
         JSON_DICT = 7,
+
+        /// <summary>
+        /// Show the results of the operation in JSON_SCH format, using the schema properties.
+        /// </summary>
         JSON_SCH = 8
     };
 
     /// <summary>
-    /// Output format type for LkSchemas and LkProperties operations.
+    /// Specify the output formats of LkSchemas and LkProperties operations (For other operations, <see cref="DATAFORMAT_TYPE"/> and <see cref="DATAFORMATCRU_TYPE"/>).
     /// </summary>
     public enum DATAFORMATSCH_TYPE
     {
+        /// <summary>
+        /// Show the results of the operation in MV format.
+        /// </summary>
         MV = 1,
+
+        /// <summary>
+        /// Show the results of the operation in XML format.
+        /// </summary>
         XML = 2,
+
+        /// <summary>
+        /// Show the results of the operation in JSON format.
+        /// </summary>
         JSON = 3,
+
+        /// <summary>
+        /// Show the results of the operation in TABLE format.
+        /// </summary>
         TABLE = 4
     };
 
+    /// <summary>
+    /// The conversion type for Conversion functions.
+    /// </summary>
     public enum CONVERSION_TYPE
     {
+        /// <summary>
+        /// Perform ICONV type conversions.
+        /// </summary>
         INPUT,
+
+        /// <summary>
+        /// Perform OCONV type conversions.
+        /// </summary>
         OUTPUT
     };
 
+    /// <summary>
+    /// The schemas type for LkSchemas, LkProperties and LkGetTable functions
+    /// </summary>
     public class SchemaType
     {
+        /// <summary>
+        /// Schema types
+        /// </summary>
         public enum TYPE
         {
             LKSCHEMAS = 1,
@@ -77,14 +147,33 @@ namespace Linkar
         }
     }
 
+    /// <summary>
+    /// Indicates options to include headers in the first row or not <see cref="LkSchemasOptions"/> <see cref="LkPropertiesOptions"/> and <see cref="TableOptions"/>
+    /// </summary>
     public class RowHeaders
     {
+        /// <summary>
+        /// RowHeaders types
+        /// </summary>
         public enum TYPE
         {
+            /// <summary>
+            /// Main headings.
+            /// </summary>
             MAINLABEL = 1,
+
+            /// <summary>
+            /// Short label headings.
+            /// </summary>
             SHORTLABEL = 2,
+
+            /// <summary>
+            /// Without headings.
+            /// </summary>
             NONE = 3
         };
+
+
         internal static string GetString(TYPE strType)
         {
             string str = "NOTHING";
@@ -97,6 +186,9 @@ namespace Linkar
         }
     }
 
+    /// <summary>
+    /// Some ASCII characters used by Linkar.
+    /// </summary>
     public static class ASCII_Chars
     {
         //IMPORTANT:
@@ -138,60 +230,153 @@ namespace Linkar
         0001 1111	31	        1F	    US	    	^_	        Unit Separator
         0111 1111	127	        7F	    DEL	    	^?,         Delete, or Backspace	Delete         
  */
+
+        /// <summary>
+        /// ASCII character horizontal tab.
+        /// </summary>
         public const byte TAB = 0x09;
+        /// <summary>
+        /// ASCII character horizontal tab.
+        /// </summary>
         public const char TAB_chr = '\x09';
+        /// <summary>
+        /// ASCII character horizontal tab.
+        /// </summary>
         public const string TAB_str = "\x09";
 
+        /// <summary>
+        /// ASCII character line break.
+        /// </summary>
         public const byte LF = 0x0A;
+        /// <summary>
+        /// ASCII character line break.
+        /// </summary>
         public const char LF_chr = '\x0A';
+        /// <summary>
+        /// ASCII character line break.
+        /// </summary>
         public const string LF_str = "\x0A";
 
+        /// <summary>
+        /// ASCII character carriage return.
+        /// </summary>
         public const byte CR = 0x0D;
+        /// <summary>
+        /// ASCII character carriage return.
+        /// </summary>
         public const char CR_chr = '\x0D';
+        /// <summary>
+        /// ASCII character carriage return.
+        /// </summary>
         public const string CR_str = "\x0D";
 
+        /// <summary>
+        /// ASCII character used as separator of the operation arguments <see cref="OperationArguments"/>.
+        /// </summary>
         public const byte US = 0x1F;
+        /// <summary>
+        /// ASCII character used as separator of the operation arguments <see cref="OperationArguments"/>.
+        /// </summary>
         public const char US_chr = '\x1F';
+        /// <summary>
+        /// ASCII character used as separator of the operation arguments <see cref="OperationArguments"/>.
+        /// </summary>
         public const string US_str = "\x1F";
 
-        public const byte SUB = 0x1A;
-        public const char SUB_chr = '\x1A';
-        public const string SUB_str = "\x1A";
-
-        public const byte DC1 = 0x11;
-        public const char DC1_chr = '\x11';
-        public const string DC1_str = "\x11";
-
-        public const byte DC2 = 0x12;
-        public const char DC2_chr = '\x12';
-        public const string DC2_str = "\x12";
-
+        /// <summary>
+        /// ASCII character used as separator of the arguments of a subroutine.
+        /// </summary>
         public const byte DC4 = 0x14;
+        /// <summary>
+        /// ASCII character used as separator of the arguments of a subroutine.
+        /// </summary>
         public const char DC4_chr = '\x14';
+        /// <summary>
+        /// ASCII character used as separator of the arguments of a subroutine.
+        /// </summary>
         public const string DC4_str = "\x14";
 
+        /// <summary>
+        /// When the responses of the operations are of MV type, this character is used to separate the header (the ThisList property in LkData) from the data.
+        /// </summary>
         public const byte FS = 0x1C;
+        /// <summary>
+        /// When the responses of the operations are of MV type, this character is used to separate the header (the ThisList property in LkData) from the data.
+        /// </summary>
         public const char FS_chr = '\x1C';
+        /// <summary>
+        /// When the responses of the operations are of MV type, this character is used to separate the header (the ThisList property in LkData) from the data.
+        /// </summary>
         public const string FS_str = "\x1C";
 
+        /// <summary>
+        /// ASCII character used by Linkar as separator of items in lists. For example, list of records.
+        /// </summary>
         public const byte RS = 0x1E;
+        /// <summary>
+        /// ASCII character used by Linkar as separator of items in lists. For example, list of records.
+        /// </summary>
         public const char RS_chr = '\x1E';
+        /// <summary>
+        /// ASCII character used by Linkar as separator of items in lists. For example, list of records.
+        /// </summary>
         public const string RS_str = "\x1E";
     }
 
 
+    /// <summary>
+    /// Special ASCII characters used by Multivalued Databases.
+    /// </summary>
     public static class DBMV_Mark
     {
+        /// <summary>
+        /// Character ASCII 255. IM Multi-value mark.
+        /// </summary>
         public const char IM = (char)255;
+
+        /// <summary>
+        /// Character ASCII 254. AM Multi-value mark.
+        /// </summary>
         public const char AM = (char)254;
+
+        /// <summary>
+        /// Character ASCII 253. VM Multi-value mark.
+        /// </summary>
         public const char VM = (char)253;
+
+        /// <summary>
+        /// Character ASCII 252. SM Multi-value mark.
+        /// </summary>
         public const char SM = (char)252;
+
+        /// <summary>
+        /// Character ASCII 251. TM Multi-value mark.
+        /// </summary>
         public const char TM = (char)251;
 
+        /// <summary>
+        /// Character ASCII 255. IM Multi-value mark.
+        /// </summary>
         public const string IM_str = "\xFF";
+
+        /// <summary>
+        /// Character ASCII 254. AM Multi-value mark.
+        /// </summary>
         public const string AM_str = "\xFE";
+
+        /// <summary>
+        /// Character ASCII 253. VM Multi-value mark.
+        /// </summary>
         public const string VM_str = "\xFD";
+
+        /// <summary>
+        /// Character ASCII 252. SM Multi-value mark.
+        /// </summary>
         public const string SM_str = "\xFC";
+
+        /// <summary>
+        /// Character ASCII 251. TM Multi-value mark.
+        /// </summary>
         public const string TM_str = "\xFB";
     }
 

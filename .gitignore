@@ -1,3 +1,17 @@
 .vs
 bin
 obj
+Linkar.Functions.Direct.MV/Linkar.Functions.Direct.MV.xml
+Linkar.Functions.Direct.JSON/Linkar.Functions.Direct.JSON.xml
+Linkar.Functions.Direct.TABLE/Linkar.Functions.Direct.TABLE.xml
+Linkar.Functions.Direct.XML/Linkar.Functions.Direct.XML.xml
+Linkar.Functions.Direct/Linkar.Functions.Direct.xml
+Linkar.Functions.Persistent.JSON/Linkar.Functions.Persistent.JSON.xml
+Linkar.Functions.Persistent.MV/Linkar.Functions.Persistent.MV.xml
+Linkar.Functions.Persistent.TABLE/Linkar.Functions.Persistent.TABLE.xml
+Linkar.Functions.Persistent.XML/Linkar.Functions.Persistent.XML.xml
+Linkar.Functions.Persistent/Linkar.Functions.Persistent.xml
+Linkar.Functions/Linkar.Functions.xml
+Linkar.LkData/Linkar.LkData.xml
+Linkar.Strings/Linkar.Strings.xml
+Linkar.Commands/Linkar.Commands.xml

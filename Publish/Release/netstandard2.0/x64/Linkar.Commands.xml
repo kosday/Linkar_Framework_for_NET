@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Linkar.Commands</name>
+    </assembly>
+    <members>
+        <member name="T:Linkar.Commands.NamespaceDoc">
+            <summary>
+            Namespace for Linkar.Commands library
+            </summary>
+        </member>
+        <member name="M:Linkar.Commands.DirectFunctions.SendCommand(Linkar.CredentialOptions,System.String,Linkar.Commands.ENVELOPE_FORMAT,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard templates (XML, JSON), synchronously only.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.Direct.NamespaceDoc">
+            <summary>
+            Namespace for Linkar.Commands.Direct library
+            </summary>
+        </member>
+        <member name="T:Linkar.Commands.Direct.JsonCommands">
+            <summary>
+            Allows a variety of operations using standard JSON templates, synchronously and asynchronously.
+            </summary>
+        </member>
+        <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard JSON templates, synchronously only.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Direct.JsonCommands.SendCommandAsync(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard JSON templates, in a asynchronous way.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.Direct.XmlCommands">
+            <summary>
+            Allows a variety of operations using standard XML templates, synchronously and asynchronously.
+            </summary>
+        </member>
+        <member name="M:Linkar.Commands.Direct.XmlCommands.SendCommand(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard XML templates, synchronously only.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param> 
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Direct.XmlCommands.SendCommandAsync(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Allows a variety of asynchronous operations using standard XML templates.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.Persistent.NamespaceDoc">
+            <summary>
+            Namespace for Linkar.Commands.Persistent library
+            </summary>
+        </member>
+        <member name="T:Linkar.Commands.Persistent.LinkarClient">
+            <summary>
+            These functions perform synchronous persistent (establishing permanent session) operations with any kind of output format type.
+            </summary>
+        </member>
+        <member name="P:Linkar.Commands.Persistent.LinkarClient.SessionID">
+            <summary>
+            SessionID of the connection.
+            </summary>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the LinkarClt class.
+            </summary>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.Login(Linkar.CredentialOptions,System.String,System.Int32)">
+            <summary>
+            Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, synchronously only.
+            </summary>
+            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.Logout(System.String,System.Int32)">
+            <summary>
+            Closes the communication with the server, that previously has been opened with a Login function, synchronously only.
+            </summary>
+            <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendCommand(System.String,Linkar.Commands.ENVELOPE_FORMAT,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard templates (XML, JSON), synchronously only.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendJsonCommand(System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard JSON templates, synchronously only.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendJsonCommandAsync(System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard JSON templates, in a asynchronous way.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendXmlCommand(System.String,System.Int32)">
+            <summary>
+            Allows a variety of operations using standard XML templates, synchronously only.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="M:Linkar.Commands.Persistent.LinkarClient.SendXmlCommandAsync(System.String,System.Int32)">
+            <summary>
+            Allows a variety of asynchronous operations using standard XML templates.
+            </summary>
+            <param name="command">Content of the operation you want to send.</param>
+            <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+            <returns>The results of the operation.</returns>
+        </member>
+        <member name="T:Linkar.Commands.OPERATION_CODE">
+            <summary>
+            The codes of each operation
+            </summary>
+        </member>
+        <member name="T:Linkar.Commands.ENVELOPE_FORMAT">
+            <summary>
+            Used by the SendCommand operations to indicate in which format the operation is being performed.
+            </summary>
+        </member>
+        <member name="F:Linkar.Commands.ENVELOPE_FORMAT.XML">
+            <summary>
+            The operation is specified in XML format.
+            </summary>
+        </member>
+        <member name="F:Linkar.Commands.ENVELOPE_FORMAT.JSON">
+            <summary>
+            The operation is specified in JSON format.
+            </summary>
+        </member>
+        <member name="T:Linkar.Commands.DATAFORMAT_TYPE">
+            <summary>
+            Output format type for all operations, except Read, New, Update, Select, LkSchemas, LkProperties and GetTable
+            Also The input format type for New, Update and Delete operations.
+            </summary>
+        </member>
+        <member name="F:Linkar.Commands.DATAFORMAT_TYPE.MV">
+            <summary>
+            Show the results of the operation in MV format.
+            </summary>
+        </member>
+        <member name="F:Linkar.Commands.DATAFORMAT_TYPE.XML">
+            <summary>
+            Show the results of the operation in XML format.
+            </summary>
+        </member>
+        <member name="F:Linkar.Commands.DATAFORMAT_TYPE.JSON">
+            <summary>
+            Show the results of the operation in JSON format.
+            </summary>
+        </member>
+    </members>
+</doc>

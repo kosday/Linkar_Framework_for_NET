@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Linkar
+﻿namespace Linkar.Functions
 {
     /// <summary>
     /// Auxiliary static class with functions to obtain the 3 items of every LinkarSERVER operation.

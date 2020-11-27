@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Linkar.LkData</name>
+    </assembly>
+    <members>
+        <member name="T:Linkar.LkData.NamespaceDoc">
+            <summary>
+            Namespace for Linkar.LkData library
+            </summary>
+        </member>
+        <member name="T:Linkar.LkData.LkData">
+            <summary>
+            Abstract class with common properties of all derived class.
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkData._OperationResult">
+            <summary>
+            The string that is obtained as result from the operation execution.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkData.Errors">
+            <summary>
+            List of the error of the operation execution.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkData.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkData class.
+            </summary>
+            <param name="opResult">The string result of the operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataCRUD">
+            <summary>
+            Class to management the result of the operations Read, Update, New, Delete, Select and Dictionaries.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataCRUD.TotalItems">
+            <summary>
+            Number of the 
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkDataCRUD.LkRecords">
+            <summary>
+            LkItem list from the CRUD operation execution.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataCRUD.#ctor">
+            <summary>
+            Initializes a new instance of the LkDataCRUD class.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataCRUD.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataCRUD class.
+            </summary>
+            <param name="crudOperationResult">The string result of the CRUD operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataSubroutine">
+            <summary>
+            Initializes a new instance of the LkDataSubroutine class.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataSubroutine.Arguments">
+            <summary>
+            Argument list of the Subroutine operation execution.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataSubroutine.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataCRUD class.
+            </summary>
+            <param name="subroutineResult">The string result of the Subroutine operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataConversion">
+            <summary>
+            Class to management the result of the operations Conversion.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataConversion.Conversion">
+            <summary>
+            The value of the Conversion operation
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataConversion.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataCRUD class.
+            </summary>
+            <param name="conversionResult">The string result of the Conversion operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataFormat">
+            <summary>
+            Class to management the result of the operations Format.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataFormat.Format">
+            <summary>
+            The value of Format operation
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataFormat.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataCRUD class.
+            </summary>
+            <param name="formatResult">The string result of the Format operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataExecute">
+            <summary>
+            Class to management the result of the operations Execute.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataExecute.Capturing">
+            <summary>
+            The Capturing value of the Execute operation
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataExecute.Returning">
+            <summary>
+            The Returning value of the Execute operation
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataExecute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataExecute class.
+            </summary>
+            <param name="executeResult">The string result of the Execute operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkDataSchProp">
+            <summary>
+            Class to management the result of the operations LkSchemas and LkProperties.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataSchProp.RowProperties">
+            <summary>
+            The RowProperties value of the LkSchemas or LkLkProperties operations
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkDataSchProp.RowHeaders">
+            <summary>
+            The RowHeaders value of the LkSchemas or LkProperties operations
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkDataSchProp.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the LkDataSchProp class.
+            </summary>
+            <param name="lkSchemasResult">The string result of the Lkchemas or LkProperties operation execution.</param>
+        </member>
+        <member name="T:Linkar.LkData.LkItems">
+            <summary>
+            This class is to implement List of the LkItems.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItems.LstDictsId">
+            <summary>
+            Array with the dictionary names for record Ids.
+            The same array for each LkItem that is stored in the list.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItems.LstDicts">
+            <summary>
+            Array with the dictionarty names for record fields.
+            The same array for each LkItem that is stored in the list.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItems.LstDictsCalculated">
+            <summary>
+            Array with the dictionary names for calculated fields of the record.
+            The same array for each LkItem that is stored in the list.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.#ctor">
+            <summary>
+            Initializes a new instance of the LkItem class.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Linkar.LkData.LkItems.#ctor(System.String[],System.String[],System.String[])" -->
+        <member name="P:Linkar.LkData.LkItems.Item(System.String)">
+            <summary>
+            Indexer to get a LkItem using its RecordId.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.Add(Linkar.LkData.LkItem)">
+            <summary>
+            Adds a new LkItem to the list. The dictionaries arrays of the list, will be copied to the LkItem added.
+            </summary>
+            <param name="lkItem"></param>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.Add(System.String[])">
+            <summary>
+            Creates and adds LkItem with specific recordIds to the list.
+            </summary>
+            <param name="recordIds">Array with the list of recordIds</param>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.RemoveId(System.String)">
+            <summary>
+            Removes the LkItem specified by its recordID from the list.
+            </summary>
+            <param name="recordId"></param>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.ComposeReadBuffer">
+            <summary>
+            Composes the final buffer string for one or more records to be read in MV Read operations, with the RecordId information.
+            </summary>
+            <returns>The final string buffer for MV Read operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.ComposeUpdateBuffer(System.Boolean)">
+            <summary>
+            Composes the final buffer string for one or more records to be updated in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
+            </summary>
+            <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
+            <returns>The final string buffer for MV Update operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.ComposeNewBuffer">
+            <summary>
+            Composes the final buffer string for one or more records to be created in MV New operations, with the RecordId and the Record information.
+            </summary>
+            <returns>The final string buffer for MV New operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItems.ComposeDeleteBuffer(System.Boolean)">
+            <summary>
+            Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+            </summary>
+            <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
+            <returns>The final string buffer for MV Delete operations.</returns>
+        </member>
+        <member name="T:Linkar.LkData.LkItem">
+            <summary>
+            A LkItem is compose of three items: RecordId, Record and OriginalRecord. Depending on the operation, the three items may be present, or only some of them.
+            Each LkItem can hold a list of dictionaries (for real fields, for ID fields, and for calculated fields)
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItem.LstDictsId">
+            <summary>
+            Array with the dictionary names for record Ids.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItem.LstDicts">
+            <summary>
+            Array with the dictionarty names for record fields.
+            </summary>
+        </member>
+        <member name="P:Linkar.LkData.LkItem.LstDictsCalculated">
+            <summary>
+            Array with the dictionary names for calculated fields of the record.
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkItem.RecordId">
+            <summary>
+            The ID of the record.
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkItem.Record">
+            <summary>
+            The content of a record from database.
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkItem.OriginalRecord">
+            <summary>
+            A copy of the original record to be used in operations where the optimistic lock option is enabled.
+            </summary>
+        </member>
+        <member name="F:Linkar.LkData.LkItem.Calculated">
+            <summary>
+            The content of calculated fields from database.
+            </summary>
+        </member>
+        <member name="M:Linkar.LkData.LkItem.#ctor">
+            <summary>
+            Initializes a new instance of the LkItem class.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Linkar.LkData.LkItem.#ctor(System.String,System.String,System.String,System.String,System.String[],System.String[],System.String[])" -->
+        <member name="P:Linkar.LkData.LkItem.Item(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Indexer that set or get fields, multivalues or subvalues from the record.
+            </summary>
+            <param name="field">The field number to get or set.</param>
+            <param name="mv">The multivalue number to get or set.</param>
+            <param name="sv">The subvalue number to get or set.</param>
+            <returns>The extrated value.</returns>
+        </member>
+        <member name="P:Linkar.LkData.LkItem.Item(System.String,System.Int32,System.Int32)">
+            <summary>
+            Indexer that usign the dictionary name can set or get fields, multivalues or subvalues from the record.
+            </summary>
+            <param name="dictName">The dictionary name to get or set.</param>
+            <param name="mv">The multivalue number to get or set.</param>
+            <param name="sv">The subvalue number to get or set.</param>
+            <returns>The extrated value.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItem.ComposeReadBuffer">
+            <summary>
+            Composes the final buffer string for one or more records to be read in MV Read operations, with the RecordId information.
+            </summary>
+            <returns>The final string buffer for MV Read operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItem.ComposeUpdateBuffer(System.Boolean)">
+            <summary>
+            Composes the final buffer string for one or more records to be updated in MV Update operations, with the RecordId, the Record, and optionally the OriginalRecord information.
+            </summary>
+            <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
+            <returns>The final string buffer for MV Update operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItem.ComposeNewBuffer">
+            <summary>
+            Composes the final buffer string for one or more records to be created in MV New operations, with the RecordId and the Record information.
+            </summary>
+            <returns>The final string buffer for MV New operations.</returns>
+        </member>
+        <member name="M:Linkar.LkData.LkItem.ComposeDeleteBuffer(System.Boolean)">
+            <summary>
+            Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+            </summary>
+            <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
+            <returns>The final string buffer for MV Delete operations.</returns>
+        </member>
+    </members>
+</doc>

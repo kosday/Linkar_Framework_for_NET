@@ -3,6 +3,15 @@
 namespace Linkar.Commands.Direct
 {
     /// <summary>
+    /// Namespace for Linkar.Commands.Direct library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
+    /// <summary>
     /// Allows a variety of operations using standard JSON templates, synchronously and asynchronously.
     /// </summary>
     public class JsonCommands

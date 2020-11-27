@@ -1,10 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-
-using Linkar.Functions;
-
-namespace Linkar.Functions
+﻿namespace Linkar.Functions.Persistent
 {
+    /// <summary>
+    /// Namespace for Linkar.Functions.Persistent library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// These functions perform synchronous persistent (establishing permanent session) operations with any kind of output format type.
     /// </summary>
@@ -188,17 +192,18 @@ namespace Linkar.Functions
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
         /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
         /// <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
+        /// <param name="inputFormat">Indicates in what format you wish to send the resultant writing data: MV, XML or JSON.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
         public string Delete(string filename, string records, DeleteOptions deleteOptions = null,
-            DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV,
+            DATAFORMAT_TYPE inputFormat = DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV,
             string customVars = "", int receiveTimeout = 0)
         {
             string deleteArgs = OperationArguments.GetDeleteArgs(filename, records, deleteOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.DELETE;
-            byte byteInputFormat = (byte)DATAFORMATCRU_TYPE.MV;
+            byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string connectionInfo = this._ConnectionInfo.ToString();
             string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, opCode, deleteArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
@@ -255,16 +260,16 @@ namespace Linkar.Functions
         /// <summary>
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only.
         /// </summary>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public string Conversion(CONVERSION_TYPE conversionOptions, string expression, string code, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
+        public string Conversion(CONVERSION_TYPE conversionType, string expression, string code, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
-            string conversionArgs = OperationArguments.GetConversionArgs(expression, code, conversionOptions, customVars);
+            string conversionArgs = OperationArguments.GetConversionArgs(expression, code, conversionType, customVars);
             byte opCode = (byte)OPERATION_CODE.CONVERSION;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
@@ -335,7 +340,7 @@ namespace Linkar.Functions
         /// Allows getting the client version.
         /// </summary>
         /// <returns>The results of the operation.</returns>
-        public static string GetLocalVersion()
+        public string GetLocalVersion()
         {
             return Linkar.ClientVersion;
         }

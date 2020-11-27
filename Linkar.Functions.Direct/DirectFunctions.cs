@@ -1,7 +1,16 @@
-﻿using System;
+﻿using Linkar;
 
 namespace Linkar.Functions.Direct
 {
+    /// <summary>
+    /// Namespace for Linkar.Functions.Direct library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// These functions perform synchronous direct (without establishing permanent session) operations with any kind of output format type.
     /// </summary>
@@ -86,17 +95,18 @@ namespace Linkar.Functions.Direct
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
         /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
         /// <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
+        /// <param name="inputFormat">Indicates in what format you wish to send the resultant writing data: MV, XML or JSON.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
         public static string Delete(CredentialOptions credentialOptions, string filename, string records, DeleteOptions deleteOptions = null,
-            DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV,
+            DATAFORMAT_TYPE inputFormat = DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV,
             string customVars = "", int receiveTimeout = 0)
         {
             string deleteArgs = OperationArguments.GetDeleteArgs(filename, records, deleteOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.DELETE;
-            byte byteInputFormat = (byte)DATAFORMATCRU_TYPE.MV;
+            byte byteInputFormat = (byte)inputFormat;
             byte byteOutputFormat = (byte)outputFormat;
             string result = Linkar.ExecuteDirectOperation(credentialOptions, opCode, deleteArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
@@ -156,18 +166,18 @@ namespace Linkar.Functions.Direct
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public static string Conversion(CredentialOptions credentialOptions, string expression, string code, CONVERSION_TYPE conversionOptions,
+        public static string Conversion(CredentialOptions credentialOptions, string expression, string code, CONVERSION_TYPE conversionType,
             DATAFORMAT_TYPE outputFormat = DATAFORMAT_TYPE.MV,
             string customVars = "", int receiveTimeout = 0)
         {
-            string conversionArgs = OperationArguments.GetConversionArgs(expression, code, conversionOptions, customVars);
+            string conversionArgs = OperationArguments.GetConversionArgs(expression, code, conversionType, customVars);
             byte opCode = (byte)OPERATION_CODE.CONVERSION;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
             byte byteOutputFormat = (byte)outputFormat;
@@ -343,7 +353,7 @@ namespace Linkar.Functions.Direct
             string resetCommonBlocksArgs = OperationArguments.GetResetCommonBlocksArgs();
             byte opCode = (byte)OPERATION_CODE.RESETCOMMONBLOCKS;
             byte byteInputFormat = (byte)DATAFORMAT_TYPE.MV;
-            byte byteOutputFormat = (byte)DATAFORMAT_TYPE.MV;
+            byte byteOutputFormat = (byte)outputFormat;
             string result = Linkar.ExecuteDirectOperation(credentialOptions, opCode, resetCommonBlocksArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             return result;
         }

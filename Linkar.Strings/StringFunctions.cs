@@ -1,37 +1,144 @@
 ﻿using System;
 
-namespace Linkar
+namespace Linkar.Strings
 {
+    /// <summary>
+    /// Namespace Linkar.Strings library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
 
     /// <summary>
     /// The tag names that may appear in the result string from executing an operation.
     /// </summary>
     public static class StringFunctions
     {
+        /// <summary>
+        /// The tag value for "TOTAL_RECORDS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string TOTAL_RECORDS_KEY = "TOTAL_RECORDS";
+
+        /// <summary>
+        /// The tag value for "RECORD_IDS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string RECORD_IDS_KEY = "RECORD_ID";
+
+        /// <summary>
+        /// The tag value for "RECORDS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string RECORDS_KEY = "RECORD";
+
+        /// <summary>
+        /// The tag value for "CALCULATED_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string CALCULATED_KEY = "CALCULATED";
+
+        /// <summary>
+        /// The tag value for "RECORD_DICTS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string RECORD_DICTS_KEY = "RECORD_DICTS";
+
+        /// <summary>
+        /// The tag value for "RECORD_ID_DICTS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string RECORD_ID_DICTS_KEY = "RECORD_ID_DICTS";
+
+        /// <summary>
+        /// The tag value for "CALCULATED_DICTS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string CALCULATED_DICTS_KEY = "CALCULATED_DICTS";
+
+        /// <summary>
+        /// The tag value for "ARGUMENTS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string ARGUMENTS_KEY = "ARGUMENTS";
+
+        /// <summary>
+        /// The tag value for "ORIGINAL_RECORDS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string ORIGINAL_RECORDS_KEY = "ORIGINALRECORD";
+
+        /// <summary>
+        /// The tag value for "FORMAT_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string FORMAT_KEY = "FORMAT";
+
+        /// <summary>
+        /// The tag value for "CONVERSION_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string CONVERSION_KEY = "CONVERSION";
+
+        /// <summary>
+        /// The tag value for "CAPTURING_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string CAPTURING_KEY = "CAPTURING";
+
+        /// <summary>
+        /// The tag value for "RETURNING_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string RETURNING_KEY = "RETURNING";
+
+        /// <summary>
+        /// The tag value for "ROWHEADERS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string ROWHEADERS_KEY = "ROWHEADERS";
+
+        /// <summary>
+        /// The tag value for "ROWPROPERTIES_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string ROWPROPERTIES_KEY = "ROWPROPERTIES";
+
+        /// <summary>
+        /// The tag value for "ERRORS_KEY" in Database operation responses of MV type
+        /// </summary>
         public const string ERRORS_KEY = "ERRORS";
 
+        /// <summary>
+        /// ASCII character used as separator of the arguments of a subroutine.
+        /// </summary>
         public const char DC4 = '\x14';
+        /// <summary>
+        /// ASCII character used as separator of the arguments of a subroutine.
+        /// </summary>
         public const string DC4_str = "\x14";
+
+        /// <summary>
+        /// When the responses of the operations are of MV type, this character is used to separate the header (the ThisList property in LkData) from the data.
+        /// </summary>
         public const char FS = '\x1C';
+        /// <summary>
+        /// When the responses of the operations are of MV type, this character is used to separate the header (the ThisList property in LkData) from the data.
+        /// </summary>
+        public const string FS_str = "\x1C";
+
+        /// <summary>
+        /// ASCII character used by Linkar as separator of items in lists. For example, list of records.
+        /// </summary>
         public const char RS = '\x1E';
+        /// <summary>
+        /// ASCII character used by Linkar as separator of items in lists. For example, list of records.
+        /// </summary>
         public const string RS_str = "\x1E";
+
+        /// <summary>
+        /// Character ASCII 254. AM Multi-value mark.
+        /// </summary>
         public const char AM = '\xFE';
+        /// <summary>
+        /// Character ASCII 254. AM Multi-value mark.
+        /// </summary>
+        public const string AM_str = "\xFE";
+
+        /// <summary>
+        /// Character ASCII 253. VM Multi-value mark.
+        /// </summary>
         public const char VM = '\xFD';
+        /// <summary>
+        /// Character ASCII 253. VM Multi-value mark.
+        /// </summary>
         public const string VM_str = "\xFD";
 
         #region --- Extraction functions

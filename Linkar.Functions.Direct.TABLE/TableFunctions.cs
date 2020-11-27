@@ -1,7 +1,14 @@
-﻿using System;
-
-namespace Linkar.Functions.Direct.TABLE
+﻿namespace Linkar.Functions.Direct.TABLE
 {
+    /// <summary>
+    /// Namespace for Linkar.Functions.Direct.TABLE library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     public static partial class Functions
     {
         /// <summary>

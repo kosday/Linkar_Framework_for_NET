@@ -1,5 +1,16 @@
-﻿namespace Linkar.Functions.Persistent.XML
+﻿using LkFunctPersistent = Linkar.Functions.Persistent;
+
+namespace Linkar.Functions.Persistent.XML
 {
+    /// <summary>
+    /// Namespace for Linkar.Functions.Persistent.XML library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// XML output formats for Read, Update, New and Select
     /// </summary>
@@ -23,10 +34,10 @@
 
     /// <summary>
     /// These functions perform synchronous and asynchronous persistent (establishing permanent session) operations with output format type XML.
-    /// </summary
+    /// </summary>
     public partial class LinkarClient
     {
-        private Functions.LinkarClient _LinkarClt;
+        private LkFunctPersistent.LinkarClient _LinkarClt;
 
         /// <summary>
         /// SessionID of the connection.
@@ -42,7 +53,7 @@
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
         {
-            this._LinkarClt = new Functions.LinkarClient(receiveTimeout);
+            this._LinkarClt = new LkFunctPersistent.LinkarClient(receiveTimeout);
         }
 
         /// <summary>
@@ -127,7 +138,7 @@
         public string Delete(string filename, string records, DeleteOptions deleteOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Delete(filename, records, deleteOptions, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClt.Delete(filename, records, deleteOptions, DATAFORMAT_TYPE.XML, DATAFORMAT_TYPE.XML, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -166,15 +177,15 @@
         /// <summary>
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only, with XML output format.
         /// </summary>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public string Conversion(CONVERSION_TYPE conversionOptions, string expression, string code, string customVars = "", int receiveTimeout = 0)
+        public string Conversion(CONVERSION_TYPE conversionType, string expression, string code, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.Conversion(conversionOptions, expression, code, DATAFORMAT_TYPE.XML, customVars, receiveTimeout); ;
+            return this._LinkarClt.Conversion(conversionType, expression, code, DATAFORMAT_TYPE.XML, customVars, receiveTimeout); ;
         }
 
         /// <summary>
@@ -218,9 +229,9 @@
         /// Allows getting the client version.
         /// </summary>
         /// <returns>The results of the operation.</returns>
-        public static string GetLocalVersion()
+        public string GetLocalVersion()
         {
-            return Functions.LinkarClient.GetLocalVersion();
+            return this._LinkarClt.GetLocalVersion();
         }
 
         /// <summary>

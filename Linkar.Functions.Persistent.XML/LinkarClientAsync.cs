@@ -174,17 +174,17 @@ namespace Linkar.Functions.Persistent.XML
         /// <summary>
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, ina asynchronous way with XML output format.
         /// </summary>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public Task<string> ConversionAsync(CONVERSION_TYPE conversionOptions, string expression, string code, string customVars = "", int receiveTimeout = 0)
+        public Task<string> ConversionAsync(CONVERSION_TYPE conversionType, string expression, string code, string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return this.Conversion(conversionOptions, expression, code, customVars, receiveTimeout); ;
+                return this.Conversion(conversionType, expression, code, customVars, receiveTimeout); ;
             });
 
             task.Start();

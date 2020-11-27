@@ -1,9 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Linkar.Commands
+﻿namespace Linkar.Commands
 {
+    /// <summary>
+    /// Namespace for Linkar.Commands library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     class DirectFunctions
     {
         /// <summary>
@@ -18,7 +23,8 @@ namespace Linkar.Commands
         {
             string customVars = "";
             string options = "";
-            string sendCommandArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + command;
+            string US_str = "\x1F";
+            string sendCommandArgs = customVars + US_str + options + US_str + command;
             byte opCode;
             if (commandFormat == ENVELOPE_FORMAT.JSON)
                 opCode = (byte)OPERATION_CODE.COMMAND_JSON;

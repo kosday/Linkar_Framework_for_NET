@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 
-using Linkar;
-
 namespace Linkar.Functions.Direct.MV
 {
     public static partial class Functions
@@ -146,18 +144,18 @@ namespace Linkar.Functions.Direct.MV
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, in a asynchronous way with MV output format.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public static Task<string> ConversionAsync(CredentialOptions credentialOptions, CONVERSION_TYPE conversionOptions, string expression, string code,
+        public static Task<string> ConversionAsync(CredentialOptions credentialOptions, CONVERSION_TYPE conversionType, string expression, string code,
                 string customVars = "", int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
             {
-                return Conversion(credentialOptions, conversionOptions, expression, code, customVars, receiveTimeout);
+                return Conversion(credentialOptions, conversionType, expression, code, customVars, receiveTimeout);
             });
 
             task.Start();

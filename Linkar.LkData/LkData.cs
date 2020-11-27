@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Linkar;
+﻿using Linkar.Strings;
 
 namespace Linkar.LkData
 {
+    /// <summary>
+    /// Namespace for Linkar.LkData library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// Abstract class with common properties of all derived class.
     /// </summary>
@@ -109,6 +114,9 @@ namespace Linkar.LkData
     /// </summary>
     public class LkDataConversion : LkData
     {
+        /// <summary>
+        /// The value of the Conversion operation
+        /// </summary>
         public string Conversion { get; }
 
         /// <summary>
@@ -126,6 +134,9 @@ namespace Linkar.LkData
     /// </summary>
     public class LkDataFormat : LkData
     {
+        /// <summary>
+        /// The value of Format operation
+        /// </summary>
         public string Format { get; }
 
         /// <summary>
@@ -143,7 +154,14 @@ namespace Linkar.LkData
     /// </summary>
     public class LkDataExecute : LkData
     {
+        /// <summary>
+        /// The Capturing value of the Execute operation
+        /// </summary>
         public string Capturing { get; }
+
+        /// <summary>
+        /// The Returning value of the Execute operation
+        /// </summary>
         public string Returning { get; }
 
         /// <summary>
@@ -162,7 +180,14 @@ namespace Linkar.LkData
     /// </summary>
     public class LkDataSchProp : LkDataCRUD
     {
+        /// <summary>
+        /// The RowProperties value of the LkSchemas or LkLkProperties operations
+        /// </summary>
         public string[] RowProperties { get; }
+
+        /// <summary>
+        /// The RowHeaders value of the LkSchemas or LkProperties operations
+        /// </summary>
         public string[] RowHeaders { get; }
 
         /// <summary>

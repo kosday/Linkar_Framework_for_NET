@@ -1,10 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-
-using Linkar;
-
-namespace Linkar.Functions.Direct.MV
+﻿namespace Linkar.Functions.Direct.MV
 {
+    /// <summary>
+    /// Namespace for Linkar.Functions.Direct.MV library
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    class NamespaceDoc
+    {
+        // Dummy class necessary for SandCastle can generate doc about namespace
+    }
+
     /// <summary>
     /// These functions perform synchronous and asynchronous direct (without establishing permanent session) operations with output format type MV.
     /// </summary>
@@ -72,7 +76,7 @@ namespace Linkar.Functions.Direct.MV
         public static string Delete(CredentialOptions credentialOptions, string filename, string records, DeleteOptions deleteOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Delete(credentialOptions, filename, records, deleteOptions, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
+            return DirectFunctions.Delete(credentialOptions, filename, records, deleteOptions, DATAFORMAT_TYPE.MV, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>
@@ -114,16 +118,16 @@ namespace Linkar.Functions.Direct.MV
         /// Returns the result of executing ICONV() or OCONV() functions from a expression list in the Database, synchronously only, with MV output format.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
+        /// <param name="conversionType">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="expression">The data or expression to convert. May include MV marks (value delimiters), in which case the conversion will execute in each value obeying the original MV mark.</param>
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
-        public static string Conversion(CredentialOptions credentialOptions, CONVERSION_TYPE conversionOptions, string expression, string code,
+        public static string Conversion(CredentialOptions credentialOptions, CONVERSION_TYPE conversionType, string expression, string code,
                 string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.Conversion(credentialOptions, expression, code, conversionOptions, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
+            return DirectFunctions.Conversion(credentialOptions, expression, code, conversionType, DATAFORMAT_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>
