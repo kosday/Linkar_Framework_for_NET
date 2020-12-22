@@ -43,16 +43,16 @@ namespace Linkar.LkData
         /// Initializes a new instance of the LkItem class.
         /// </summary>
         /// <param name="lstDictsId">Array with the dictionary names for record Ids. The same array for each LkItem that is stored in the list.</param>
-        /// <param name="lstDicts">Array with the dictionarty names for record fields. The same array for each LkItem that is stored in the list.<param>
+        /// <param name="lstDicts">Array with the dictionarty names for record fields. The same array for each LkItem that is stored in the list.</param>
         /// <param name="lstDictsCalculated">Array with the dictionary names for calculated fields of the record. The same array for each LkItem that is stored in the list.</param>
-        public LkItems(string[] lstIdDicts, string[] lstDictionaries, string[] lstCalculatedDicts = null)
+        public LkItems(string[] lstDictsId, string[] lstDicts, string[] lstDictsCalculated = null)
         {
-            this._LstDictsId = lstIdDicts;
-            this._LstDicts = lstDictionaries;
-            if (lstCalculatedDicts == null)
+            this._LstDictsId = lstDictsId;
+            this._LstDicts = lstDicts;
+            if (lstDictsCalculated == null)
                 this._LstDictsCalculated = new string[0];
             else
-                this._LstDictsCalculated = lstCalculatedDicts;
+                this._LstDictsCalculated = lstDictsCalculated;
         }
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace Linkar.LkData
         /// <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
         /// <param name="calculateds">The content of the calculated fields of the records.</param>
         /// <param name="lstDictsId">Optionally, array with the dictionary names for record Ids.</param>
-        /// <param name="lstDicts">Optionally, array with the dictionarty names for record fields.<param>
+        /// <param name="lstDicts">Optionally, array with the dictionarty names for record fields.</param>
         /// <param name="lstDictsCalculated">Optionally, array with the dictionary names for calculated fields of the record.</param>
         public LkItem(string recordId, string record = "", string calculateds = "", string originalRecord = "", string[] lstDictsId = null, string[] lstDicts = null, string[] lstDictsCalculated = null)
         {

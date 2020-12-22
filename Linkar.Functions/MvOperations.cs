@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Linkar.Functions
 {
     /// <summary>
-    /// 
+    /// This class contains the basic functions to work with multivalue strings. These functions are locally executed.
     /// </summary>
     public static class MvOperations
     {

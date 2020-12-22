@@ -16,6 +16,73 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyRead()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.ReadAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" + 
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;",
+        ///                 "", null, XML_FORMAT.XML).Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyRead() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.ReadAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" + 
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;",
+        ///             "", null, XML_FORMAT.XML).Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> ReadAsync(CredentialOptions credentialOptions, string filename, string records, string dictionaries = "", ReadOptions readOptions = null,
         XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
@@ -33,12 +100,91 @@ namespace Linkar.Functions.Direct.XML
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">Name of the file being updated.</param>
-        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use the StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
+        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="xmlFormat">Different XML output formats.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyUpdate()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.UpdateAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "      &lt;NAME&gt;CUSTOMER 2&lt;/NAME&gt;" +
+        ///                     "      &lt;ADDR&gt;ADDRESS 2&lt;/ADDR&gt;" +
+        ///                     "      &lt;PHONE&gt;444&lt;/PHONE&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyUpdate() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.UpdateAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "      &lt;NAME&gt;CUSTOMER 2&lt;/NAME&gt;" +
+        ///                     "      &lt;ADDR&gt;ADDRESS 2&lt;/ADDR&gt;" +
+        ///                     "      &lt;PHONE&gt;444&lt;/PHONE&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// Inside the records argument, the recordIds and the modified records always must be specified. But the originalRecords not always.
+        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLock"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+        /// to use the Optimistic Lock technique. This copy can be obtained from a previous <see cref="ReadAsync"/> operation. The database, before executing the modification, 
+        /// reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
+        /// But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
+        /// The record will have to be read, modified and saved again.
+        /// </remarks>
         public static Task<string> UpdateAsync(CredentialOptions credentialOptions, string filename, string records, UpdateOptions updateOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
@@ -55,13 +201,87 @@ namespace Linkar.Functions.Direct.XML
         /// Creates one or several records of a file, in a asynchronous way with XML input and output format.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-        /// <param name="filename">Name of the file being updated.</param>
-        /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
+        /// <param name="filename">The file name where the records are going to be created.</param>
+        /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="xmlFormat">Different XML output formats.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyNew()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.NewAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "      &lt;NAME&gt;CUSTOMER 2&lt;/NAME&gt;" +
+        ///                     "      &lt;ADDR&gt;ADDRESS 2&lt;/ADDR&gt;" +
+        ///                     "      &lt;PHONE&gt;444&lt;/PHONE&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyNew() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.NewAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" +
+        ///                     "      &lt;NAME&gt;CUSTOMER 2&lt;/NAME&gt;" +
+        ///                     "      &lt;ADDR&gt;ADDRESS 2&lt;/ADDR&gt;" +
+        ///                     "      &lt;PHONE&gt;444&lt;/PHONE&gt;" +
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// Inside the records argument, the records always mus be specified. But the recordIds only must be specified when <see cref="NewOptions"/> argument is null, or when the <see cref="RecordIdType"/> argument of the <see cref="NewOptions"/> constructor is null.
+        /// </remarks>
         public static Task<string> NewAsync(CredentialOptions credentialOptions, string filename, string records, NewOptions newOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
@@ -79,11 +299,85 @@ namespace Linkar.Functions.Direct.XML
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-        /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
+        /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyDelete()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.DeleteAsync(credentials, "LK.CUSTOMERS", 
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyDelete() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.DeleteAsync(credentials, "LK.CUSTOMERS",
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;RECORDS&gt;" +
+        ///                     "    &lt;RECORD&gt;" +
+        ///                     "      &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;
+        ///                     "    &lt;/RECORD&gt;" +
+        ///                     "  &lt;/RECORDS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// Inside the records argument, the recordIds always must be specified. But the originalRecords not always.
+        /// When <see cref="DeleteOptions">deleteOptions</see> argument is specified and the <see cref="DeleteOptions.OptimisticLock"/> property is set to true,
+        /// a copy of the record must be provided before the deletion (originalRecords argument) to use the Optimistic Lock technique.
+        /// This copy can be obtained from a previous <see cref="ReadAsync"/> operation. The database, before executing the deletion, 
+        /// reads the record and compares it with the copy in originalRecords, if they are equal the record is deleted.
+        /// But if they are not equal, it means that the record has been modified by other user and the record will not be deleted.
+        /// The record will have to be read, and deleted again.
+        /// </remarks>
         public static Task<string> DeleteAsync(CredentialOptions credentialOptions, string filename, string records, DeleteOptions deleteOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -110,6 +404,64 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        /// 
+        ///         public string MySelect()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 
+        ///                 result = Functions.SelectAsync(credentials, "LK.CUSTOMERS").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySelect() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.SelectAsync(credentials, "LK.CUSTOMERS").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// In the preSelectClause argument these operations can be carried out before executing the Select statement:
+        ///  <list type="bullet">
+        ///   <item>Previously call to a saved list with the GET.LIST command to use it in the Main Select input</item>
+        ///   <item>Make a previous Select to use the result as the Main Select input, with the SELECT or SSELECT commands.In this case the entire sentence must be indicated in the PreselectClause. For example:SSELECT LK.ORDERS WITH CUSTOMER = '1'</item>
+        ///   <item>Exploit a Main File index to use the result as a Main Select input, with the SELECTINDEX command. The syntax for all the databases is SELECTINDEX index.name.value. For example SELECTINDEX ITEM,"101691"</item>
+        /// </list>
+        /// </remarks>
         public static Task<string> SelectAsync(CredentialOptions credentialOptions, string filename, string selectClause = "", string sortClause = "", string dictClause = "", string preSelectClause = "", SelectOptions selectOptions = null,
             XML_FORMAT xmlFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
@@ -132,6 +484,71 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MySubroutine()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = XML.Functions.SubroutineAsync(credentials, "SUB.DEMOLINKAR", 3,
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;ARGUMENTS&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;0&lt;/ARGUMENT&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;aaaa&lt;/ARGUMENT&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;&lt;/ARGUMENT&gt;" +
+        ///                     "  &lt;/ARGUMENTS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySubroutine() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.SubroutineAsync(credentials, "SUB.DEMOLINKAR", 3,
+        ///                     "&lt;?xml version=\"1.0\" encoding=\"utf-16\"?&gt;" +
+        ///                     "&lt;LINKAR&gt;" +
+        ///                     "  &lt;ARGUMENTS&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;0&lt;/ARGUMENT&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;aaaa&lt;/ARGUMENT&gt;" +
+        ///                     "    &lt;ARGUMENT&gt;&lt;/ARGUMENT&gt;" +
+        ///                     "  &lt;/ARGUMENTS&gt;" +
+        ///                     "&lt;/LINKAR&gt;").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> SubroutineAsync(CredentialOptions credentialOptions, string subroutineName, int argsNumber, string arguments,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -154,6 +571,55 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyConversion()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.ConversionAsync(credentials, CONVERSION_TYPE.INPUT, "31-12-2017þ01-01-2018", "D2-").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyConversion() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.ConversionAsync(credentials, CONVERSION_TYPE.INPUT,"31-12-2017þ01-01-2018","D2-").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> ConversionAsync(CredentialOptions credentialOptions, CONVERSION_TYPE conversionType, string expression, string code,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -175,6 +641,55 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyFormat()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.FormatAsync(credentials, "1þ2", "R#10").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyFormat() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.FormatAsync(credentials, "1þ2","R#10").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> FormatAsync(CredentialOptions credentialOptions, string expression, string formatSpec,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -195,6 +710,55 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyDictionaries()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.DictionariesAsync(credentials, "LK.CUSTOMERS").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyDictionaries() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.DictionariesAsync(credentials, "LK.CUSTOMERS").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> DictionariesAsync(CredentialOptions credentialOptions, string filename,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -215,6 +779,55 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyExecute()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.ExecuteAsync(credentials, "WHO").Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyExecute() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.ExecuteAsync(credentials, "WHO").Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> ExecuteAsync(CredentialOptions credentialOptions, string statement,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -233,6 +846,78 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyGetVersion()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.GetVersionAsync(credentials).Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyGetVersion() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.GetVersionAsync(credentials).Result
+        ///         Catch ex As Exception
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 
+        ///         End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// This function returns the following information
+        /// <list type="definition">
+        /// <item><term>LKMVCOMPONENTSVERSION</term><description>MV Components version.</description></item>
+        /// <item><term>LKSERVERVERSION</term><description>Linkar SERVER version.</description></item>
+        /// <item><term>LKCLIENTVERSION</term><description>Used client library version.</description></item>
+        /// <item><term>DATABASE</term><description>Database.</description></item>
+        /// <item><term>OS</term><description>Operating system.</description></item>
+        /// <item><term>DATEZERO</term><description>Date zero base in YYYYMMDD format.</description></item>
+        /// <item><term>DATEOUTPUTCONVERSION</term><description>Output conversion for date used by Linkar Schemas.</description></item>
+        /// <item><term>TIMEOUTPUTCONVERSION</term><description>Output conversion for time used by Linkar Schemas.</description></item>
+        /// <item><term>MVDATETIMESEPARATOR</term><description>DateTime used separator used by Linkar Schemas, for instance 18325,23000.</description></item>
+        /// <item><term>MVBOOLTRUE</term><description>Database used char for the Boolean true value used by Linkar Schemas.</description></item>
+        /// <item><term>MVBOOLFALSE</term><description>Database used char for the Boolean false value used by Linkar Schemas.</description></item>
+        /// <item><term>OUTPUTBOOLTRUE</term><description>Used char for the Boolean true value out of the database used by Linkar Schemas.</description></item>
+        /// <item><term>OUTPUTBOOLFALSE</term><description>Used char for the Boolean false value out of the database used by Linkar Schemas.</description></item>
+        /// <item><term>MVDECIMALSEPARATOR</term><description>Decimal separator in the database. May be point, comma or none when the database does not store decimal numbers. Used by Linkar Schemas.</description></item>
+        /// <item><term>OTHERLANGUAGES</term><description>Languages list separated by commas.</description></item>
+        /// <item><term>TABLEROWSEPARATOR</term><description>It is the decimal char that you use to separate the rows in the output table format. By default 11.</description></item>
+        /// <item><term>TABLECOLSEPARATOR</term><description>It is the decimal char that you use to separate the columns in the output table format. By default 9.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <seealso href="http://kosday.com/Manuals/en_web_linkar/lk_schemas_ep_parameters.html">Schemas Parameter</seealso>
         public static Task<string> GetVersionAsync(CredentialOptions credentialOptions, int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
@@ -252,6 +937,56 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyLkSchemas()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LkSchemasOptions options = new LkSchemasOptions(RowHeaders.TYPE.MAINLABEL, false, false);
+        ///                 result = Functions.LkSchemasAsync(credentials, options).Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyLkSchemas() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim options As LkSchemasOptions = New LkSchemasOptions(RowHeaders.TYPE.MAINLABEL, False, False);
+        ///             result = Functions.LkSchemasAsync(credentials, options).Result
+        ///     Catch ex As Exception
+        ///         Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 
+        ///         End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> LkSchemasAsync(CredentialOptions credentialOptions, LkSchemasOptions lkSchemasOptions = null,
              string customVars = "", int receiveTimeout = 0)
         {
@@ -273,6 +1008,56 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyLkProperties()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LkPropertiesOptions options = new LkPropertiesOptions(RowHeaders.TYPE.MAINLABEL, false, false, false);
+        ///                 result = Functions.LkPropertiesAsync(credentials, "LK.CUSTOMERS", options).Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyLkProperties() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim options As LkPropertiesOptions = New LkPropertiesOptions(RowHeaders.TYPE.MAINLABEL, False, False, False);
+        ///             result = Functions.LkPropertiesAsync(credentials, "LK.CUSTOMERS",options).Result
+        /// 		Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> LkPropertiesAsync(CredentialOptions credentialOptions, string filename, LkPropertiesOptions lkPropertiesOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
@@ -291,6 +1076,55 @@ namespace Linkar.Functions.Direct.XML
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Direct.XML;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyResetCommonBlocks()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        /// 
+        ///                 result = Functions.ResetCommonBlocksAsync(credentials).Result;
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Direct.XML
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyResetCommonBlocks() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             result = Functions.ResetCommonBlocksAsync(credentials).Result
+        ///         Catch ex As Exception
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 
+        ///         End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public static Task<string> ResetCommonBlocksAsync(CredentialOptions credentialOptions, int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>

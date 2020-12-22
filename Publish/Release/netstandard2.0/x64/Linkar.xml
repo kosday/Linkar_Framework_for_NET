@@ -108,7 +108,7 @@
         </member>
         <member name="T:Linkar.NamespaceDoc">
             <summary>
-            Namespace for Linkar library
+            Linkar library namespace
             </summary>
         </member>
         <member name="T:Linkar.Linkar">
@@ -131,6 +131,7 @@
             <param name="inputDataFormat">Format of the input data</param>
             <param name="outputDataFormat">Format of the output data</param>
             <param name="receiveTimeout">Maximum time in seconds to wait the response from LinkarSERVER. A value less or equal to 0, wait for response indefinitely</param>
+            <exception cref="T:Linkar.LkException">This function and <see cref="M:Linkar.Linkar.ExecuteDirectOperation(Linkar.CredentialOptions,System.Byte,System.String,System.Byte,System.Byte,System.Int32)"/> function can generate LkException exceptions when a LINKAR system error occurs.</exception>
             <returns>Complex string with the result of the operation</returns>
         </member>
         <member name="M:Linkar.Linkar.ExecuteDirectOperation(Linkar.CredentialOptions,System.Byte,System.String,System.Byte,System.Byte,System.Int32)">
@@ -143,6 +144,7 @@
             <param name="inputDataFormat">Format of the input data</param>
             <param name="outputDataFormat">Format of the output data</param>
             <param name="receiveTimeout">Maximum time in seconds to wait the response from LinkarSERVER. A value less or equal to 0, wait for response indefinitely</param>
+            <exception cref="T:Linkar.LkException">This function and <see cref="M:Linkar.Linkar.ExecutePersistentOperation(Linkar.ConnectionInfo,System.Byte,System.String,System.Byte,System.Byte,System.Int32)"/> function can generate LkException exceptions when a LINKAR system error occurs.</exception>
             <returns>Complex string with the result of the operation</returns>
         </member>
         <member name="T:Linkar.LkException">

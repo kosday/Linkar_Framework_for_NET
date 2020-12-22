@@ -3,7 +3,7 @@
 namespace Linkar.LkData
 {
     /// <summary>
-    /// Namespace for Linkar.LkData library
+    /// Linkar.LkData library namespace.
     /// </summary>
     [System.Runtime.CompilerServices.CompilerGenerated]
     class NamespaceDoc

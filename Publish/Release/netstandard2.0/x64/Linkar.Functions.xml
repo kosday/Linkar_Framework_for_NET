@@ -6,7 +6,7 @@
     <members>
         <member name="T:Linkar.Functions.MvOperations">
             <summary>
-            
+            This class contains the basic functions to work with multivalue strings. These functions are locally executed.
             </summary>
         </member>
         <member name="M:Linkar.Functions.MvOperations.LkDCount(System.String,System.String)">
@@ -115,7 +115,7 @@
             Compose the 3 items ( CUSTOMVARS, OPTIONS and INPUTDATA) of the Update operation.
             </summary>
             <param name="filename">Name of the file being updated.</param>
-            <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use the StringFunctions.ComposeUpdateBuffer function to compose this string.</param>
+            <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
             <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
@@ -124,8 +124,8 @@
             <summary>
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the New operation.
             </summary>
-            <param name="filename">Name of the file being updated.</param>
-            <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer function to compose this string.</param>
+            <param name="filename">The file name where the records are going to be created.</param>
+            <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer (Linkar.Strings library) function to compose this string.</param>
             <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
@@ -135,7 +135,7 @@
             Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Delete operation.
             </summary>
             <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-            <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer function to compose this string.</param>
+            <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer (Linkar.Strings library) function to compose this string.</param>
             <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
             <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
@@ -374,6 +374,13 @@
             <summary>
             Checks out if the file has not been modified by other user.
             </summary>
+            <remarks>
+            If the OptimisticLock property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+            to use the Optimistic Lock technique. This copy can be obtained from a previous Read operation. The database, before executing the modification, 
+            reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
+            But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
+            The record will have to be read, modified and saved again.
+            </remarks>
         </member>
         <member name="P:Linkar.Functions.UpdateOptions.ReadAfter">
             <summary>
@@ -409,7 +416,7 @@
             <summary>
             Initializes a new instance of the UpdateOptions class.
             </summary>
-            <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user.</param>
+            <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user. <see cref="P:Linkar.Functions.UpdateOptions.OptimisticLock"/> property</param>
             <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
             <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
             <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
@@ -469,7 +476,7 @@
         </member>
         <member name="P:Linkar.Functions.NewOptions.ReadAfter">
             <summary>
-            Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+            Reads the record again and returns it after the creation. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
             </summary>
         </member>
         <member name="P:Linkar.Functions.NewOptions.Calculated">
@@ -583,7 +590,7 @@
             <summary>
             Constructor accepts options for generating Custom item IDs.
             </summary>
-            <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used - IDs must be supplied in the New operations.</param>
+            <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.NEWRECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used - IDs must be supplied in the New operations.</param>
         </member>
         <member name="M:Linkar.Functions.RecordIdType.ToString">
             <summary>
@@ -680,7 +687,7 @@
             <summary>
             Use this constructor to recovering items ids that used Custom RecordIdType
             </summary>
-            <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.RECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
+            <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.NEWRECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         </member>
         <member name="M:Linkar.Functions.RecoverIdType.ToString">
             <summary>

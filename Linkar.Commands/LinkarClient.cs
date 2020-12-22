@@ -3,7 +3,7 @@
 namespace Linkar.Commands.Persistent
 {
     /// <summary>
-    /// Namespace for Linkar.Commands.Persistent library
+    /// Linkar.Commands.Persistent library namespace.
     /// </summary>
     [System.Runtime.CompilerServices.CompilerGenerated]
     class NamespaceDoc
@@ -43,6 +43,9 @@ namespace Linkar.Commands.Persistent
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <remarks>
+        /// Login is actually a "virtual" operation which creates a new Client Session ID. No DBMS login is performed unless Linkar SERVER determines new Database Sessions are required - these operations are not related.
+        /// </remarks> 
         public void Login(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
         {
             if (this._ConnectionInfo == null)
@@ -94,6 +97,9 @@ namespace Linkar.Commands.Persistent
         /// </summary>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <remarks>
+        /// Logout is actually a "virtual" operation which disposes the current Client Session ID. No DBMS logout is performed.
+        /// </remarks>
         public void Logout(string customVars = "", int receiveTimeout = 0)
         {
             string logoutArgs = customVars;
@@ -136,11 +142,112 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
+        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
+        /// </summary>
+        /// <param name="command">Content of the operation you want to send.</param>
+        /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        public Task<string> SendCommandAsync(string command, ENVELOPE_FORMAT commandFormat = ENVELOPE_FORMAT.XML, int receiveTimeout = 0)
+        {
+            var task = new Task<string>(() =>
+            {
+                return SendCommand(command, commandFormat, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
+        }
+
+        /// <summary>
         /// Allows a variety of operations using standard JSON templates, synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MySendCommand()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LinkarClient client = new LinkarClient();
+        ///                 client.Login(credentials);
+        ///                 string command =
+        ///                     "{" +
+        ///                     "	\"NAME\" : \"READ\"," +
+        ///                     "	\"COMMAND\" :" + 
+        ///                     "	{" +
+        ///                     "		\"CALCULATED\" : \"True\" ," +
+        ///                     "		\"OUTPUT_FORMAT\" : \"JSON_DICT\" ," +
+        ///                     "		\"FILE_NAME\" : \"LK.CUSTOMERS\" ," +
+        ///                     "		\"RECORDS\" : [" +
+        ///                     "			{ \"LKITEMID\" : \"2\" }" +
+        ///                     "		]" +
+        ///                     "	}" +
+        ///                     "}";
+        ///                 result = client.SendJsonCommand(command);
+        ///                 client.Logout();
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySendCommand() As String
+        /// 
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim client As LinkarClient = New LinkarClient()
+        /// 
+        ///             client.Login(credentials)
+        ///             string command =
+        ///                     "{" +
+        ///                     "	\"NAME\" : \"READ\"," +
+        ///                     "	\"COMMAND\" :" + 
+        ///                     "	{" +
+        ///                     "		\"CALCULATED\" : \"True\" ," +
+        ///                     "		\"OUTPUT_FORMAT\" : \"JSON_DICT\" ," +
+        ///                     "		\"FILE_NAME\" : \"LK.CUSTOMERS\" ," +
+        ///                     "		\"RECORDS\" : [" +
+        ///                     "			{ \"LKITEMID\" : \"2\" }" +
+        ///                     "		]" +
+        ///                     "	}" +
+        ///                     "}"
+        ///             result = client.SendJsonCommand(command)
+        ///             client.Logout()
+        /// 
+        ///         Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public string SendJsonCommand(string command, int receiveTimeout = 0)
         {
             return SendCommand(command, ENVELOPE_FORMAT.JSON, receiveTimeout);
@@ -152,6 +259,89 @@ namespace Linkar.Commands.Persistent
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MySendCommand()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LinkarClient client = new LinkarClient();
+        ///                 client.Login(credentials);
+        ///                 string command =
+        ///                     "{" +
+        ///                     "	\"NAME\" : \"READ\"," +
+        ///                     "	\"COMMAND\" :" + 
+        ///                     "	{" +
+        ///                     "		\"CALCULATED\" : \"True\" ," +
+        ///                     "		\"OUTPUT_FORMAT\" : \"JSON_DICT\" ," +
+        ///                     "		\"FILE_NAME\" : \"LK.CUSTOMERS\" ," +
+        ///                     "		\"RECORDS\" : [" +
+        ///                     "			{ \"LKITEMID\" : \"2\" }" +
+        ///                     "		]" +
+        ///                     "	}" +
+        ///                     "}";
+        ///                 result = client.SendJsonCommandAsync(command).Result;
+        ///                 client.Logout();
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySendCommand() As String
+        /// 
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim client As LinkarClient = New LinkarClient()
+        /// 
+        ///             client.Login(credentials)
+        ///             string command =
+        ///                     "{" +
+        ///                     "	\"NAME\" : \"READ\"," +
+        ///                     "	\"COMMAND\" :" + 
+        ///                     "	{" +
+        ///                     "		\"CALCULATED\" : \"True\" ," +
+        ///                     "		\"OUTPUT_FORMAT\" : \"JSON_DICT\" ," +
+        ///                     "		\"FILE_NAME\" : \"LK.CUSTOMERS\" ," +
+        ///                     "		\"RECORDS\" : [" +
+        ///                     "			{ \"LKITEMID\" : \"2\" }" +
+        ///                     "		]" +
+        ///                     "	}" +
+        ///                     "}"
+        ///             result = client.SendJsonCommandAsync(command).Result
+        ///             client.Logout()
+        /// 
+        ///         Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public Task<string> SendJsonCommandAsync(string command, int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
@@ -169,6 +359,85 @@ namespace Linkar.Commands.Persistent
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MySendCommand()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LinkarClient client = new LinkarClient();
+        ///                 client.Login(credentials);
+        ///                 string command =
+        ///                     "&lt;COMMAND NAME=\"READ\"&gt;" +
+        ///                     "   &lt;CALCULATED&gt;True&lt;/CALCULATED&gt;" +
+        ///                     "   &lt;OUTPUT_FORMAT&gt;XML_DICT&lt;/OUTPUT_FORMAT&gt;" +
+        ///                     "   &lt;FILE_NAME&gt;LK.CUSTOMERS&lt;/FILE_NAME&gt;" +
+        ///                     "   &lt;RECORDS&gt;" +
+        ///                     "       &lt;RECORD&gt;" +
+        ///                     "           &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" + 
+        ///                     "       &lt;/RECORD&gt;" +
+        ///                     "   &lt;/RECORDS&gt;" +
+        ///                     "&lt;/COMMAND&gt;"
+        ///                 result = client.SendXmlCommand(command);
+        ///                 client.Logout();
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySendCommand() As String
+        /// 
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim client As LinkarClient = New LinkarClient()
+        /// 
+        ///             client.Login(credentials)
+        ///             string command = 
+        ///                     "&lt;COMMAND NAME=\"READ\"&gt;" +
+        ///                     "   &lt;CALCULATED&gt;True&lt;/CALCULATED&gt;" +
+        ///                     "   &lt;OUTPUT_FORMAT&gt;XML_DICT&lt;/OUTPUT_FORMAT&gt;" +
+        ///                     "   &lt;FILE_NAME&gt;LK.CUSTOMERS&lt;/FILE_NAME&gt;" +
+        ///                     "   &lt;RECORDS&gt;" +
+        ///                     "       &lt;RECORD&gt;" +
+        ///                     "           &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" + 
+        ///                     "       &lt;/RECORD&gt;" +
+        ///                     "   &lt;/RECORDS&gt;" +
+        ///                     "&lt;/COMMAND&gt;
+        ///             result = client.SendXmlCommand(command)
+        ///             client.Logout()
+        /// 
+        ///         Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public string SendXmlCommand(string command, int receiveTimeout = 0)
         {
             return SendCommand(command, ENVELOPE_FORMAT.XML, receiveTimeout);
@@ -180,6 +449,85 @@ namespace Linkar.Commands.Persistent
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MySendCommand()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LinkarClient client = new LinkarClient();
+        ///                 client.Login(credentials);
+        ///                 string command =
+        ///                     "&lt;COMMAND NAME=\"READ\"&gt;" +
+        ///                     "   &lt;CALCULATED&gt;True&lt;/CALCULATED&gt;" +
+        ///                     "   &lt;OUTPUT_FORMAT&gt;XML_DICT&lt;/OUTPUT_FORMAT&gt;" +
+        ///                     "   &lt;FILE_NAME&gt;LK.CUSTOMERS&lt;/FILE_NAME&gt;" +
+        ///                     "   &lt;RECORDS&gt;" +
+        ///                     "       &lt;RECORD&gt;" +
+        ///                     "           &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" + 
+        ///                     "       &lt;/RECORD&gt;" +
+        ///                     "   &lt;/RECORDS&gt;" +
+        ///                     "&lt;/COMMAND&gt;"
+        ///                 result = client.SendXmlCommandAsync(command).Result;
+        ///                 client.Logout();
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// using Linkar.Commands.Persistent;
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MySendCommand() As String
+        /// 
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim client As LinkarClient = New LinkarClient()
+        /// 
+        ///             client.Login(credentials)
+        ///             string command = 
+        ///                     "&lt;COMMAND NAME=\"READ\"&gt;" +
+        ///                     "   &lt;CALCULATED&gt;True&lt;/CALCULATED&gt;" +
+        ///                     "   &lt;OUTPUT_FORMAT&gt;XML_DICT&lt;/OUTPUT_FORMAT&gt;" +
+        ///                     "   &lt;FILE_NAME&gt;LK.CUSTOMERS&lt;/FILE_NAME&gt;" +
+        ///                     "   &lt;RECORDS&gt;" +
+        ///                     "       &lt;RECORD&gt;" +
+        ///                     "           &lt;LKITEMID&gt;2&lt;/LKITEMID&gt;" + 
+        ///                     "       &lt;/RECORD&gt;" +
+        ///                     "   &lt;/RECORDS&gt;" +
+        ///                     "&lt;/COMMAND&gt;
+        ///             result = client.SendXmlCommandAsync(command).Result
+        ///             client.Logout()
+        /// 
+        ///         Catch ex As Exception
+        /// 
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 		End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
         public Task<string> SendXmlCommandAsync(string command, int receiveTimeout = 0)
         {
             var task = new Task<string>(() =>
@@ -190,7 +538,5 @@ namespace Linkar.Commands.Persistent
             task.Start();
             return task;
         }
-
-
     }
 }
