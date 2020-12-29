@@ -6,7 +6,7 @@ Linkar Framework is made up of a total of 15 libraries. 14 of them are open sour
 
 	- Persistent operations require a session to be established and closed through “Login” and “Logout” operations. The connection credentials to Linkar Server are supplied in the "Log-in" operation. Once the session is established, any operation can be executed without having to re-supply credentials.
 
-- Direct operations do not require a session to be established. The connection credentials must always be supplied to the Linkar Server with each operation.
+	- Direct operations do not require a session to be established. The connection credentials must always be supplied to the Linkar Server with each operation.
 
 These two "primitive" functions, allow developers to create CRUD applications and call MV Basic subroutines across the Linkar Server. Developing an application with just these two primitives would be very difficult and time expensive.
 
