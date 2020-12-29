@@ -23,8 +23,7 @@ Developers will find functions to synchronously and asynchronously execute opera
 Developers who want to create an application do not need to use all these libraries. They can just use the ones required for their purpose. The following section shows the hierarchy of the Linkar FRAMEWORK libraries that will help them select the  libraries needed in each case.
 
 
-This is the Linkar Framework hierarchy:
----------------------------------------
+## Linkar Framework hierarchy
 
 - Linkar (Private)
 - Linkar.Functions (C#/Java/C open-source)
@@ -43,7 +42,6 @@ This is the Linkar Framework hierarchy:
 	- Linkar.Functions.Persistent.TABLE (C#/Java/C open-source)
 	- Linkar.Functions.Persistent.XML (C#/Java/C open-source)
 
-Building Libraries
-------------------
+## Building Libraries
 
 There is a solution file "LinkarFramework.sln" for Visual Studio 2019 that can be used to compile all libraries.
