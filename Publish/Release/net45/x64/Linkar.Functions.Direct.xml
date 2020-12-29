@@ -65,7 +65,7 @@
             <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
             <returns>The results of the operation.</returns>
             <remarks>
-            Inside the records argument, the records always mus be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
+            Inside the records argument, the records always must be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
             </remarks>
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.Functions.DeleteOptions,Linkar.Functions.DATAFORMAT_TYPE,Linkar.Functions.DATAFORMAT_TYPE,System.String,System.Int32)">

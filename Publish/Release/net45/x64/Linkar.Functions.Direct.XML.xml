@@ -291,7 +291,7 @@
             </code>
             </example>
             <remarks>
-            Inside the records argument, the records always mus be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
+            Inside the records argument, the records always must be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
             </remarks>
         </member>
         <member name="M:Linkar.Functions.Direct.XML.Functions.Delete(Linkar.CredentialOptions,System.String,System.String,Linkar.Functions.DeleteOptions,System.String,System.Int32)">
@@ -1285,7 +1285,7 @@
             </code>
             </example>
             <remarks>
-            Inside the records argument, the records always mus be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
+            Inside the records argument, the records always must be specified. But the recordIds only must be specified when <see cref="T:Linkar.Functions.NewOptions"/> argument is null, or when the <see cref="T:Linkar.Functions.RecordIdType"/> argument of the <see cref="T:Linkar.Functions.NewOptions"/> constructor is null.
             </remarks>
         </member>
         <member name="M:Linkar.Functions.Direct.XML.Functions.DeleteAsync(Linkar.CredentialOptions,System.String,System.String,Linkar.Functions.DeleteOptions,System.String,System.Int32)">

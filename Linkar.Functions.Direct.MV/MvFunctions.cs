@@ -215,7 +215,7 @@
         /// </code>
         /// </example>
         /// <remarks>
-        /// Inside the records argument, the records always mus be specified. But the recordIds only must be specified when <see cref="NewOptions"/> argument is null, or when the <see cref="RecordIdType"/> argument of the <see cref="NewOptions"/> constructor is null.
+        /// Inside the records argument, the records always must be specified. But the recordIds only must be specified when <see cref="NewOptions"/> argument is null, or when the <see cref="RecordIdType"/> argument of the <see cref="NewOptions"/> constructor is null.
         /// </remarks>
         public static string New(CredentialOptions credentialOptions, string filename, string records, NewOptions newOptions = null,
                 string customVars = "", int receiveTimeout = 0)

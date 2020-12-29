@@ -6,7 +6,7 @@
     <members>
         <member name="T:Linkar.LkData.NamespaceDoc">
             <summary>
-            Namespace for Linkar.LkData library
+            Linkar.LkData library namespace.
             </summary>
         </member>
         <member name="T:Linkar.LkData.LkData">
@@ -174,7 +174,14 @@
             Initializes a new instance of the LkItem class.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Linkar.LkData.LkItems.#ctor(System.String[],System.String[],System.String[])" -->
+        <member name="M:Linkar.LkData.LkItems.#ctor(System.String[],System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the LkItem class.
+            </summary>
+            <param name="lstDictsId">Array with the dictionary names for record Ids. The same array for each LkItem that is stored in the list.</param>
+            <param name="lstDicts">Array with the dictionarty names for record fields. The same array for each LkItem that is stored in the list.</param>
+            <param name="lstDictsCalculated">Array with the dictionary names for calculated fields of the record. The same array for each LkItem that is stored in the list.</param>
+        </member>
         <member name="P:Linkar.LkData.LkItems.Item(System.String)">
             <summary>
             Indexer to get a LkItem using its RecordId.
@@ -272,7 +279,18 @@
             Initializes a new instance of the LkItem class.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Linkar.LkData.LkItem.#ctor(System.String,System.String,System.String,System.String,System.String[],System.String[],System.String[])" -->
+        <member name="M:Linkar.LkData.LkItem.#ctor(System.String,System.String,System.String,System.String,System.String[],System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the LkItem class.
+            </summary>
+            <param name="recordId">The ID of the record.</param>
+            <param name="record">The content of a record from database.</param>
+            <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
+            <param name="calculateds">The content of the calculated fields of the records.</param>
+            <param name="lstDictsId">Optionally, array with the dictionary names for record Ids.</param>
+            <param name="lstDicts">Optionally, array with the dictionarty names for record fields.</param>
+            <param name="lstDictsCalculated">Optionally, array with the dictionary names for calculated fields of the record.</param>
+        </member>
         <member name="P:Linkar.LkData.LkItem.Item(System.Int32,System.Int32,System.Int32)">
             <summary>
             Indexer that set or get fields, multivalues or subvalues from the record.
