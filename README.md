@@ -45,3 +45,18 @@ Developers who want to create an application do not need to use all these librar
 ## Building Libraries
 
 There is a solution file "LinkarFramework.sln" for Visual Studio 2019 that can be used to compile all libraries.
+
+The projects of this solution, are multi target projects. The targets are "net45" and "netstandard2.0". So, when you build the solution, two version (.NET 4.5 and .NET Standard 2.0) of libraries are built at the same time. The projects are also ready to generate the libraries for "x86", "x64" and "AnyCPU" platforms.
+
+In the folder Publish/Release are the following folders with all compiled libraries:
+
+	- net45
+		- AnyCPU
+		- x64
+		- x86
+	- netstandard2.0
+		- AnyCPU
+		- x64
+		- x86
+		
+In these folders is also the only one private library "Linkar.dll". The others libraries are open-source and can be rebuilt in Visual Studio with the solution file.
