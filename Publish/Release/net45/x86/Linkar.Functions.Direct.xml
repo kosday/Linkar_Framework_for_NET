@@ -44,7 +44,7 @@
             <returns>The results of the operation.</returns>
             <remarks>
             Inside the records argument, the recordIds and the modified records always must be specified. But the originalRecords not always.
-            When <see cref="T:Linkar.Functions.UpdateOptions">updateOptions</see> argument is specified and the <see cref="P:Linkar.Functions.UpdateOptions.OptimisticLock"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+            When <see cref="T:Linkar.Functions.UpdateOptions">updateOptions</see> argument is specified and the <see cref="P:Linkar.Functions.UpdateOptions.OptimisticLockControl"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
             to use the Optimistic Lock technique. This copy can be obtained from a previous <see cref="M:Linkar.Functions.Direct.DirectFunctions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.Functions.ReadOptions,Linkar.Functions.DATAFORMAT_TYPE,Linkar.Functions.DATAFORMATCRU_TYPE,System.String,System.Int32)"/> operation. The database, before executing the modification, 
             reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
             But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
@@ -83,8 +83,8 @@
             <returns>The results of the operation.</returns>
             <remarks>
             Inside the records argument, the recordIds always must be specified. But the originalRecords not always.
-            When <see cref="T:Linkar.Functions.DeleteOptions">deleteOptions</see> argument is specified and the <see cref="P:Linkar.Functions.DeleteOptions.OptimisticLock"/> property is set to true,
-            a copy of the record must be provided before the deletion (originalRecords argument) to use the Optimistic Lock technique.
+            When <see cref="T:Linkar.Functions.DeleteOptions">deleteOptions</see> argument is specified and the <see cref="P:Linkar.Functions.DeleteOptions.OptimisticLockControl"/> property is set to true,
+            a copy of the record must be provided before the deletion to use the Optimistic Lock technique.
             This copy can be obtained from a previous <see cref="M:Linkar.Functions.Direct.DirectFunctions.Read(Linkar.CredentialOptions,System.String,System.String,System.String,Linkar.Functions.ReadOptions,Linkar.Functions.DATAFORMAT_TYPE,Linkar.Functions.DATAFORMATCRU_TYPE,System.String,System.Int32)"/> operation. The database, before executing the deletion, 
             reads the record and compares it with the copy in originalRecords, if they are equal the record is deleted.
             But if they are not equal, it means that the record has been modified by other user and the record will not be deleted.
@@ -121,8 +121,8 @@
             </summary>
             <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="subroutineName">Name of BASIC subroutine to execute.</param>
-            <param name="argsNumber">Number of arguments</param>
-            <param name="arguments">The subroutine arguments list.</param>
+            <param name="argsNumber">Number of arguments.</param>
+            <param name="arguments">The subroutine arguments list. Each argument is a substring separated with the ASCII char DC4 (20).</param>
             <param name="inputFormat">Indicates in what format you wish to send the subroutine arguments: MV, XML or JSON.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -218,7 +218,7 @@
             <summary>
             Returns a list of all the Schemas defined in Linkar Schemas, or the EntryPoint account data files, synchronously only.
             </summary>
-            <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+            <param name="credential0Options">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -239,7 +239,7 @@
             Returns the Schema properties list defined in Linkar Schemas or the file dictionaries, synchronously only.
             </summary>
             <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
-            <param name="filename">File name to LkProperties</param>
+            <param name="filename">File name to LkProperties.</param>
             <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
             <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -280,7 +280,7 @@
         </member>
         <member name="M:Linkar.Functions.Direct.DirectFunctions.ResetCommonBlocks(Linkar.CredentialOptions,Linkar.Functions.DATAFORMAT_TYPE,System.Int32)">
             <summary>
-            Resets the COMMON variables with the 100 most used files in a asynchronous way.
+            Resets the COMMON variables with the 100 most used files, synchronously only.
             </summary>
             <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
             <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>

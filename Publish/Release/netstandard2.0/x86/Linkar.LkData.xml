@@ -37,7 +37,7 @@
         </member>
         <member name="P:Linkar.LkData.LkDataCRUD.TotalItems">
             <summary>
-            Number of the 
+            Number of the items
             </summary>
         </member>
         <member name="F:Linkar.LkData.LkDataCRUD.LkRecords">
@@ -58,7 +58,7 @@
         </member>
         <member name="T:Linkar.LkData.LkDataSubroutine">
             <summary>
-            Initializes a new instance of the LkDataSubroutine class.
+            Class to management the result of the operations Subroutine.
             </summary>
         </member>
         <member name="P:Linkar.LkData.LkDataSubroutine.Arguments">
@@ -132,12 +132,12 @@
         </member>
         <member name="P:Linkar.LkData.LkDataSchProp.RowProperties">
             <summary>
-            The RowProperties value of the LkSchemas or LkLkProperties operations
+            The RowProperties value of the LkSchemas or LkLkProperties operations.
             </summary>
         </member>
         <member name="P:Linkar.LkData.LkDataSchProp.RowHeaders">
             <summary>
-            The RowHeaders value of the LkSchemas or LkProperties operations
+            The RowHeaders value of the LkSchemas or LkProperties operations.
             </summary>
         </member>
         <member name="M:Linkar.LkData.LkDataSchProp.#ctor(System.String)">
@@ -159,7 +159,7 @@
         </member>
         <member name="P:Linkar.LkData.LkItems.LstDicts">
             <summary>
-            Array with the dictionarty names for record fields.
+            Array with the dictionary names for record fields.
             The same array for each LkItem that is stored in the list.
             </summary>
         </member>
@@ -186,14 +186,14 @@
             <summary>
             Indexer to get a LkItem using its RecordId.
             </summary>
-            <param name="id"></param>
-            <returns></returns>
+            <param name="id">The record Id of the LkItem.</param>
+            <returns>The LkItem extracted.</returns>
         </member>
         <member name="M:Linkar.LkData.LkItems.Add(Linkar.LkData.LkItem)">
             <summary>
             Adds a new LkItem to the list. The dictionaries arrays of the list, will be copied to the LkItem added.
             </summary>
-            <param name="lkItem"></param>
+            <param name="lkItem">The LkItem to be added.</param>
         </member>
         <member name="M:Linkar.LkData.LkItems.Add(System.String[])">
             <summary>
@@ -203,9 +203,9 @@
         </member>
         <member name="M:Linkar.LkData.LkItems.RemoveId(System.String)">
             <summary>
-            Removes the LkItem specified by its recordID from the list.
+            Removes the LkItem specified by its recordId from the list.
             </summary>
-            <param name="recordId"></param>
+            <param name="recordId">The recordId of the LkItem to be removed.</param>
         </member>
         <member name="M:Linkar.LkData.LkItems.ComposeReadBuffer">
             <summary>
@@ -228,7 +228,7 @@
         </member>
         <member name="M:Linkar.LkData.LkItems.ComposeDeleteBuffer(System.Boolean)">
             <summary>
-            Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+            Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId, and optionally with the OriginalRecord information.
             </summary>
             <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
             <returns>The final string buffer for MV Delete operations.</returns>
@@ -246,7 +246,7 @@
         </member>
         <member name="P:Linkar.LkData.LkItem.LstDicts">
             <summary>
-            Array with the dictionarty names for record fields.
+            Array with the dictionary names for record fields.
             </summary>
         </member>
         <member name="P:Linkar.LkData.LkItem.LstDictsCalculated">
@@ -285,10 +285,10 @@
             </summary>
             <param name="recordId">The ID of the record.</param>
             <param name="record">The content of a record from database.</param>
-            <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
             <param name="calculateds">The content of the calculated fields of the records.</param>
+            <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
             <param name="lstDictsId">Optionally, array with the dictionary names for record Ids.</param>
-            <param name="lstDicts">Optionally, array with the dictionarty names for record fields.</param>
+            <param name="lstDicts">Optionally, array with the dictionary names for record fields.</param>
             <param name="lstDictsCalculated">Optionally, array with the dictionary names for calculated fields of the record.</param>
         </member>
         <member name="P:Linkar.LkData.LkItem.Item(System.Int32,System.Int32,System.Int32)">
