@@ -43,7 +43,7 @@ namespace Linkar.LkData
     public class LkDataCRUD : LkData
     {
         /// <summary>
-        /// Number of the 
+        /// Number of the items
         /// </summary>
         public int TotalItems { get; }
         
@@ -90,7 +90,7 @@ namespace Linkar.LkData
     }
 
     /// <summary>
-    /// Initializes a new instance of the LkDataSubroutine class.
+    /// Class to management the result of the operations Subroutine.
     /// </summary>
     public class LkDataSubroutine : LkData
     {
@@ -181,12 +181,12 @@ namespace Linkar.LkData
     public class LkDataSchProp : LkDataCRUD
     {
         /// <summary>
-        /// The RowProperties value of the LkSchemas or LkLkProperties operations
+        /// The RowProperties value of the LkSchemas or LkLkProperties operations.
         /// </summary>
         public string[] RowProperties { get; }
 
         /// <summary>
-        /// The RowHeaders value of the LkSchemas or LkProperties operations
+        /// The RowHeaders value of the LkSchemas or LkProperties operations.
         /// </summary>
         public string[] RowHeaders { get; }
 

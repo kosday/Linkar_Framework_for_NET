@@ -6,8 +6,8 @@
     /// Unit Separator character (31) is used as separator between these items.
     /// CUSTOMVARS: String for database custom subroutines.
     /// OPTIONS: The options of every operation.
-    /// INPUT: The necessary data for perform every operation.
-    /// CUSTOMVARS US_char OPTIONS US_char INPUT
+    /// INPUTDATA: The necessary data for perform every operation.
+    /// CUSTOMVARS US_char OPTIONS US_char INPUTDATA
     /// </summary>
     public static class OperationArguments
     {
@@ -19,7 +19,7 @@
         /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetReadArgs(string filename, string recordIds, string dictionaries, ReadOptions readOptions, string customVars)
         {
             if (readOptions == null)
@@ -39,7 +39,7 @@
         /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetUpdateArgs(string filename, string records, UpdateOptions updateOptions, string customVars)
         {
             if (updateOptions == null)
@@ -59,7 +59,7 @@
         /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetNewArgs(string filename, string records, NewOptions newOptions, string customVars)
         {
             if (newOptions == null)
@@ -79,7 +79,7 @@
         /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer (Linkar.Strings library) function to compose this string.</param>
         /// <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-       /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+       /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetDeleteArgs(string filename, string records, DeleteOptions deleteOptions, string customVars)
         {
             if (deleteOptions == null)
@@ -102,7 +102,7 @@
         /// <param name="preSelectClause">An optional command that executes before the main Select</param>
         /// <param name="selectOptions">Object with options to manage how records are selected, including calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetSelectArgs(string filename, string selectClause, string sortClause, string dictClause, string preSelectClause,
             SelectOptions selectOptions, string customVars)
         {
@@ -127,7 +127,7 @@
         /// <param name="argsNumber">Number of arguments</param>
         /// <param name="arguments">The subroutine arguments list. Use StringFunctions.ComposeSubroutineArgs function to compose this string.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetSubroutineArgs(string subroutineName, int argsNumber, string arguments, string customVars)
         {
             string options = "";
@@ -146,7 +146,7 @@
         /// <param name="code">The conversion code. Must obey the Database conversions specifications.</param>
         /// <param name="conversionOptions">Indicates the conversion type, input or output: INPUT=ICONV(); OUTPUT=OCONV()</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetConversionArgs(string expression, string code, CONVERSION_TYPE conversionOptions, string customVars)
         {
             string options = (conversionOptions == CONVERSION_TYPE.INPUT ? "I" : "O");
@@ -162,7 +162,7 @@
         /// <param name="expression">The data or expression to format. If multiple values are present, the operation will be performed individually on all values in the expression.</param>
         /// <param name="formatSpec">Specified format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetFormatArgs(string expression, string formatSpec, string customVars)
         {
             string options = "";
@@ -177,7 +177,7 @@
         /// </summary>
         /// <param name="filename">File name</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetDictionariesArgs(string filename, string customVars)
         {
             string options = "";
@@ -191,7 +191,7 @@
         /// </summary>
         /// <param name="statement">The command you want to execute in the Database.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetExecuteArgs(string statement,string customVars)
         {
             string options = "";
@@ -203,7 +203,7 @@
         /// <summary>
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the Version operation.
         /// </summary>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetVersionArgs()
         {
             string options = "";
@@ -217,7 +217,7 @@
         /// </summary>
         /// <param name="lkSchemasOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetLkSchemasArgs(LkSchemasOptions lkSchemasOptions, string customVars)
         {
             string options = lkSchemasOptions.ToString();
@@ -232,7 +232,7 @@
         /// <param name="filename">File name to LkProperties</param>
         /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetLkPropertiesArgs(string filename, LkPropertiesOptions lkPropertiesOptions, string customVars)
         {
             string options = lkPropertiesOptions.ToString();
@@ -250,7 +250,7 @@
         /// <param name="sortClause">Statement fragment specifies the selection order. If there is a selection rule Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
         /// <param name="tableOptions">Detailed options to be used, including: rowHeaders, rowProperties, onlyVisibe, usePropertyNames, repeatValues, applyConversion, applyFormat, calculated, pagination, regPage, numPage.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
-        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetGetTableArgs(string filename, string selectClause, string dictClause, string sortClause, TableOptions tableOptions, string customVars)
         {
             //FIX: function name is GETGET
@@ -267,7 +267,7 @@
         /// <summary>
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the ResetCommonBlocks operation.
         /// </summary>
-       /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePermanentOperation.</returns>
+       /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetResetCommonBlocksArgs()
         {
             string options = "";

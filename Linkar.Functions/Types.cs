@@ -121,7 +121,7 @@
     };
 
     /// <summary>
-    /// The schemas type for LkSchemas, LkProperties and LkGetTable functions
+    /// The schemas type for <see cref="LkSchemasOptions"/>, <see cref="LkPropertiesOptions"/> and <see cref="TableOptions"/> functions
     /// </summary>
     public class SchemaType
     {

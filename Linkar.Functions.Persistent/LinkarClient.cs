@@ -27,7 +27,7 @@
         private int _ReceiveTimeout;
 
         /// <summary>
-        /// Initializes a new instance of the LinkarClt class.
+        /// Initializes a new instance of the LinkarClient class.
         /// </summary>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
@@ -157,7 +157,7 @@
         /// <returns>The results of the operation.</returns>
         /// <remarks>
         /// Inside the records argument, the recordIds and the modified records always must be specified. But the originalRecords not always.
-        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLock"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLockControl"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
         /// to use the Optimistic Lock technique. This copy can be obtained from a previous <see cref="Read"/> operation. The database, before executing the modification, 
         /// reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
         /// But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
@@ -216,7 +216,7 @@
         /// <returns>The results of the operation.</returns>
         /// <remarks>
         /// Inside the records argument, the recordIds always must be specified. But the originalRecords not always.
-        /// When <see cref="DeleteOptions">deleteOptions</see> argument is specified and the <see cref="DeleteOptions.OptimisticLock"/> property is set to true,
+        /// When <see cref="DeleteOptions">deleteOptions</see> argument is specified and the <see cref="DeleteOptions.OptimisticLockControl"/> property is set to true,
         /// a copy of the record must be provided before the deletion (originalRecords argument) to use the Optimistic Lock technique.
         /// This copy can be obtained from a previous <see cref="Read"/> operation. The database, before executing the deletion, 
         /// reads the record and compares it with the copy in originalRecords, if they are equal the record is deleted.
@@ -275,7 +275,7 @@
         /// </summary>
         /// <param name="subroutineName">Name of BASIC subroutine to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
-        /// <param name="arguments">The subroutine arguments list.</param>
+        /// <param name="arguments">The subroutine arguments list. Each argument is a substring separated with the ASCII char DC4 (20).</param>
         /// <param name="inputFormat">Indicates in what format you wish to send the subroutine arguments: MV, XML or JSON.</param>        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML or JSON.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>

@@ -72,9 +72,9 @@
         }
 
         /// <summary>
-        /// Composes the CommonOptions options string for use with ReadOptions, SelectOptions and ReadAfterCommonOptions classes.
+        /// Composes the CommonOptions options string for use with <see cref="ReadOptions"/>, <see cref="SelectOptions"/> and <see cref="ReadAfterCommonOptions"/> classes.
         /// </summary>
-        /// <returns>The string ready to be used by ReadOptions, SelectOptions and ReadAfterCommonOptions classes</returns>
+        /// <returns>The string ready to be used by <see cref="ReadOptions"/>, <see cref="SelectOptions"/> and <see cref="ReadAfterCommonOptions"/> classes</returns>
         public override string ToString()
         {
             string str = (this._Calculated ? "1" : "0") + DBMV_Mark.AM_str +
@@ -208,24 +208,24 @@
     public class UpdateOptions
     {
         private ReadAfterCommonOptions _ReadAfterCommonOptions;
-        private bool _OptimisticLock;
+        private bool _OptimisticLockControl;
         /// <summary>
         /// Checks out if the file has not been modified by other user.
         /// </summary>
         /// <remarks>
-        /// If the OptimisticLock property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+        /// If the OptimisticLockControl property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
         /// to use the Optimistic Lock technique. This copy can be obtained from a previous Read operation. The database, before executing the modification, 
         /// reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
         /// But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
         /// The record will have to be read, modified and saved again.
         /// </remarks>
-        public bool OptimisticLock
+        public bool OptimisticLockControl
         {
-            get { return this._OptimisticLock; }
+            get { return this._OptimisticLockControl; }
         }
 
         /// <summary>
-        /// Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+        /// Reads the record again and returns it after the update. Calculated, Conversion, FormatSpec and OriginalRecords will only make effect if this option is true.
         /// </summary>
         public bool ReadAfter
         {
@@ -273,8 +273,8 @@
         /// <summary>
         /// Initializes a new instance of the UpdateOptions class.
         /// </summary>
-        /// <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user. <see cref="OptimisticLock"/> property</param>
-        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
+        /// <param name="optimisticLockControl">if "true", the Update function will check out if the file has not been modified by other user. See <see cref="OptimisticLockControl"/> property.</param>
+        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -282,7 +282,7 @@
 
         public UpdateOptions(bool optimisticLockControl, bool readAfter = false, bool calculated = false, bool conversion = false, bool formatSpec = false, bool originalRecords = false)
         {
-            this._OptimisticLock = optimisticLockControl;
+            this._OptimisticLockControl = optimisticLockControl;
 
             if (readAfter)
                 this._ReadAfterCommonOptions = new ReadAfterCommonOptions(readAfter, calculated, conversion, formatSpec, originalRecords);
@@ -296,7 +296,7 @@
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
-            string str = (this._OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
+            string str = (this._OptimisticLockControl ? "1" : "0") + DBMV_Mark.AM_str +
                 this._ReadAfterCommonOptions.ToString();
 
             return str;
@@ -311,7 +311,7 @@
         private RecordIdType _RecordIdType;
 
         /// <summary>
-        /// Indicates that the Record Id Type Linkar is enabled.
+        /// Indicates that the RecordIdType Linkar is enabled.
         /// </summary>
         public bool ActiveTypeLinkar
         {
@@ -319,7 +319,7 @@
         }
 
         /// <summary>
-        /// Indicates that the Record Id Type Random is enabled.
+        /// Indicates that the RecordIdType Random is enabled.
         /// </summary>
         public bool ActiveTypeRandom
         {
@@ -327,7 +327,7 @@
         }
 
         /// <summary>
-        /// Indicates that the Record Id Type Custom is enabled.
+        /// Indicates that the RecordIdType Custom is enabled.
         /// </summary>
         public bool ActiveTypeCustom
         {
@@ -377,7 +377,7 @@
         private ReadAfterCommonOptions _ReadAfterCommonOptions;
 
         /// <summary>
-        /// Reads the record again and returns it after the creation. Calculated, dictionaries, conversion, formatSpec and originalRecords will only make effect if this option is true.
+        /// Reads the record again and returns it after the creation. Calculated, Conversion, FormatSpec and OriginalRecords will only make effect if this option is true.
         /// </summary>
         public bool ReadAfter
         {
@@ -426,7 +426,7 @@
         /// Initializes a new instance of the NewOptions class.
         /// </summary>
         /// <param name="recordIdType">Specifies the technique for generating item IDs. Mandatory if no registration codes are indicated in the New functions.</param>
-        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, dictionaries, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
+        /// <param name="readAfter">Reads the record again and returns it after the update. Calculated, conversion, formatSpec and originalRecords will only be applied if this option is true.</param>
         /// <param name="calculated">Return the resulting values from the calculated dictionaries.</param>
         /// <param name="conversion">Execute the defined conversions in the dictionaries before returning.</param>
         /// <param name="formatSpec">Execute the defined formats in the dictionaries before returning.</param>
@@ -540,7 +540,7 @@
         }
 
         /// <summary>
-        /// No item ID generation technique will be used. the item IDs must be supplied in the New operations.
+        /// No item ID generation technique will be used. The item IDs must be supplied in the New operations.
         /// </summary>
         public RecordIdType()
         {
@@ -584,7 +584,7 @@
         /// <summary>
         /// Constructor accepts options for generating Custom item IDs.
         /// </summary>
-        /// <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.NEWRECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used - IDs must be supplied in the New operations.</param>
+        /// <param name="custom">If true, item IDs are generated by SUB.LK.MAIN.NEWRECOVERRECORDID.CUSTOM. If false, no ID generation technique will be used, IDs must be supplied in the New operations.</param>
         public RecordIdType(bool custom)
         {
             this._ActiveTypeLinkar = false;
@@ -623,19 +623,26 @@
     /// </summary>
     public class DeleteOptions
     {
-        private bool _OptimisticLock;
+        private bool _OptimisticLockControl;
         /// <summary>
         /// In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user.
         /// </summary>
-        public bool OptimisticLock
+        /// <remarks>
+        /// If the OptimisticLockControl property is set to true, a copy of the record must be provided before the deletion (originalRecords argument)
+        /// to use the Optimistic Lock technique. This copy can be obtained from a previous Read operation. The database, before executing the modification, 
+        /// reads the record and compares it with the copy in originalRecords, if they are equal the deleted record is executed.
+        /// But if they are not equal, it means that the record has been modified by other user and the record will not be deteted.
+        /// The record will have to be read, and delete again.
+        /// </remarks>
+        public bool OptimisticLockControl
         {
-            get { return this._OptimisticLock; }
+            get { return this._OptimisticLockControl; }
         }
 
         private RecoverIdType _RecoverIdType;
 
         /// <summary>
-        /// Indicates that the Recover Id Type Linkar is enabled.
+        /// Indicates that the RecoverIdType Linkar is enabled.
         /// </summary>
         public bool ActiveTypeLinkar
         {
@@ -643,7 +650,7 @@
         }
 
         /// <summary>
-        /// Indicates that the Recover Id Type Custom is enabled.
+        /// Indicates that the RecoverIdType Custom is enabled.
         /// </summary>
         public bool ActiveTypeCustom
         {
@@ -675,11 +682,11 @@
         /// <summary>
         /// Initializes a new instance of the DeleteOptions class
         /// </summary>
-        /// <param name="optimisticLockControl">In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user.</param>
+        /// <param name="optimisticLockControl">In the execution of the Delete function, before updating the record, checks out if the record has not been modified by other user. See <see cref="OptimisticLockControl"/> property.</param>
         /// <param name="recoverIdType">Specifies the recovery technique for deleted item IDs.</param>
         public DeleteOptions(bool optimisticLockControl, RecoverIdType recoverIdType = null)
         {
-            this._OptimisticLock = optimisticLockControl;
+            this._OptimisticLockControl = optimisticLockControl;
             if (recoverIdType == null)
                 this._RecoverIdType = new RecoverIdType();
             else
@@ -692,7 +699,7 @@
         /// <returns>The string ready to be used by LinkarSERVER.</returns>
         public override string ToString()
         {
-            string str = (this._OptimisticLock ? "1" : "0") + DBMV_Mark.AM_str +
+            string str = (this._OptimisticLockControl ? "1" : "0") + DBMV_Mark.AM_str +
                 this._RecoverIdType.ToString();
 
             return str;
@@ -765,12 +772,11 @@
         }
 
         /// <summary>
-        /// Use this constructor to recovering items ids that used Custom RecordIdType
+        /// Use this constructor to recovering items ids that used Custom RecordIdType.
         /// </summary>
         /// <param name="custom">If true, the recovery of deleted item IDs is handled in SUB.LK.MAIN.NEWRECOVERRECORDID.CUSTOM. If false, no technique to recover deleted item IDs will be used.</param>
         public RecoverIdType(bool custom)
         {
-            //TODO: TG: I don't understand "type codes". Does that mean "record/item IDs"?
             this._ActiveTypeLinkar = false;
             this._ActiveTypeCustom = custom;
         }
@@ -811,6 +817,7 @@
         {
             get { return this._OnlyRecordId; }
         }
+
         private bool _Pagination;
         /// <summary>
         /// Indicates if pagination is being used or not.
@@ -819,6 +826,7 @@
         {
             get { return this._Pagination; }
         }
+
         private int _Pagination_RegPage;
         /// <summary>
         /// In case of pagination indicates the number of records by page. It must be bigger than 0.
@@ -827,6 +835,7 @@
         {
             get { return this._Pagination_RegPage; }
         }
+        
         private int _Pagination_NumPage;
         /// <summary>
         /// In case of pagination it indicates the page number to obtain. Must be greater than 0.
@@ -835,6 +844,7 @@
         {
             get { return this._Pagination_NumPage; }
         }
+        
         private CommonOptions _CommonOptions;
 
         /// <summary>
@@ -916,7 +926,7 @@
     {
         private SchemaType.TYPE _SchemaType;
         /// <summary>
-        /// Indicates the type of LkSchemas used
+        /// Indicates the type of LkSchemas used.
         /// </summary>
         public SchemaType.TYPE SchemaType
         {
@@ -1098,7 +1108,7 @@
     {
         private SchemaType.TYPE _SchemaType;
         /// <summary>
-        /// Indicates the type of LkSchemas used
+        /// Indicates the type of LkSchemas used.
         /// </summary>
         public SchemaType.TYPE SchemaType
         {

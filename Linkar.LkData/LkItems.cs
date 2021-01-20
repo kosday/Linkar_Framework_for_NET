@@ -22,7 +22,7 @@ namespace Linkar.LkData
         public string[] LstDictsId { get => _LstDictsId; }
 
         /// <summary>
-        /// Array with the dictionarty names for record fields.
+        /// Array with the dictionary names for record fields.
         /// The same array for each LkItem that is stored in the list.
         /// </summary>
         public string[] LstDicts { get => _LstDicts; }
@@ -58,8 +58,8 @@ namespace Linkar.LkData
         /// <summary>
         /// Indexer to get a LkItem using its RecordId.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The record Id of the LkItem.</param>
+        /// <returns>The LkItem extracted.</returns>
         public LkItem this[string id]
         {
             get
@@ -75,7 +75,7 @@ namespace Linkar.LkData
         /// <summary>
         /// Adds a new LkItem to the list. The dictionaries arrays of the list, will be copied to the LkItem added.
         /// </summary>
-        /// <param name="lkItem"></param>
+        /// <param name="lkItem">The LkItem to be added.</param>
         public new void Add(LkItem lkItem)
         {
             if (!string.IsNullOrEmpty(lkItem.RecordId) && !Exists(obj => obj.RecordId == lkItem.RecordId))
@@ -101,9 +101,9 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Removes the LkItem specified by its recordID from the list.
+        /// Removes the LkItem specified by its recordId from the list.
         /// </summary>
-        /// <param name="recordId"></param>
+        /// <param name="recordId">The recordId of the LkItem to be removed.</param>
         public void RemoveId(string recordId)
         {
             LkItem itemToRemove = null;
@@ -186,7 +186,7 @@ namespace Linkar.LkData
         }
 
         /// <summary>
-        /// Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId and optionally with the OriginalRecord information.
+        /// Composes the final buffer string for one or more records to be deleted in MV Delete operations, with the RecordId, and optionally with the OriginalRecord information.
         /// </summary>
         /// <param name="includeOriginalBuffer">Determines if the OriginalRecord must be include or not in the final buffer string.</param>
         /// <returns>The final string buffer for MV Delete operations.</returns>
@@ -232,7 +232,7 @@ namespace Linkar.LkData
         public string[] LstDictsId { get => _LstDictsId; }
 
         /// <summary>
-        /// Array with the dictionarty names for record fields.
+        /// Array with the dictionary names for record fields.
         /// </summary>
         public string[] LstDicts { get => _LstDicts; }
 
@@ -280,10 +280,10 @@ namespace Linkar.LkData
         /// </summary>
         /// <param name="recordId">The ID of the record.</param>
         /// <param name="record">The content of a record from database.</param>
-        /// <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
         /// <param name="calculateds">The content of the calculated fields of the records.</param>
+        /// <param name="originalRecord">A copy of the original record to be used in operations where the optimistic lock option is enabled.</param>
         /// <param name="lstDictsId">Optionally, array with the dictionary names for record Ids.</param>
-        /// <param name="lstDicts">Optionally, array with the dictionarty names for record fields.</param>
+        /// <param name="lstDicts">Optionally, array with the dictionary names for record fields.</param>
         /// <param name="lstDictsCalculated">Optionally, array with the dictionary names for calculated fields of the record.</param>
         public LkItem(string recordId, string record = "", string calculateds = "", string originalRecord = "", string[] lstDictsId = null, string[] lstDicts = null, string[] lstDictsCalculated = null)
         {
@@ -385,7 +385,10 @@ namespace Linkar.LkData
         /// <returns>The final string buffer for MV Update operations.</returns>
         public string ComposeUpdateBuffer(bool includeOriginalBuffer = false)
         {
-            return StringFunctions.ComposeUpdateBuffer(this.RecordId, this.Record, this.OriginalRecord);
+            if(includeOriginalBuffer)
+                return StringFunctions.ComposeUpdateBuffer(this.RecordId, this.Record, this.OriginalRecord);
+            else
+                return StringFunctions.ComposeUpdateBuffer(this.RecordId, this.Record);
         }
 
         /// <summary>

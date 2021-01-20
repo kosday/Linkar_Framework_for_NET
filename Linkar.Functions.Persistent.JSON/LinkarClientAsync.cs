@@ -45,11 +45,11 @@ namespace Linkar.Functions.Persistent.JSON
         }
 
         /// <summary>
-        /// Reads one or several records of a file in a asynchronous way with JSON output format.
+        /// Reads one or several records of a file in a asynchronous way with JSON input and output format.
         /// </summary>
         /// <param name="filename">File name to read.</param>
         /// <param name="records">A list of item IDs to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
-        /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned.</param>
+        /// <param name="dictionaries">List of dictionaries to read.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -144,7 +144,7 @@ namespace Linkar.Functions.Persistent.JSON
         /// Update one or several records of a file, in a asynchronous way with JSON input and output format.
         /// </summary>
         /// <param name="filename">Name of the file being updated.</param>
-        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
+        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords.</param>
         /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -167,7 +167,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///                 client.Login(credentials);
         ///                 
         ///                 result = client.UpdateAsync("LK.CUSTOMERS", 
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"," +
@@ -205,7 +205,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///             client.Login(credentials)
         ///             
         ///             result = client.UpdateAsync("LK.CUSTOMERS",
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"," +
@@ -230,7 +230,7 @@ namespace Linkar.Functions.Persistent.JSON
         /// </example>
         /// <remarks>
         /// Inside the records argument, the recordIds and the modified records always must be specified. But the originalRecords not always.
-        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLock"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLockControl"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
         /// to use the Optimistic Lock technique. This copy can be obtained from a previous <see cref="ReadAsync"/> operation. The database, before executing the modification, 
         /// reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
         /// But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
@@ -252,7 +252,7 @@ namespace Linkar.Functions.Persistent.JSON
         /// Creates one or several records of a file, in a asynchronous way with JSON input and output format.
         /// </summary>
         /// <param name="filename">The file name where the records are going to be created.</param>
-        /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records. Use StringFunctions.ComposeNewBuffer (Linkar.Strings library) function to compose this string.</param>
+        /// <param name="records">Buffer of records to write. Inside this string are the recordIds, and the records.</param>
         /// <param name="newOptions">Object with write options for the new record(s), including recordIdType, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
         /// <param name="jsonFormat">Enum JSON_FORMAT specifies the desired output format: standard JSON, JSON_DICT format, or JSON_SCH format</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -275,7 +275,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///                 client.Login(credentials);
         /// 
         ///                 result = client.NewAsync("LK.CUSTOMERS", 
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"," +
@@ -313,7 +313,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///             client.Login(credentials)
         /// 
         ///             result = client.NewAsync("LK.CUSTOMERS",
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"," +
@@ -352,10 +352,10 @@ namespace Linkar.Functions.Persistent.JSON
         }
 
         /// <summary>
-        /// Deletes one or several records in file, in a asynchronous way with JSON output format.
+        /// Deletes one or several records in file, in a asynchronous way with JSON input and output format.
         /// </summary>
         /// <param name="filename">The file name where the records are going to be deleted. DICT in case of deleting a record that belongs to a dictionary.</param>
-        /// <param name="records">Buffer of records to be deleted. Use StringFunctions.ComposeDeleteBuffer (Linkar.Strings library) function to compose this string.</param>
+        /// <param name="records">Buffer of records to be deleted.</param>
         /// <param name="deleteOptions">Object with options to manage how records are deleted, including optimisticLockControl, recoverRecordIdType.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -377,7 +377,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///                 client.Login(credentials);
         /// 
         ///                 result = client.DeleteAsync("LK.CUSTOMERS",
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"" +
@@ -412,7 +412,7 @@ namespace Linkar.Functions.Persistent.JSON
         ///             client.Login(credentials)
         /// 
         ///             result = client.DeleteAsync("LK.CUSTOMERS",
-        ///                     "{
+        ///                     "{" +
         ///                     "  \"RECORDS\": [" +
         ///                     "    {" +
         ///                     "      \"LKITEMID\": \"2\"" +
@@ -434,7 +434,7 @@ namespace Linkar.Functions.Persistent.JSON
         /// </example>
         /// <remarks>
         /// Inside the records argument, the recordIds always must be specified. But the originalRecords not always.
-        /// When <see cref="DeleteOptions">deleteOptions</see> argument is specified and the <see cref="DeleteOptions.OptimisticLock"/> property is set to true,
+        /// When <see cref="DeleteOptions">deleteOptions</see> argument is specified and the <see cref="DeleteOptions.OptimisticLockControl"/> property is set to true,
         /// a copy of the record must be provided before the deletion (originalRecords argument) to use the Optimistic Lock technique.
         /// This copy can be obtained from a previous <see cref="ReadAsync"/> operation. The database, before executing the deletion, 
         /// reads the record and compares it with the copy in originalRecords, if they are equal the record is deleted.
@@ -544,11 +544,11 @@ namespace Linkar.Functions.Persistent.JSON
         }
 
         /// <summary>
-        /// Executes a subroutine, in a asynchronous way with JSON output format.
+        /// Executes a subroutine, in a asynchronous way with JSON input and output format.
         /// </summary>
         /// <param name="subroutineName">Name of BASIC subroutine to execute.</param>
         /// <param name="argsNumber">Number of arguments</param>
-        /// <param name="arguments">The subroutine arguments list.</param>
+        /// <param name="arguments">The subroutine arguments list. Each argument is a substring separated with the ASCII char DC4 (20).</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>

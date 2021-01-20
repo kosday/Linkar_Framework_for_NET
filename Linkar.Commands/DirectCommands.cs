@@ -12,12 +12,12 @@ namespace Linkar.Commands
     }
 
     /// <summary>
-    /// Allows a variety of operations using standard XML or JSON templates, synchronously.
+    /// These functions perform synchronous direct (without establishing permanent session) operations with any kind of output format type.
     /// </summary>
     public class DirectCommands
     {
         /// <summary>
-        /// Allows a variety of operations using standard templates (XML, JSON), synchronously only.
+        /// Allows a variety of direct operations using standard templates (XML, JSON), synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -42,7 +42,7 @@ namespace Linkar.Commands
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON or XML templates, asynchronously.
+        /// Allows a variety of direct operations using standard JSON or XML templates, asynchronously.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -61,7 +61,7 @@ namespace Linkar.Commands
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON templates, synchronously only.
+        /// Allows a variety of direct operations using standard JSON templates, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -147,7 +147,7 @@ namespace Linkar.Commands
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON templates, asynchronously only.
+        /// Allows a variety of direct operations using standard JSON templates, asynchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -239,7 +239,7 @@ namespace Linkar.Commands
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard XML templates, synchronously only.
+        /// Allows a variety of direct operations using standard XML templates, synchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>
@@ -322,7 +322,7 @@ namespace Linkar.Commands
         }
 
         /// <summary>
-        /// Allows a variety of asynchronous operations using standard XML templates, asynchronously only.
+        /// Allows a variety of asynchronous direct operations using standard XML templates, asynchronously only.
         /// </summary>
         /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
         /// <param name="command">Content of the operation you want to send.</param>

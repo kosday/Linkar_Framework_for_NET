@@ -12,87 +12,87 @@ namespace Linkar.Strings
     }
 
     /// <summary>
-    /// The tag names that may appear in the result string from executing an operation.
+    /// Set of functions that help manipulate the character strings that are used as input and output data in MV type operations.
     /// </summary>
     public static class StringFunctions
     {
         /// <summary>
-        /// The tag value for "TOTAL_RECORDS_KEY" in Database operation responses of MV type
+        /// The tag value for "TOTAL_RECORDS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string TOTAL_RECORDS_KEY = "TOTAL_RECORDS";
 
         /// <summary>
-        /// The tag value for "RECORD_IDS_KEY" in Database operation responses of MV type
+        /// The tag value for "RECORD_IDS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string RECORD_IDS_KEY = "RECORD_ID";
 
         /// <summary>
-        /// The tag value for "RECORDS_KEY" in Database operation responses of MV type
+        /// The tag value for "RECORDS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string RECORDS_KEY = "RECORD";
 
         /// <summary>
-        /// The tag value for "CALCULATED_KEY" in Database operation responses of MV type
+        /// The tag value for "CALCULATED_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string CALCULATED_KEY = "CALCULATED";
 
         /// <summary>
-        /// The tag value for "RECORD_DICTS_KEY" in Database operation responses of MV type
+        /// The tag value for "RECORD_DICTS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string RECORD_DICTS_KEY = "RECORD_DICTS";
 
         /// <summary>
-        /// The tag value for "RECORD_ID_DICTS_KEY" in Database operation responses of MV type
+        /// The tag value for "RECORD_ID_DICTS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string RECORD_ID_DICTS_KEY = "RECORD_ID_DICTS";
 
         /// <summary>
-        /// The tag value for "CALCULATED_DICTS_KEY" in Database operation responses of MV type
+        /// The tag value for "CALCULATED_DICTS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string CALCULATED_DICTS_KEY = "CALCULATED_DICTS";
 
         /// <summary>
-        /// The tag value for "ARGUMENTS_KEY" in Database operation responses of MV type
+        /// The tag value for "ARGUMENTS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string ARGUMENTS_KEY = "ARGUMENTS";
 
         /// <summary>
-        /// The tag value for "ORIGINAL_RECORDS_KEY" in Database operation responses of MV type
+        /// The tag value for "ORIGINAL_RECORDS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string ORIGINAL_RECORDS_KEY = "ORIGINALRECORD";
 
         /// <summary>
-        /// The tag value for "FORMAT_KEY" in Database operation responses of MV type
+        /// The tag value for "FORMAT_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string FORMAT_KEY = "FORMAT";
 
         /// <summary>
-        /// The tag value for "CONVERSION_KEY" in Database operation responses of MV type
+        /// The tag value for "CONVERSION_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string CONVERSION_KEY = "CONVERSION";
 
         /// <summary>
-        /// The tag value for "CAPTURING_KEY" in Database operation responses of MV type
+        /// The tag value for "CAPTURING_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string CAPTURING_KEY = "CAPTURING";
 
         /// <summary>
-        /// The tag value for "RETURNING_KEY" in Database operation responses of MV type
+        /// The tag value for "RETURNING_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string RETURNING_KEY = "RETURNING";
 
         /// <summary>
-        /// The tag value for "ROWHEADERS_KEY" in Database operation responses of MV type
+        /// The tag value for "ROWHEADERS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string ROWHEADERS_KEY = "ROWHEADERS";
 
         /// <summary>
-        /// The tag value for "ROWPROPERTIES_KEY" in Database operation responses of MV type
+        /// The tag value for "ROWPROPERTIES_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string ROWPROPERTIES_KEY = "ROWPROPERTIES";
 
         /// <summary>
-        /// The tag value for "ERRORS_KEY" in Database operation responses of MV type
+        /// The tag value for "ERRORS_KEY" in Database operation responses of MV type.
         /// </summary>
         public const string ERRORS_KEY = "ERRORS";
 
@@ -196,9 +196,9 @@ namespace Linkar.Strings
         }
 
         /// <summary>
-        /// This function formats the message error by split into Error Code and Error Message
+        /// This function formats the message error by split into Error Code and Error Message.
         /// </summary>
-        /// <param name="error"></param>
+        /// <param name="error">The value of ERRORS_KEY tag.</param>
         /// <returns>The error formated</returns>
         public static string FormatError(string error)
         {
@@ -381,7 +381,7 @@ namespace Linkar.Strings
         /// </summary>
         /// <param name="valueTag">The string to be splitted.</param>
         /// <param name="delimiter">The char to use for split.</param>
-        /// <returns></returns>
+        /// <returns>The array extracted.</returns>
         private static string[] SplitArray(string valueTag, char delimiter)
         {
             if (string.IsNullOrEmpty(valueTag))
@@ -424,7 +424,8 @@ namespace Linkar.Strings
             return JoinArray(originalRecords, RS_str);
         }
 
-        /// <summary>        /// Composes the final string of various "dictClauses". Used by Read and Select Operations.
+        /// <summary>
+        /// Composes the final string of various "dictionaries". Used by Read and Select Operations.
         /// </summary>
         /// <param name="dictionaries">Array with the "dictionaries" to be joined.</param>
         /// <returns>The final string of "dictionaries" to be used by Read and Select Operations.</returns>
@@ -474,7 +475,7 @@ namespace Linkar.Strings
         /// <param name="records">Block of "records". You can obtain this block with ComposeRecords function.</param>
         /// <param name="originalRecords">Block of "originalRecords". You can obtain this block with ComposeRecords function.</param>
         /// <returns>The buffer to be used by Update Operations.</returns>
-        public static string ComposeUpdateBuffer(string recordIds, string records, string originalRecords)
+        public static string ComposeUpdateBuffer(string recordIds, string records, string originalRecords = "")
         {
             return recordIds + FS + records + FS + originalRecords;
         }
@@ -482,9 +483,9 @@ namespace Linkar.Strings
         /// <summary>
         /// Compose the fully buffer of the Update Operations with the block of "recordIds", "records" and "originalRecords".
         /// </summary>
-        /// <param name="recordIds">Block of "recordIds". You can obtain this block with ComposeRecordIds function.</param>
-        /// <param name="records">Block of "records". You can obtain this block with ComposeRecords function.</param>
-        /// <param name="originalRecords">Block of "originalRecords". You can obtain this block with ComposeRecords function.</param>
+        /// <param name="recordIds">Array of "recordIds".</param>
+        /// <param name="records">Array of "records".</param>
+        /// <param name="originalRecords">Array of "originalRecords".</param>
         /// <returns>The buffer to be used by Update Operations.</returns>
         public static string ComposeUpdateBuffer(string[] recordIds, string[] records, string[] originalRecords = null)
         {
@@ -509,8 +510,8 @@ namespace Linkar.Strings
         /// <summary>
         /// Compose the fully buffer of the New Operations with the block of "recordIds" and "records".
         /// </summary>
-        /// <param name="recordIds">Block of "recordIds". You can obtain this block with ComposeRecordIds function.</param>
-        /// <param name="records">Block of "records". You can obtain this block with ComposeRecords function.</param>
+        /// <param name="recordIds">Array of "recordIds".</param>
+        /// <param name="records">Array of "records".</param>
         /// <returns>The buffer to be used by New Operations.</returns>
         public static string ComposeNewBuffer(string[] recordIds, string[] records)
         {
@@ -536,8 +537,8 @@ namespace Linkar.Strings
         /// <summary>
         /// Compose the fully buffer of the Delete Operations with the block of "recordIds" and "originalRecords".
         /// </summary>
-        /// <param name="recordIds">Block of "recordIds". You can obtain this block with ComposeRecordIds function.</param>
-        /// <param name="originalRecords">Block of "originalRecords". You can obtain this block with ComposeRecords function.</param>
+        /// <param name="recordIds">Array of "recordIds".</param>
+        /// <param name="originalRecords">Array of "originalRecords".</param>
         /// <returns>The buffer to be used by Delete Operations.</returns>
         public static string ComposeDeleteBuffer(string[] recordIds, string[] originalRecords = null)
         {

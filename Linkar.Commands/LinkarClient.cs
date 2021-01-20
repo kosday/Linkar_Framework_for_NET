@@ -118,7 +118,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard templates (XML, JSON), synchronously only.
+        /// Allows a variety of persistent operations using standard templates (XML, JSON), synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
@@ -142,7 +142,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
+        /// Allows a variety of persistent operations using standard JSON templates, in a asynchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="commandFormat">Indicates in what format you are doing the operation: XML or JSON.</param>
@@ -160,7 +160,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON templates, synchronously only.
+        /// Allows a variety of persistent operations using standard JSON templates, synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -254,7 +254,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard JSON templates, in a asynchronous way.
+        /// Allows a variety of persistent operations using standard JSON templates, in a asynchronous way.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -354,7 +354,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of operations using standard XML templates, synchronously only.
+        /// Allows a variety of persistent operations using standard XML templates, synchronously only.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -444,7 +444,7 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
-        /// Allows a variety of asynchronous operations using standard XML templates.
+        /// Allows a variety of asynchronous persistent operations using standard XML templates.
         /// </summary>
         /// <param name="command">Content of the operation you want to send.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>

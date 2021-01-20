@@ -27,7 +27,7 @@ namespace Linkar.Functions.Persistent.TABLE
         }
 
         /// <summary>
-        /// Initializes a new instance of the LinkarClt class.
+        /// Initializes a new instance of the LinkarClient class.
         /// </summary>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely. When the receiveTimeout argument is omitted in any operation, the value set here will be applied.</param>
         public LinkarClient(int receiveTimeout = 0)
