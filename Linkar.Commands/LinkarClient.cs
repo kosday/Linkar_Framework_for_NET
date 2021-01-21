@@ -93,6 +93,27 @@ namespace Linkar.Commands.Persistent
         }
 
         /// <summary>
+        /// Starts the communication with a server allowing making use of the rest of functions until the Close method is executed or the connection with the server gets lost, in a asynchronous way.
+        /// </summary>
+        /// <param name="credentialOptions">Object with data necessary to access the Linkar Server: Username, Password, EntryPoint, Language, FreeText.</param>
+        /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <remarks>
+        /// Login is actually a "virtual" operation which creates a new Client Session ID. No DBMS login is performed unless Linkar SERVER determines new Database Sessions are required - these operations are not related.
+        /// </remarks> 
+        public Task LoginAsync(CredentialOptions credentialOptions, string customVars = "", int receiveTimeout = 0)
+        {
+            var task = new Task(() =>
+            {
+
+                this.Login(credentialOptions, customVars, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
+        }
+
+        /// <summary>
         /// Closes the communication with the server, that previously has been opened with a Login function, synchronously only.
         /// </summary>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
@@ -115,6 +136,25 @@ namespace Linkar.Commands.Persistent
             string result = Linkar.ExecutePersistentOperation(this._ConnectionInfo, byteOpCode, logoutArgs, byteInputFormat, byteOutputFormat, receiveTimeout);
             if (!string.IsNullOrEmpty(result))
                 this._ConnectionInfo = null;
+        }
+
+        /// <summary>
+        /// Closes the communication with the server, that previously has been opened with a Login function, in a asynchronous way.
+        /// </summary>
+        /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <remarks>
+        /// Logout is actually a "virtual" operation which disposes the current Client Session ID. No DBMS logout is performed.
+        /// </remarks>
+        public Task LogoutAsync(string customVars = "", int receiveTimeout = 0)
+        {
+            var task = new Task(() =>
+            {
+                this.Logout(customVars, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
         }
 
         /// <summary>
