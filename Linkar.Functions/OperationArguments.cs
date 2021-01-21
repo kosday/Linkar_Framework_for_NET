@@ -220,6 +220,8 @@
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetLkSchemasArgs(LkSchemasOptions lkSchemasOptions, string customVars)
         {
+            if (lkSchemasOptions == null)
+                lkSchemasOptions = new LkSchemasOptions();
             string options = lkSchemasOptions.ToString();
 
             string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + "";
@@ -235,6 +237,8 @@
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetLkPropertiesArgs(string filename, LkPropertiesOptions lkPropertiesOptions, string customVars)
         {
+            if (lkPropertiesOptions == null)
+                lkPropertiesOptions = new LkPropertiesOptions();
             string options = lkPropertiesOptions.ToString();
 
             string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + filename;
@@ -253,7 +257,8 @@
         /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
         public static string GetGetTableArgs(string filename, string selectClause, string dictClause, string sortClause, TableOptions tableOptions, string customVars)
         {
-            //FIX: function name is GETGET
+            if (tableOptions == null)
+                tableOptions = new TableOptions();
             string options = tableOptions.ToString();
             string inputData = filename + DBMV_Mark.AM +
                 selectClause + DBMV_Mark.AM +
