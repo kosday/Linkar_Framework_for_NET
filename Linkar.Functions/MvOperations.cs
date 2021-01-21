@@ -14,6 +14,14 @@ namespace Linkar.Functions
         /// <param name="str">Source string of delimited fields.</param>
         /// <param name="delimiter">The separator character(s) used to delimit fields in the string.</param>
         /// <returns>The number of occurrences found.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// int result = MvOperations.LkDCount("CUSTOMER UPDATE 2þADDRESS 2þ444", "þ");
+        /// </code>
+        /// <code lang="VB">
+        /// </code>
+        /// Integer result = MvOperations.LkDCount("CUSTOMER UPDATE 2þADDRESS 2þ444", "þ")
+        /// </example>
         public static int LkDCount(string str, string delimiter)
         {
             if (string.IsNullOrEmpty(str))
@@ -36,6 +44,14 @@ namespace Linkar.Functions
         /// <param name="str">Source string of delimited fields.</param>
         /// <param name="delimiter">The separator character(s) used to delimit fields in the string.</param>
         /// <returns>The number of occurrences found.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// int result = MvOperations.LkCount("CUSTOMER UPDATE 2þADDRESS 2þ444", "þ");
+        /// </code>
+        /// <code lang="VB">
+        /// </code>
+        /// Integer result = MvOperations.LkCount("CUSTOMER UPDATE 2þADDRESS 2þ444", "þ")
+        /// </example>
         public static int LkCount(string str, string delimiter)
         {
             if (string.IsNullOrEmpty(str))
@@ -54,6 +70,14 @@ namespace Linkar.Functions
         /// <param name="value">The multivalue position to extract.</param>
         /// <param name="subvalue">The subvalue position to extract.</param>
         /// <returns>A new string with the extracted value.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// string result = MvOperations.LkExtract("CUSTOMER UPDATE 2þADDRESS 2þ444", 1);
+        /// </code>
+        /// <code lang="VB">
+        /// </code>
+        /// String result = MvOperations.LkExtract("CUSTOMER UPDATE 2þADDRESS 2þ444", 1)
+        /// </example>
         public static string LkExtract(string str, int field, int value = 0, int subvalue = 0)
         {
             string aux = "";
@@ -91,6 +115,14 @@ namespace Linkar.Functions
         /// <param name="value">The multivalue position to extract.</param>
         /// <param name="subvalue">The subvalue position to extract.</param>
         /// <returns>A new string with the extracted value.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// string result = MvOperations.LkExtract("CUSTOMER UPDATE 2þADDRESS 2þ444","NAMEþADDRþPHONE", 1);
+        /// </code>
+        /// <code lang="VB">
+        /// </code>
+        /// String result = MvOperations.LkExtract("CUSTOMER UPDATE 2þADDRESS 2þ444","NAMEþADDRþPHONE", 1)
+        /// </example>
         public static string LkExtract(string str, string lstDicts, string field, int value = 0, int subvalue = 0)
         {
             string aux = "";
@@ -111,6 +143,14 @@ namespace Linkar.Functions
         /// <param name="occurrence">The number of times it will change.</param>
         /// <param name="start">The position from which you are going to start changing values.</param>
         /// <returns>A new string with replaced text.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// string result = MvOperations.LkChange("CUSTOMER UPDATE 2þADDRESS 2þ444", "UPDATE", "MYTEXT", 1, 1);
+        /// </code>
+        /// <code lang="VB">
+        /// </code>
+        /// String result = MvOperations.LkChange("CUSTOMER UPDATE 2þADDRESS 2þ444", "UPDATE", "MYTEXT", 1, 1)
+        /// </example>
         public static string LkChange(string str, string strOld, string strNew, int occurrence = 0, int start = 0)
         {
             string result = "";
@@ -135,6 +175,14 @@ namespace Linkar.Functions
         /// <param name="value">The multivalue position where you want to replace.</param>
         /// <param name="subvalue">The subvalue position where you want to replace.</param>
         /// <returns>A new string with the replaced value.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// string result = MvOperations.LkReplace("CUSTOMER UPDATE 2þADDRESS 2þ444", "MYTEXT", 1);
+        /// </code>
+        /// <code lang="VB">
+        /// String result = MvOperations.LkReplace("CUSTOMER UPDATE 2þADDRESS 2þ444", "MYTEXT", 1)
+        /// </code>
+        /// </example>
         public static string LkReplace(string str, string newVal, int field, int value = 0, int subvalue = 0)
         {
             string result = "";
@@ -226,6 +274,14 @@ namespace Linkar.Functions
         /// <param name="value">The multivalue position where you want to replace.</param>
         /// <param name="subvalue">The subvalue position where you want to replace.</param>
         /// <returns>A new string with the replaced value.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// string result = MvOperations.LkReplace("CUSTOMER UPDATE 2þADDRESS 2þ444", "MYTEXT", "NAMEþADDRþPHONE", 1,);
+        /// </code>
+        /// <code lang="VB">
+        /// String result = MvOperations.LkReplace("CUSTOMER UPDATE 2þADDRESS 2þ444", "MYTEXT", "NAMEþADDRþPHONE", 1,)
+        /// </code>
+        /// </example>
         public static string LkReplace(string str, string newVal, string lstDicts, string field, int value = 0, int subvalue = 0)
         {
             string aux = "";
