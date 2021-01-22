@@ -153,17 +153,61 @@ namespace Linkar.Functions
         /// </example>
         public static string LkChange(string str, string strOld, string strNew, int occurrence = 0, int start = 0)
         {
-            string result = "";
-
-            if (occurrence <= 0 && start <= 0)
-                result = str.Replace(strOld, strNew);
-            else
+            if (str.Length > 0)
             {
-                Regex regex = new Regex(Regex.Escape(strOld));
-                result = regex.Replace(str, strNew, occurrence, start);
-            }
+                if (start < 1)
+                    start = 1;
+                if (occurrence < 0)
+                    occurrence = 0;
+                int index = str.IndexOf(strOld);
+                if (index >= 0)
+                {
+                    int subindex = 0;
+                    bool next = true;
+                    int count = 0;
+                    while (next)
+                    {
+                        subindex = str.IndexOf(strOld, subindex);
+                        count++;
+                        if (subindex == -1 || count >= start)
+                            next = false;
+                        else
+                            subindex = subindex + strOld.Length;
+                    }
+                    if (subindex >= 0)
+                    {
+                        string initstr = str.Substring(0, subindex);
+                        string endstr = str.Substring(subindex);                        
+                        int maxocc = endstr.Split(new string[] { strOld }, StringSplitOptions.None).Length;
+                        if (occurrence > 0)
+                        {
+                            for (int occ = 0; occ < occurrence; occ++)
+                            {
+                                if (occ > maxocc)
+                                    break;
 
-            return result;
+                                Regex regex = new Regex(Regex.Escape(strOld));
+                                endstr = regex.Replace(endstr, strNew, 1);
+                            }
+                        }
+                        else
+                        {
+                            endstr = endstr.Replace(strOld, strNew);
+                        }
+                        return initstr + endstr;
+                    }
+                    else
+                    {
+                        return str;
+                    }
+                }
+                else
+                {
+                    return str;
+                }
+            }
+            else
+                return str;
         }
 
         /// <summary>
