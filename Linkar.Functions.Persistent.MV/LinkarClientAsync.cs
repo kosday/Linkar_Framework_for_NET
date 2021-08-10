@@ -48,7 +48,7 @@ namespace Linkar.Functions.Persistent.MV
         /// </summary>
         /// <param name="filename">File name to read.</param>
         /// <param name="recordIds">A list of item IDs to read, separated by the Record Separator character (30). Use StringFunctions.ComposeRecordIds to compose this string</param>
-        /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned.</param>
+        /// <param name="dictionaries">List of dictionaries to read, separated by space. If this list is not set, all fields are returned. You may use the format LKFLDx where x is the attribute number.</param>
         /// <param name="readOptions">Object that defines the different reading options of the Function: Calculated, dictClause, conversion, formatSpec, originalRecords.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
@@ -203,6 +203,94 @@ namespace Linkar.Functions.Persistent.MV
             var task = new Task<string>(() =>
             {
                 return this.Update(filename, records, updateOptions, customVars, receiveTimeout);
+            });
+
+            task.Start();
+            return task;
+        }
+
+        /// <summary>
+        /// Update one or more attributes of one or more file records, in a asynchronous way with MV input and output format.
+        /// </summary>
+        /// <param name="filename">Name of the file being updated.</param>
+        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
+        /// <param name="dictionaries">List of dictionaries to write, separated by space. In MV output format is mandatory. You may use the format LKFLDx where x is the attribute number.</param>
+        /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
+        /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+        /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
+        /// <returns>The results of the operation.</returns>
+        /// <example>
+        /// <code lang="CS">
+        /// using Linkar;
+        /// using Linkar.Functions.Persistent.MV;
+        /// 
+        /// class Test
+        ///     {
+        ///         public string MyUpdatePartial()
+        ///         {
+        ///             string result = "";
+        ///             try
+        ///             {
+        ///                 CredentialOptions credentials = new CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin");
+        ///                 LinkarClient client = new LinkarClient();
+        ///                 client.Login(credentials);
+        /// 
+        ///                 result = client.UpdatePartialAsync("LK.CUSTOMERS", "2" + ASCII_Chars.FS_chr + "CUSTOMER 2" + ASCII_Chars.FS_chr + "", "NAME").Result;
+        ///                 client.Logout();
+        ///             }
+        ///             catch (Exception ex)
+        ///             {
+        ///                 string error = ex.Message;
+        ///                 // Do something
+        ///             }
+        ///             return result;
+        ///         }
+        ///     }
+        /// </code>
+        /// <code lang="VB">
+        /// Imports Linkar
+        /// Imports Linkar.Functions.Persistent.MV
+        /// 
+        /// Class Test
+        /// 
+        ///     Public Function MyUpdatePartial() As String
+        ///         Dim result As String = ""
+        /// 
+        ///         Try
+        ///             Dim credentials As CredentialOptions = New CredentialOptions("127.0.0.1", "EPNAME", 11300, "admin", "admin")
+        /// 
+        ///             Dim client As LinkarClient = New LinkarClient()
+        /// 
+        ///             client.Login(credentials)
+        /// 
+        ///             result = client.UpdatePartial("LK.CUSTOMERS", "2" + ASCII_Chars.FS_chr + "CUSTOMER 2" + ASCII_Chars.FS_chr + "", "NAME")
+        /// 
+        ///             client.Logout()
+        ///         Catch ex As Exception
+        ///             Dim[error] As String = ex.Message
+        /// 			' Do something
+        /// 
+        ///         End Try
+        /// 
+        ///         Return result
+        ///   End Function
+        /// End Class
+        /// </code>
+        /// </example>
+        /// <remarks>
+        /// Inside the records argument, the recordIds and the modified records always must be specified. But the originalRecords not always.
+        /// When <see cref="UpdateOptions">updateOptions</see> argument is specified and the <see cref="UpdateOptions.OptimisticLockControl"/> property is set to true, a copy of the record must be provided before the modification (originalRecords argument)
+        /// to use the Optimistic Lock technique. This copy can be obtained from a previous <see cref="ReadAsync"/> operation. The database, before executing the modification, 
+        /// reads the record and compares it with the copy in originalRecords, if they are equal the modified record is executed.
+        /// But if they are not equal, it means that the record has been modified by other user and its modification will not be saved.
+        /// The record will have to be read, modified and saved again.
+        /// </remarks>
+        public Task<string> UpdatePartialAsync(string filename, string records, string dictionaries, UpdateOptions updateOptions = null,
+        string customVars = "", int receiveTimeout = 0)
+        {
+            var task = new Task<string>(() =>
+            {
+                return this.UpdatePartial(filename, records, dictionaries, updateOptions, customVars, receiveTimeout);
             });
 
             task.Start();
@@ -385,7 +473,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <param name="filename">Name of file on which the operation is performed. For example LK.ORDERS</param>
         /// <param name="selectClause">Statement fragment specifies the selection condition. For example WITH CUSTOMER = '1'</param>
         /// <param name="sortClause">Statement fragment specifies the selection order. If there is a selection rule, Linkar will execute a SSELECT, otherwise Linkar will execute a SELECT. For example BY CUSTOMER</param>
-        /// <param name="dictClause">Space-delimited list of dictionaries to read. If this list is not set, all fields are returned. For example CUSTOMER DATE ITEM</param>
+        /// <param name="dictClause">Space-delimited list of dictionaries to read. If this list is not set, all fields are returned. For example CUSTOMER DATE ITEM. You may use the format LKFLDx where x is the attribute number.</param>
         /// <param name="preSelectClause">An optional command that executes before the main Select</param>
         /// <param name="selectOptions">Object with options to manage how records are selected, including calculated, dictionaries, conversion, formatSpec, originalRecords, onlyItemId, pagination, regPage, numPage.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>

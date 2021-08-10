@@ -53,6 +53,27 @@
         }
 
         /// <summary>
+        /// Compose the 3 items ( CUSTOMVARS, OPTIONS and INPUTDATA) of the UpdatePartial operation.
+        /// </summary>
+        /// <param name="filename">Name of the file being updated.</param>        
+        /// <param name="records">Buffer of record data to update. Inside this string are the recordIds, the modified records, and the originalRecords. Use StringFunctions.ComposeUpdateBuffer (Linkar.Strings library) function to compose this string.</param>
+        /// <param name="dictionaries">List of dictionaries to write, separated by space. In MV output format is mandatory.</param>
+        /// <param name="updateOptions">Object with write options, including optimisticLockControl, readAfter, calculated, dictionaries, conversion, formatSpec, originalRecords.</param>
+        /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
+        /// <returns>A string ready to be used in Linkar.ExecuteDirectOperation and Linkar.ExecutePersistentOperation.</returns>
+        public static string GetUpdatePartialArgs(string filename, string records, string dictionaries, UpdateOptions updateOptions, string customVars)
+        {
+            if (updateOptions == null)
+                updateOptions = new UpdateOptions();
+
+            string options = updateOptions.ToString();
+            string inputData = filename + DBMV_Mark.AM + records + ASCII_Chars.FS_str + dictionaries;
+
+            string cmdArgs = customVars + ASCII_Chars.US_str + options + ASCII_Chars.US_str + inputData;
+            return cmdArgs;
+        }
+
+        /// <summary>
         /// Compose the 3 items (CUSTOMVARS, OPTIONS and INPUTDATA) of the New operation.
         /// </summary>
         /// <param name="filename">The file name where the records are going to be created.</param>

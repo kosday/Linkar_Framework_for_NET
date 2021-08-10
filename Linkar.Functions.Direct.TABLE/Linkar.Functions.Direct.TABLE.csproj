@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <FileVersion>2.1.0</FileVersion>
-    <Description>Linkar.Functions.Direct.TABLE Library Version 2.1.0</Description>
+    <AssemblyVersion>2.2.0</AssemblyVersion>
+    <FileVersion>2.2.0</FileVersion>
+    <Description>Linkar.Functions.Direct.TABLE Library Version 2.2.0</Description>
     <Copyright>Copyright © 2020</Copyright>
-    <Version>2.1.0</Version> 
+    <Version>2.2.0</Version> 
     <Platforms>x64;x86;AnyCPU</Platforms>
     <Authors>KOSDAY SOLUTIONS</Authors>
     <Company>KOSDAY SOLUTIONS</Company>
@@ -23,12 +23,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>$(SolutionDir)Publish\Release\$(TargetFramework)\x64\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\AnyCPU\Release\</OutputPath>
-    <DocumentationFile>$(SolutionDir)Publish\Release\$(TargetFramework)\x64\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
+    <DocumentationFile>$(SolutionDir)Publish\Release\$(TargetFramework)\AnyCPU\Linkar.Functions.Direct.TABLE.xml</DocumentationFile>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
