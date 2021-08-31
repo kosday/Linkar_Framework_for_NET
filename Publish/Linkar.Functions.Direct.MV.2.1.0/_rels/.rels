@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Linkar.Functions.Direct.MV.nuspec" Id="R3F2A55E0E9907709" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/14642ac3d5684a07b24c8bd68eb016f6.psmdcp" Id="R277358E2F5140CE5" />
-</Relationships>
