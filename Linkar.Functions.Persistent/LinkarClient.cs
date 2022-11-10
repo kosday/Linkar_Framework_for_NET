@@ -438,6 +438,7 @@
         /// <item><term>OTHERLANGUAGES</term><description>Languages list separated by commas.</description></item>
         /// <item><term>TABLEROWSEPARATOR</term><description>It is the decimal char that you use to separate the rows in the output table format. By default 11.</description></item>
         /// <item><term>TABLECOLSEPARATOR</term><description>It is the decimal char that you use to separate the columns in the output table format. By default 9.</description></item>
+        /// <item><term>CONVERTNUMBOOLJSON</term><description>Switch to create numeric and boolean data in JSON strings. Default is false.</description></item>
         /// </list>
         /// </remarks>
         /// <seealso href="http://kosday.com/Manuals/en_web_linkar/lk_schemas_ep_parameters.html">Schemas Parameter</seealso>
@@ -485,7 +486,7 @@
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
         /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
-        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, JSON or TABLE.</param>
+        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: MV, XML, XML_DICT, XML_SCH, JSON, JSON_DICT, JSON_SCH or TABLE.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
@@ -498,7 +499,7 @@
         /// </list>
         /// </para>
         /// </remarks>
-        public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, DATAFORMATSCH_TYPE outputFormat = DATAFORMATSCH_TYPE.MV, string customVars = "", int receiveTimeout = 0)
+        public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, DATAFORMATSCHPROP_TYPE outputFormat = DATAFORMATSCHPROP_TYPE.MV, string customVars = "", int receiveTimeout = 0)
         {
             string lkPropertiesArgs = OperationArguments.GetLkPropertiesArgs(filename, lkPropertiesOptions, customVars);
             byte opCode = (byte)OPERATION_CODE.LKPROPERTIES;

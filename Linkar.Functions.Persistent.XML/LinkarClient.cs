@@ -12,7 +12,7 @@ namespace Linkar.Functions.Persistent.XML
     }
 
     /// <summary>
-    /// XML output formats for Read, Update, New and Select
+    /// XML output formats for Read, Update, New, Select and LkProperties
     /// </summary>
     public enum XML_FORMAT
     {
@@ -1123,6 +1123,7 @@ namespace Linkar.Functions.Persistent.XML
         /// <item><term>OTHERLANGUAGES</term><description>Languages list separated by commas.</description></item>
         /// <item><term>TABLEROWSEPARATOR</term><description>It is the decimal char that you use to separate the rows in the output table format. By default 11.</description></item>
         /// <item><term>TABLECOLSEPARATOR</term><description>It is the decimal char that you use to separate the columns in the output table format. By default 9.</description></item>
+        /// <item><term>CONVERTNUMBOOLJSON</term><description>Switch to create numeric and boolean data in JSON strings. Default is false.</description></item>
         /// </list>
         /// </remarks>
         /// <seealso href="http://kosday.com/Manuals/en_web_linkar/lk_schemas_ep_parameters.html">Schemas Parameter</seealso>
@@ -1206,6 +1207,7 @@ namespace Linkar.Functions.Persistent.XML
         /// </summary>
         /// <param name="filename">File name to LkProperties</param>
         /// <param name="lkPropertiesOptions">This object defines the different options in base of the asked Schema Type: LKSCHEMAS, SQLMODE o DICTIONARIES.</param>
+        /// <param name="outputFormat">Indicates in what format you want to receive the data resulting from the operation: XML, XML_DICT or  XML_SCH.</param>
         /// <param name="customVars">Free text sent to the database allows management of additional behaviours in SUB.LK.MAIN.CONTROL.CUSTOM, which is called when this parameter is set.</param>
         /// <param name="receiveTimeout">Maximum time in seconds that the client will wait for a response from the server. Default = 0 to wait indefinitely.</param>
         /// <returns>The results of the operation.</returns>
@@ -1266,9 +1268,9 @@ namespace Linkar.Functions.Persistent.XML
         /// End Class
         /// </code>
         /// </example>
-        public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, string customVars = "", int receiveTimeout = 0)
+        public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, XML_FORMAT outputFormat = XML_FORMAT.XML, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.XML, customVars, receiveTimeout);
+            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, (DATAFORMATSCHPROP_TYPE)outputFormat, customVars, receiveTimeout);
         }
 
         /// <summary>

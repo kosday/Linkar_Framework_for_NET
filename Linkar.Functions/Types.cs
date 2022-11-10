@@ -79,7 +79,7 @@
     };
 
     /// <summary>
-    /// Specify the output formats of LkSchemas and LkProperties operations (For other operations, <see cref="DATAFORMAT_TYPE"/> and <see cref="DATAFORMATCRU_TYPE"/>).
+    /// Specify the output formats of LkSchemas operations (For other operations, <see cref="DATAFORMATSCHPROP_TYPE"/>, <see cref="DATAFORMAT_TYPE"/> and <see cref="DATAFORMATCRU_TYPE"/>).
     /// </summary>
     public enum DATAFORMATSCH_TYPE
     {
@@ -103,6 +103,53 @@
         /// </summary>
         TABLE = 4
     };
+
+    /// <summary>
+    /// Specify the output formats of LkProperties operations (For other operations, <see cref="DATAFORMATSCH_TYPE"/>, <see cref="DATAFORMAT_TYPE"/> and <see cref="DATAFORMATCRU_TYPE"/>).
+    /// </summary>
+    public enum DATAFORMATSCHPROP_TYPE
+    {
+        /// <summary>
+        /// Show the results of the operation in MV format.
+        /// </summary>
+        MV = 1,
+
+        /// <summary>
+        /// Show the results of the operation in XML format.
+        /// </summary>
+        XML = 2,
+
+        /// <summary>
+        /// Show the results of the operation in JSON format.
+        /// </summary>
+        JSON = 3,
+
+        /// <summary>
+        /// Show the results of the operation in TABLE format.
+        /// </summary>
+        TABLE = 4,
+
+        /// <summary>
+        /// Show the results of the operation in XML_DICT format, using the dictionaries.
+        /// </summary>
+        XML_DICT = 5,
+
+        /// <summary>
+        /// Show the results of the operation in XML_SCH format, using the schema properties.
+        /// </summary>
+        XML_SCH = 6,
+
+        /// <summary>
+        /// Show the results of the operation in JSON_DICT format, using the dictionaries.
+        /// </summary>
+        JSON_DICT = 7,
+
+        /// <summary>
+        /// Show the results of the operation in JSON_SCH format, using the schema properties.
+        /// </summary>
+        JSON_SCH = 8
+    };
+
 
     /// <summary>
     /// The conversion type for Conversion functions.

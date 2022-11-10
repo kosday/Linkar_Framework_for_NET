@@ -158,7 +158,7 @@
         public static string LkProperties(CredentialOptions credentialOptions, string filename, LkPropertiesOptions lkPropertiesOptions = null,
             string customVars = "", int receiveTimeout = 0)
         {
-            return DirectFunctions.LkProperties(credentialOptions, filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.TABLE, customVars, receiveTimeout);
+            return DirectFunctions.LkProperties(credentialOptions, filename, lkPropertiesOptions, DATAFORMATSCHPROP_TYPE.TABLE, customVars, receiveTimeout);
         }
 
         /// <summary>

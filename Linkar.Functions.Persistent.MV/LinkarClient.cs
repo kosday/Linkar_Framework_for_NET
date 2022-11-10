@@ -986,6 +986,7 @@ namespace Linkar.Functions.Persistent.MV
         /// <item><term>OTHERLANGUAGES</term><description>Languages list separated by commas.</description></item>
         /// <item><term>TABLEROWSEPARATOR</term><description>It is the decimal char that you use to separate the rows in the output table format. By default 11.</description></item>
         /// <item><term>TABLECOLSEPARATOR</term><description>It is the decimal char that you use to separate the columns in the output table format. By default 9.</description></item>
+        /// <item><term>CONVERTNUMBOOLJSON</term><description>Switch to create numeric and boolean data in JSON strings. Default is false.</description></item>
         /// </list>
         /// </remarks>
         /// <seealso href="http://kosday.com/Manuals/en_web_linkar/lk_schemas_ep_parameters.html">Schemas Parameter</seealso>
@@ -1131,7 +1132,7 @@ namespace Linkar.Functions.Persistent.MV
         /// </example>
         public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.MV, customVars, receiveTimeout);
+            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCHPROP_TYPE.MV, customVars, receiveTimeout);
         }
 
         /// <summary>

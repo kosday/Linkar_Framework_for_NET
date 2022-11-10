@@ -3,18 +3,18 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <RootNamespace>Linkar.Functions.Direct.MV</RootNamespace>
-    <AssemblyVersion>2.2.0</AssemblyVersion>
-    <FileVersion>2.2.0</FileVersion>
+    <AssemblyVersion>2.3.0</AssemblyVersion>
+    <FileVersion>2.3.0</FileVersion>
     <Product>Linkar.Functions.Direct.MV</Product>
-    <Description>Linkar.Functions.Direct.MV Library Version 2.2.0</Description>
+    <Description>Linkar.Functions.Direct.MV Library Version 2.3.0</Description>
     <Copyright>Copyright © 2020</Copyright>
-    <Version>2.2.0</Version> 
+    <Version>2.3.0</Version> 
     <Platforms>x64;x86;AnyCPU</Platforms> 
     <Authors>KOSDAY SOLUTIONS</Authors>
     <Company>KOSDAY SOLUTIONS</Company>
     <PackageTags>QM D3 JBASE UNIVERSE UNIDATA UNIOBJECTS REALITY</PackageTags> 
     <PackageProjectUrl>http://www.kosday.com</PackageProjectUrl> 
-    <PackageIconUrl>https://kosday.com/wp-content/uploads/kosdaylinkar.png</PackageIconUrl>
+    <PackageIconUrl>https://kosday.com/wp-content/uploads/client48.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Linkar.Functions.Direct.MV.snk</AssemblyOriginatorKeyFile>

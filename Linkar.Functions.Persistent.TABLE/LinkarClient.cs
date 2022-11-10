@@ -217,7 +217,7 @@ namespace Linkar.Functions.Persistent.TABLE
         /// </remarks>
         public string LkProperties(string filename, LkPropertiesOptions lkPropertiesOptions = null, string customVars = "", int receiveTimeout = 0)
         {
-            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCH_TYPE.TABLE, customVars, receiveTimeout);
+            return this._LinkarClt.LkProperties(filename, lkPropertiesOptions, DATAFORMATSCHPROP_TYPE.TABLE, customVars, receiveTimeout);
         }
 
         /// <summary>
